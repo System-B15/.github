@@ -1,6 +1,6 @@
-# Welcome to System-Bhd15 🚀
+# Welcome to System-BHD15 🚀
 
-**System-Bhd15** is an organization dedicated to building **plug-and-play solutions** that simply work—no setup hassle, no complex configurations. We believe great software should be effortless to deploy and integrate.
+**System-BHD15** is an organization dedicated to building **plug-and-play solutions** that simply work—no setup hassle, no complex configurations. We believe great software should be effortless to deploy and integrate.
 
 ---
 
@@ -51,5 +51,5 @@ Each project includes comprehensive README files with:
 
 ---
 
-Built with ❤️ by **System-Bhd15**
+Built with ❤️ by **System-BHD15**
 *Making software that works, effortlessly.*

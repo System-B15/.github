@@ -128,10 +128,17 @@ around, and it bites in a specific way:
   than relying on Compose's dependency timeout.
 - **Always set `timeout-minutes`.** Not because a hung job blocks the queue,
   but because a wedged job holds a slice of a shared box indefinitely.
-- **Each job gets a fresh Docker daemon.** Containers, volumes and images do
-  *not* carry over between jobs, and Hive images are re-pulled every run.
-  Don't assume a warm cache; equally, don't assume another job's leftovers are
-  yours to clean up — you can't see them from inside your own dind.
+- **Docker state across jobs is inconsistent — assume nothing, clean up
+  defensively.** Two runs on 2026-07-24 behaved differently. Both re-pulled
+  every Hive image from the registry ("Downloaded newer image"), so there is no
+  warm image cache to rely on. But hive-core's run found eight Hive containers
+  already `Running` at its first `docker compose up -d`, left over from an
+  earlier run, and Compose had to `Recreate` the rest — one of which
+  (`hive-nginx`) took **11.5 minutes**. So a job may or may not inherit a live
+  stack. This is why `actions/setup-hive` tears leftovers down before booting
+  rather than trusting the daemon to be clean: on the run that inherited a
+  stack, that teardown is the difference between recreating containers under
+  load and starting from nothing.
 - **E2E stacks don't collide on ports, they collide on CPU and disk.** Each
   dind has its own network namespace, so two Hive stacks binding
   `0.0.0.0:80/443` coexist fine. What they can't do is boot at the same time on

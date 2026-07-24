@@ -104,24 +104,42 @@ consistent with `bluz-cli`'s), and add a row to the table above.
 self-hosted runner (`runs-on: self-hosted`).** New workflows must target it
 too — do not add `ubuntu-latest`/`ubuntu-24.04` jobs.
 
-The runner is a single 8-vCPU / 23 GB box (`mks-srvu`) shared by every repo in
-the org. That has consequences worth designing around:
+The runner is **not** a single serialized agent. It's an autoscaled pool of
+ephemeral docker-in-docker runners (`mks-srvu-dind-<random>`, one per job, each
+with its own Docker daemon) sharing one 8-vCPU / 23 GB physical box. Observed
+directly on 2026-07-24: runner ids 141 and 143 executing two pyhive jobs while
+peek-a-boo's E2E ran alongside them.
 
-- **Jobs serialize.** One runner means one job at a time, org-wide. A workflow
-  split into `lint` / `test` / `build` jobs doesn't parallelize — it just pays
-  for three checkouts and three `npm ci` runs back to back. Prefer one job with
-  sequential steps; reserve separate jobs for genuine fan-out (matrix builds
-  that push independent artifacts) or for `needs:` gating.
-- **Always set `timeout-minutes`.** A hung job blocks every other repo's CI,
-  not just its own. Anything without a timeout can wedge the whole org.
-- **The box is persistent.** Anything a job leaves behind — containers,
-  volumes, `/etc/hosts` lines, global installs — is still there for the next
-  job. Write steps to be idempotent and clean up after themselves.
-- **Don't prune the Docker image store.** The warm image cache is most of the
-  speed advantage over GitHub-hosted. `docker image prune -af` throws it away.
-- **`e2e` stacks can't overlap.** Hive's nginx binds `0.0.0.0:80/443`, so two
-  concurrent Hive stacks conflict. Serialization mostly prevents this;
-  `actions/setup-hive` also tears down leftovers before booting.
+That combination — real concurrency, one physical box — is the thing to design
+around, and it bites in a specific way:
+
+- **Total concurrent work is the scarce resource, not runner slots.** Jobs do
+  run in parallel, so splitting a workflow into `lint` / `test` / `build`
+  doesn't queue them behind each other. It does make each one pay for its own
+  checkout and `npm ci`, and it puts all of that on the box at once. Prefer one
+  job with sequential steps anyway — not because the split serializes, but
+  because it multiplies total I/O on a box that is already the bottleneck.
+  Reserve separate jobs for genuine fan-out or `needs:` gating.
+- **Contention shows up as timeouts, not as queueing.** Under load this box has
+  taken **92 seconds to create a single container** and 23 minutes on a "Set up
+  runner" step. Anything with a healthcheck or a fixed wait can fail purely
+  because the host is busy — see the Hive/Postgres case in
+  `actions/setup-hive`, which now waits on the database's health itself rather
+  than relying on Compose's dependency timeout.
+- **Always set `timeout-minutes`.** Not because a hung job blocks the queue,
+  but because a wedged job holds a slice of a shared box indefinitely.
+- **Each job gets a fresh Docker daemon.** Containers, volumes and images do
+  *not* carry over between jobs, and Hive images are re-pulled every run.
+  Don't assume a warm cache; equally, don't assume another job's leftovers are
+  yours to clean up — you can't see them from inside your own dind.
+- **E2E stacks don't collide on ports, they collide on CPU and disk.** Each
+  dind has its own network namespace, so two Hive stacks binding
+  `0.0.0.0:80/443` coexist fine. What they can't do is boot at the same time on
+  8 shared vCPUs without pushing each other past their healthchecks.
+
+If E2E jobs across repos keep failing on healthchecks, the lever is reducing
+how many land at once (or giving the pool a bigger box) — not adding retries
+downstream of the real constraint.
 
 `actions/setup-hive` and `actions/setup-playwright` both branch on
 `runner.environment`, so their GitHub-hosted-only behaviour (toolchain disk

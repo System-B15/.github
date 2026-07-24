@@ -16,6 +16,16 @@ inputs:
     description: Space-separated Playwright browsers to install.
     required: false
     default: chromium
+  with-deps:
+    description: >-
+      Pass --with-deps to `playwright install`, which apt-installs the
+      browsers' shared-library dependencies. "auto" (default) enables it only
+      on GitHub-hosted runners: those start from a bare VM every time, while a
+      self-hosted box already has the libraries from its first run and pays
+      ~30-60s of apt (plus a sudo/apt-lock dependency) for nothing on every
+      subsequent run. Force with "true"/"false".
+    required: false
+    default: auto
 
 runs:
   using: composite
@@ -34,4 +44,13 @@ runs:
       shell: bash
       env:
         BROWSERS: ${{ inputs.browsers }}
-      run: npx playwright install $BROWSERS --with-deps
+        WITH_DEPS: ${{ inputs.with-deps }}
+        RUNNER_ENV: ${{ runner.environment }}
+      run: |
+        deps=""
+        if [ "$WITH_DEPS" = "true" ] || { [ "$WITH_DEPS" = "auto" ] && [ "$RUNNER_ENV" = "github-hosted" ]; }; then
+          deps="--with-deps"
+        fi
+        echo "Installing Playwright browsers: $BROWSERS ${deps:-(no --with-deps)}"
+        # shellcheck disable=SC2086
+        npx playwright install $BROWSERS $deps

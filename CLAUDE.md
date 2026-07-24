@@ -98,6 +98,40 @@ consistent with `bluz-cli`'s), and add a row to the table above.
 - Never push to archived repos.
 - Never skip hooks (`--no-verify`, `-n`) to force a commit through.
 
+## Runners
+
+**The org is out of GitHub-hosted Actions minutes. All workflows run on the
+self-hosted runner (`runs-on: self-hosted`).** New workflows must target it
+too — do not add `ubuntu-latest`/`ubuntu-24.04` jobs.
+
+The runner is a single 8-vCPU / 23 GB box (`mks-srvu`) shared by every repo in
+the org. That has consequences worth designing around:
+
+- **Jobs serialize.** One runner means one job at a time, org-wide. A workflow
+  split into `lint` / `test` / `build` jobs doesn't parallelize — it just pays
+  for three checkouts and three `npm ci` runs back to back. Prefer one job with
+  sequential steps; reserve separate jobs for genuine fan-out (matrix builds
+  that push independent artifacts) or for `needs:` gating.
+- **Always set `timeout-minutes`.** A hung job blocks every other repo's CI,
+  not just its own. Anything without a timeout can wedge the whole org.
+- **The box is persistent.** Anything a job leaves behind — containers,
+  volumes, `/etc/hosts` lines, global installs — is still there for the next
+  job. Write steps to be idempotent and clean up after themselves.
+- **Don't prune the Docker image store.** The warm image cache is most of the
+  speed advantage over GitHub-hosted. `docker image prune -af` throws it away.
+- **`e2e` stacks can't overlap.** Hive's nginx binds `0.0.0.0:80/443`, so two
+  concurrent Hive stacks conflict. Serialization mostly prevents this;
+  `actions/setup-hive` also tears down leftovers before booting.
+
+`actions/setup-hive` and `actions/setup-playwright` both branch on
+`runner.environment`, so their GitHub-hosted-only behaviour (toolchain disk
+purge, `playwright install --with-deps`) switches off automatically on
+self-hosted. Override with their `free-disk-space` / `with-deps` inputs.
+
+Bluz's `e2e.yml` keeps a `workflow_dispatch` escape hatch
+(`target: github-hosted`) that runs the classic 3-shard matrix. Use it only if
+GitHub-hosted minutes come back and a run genuinely needs the parallelism.
+
 ## Secrets available in CI
 
 Secret names are **not** uniform across repos — verify with `gh secret list` in the target repo before assuming a name exists; don't copy a workflow's `secrets.X` reference across repos without checking.

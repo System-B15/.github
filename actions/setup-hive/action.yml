@@ -93,10 +93,14 @@ inputs:
   free-disk-space:
     description: >-
       Remove preinstalled runner toolchains (~30 GB of .NET/Android/GHC/CodeQL)
-      before building. GitHub-hosted ubuntu runners otherwise run out of disk
-      while saving Hive's ~13 images.
+      and prune the Docker image store before building. GitHub-hosted ubuntu
+      runners otherwise run out of disk while saving Hive's ~13 images.
+      "auto" (default) runs it only on GitHub-hosted runners — on a persistent
+      self-hosted box those toolchain directories are not the runner's to
+      delete, and `docker image prune -af` would throw away exactly the warm
+      image cache that makes self-hosted runs fast. Force with "true"/"false".
     required: false
-    default: "true"
+    default: "auto"
   wait-attempts:
     description: Readiness-check attempts (5s apart) before failing.
     required: false
@@ -113,11 +117,41 @@ outputs:
 runs:
   using: composite
   steps:
+    # A self-hosted runner is a persistent box that other repos' jobs share.
+    # A crashed or cancelled run leaves its Hive stack (and the consumer app's
+    # containers) running, which then fights the next run for ports 80/443 and
+    # for the hive.org hostname. GitHub-hosted runners get a fresh VM every
+    # time and need none of this.
+    - name: Reclaim stale containers from previous runs (self-hosted)
+      if: runner.environment != 'github-hosted'
+      shell: bash
+      env:
+        HIVE_PATH: ${{ inputs.hive-path }}
+      run: |
+        if [ -f "${HIVE_PATH}/docker-compose.yaml" ]; then
+          echo "Tearing down a leftover Hive stack from a previous run..."
+          docker compose -f "${HIVE_PATH}/docker-compose.yaml" down -v --remove-orphans || true
+        fi
+        # Anything still holding :80/:443 blocks Hive's nginx from binding.
+        stale=$(docker ps -q --filter "publish=80" --filter "publish=443")
+        if [ -n "$stale" ]; then
+          echo "Stopping containers still bound to :80/:443:"
+          docker ps --filter "publish=80" --filter "publish=443" \
+            --format '  {{.Names}} ({{.Image}})'
+          docker rm -f $stale || true
+        fi
+        # Volumes and networks orphaned by killed runs accumulate silently.
+        docker volume prune -f || true
+        docker network prune -f || true
+
     # Preinstalled SDKs (dotnet/android/ghc/CodeQL) eat ~30GB the job never
     # uses. Building + saving Hive's images later fills the root partition
-    # without this ("no space left on device" on docker save).
+    # without this ("no space left on device" on docker save). Skipped on
+    # self-hosted by default — see the free-disk-space input.
     - name: Free disk space
-      if: inputs.free-disk-space == 'true'
+      if: >-
+        inputs.free-disk-space == 'true'
+        || (inputs.free-disk-space == 'auto' && runner.environment == 'github-hosted')
       shell: bash
       run: |
         echo "Disk space before cleanup:"
@@ -235,18 +269,30 @@ runs:
       working-directory: ${{ inputs.hive-path }}
       run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
+    # Appending blindly is fine on a throwaway VM, but a self-hosted box keeps
+    # /etc/hosts across runs — an unconditional append grows the file by a few
+    # lines on every single CI run, forever. Add each mapping only if the exact
+    # line isn't already there.
     - name: Map local hostnames
       shell: bash
       env:
         HIVE_HOSTNAME: ${{ inputs.hive-hostname }}
         EXTRA_HOSTS: ${{ inputs.extra-hosts }}
       run: |
-        echo "127.0.0.1 ${HIVE_HOSTNAME}" | sudo tee -a /etc/hosts
-        if [ -n "$EXTRA_HOSTS" ]; then
-          echo "$EXTRA_HOSTS" | while IFS= read -r line; do
-            [ -z "$line" ] && continue
+        add_host() {
+          local line="$1"
+          [ -z "$line" ] && return 0
+          if grep -qxF "$line" /etc/hosts; then
+            echo "already mapped: $line"
+          else
             echo "$line" | sudo tee -a /etc/hosts
-          done
+          fi
+        }
+        add_host "127.0.0.1 ${HIVE_HOSTNAME}"
+        if [ -n "$EXTRA_HOSTS" ]; then
+          while IFS= read -r line; do
+            add_host "$line"
+          done <<< "$EXTRA_HOSTS"
         fi
 
     # Hive rarely changes, so cache its built prod images keyed on the

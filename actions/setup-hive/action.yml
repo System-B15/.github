@@ -92,13 +92,17 @@ inputs:
     default: v1
   free-disk-space:
     description: >-
-      Remove preinstalled runner toolchains (~30 GB of .NET/Android/GHC/CodeQL)
-      and prune the Docker image store before building. GitHub-hosted ubuntu
-      runners otherwise run out of disk while saving Hive's ~13 images.
-      "auto" (default) runs it only on GitHub-hosted runners — on a persistent
-      self-hosted box those toolchain directories are not the runner's to
-      delete, and `docker image prune -af` would throw away exactly the warm
-      image cache that makes self-hosted runs fast. Force with "true"/"false".
+      How aggressively to reclaim disk before booting Hive. Some cleanup always
+      happens unless this is "false".
+      "auto" (default) picks by runner: on GitHub-hosted it removes the ~30 GB
+      of preinstalled .NET/Android/GHC/CodeQL toolchains and flushes the image
+      store, which is free on a VM that is discarded afterwards. On self-hosted
+      it reclaims only unambiguous garbage — dangling images, stopped
+      containers, unused build cache, unused volumes — leaving tagged images
+      other jobs may be mid-way through using, and never touching toolchain
+      directories that are not the runner's to delete.
+      "true" forces the full GitHub-hosted treatment on any runner; "false"
+      skips cleanup entirely.
     required: false
     default: "auto"
   wait-attempts:
@@ -155,21 +159,38 @@ runs:
         docker volume prune -f || true
         docker network prune -f || true
 
-    # Preinstalled SDKs (dotnet/android/ghc/CodeQL) eat ~30GB the job never
-    # uses. Building + saving Hive's images later fills the root partition
-    # without this ("no space left on device" on docker save). Skipped on
-    # self-hosted by default — see the free-disk-space input.
+    # Two different jobs, depending on the runner.
+    #
+    # GitHub-hosted: the preinstalled SDKs (dotnet/android/ghc/CodeQL) eat
+    # ~30GB this job never uses, and the VM is thrown away afterwards, so
+    # deleting them and flushing the image store outright is free.
+    #
+    # Self-hosted: those directories aren't ours to remove, but doing *nothing*
+    # was the wrong call. I originally skipped this entirely to preserve a warm
+    # image cache; the logs show every run re-pulls its Hive images anyway, so
+    # there was no cache to preserve — and on 2026-07-24 a runner reported
+    # "Free space left: 0 MB" and then "dockerd not ready after 120s". Reclaim
+    # what is unambiguously garbage (dangling images, stopped containers,
+    # unused build cache) while leaving tagged images other jobs may be using.
     - name: Free disk space
-      if: >-
-        inputs.free-disk-space == 'true'
-        || (inputs.free-disk-space == 'auto' && runner.environment == 'github-hosted')
+      if: inputs.free-disk-space != 'false'
       shell: bash
+      env:
+        MODE: ${{ inputs.free-disk-space }}
       run: |
         echo "Disk space before cleanup:"
         df -h /
-        sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
-          /usr/local/.ghcup /opt/hostedtoolcache/CodeQL
-        sudo docker image prune -af || true
+        if [ "$MODE" = "true" ] || { [ "$MODE" = "auto" ] && [ "$RUNNER_ENVIRONMENT" = "github-hosted" ]; }; then
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
+            /usr/local/.ghcup /opt/hostedtoolcache/CodeQL
+          sudo docker image prune -af || true
+        else
+          # Conservative: no -a, so tagged images survive.
+          docker container prune -f || true
+          docker image prune -f || true
+          docker builder prune -f --keep-storage 10GB || true
+          docker volume prune -f || true
+        fi
         echo "Disk space after cleanup:"
         df -h /
 

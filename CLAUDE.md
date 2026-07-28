@@ -98,6 +98,65 @@ consistent with `bluz-cli`'s), and add a row to the table above.
 - Never push to archived repos.
 - Never skip hooks (`--no-verify`, `-n`) to force a commit through.
 
+## Runners
+
+**The org is out of GitHub-hosted Actions minutes. All workflows run on the
+self-hosted runner (`runs-on: self-hosted`).** New workflows must target it
+too — do not add `ubuntu-latest`/`ubuntu-24.04` jobs.
+
+The runner is **not** a single serialized agent. It's an autoscaled pool of
+ephemeral docker-in-docker runners (`mks-srvu-dind-<random>`, one per job, each
+with its own Docker daemon) sharing one 8-vCPU / 23 GB physical box. Observed
+directly on 2026-07-24: runner ids 141 and 143 executing two pyhive jobs while
+peek-a-boo's E2E ran alongside them.
+
+That combination — real concurrency, one physical box — is the thing to design
+around, and it bites in a specific way:
+
+- **Total concurrent work is the scarce resource, not runner slots.** Jobs do
+  run in parallel, so splitting a workflow into `lint` / `test` / `build`
+  doesn't queue them behind each other. It does make each one pay for its own
+  checkout and `npm ci`, and it puts all of that on the box at once. Prefer one
+  job with sequential steps anyway — not because the split serializes, but
+  because it multiplies total I/O on a box that is already the bottleneck.
+  Reserve separate jobs for genuine fan-out or `needs:` gating.
+- **Contention shows up as timeouts, not as queueing.** Under load this box has
+  taken **92 seconds to create a single container** and 23 minutes on a "Set up
+  runner" step. Anything with a healthcheck or a fixed wait can fail purely
+  because the host is busy — see the Hive/Postgres case in
+  `actions/setup-hive`, which now waits on the database's health itself rather
+  than relying on Compose's dependency timeout.
+- **Always set `timeout-minutes`.** Not because a hung job blocks the queue,
+  but because a wedged job holds a slice of a shared box indefinitely.
+- **Docker state across jobs is inconsistent — assume nothing, clean up
+  defensively.** Two runs on 2026-07-24 behaved differently. Both re-pulled
+  every Hive image from the registry ("Downloaded newer image"), so there is no
+  warm image cache to rely on. But hive-core's run found eight Hive containers
+  already `Running` at its first `docker compose up -d`, left over from an
+  earlier run, and Compose had to `Recreate` the rest — one of which
+  (`hive-nginx`) took **11.5 minutes**. So a job may or may not inherit a live
+  stack. This is why `actions/setup-hive` tears leftovers down before booting
+  rather than trusting the daemon to be clean: on the run that inherited a
+  stack, that teardown is the difference between recreating containers under
+  load and starting from nothing.
+- **E2E stacks don't collide on ports, they collide on CPU and disk.** Each
+  dind has its own network namespace, so two Hive stacks binding
+  `0.0.0.0:80/443` coexist fine. What they can't do is boot at the same time on
+  8 shared vCPUs without pushing each other past their healthchecks.
+
+If E2E jobs across repos keep failing on healthchecks, the lever is reducing
+how many land at once (or giving the pool a bigger box) — not adding retries
+downstream of the real constraint.
+
+`actions/setup-hive` and `actions/setup-playwright` both branch on
+`runner.environment`, so their GitHub-hosted-only behaviour (toolchain disk
+purge, `playwright install --with-deps`) switches off automatically on
+self-hosted. Override with their `free-disk-space` / `with-deps` inputs.
+
+Bluz's `e2e.yml` keeps a `workflow_dispatch` escape hatch
+(`target: github-hosted`) that runs the classic 3-shard matrix. Use it only if
+GitHub-hosted minutes come back and a run genuinely needs the parallelism.
+
 ## Secrets available in CI
 
 Secret names are **not** uniform across repos — verify with `gh secret list` in the target repo before assuming a name exists; don't copy a workflow's `secrets.X` reference across repos without checking.

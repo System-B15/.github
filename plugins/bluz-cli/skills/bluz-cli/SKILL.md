@@ -1,6 +1,6 @@
 ---
 name: bluz-cli
-description: How to drive the Bluz scheduling/curriculum app via the `bluz` CLI — auth, every command group, payload shapes, output parsing, known server bugs. Use for any user request to read/write Bluz data (rooms, courses, outsiders, reservations, iterations, events, gantt curriculum tree, settings) without touching app or CLI source.
+description: How to drive the Bluz scheduling/curriculum app via the `bluz` CLI — auth, every command group, payload shapes, output parsing, known server bugs. Use for any user request to read/write Bluz data (rooms, courses, outsiders, reservations, iterations, calendar events, drafts/snapshots, gantt curriculum tree, the cut pipeline, settings, custom colours, Hive reference data, Google Calendar) without touching app or CLI source.
 tags: [bluz, cli, api, gantt, scheduling]
 ---
 
@@ -13,7 +13,13 @@ web UI. This skill is self-sufficient — do not read `cli/bluz_cli/*` or
 ## Setup / auth
 
 ```bash
+# No Bluz checkout? Install from the org's public pip index (the plugin's
+# SessionStart hook already does this for you):
+pip install bluz-cli --index-url https://raw.githubusercontent.com/System-B90/.github/main/pypi/
+
+# From a Bluz checkout instead:
 pip install ./cli          # once, from repo root
+
 bluz login                 # interactive: opens browser, or paste next-auth session token
 ```
 
@@ -26,12 +32,16 @@ bluz --url https://bluz.example.com --token <session-token> iterations list
 
 Config precedence (first wins): CLI flag > env var > config file (`bluz auth config` shows the file path, URL, masked token).
 
+`bluz auth hive-status` reports whether the server can reach Hive — check it first when logins or Hive-backed data fail, before blaming the CLI.
+
 ## Global flags
 
 - `--json` — emit machine-readable JSON instead of a Rich table. **Always use this for scripting/agent parsing.**
 - `--quiet` / `-q` — suppress success/warning chatter (stderr); only data (stdout) and hard errors remain. Use for chaining.
 - `--url`, `--token`, `--insecure/--secure` — override config for one call.
 - `--version`
+
+Global flags are accepted before *or* after the subcommand — `bluz gantt curriculums list --json` and `bluz --json gantt curriculums list` both work.
 
 ## Output shape
 
@@ -51,8 +61,10 @@ bluz iterations get <id>                      # e.g. 2026a
 bluz iterations register <id> --label "..." [--db-name --hive-url --start-date --end-date --gantt-curriculum-id]
 bluz iterations patch <id> [--label --hive-url --end-date --gantt-curriculum-id --current/--not-current]
 bluz iterations set-current <id>
+bluz iterations sync-hive <id>                # re-snapshot Hive module/subject/room names
 bluz iterations delete <id> --yes
 ```
+Calendar reads/writes target the current iteration unless `--iteration/--it <id>` is passed (`bluz events`, `bluz calendar drafts`, `bluz calendar snapshots`, `bluz calendar export-ics`). Writes to a past iteration are rejected server-side.
 
 ### `bluz rooms` — custom + Hive-backed
 ```bash
@@ -108,7 +120,61 @@ bluz settings get <name>
 bluz settings set <name> --value '<json>'
 bluz settings get-prayer            # shortcut for key "prayer-times"
 bluz settings set-prayer --value '<json>'
+bluz settings get-schedule          # shortcut for key "schedule"
+bluz settings set-schedule --value '<json>'
 ```
+
+### `bluz personal` — per-user settings
+```bash
+bluz personal get
+bluz personal set [--groups a,b --instructors a,b --favorite-outsiders a,b]
+bluz personal set [--google-enabled|--no-google-enabled] [--google-all-events|--no-google-all-events]
+bluz personal set --data '<full json>'      # bypasses the merge, writes verbatim
+```
+The endpoint replaces the whole document; field flags are merged onto the current value first, `--data` is not.
+
+### `bluz calendar` — shared drafts, snapshots, ICS export
+```bash
+bluz calendar drafts list [--iteration ID]
+bluz calendar drafts get <id>
+bluz calendar drafts create --label "..." (--events '<json array>' | --events-file f.json)
+bluz calendar drafts update <id> [--label "..."] (--events ... | --events-file ...)
+bluz calendar drafts delete <id> --yes
+
+bluz calendar snapshots list [--iteration ID]
+bluz calendar snapshots get <id>
+bluz calendar snapshots create --label "..." (--events ... | --events-file ...)
+bluz calendar snapshots restore <id> --yes     # archives live events in the snapshot's range
+bluz calendar snapshots delete <id> --yes
+
+bluz calendar export-ics --start ISO --end ISO [--output f.ics]   # max 366-day range
+```
+Drafts and snapshots both take a full events array — build it from `bluz --json events list ...`. Writes to a non-current iteration are rejected server-side.
+
+### `bluz colors` — custom event colours
+```bash
+bluz colors list
+bluz colors get <id>
+bluz colors create --name "..." --hex "#3f51b5" [--id <uuid>]   # id is minted if omitted
+bluz colors update <id> [--name --hex]                           # unset fields carry over
+bluz colors delete <id> --yes
+```
+
+### `bluz hive` — read-only Hive LMS reference data
+```bash
+bluz hive users | students | classes | subjects | modules | rooms
+bluz hive lessons [--module-id X --program-ids a,b]
+```
+These proxy Bluz's `/api/hive/*` routes. Read-only — never try to write to Hive through them.
+
+### `bluz integrations google` — Google Calendar
+```bash
+bluz integrations google status          # configured (server-side) + connected (this user)
+bluz integrations google connect --code <gis-authorization-code>
+bluz integrations google sync            # two-way, 90-day window
+bluz integrations google disconnect --yes
+```
+`connect` needs the authorization code from the browser-side Google Identity Services popup — there is no terminal-only OAuth flow. On deployments without Google credentials, `status` reports `configured: false` and everything else fails by design (Bluz must work fully offline).
 
 ### `bluz gantt` — curriculum/scheduling engine tree
 
@@ -116,7 +182,7 @@ Hierarchy: `curriculums` → `syllabuses` → `modules` → `events` (Gantt even
 
 Every entity (`curriculums`, `syllabuses`, `modules`, `events`, `days`, `weeks`) shares:
 ```bash
-bluz gantt <entity> list [--limit N --offset N]      # → array of {id, title}
+bluz gantt <entity> list [--with-parents --limit N --offset N]   # → array of {id, title}; --with-parents adds the parent id
 bluz gantt <entity> get <id>                          # full item incl. sub-tree
 bluz gantt <entity> get-many <id1,id2,...>             # → array of full items
 bluz gantt <entity> create --data '<json>'
@@ -152,14 +218,33 @@ bluz gantt curriculums export-excel <id> --output file.xlsx
 bluz gantt curriculums import <exported-file.json>
 bluz gantt curriculums constraints <id> [--syllabus-id --module-id]
 bluz gantt curriculums mappings <id>
+bluz gantt curriculums duplicate <id> [--overrides '<json>']
+bluz gantt curriculums execution <id>          # תכנון מול ביצוע (plan vs. cut actuals)
+bluz gantt curriculums recurrence-exceptions <id>
 ```
+
+**The cut pipeline** — turns a published, iteration-linked curriculum into real schedule events:
+```bash
+bluz gantt curriculums cut-preview <id>        # dry run: dated occurrences, no gating, no writes
+bluz gantt curriculums cut <id> [--force] --yes
+bluz gantt curriculums cut-status <id>         # does the linked iteration hold live cut events?
+bluz gantt curriculums pull-back <id> --yes    # soft-delete every event the cut generated
+```
+Cut gating failures are coded and write nothing: `draft`, `no-iteration`, `already-cut` (HTTP 409) and `invalid-plan` (HTTP 400). Always `cut-preview` before `cut`. `execution` on a not-yet-cut curriculum answers `{"events": {}}` with a 200 — that is not an error.
+
+**Recurring gantt events** (only under `events`):
+```bash
+bluz gantt events duplicate <id> --module-id <m>            # copy gets the next indexed title
+bluz gantt events except-occurrence <id> --curriculum-id <c> --day-id <d>   # drop one occurrence
+bluz gantt events materialize <id> --curriculum-id <c> --module-id <m> --day-id <d>
+```
+`materialize` splits one occurrence into a standalone event *and* excepts the source from that day — use it when a single occurrence needs to differ; use `except-occurrence` when it should simply not happen.
 
 ## Known server bugs (not CLI bugs — don't waste time debugging the CLI for these)
 
-Check the linked issue's state before trusting either entry below — both may be fixed by the time you read this.
+None currently open. The two that used to live here — [#309](https://github.com/System-B90/Bluz/issues/309) (`weeks`/`days` list 500) and [#310](https://github.com/System-B90/Bluz/issues/310) (no parent id on gantt list/get) — are both fixed and closed. `weeks`/`days` now label by `number`/`dayIndex`, and parent ids are available via `bluz gantt <entity> list --with-parents`.
 
-- **`bluz gantt weeks list` / `bluz gantt days list` return HTTP 500** as of [System-B90/Bluz#309](https://github.com/System-B90/Bluz/issues/309) (generic list query assumes every Gantt entity has a `title` column; `weeks`/`days` don't). Workaround: `bluz gantt curriculums get <id>` — its sub-tree includes weeks and their days directly (syllabuses do **not** carry weeks/days, only modules).
-- **Modules don't expose parent `syllabusId`; events don't expose parent `moduleId`** as of [System-B90/Bluz#310](https://github.com/System-B90/Bluz/issues/310) (list or get). Workaround: walk down from the parent (`syllabuses get <id>` lists its `modules` ids; `modules get <id>` lists its `events` ids) rather than looking up a parent from a child id.
+If a command fails in a way that looks server-side, check the repo's open issues before assuming a CLI bug.
 
 ## Quick recipes
 
@@ -169,4 +254,16 @@ bluz rooms list --json | jq -r '.[] | select(.name=="חדר 101") | .id'
 
 # Inspect a full curriculum tree (syllabuses → modules → events, weeks → days) in one call
 bluz gantt curriculums get <id> --json
+
+# Which syllabus is each module under?
+bluz gantt modules list --with-parents --json | jq -r '.[] | "\(.id) \(.syllabusId)"'
+
+# Snapshot the current week before a risky bulk edit, then restore it
+bluz --json events list --start 2026-01-05T00:00:00Z --end 2026-01-12T00:00:00Z > week.json
+bluz calendar snapshots create --label "pre-edit" --events-file week.json
+bluz calendar snapshots restore <snapshot-id> --yes
+
+# Dry-run a cut, then commit it
+bluz gantt curriculums cut-preview <id> --json | jq '.[] | .startDate'
+bluz gantt curriculums cut <id> --yes
 ```

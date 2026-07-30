@@ -51,15 +51,18 @@ Local checkouts all live under `C:\Users\mkupe\Code\system-b90\<repo-name>`. Dir
   `pyhive`'s `publish.yml` copies each tagged release's wheels into `pypi/pyhivelms/` (the PEP 503-normalized project name — **not** `pyhive`, the import name) and regenerates `pypi/generate_index.py`'s output here on every `v*` tag push. For an unreleased ref, `git+https://...` still works (that one does need SSH/HTTPS git creds, since `pyhive` itself is private).
   `raw.githubusercontent.com` is CDN-cached (roughly 5–10 min TTL) — a just-published release may not show up in the index immediately.
 - `bluz-cli` (from the private `bluz` repo) follows the identical pattern: `pip install bluz-cli --index-url https://raw.githubusercontent.com/System-B90/.github/main/pypi/`. `bluz`'s `release-pipeline.yml` `publish-cli-index` job copies each tagged release's wheel into `pypi/bluz-cli/` and regenerates the index on every `v*` tag push, using `CLASSIC_ACCESS_TOKEN` (bluz has no `ACCESS_TOKEN` secret — see Secrets available in CI below).
+  **`pypi/bluz-cli/` does not exist yet** — the job has not run against a `v*` tag since it was added, so that `pip install` currently 404s and the plugin's SessionStart hook silently no-ops. The next tagged bluz release populates it. Until then, install from a Bluz checkout: `pip install ./cli`.
 - App repos (`bluz`, `madash`, `peek-a-boo`) are unscoped, private, and don't publish — no `@system-b90/` prefix on their own `package.json` name.
 
 ## Claude Code plugins hosted here
 
 Plugins live under `plugins/<name>/` — each is a self-contained Claude Code
-plugin (`.claude-plugin/plugin.json` + `.claude-plugin/marketplace.json` +
-`skills/`, optionally `hooks/`). `.github` is the distribution point for any
-plugin whose source repo is private, so installing never requires cloning
-that private repo.
+plugin (`.claude-plugin/plugin.json` + `skills/`, optionally `hooks/`). The
+marketplace itself is a single root-level `.claude-plugin/marketplace.json`
+(name: `system-b90-marketplace`) listing every plugin by its `plugins/<name>`
+path — plugin directories do **not** carry their own marketplace file.
+`.github` is the distribution point for any plugin whose source repo is
+private, so installing never requires cloning that private repo.
 
 Currently hosted:
 
@@ -71,14 +74,16 @@ Install any hosted plugin:
 
 ```
 /plugin marketplace add System-B90/.github
-/plugin install <plugin-name>@<plugin-name>
+/plugin install <plugin-name>@system-b90-marketplace
 ```
 
-e.g. `/plugin install bluz-cli@bluz-cli`.
+e.g. `/plugin install bluz-cli@system-b90-marketplace`. The suffix is the
+*marketplace* name (from the root `marketplace.json`), not the plugin name —
+here the two differ, so `bluz-cli@bluz-cli` does not resolve.
 
 Adding a new plugin here: create `plugins/<name>/` following the `bluz-cli`
-layout, keep its `marketplace.json` `source` as `"./"` (self-referencing,
-consistent with `bluz-cli`'s), and add a row to the table above.
+layout, then add an entry to the root `.claude-plugin/marketplace.json` with
+`"source": "./plugins/<name>"` and a row to the table above.
 
 ## Git workflow
 
@@ -87,6 +92,7 @@ consistent with `bluz-cli`'s), and add a row to the table above.
 - **Commit message format: `Vibe-<PastTenseVerb> <description>`** — e.g. `Vibe-Implemented`, `Vibe-Fixed`, `Vibe-Refactored`, `Vibe-Removed`. No `feat:`/`fix:`/`chore:` prefixes anywhere in the org.
 - PR target branch: `master` for most repos; `dev` for bluz feature work specifically (bluz has a live `dev` branch that other repos don't).
 - **Never skip commit hooks** (no `-n` / `--no-verify`) — run the repo's auto-fixers first (see CI/CD rules below) so the Husky pre-commit hook passes cleanly instead of being bypassed.
+  - **Known conflict:** `bluz`'s own `CLAUDE.md` tells agents to auto-commit with `-n`. That contradicts this rule and this rule wins — flagged here rather than silently overridden. Fix belongs in `bluz/CLAUDE.md`.
 
 ## CI/CD rules
 

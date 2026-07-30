@@ -1,6 +1,6 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "System-B90 Marketplace",
+  "name": "system-b90-marketplace",
   "description": "System-B90 org plugins and tools for Claude Code",
   "owner": {
     "name": "System-B90"

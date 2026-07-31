@@ -71,10 +71,12 @@ Install any hosted plugin:
 
 ```
 /plugin marketplace add System-B90/.github
-/plugin install <plugin-name>@<plugin-name>
+/reload-plugins
+/plugin install <plugin-name>@system-b90-marketplace
+/reload-plugins
 ```
 
-e.g. `/plugin install bluz-cli@bluz-cli`.
+e.g. `/plugin install bluz-cli@system-b90-marketplace`.
 
 Adding a new plugin here: create `plugins/<name>/` following the `bluz-cli`
 layout, keep its `marketplace.json` `source` as `"./"` (self-referencing,

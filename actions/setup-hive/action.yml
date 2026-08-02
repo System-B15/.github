@@ -234,6 +234,12 @@ runs:
       run: |
         if [ ! -f hive-stack/docker-compose.yaml ]; then
           echo "::error::${{ inputs.pyhive-repo }}#hive-stack/docker-compose.yaml not found. Has 'Publish Hive Images' run there yet?"
+          # What actually landed, so the next failure is diagnosable from the
+          # log instead of needing another run to find out.
+          echo "pwd: $(pwd)"
+          ls -la . || true
+          ls -la hive-stack || true
+          git -C . log -1 --format='checked out %H' || true
           exit 1
         fi
         # Bash's * glob skips dotfiles (hive-stack/.env) by default, which

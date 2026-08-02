@@ -447,6 +447,16 @@ runs:
         HIVE_CORE_THREADS=2
         HIVE_NGINX_WORKERS=1
         EOF
+        # HIVE_DATABASE_PATH is a bind mount (./db by default). Docker creates
+        # a missing bind source as root, and Postgres 18 refuses to start on a
+        # data directory it does not own:
+        #   FATAL: data directory "/var/lib/postgresql/18/docker" has wrong ownership
+        # The container runs as uid/gid 999, so pre-create and chown the path.
+        db_path="$(grep -E '^HIVE_DATABASE_PATH=' .env | tail -1 | cut -d= -f2-)"
+        db_path="${db_path:-./db}"
+        mkdir -p "$db_path"
+        sudo chown -R 999:999 "$db_path" || chown -R 999:999 "$db_path" || true
+
         compose="docker compose -f docker-compose.yaml"
 
         if [ "$IMAGE_SOURCE" = "registry" ]; then

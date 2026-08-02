@@ -466,7 +466,13 @@ runs:
           echo "::error::${db_path} could not be chowned to 999 (filesystem does not support ownership). Postgres will refuse to start."
           exit 1
         fi
-        echo "HIVE_DATABASE_PATH=${db_path}" >> .env.override
+        # Compose interpolates ${HIVE_DATABASE_PATH} in the volume mapping from
+        # the project .env and the process environment — NOT from .env.override,
+        # which is only a service-level env_file. Writing it there left the
+        # mapping pointing at the old ./db. Rewrite .env and export it.
+        sed -i '/^HIVE_DATABASE_PATH=/d' .env
+        echo "HIVE_DATABASE_PATH=${db_path}" >> .env
+        export HIVE_DATABASE_PATH="${db_path}"
 
         compose="docker compose -f docker-compose.yaml"
 

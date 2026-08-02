@@ -203,6 +203,16 @@ runs:
     # Actions "access" setting turned on (that setting only covers reusable
     # workflows/artifacts, not checkout). So this still needs a token with
     # cross-repo read; hive-token doubles as that token here.
+    # The self-hosted runner reuses its workspace, and a `hive/` left behind by
+    # an earlier sparse-checkout run keeps skip-worktree bits in its index. A
+    # fresh `checkout` then finds the index already matching HEAD and writes no
+    # files, leaving an empty tree that looks exactly like "the repo doesn't
+    # have hive-stack". Removing the directory makes each run start clean.
+    - name: Reset Hive stack workspace (registry mode)
+      if: inputs.image-source == 'registry'
+      shell: bash
+      run: rm -rf "${{ inputs.hive-path }}"
+
     - name: Checkout Hive stack config (registry mode)
       if: inputs.image-source == 'registry'
       uses: actions/checkout@v7

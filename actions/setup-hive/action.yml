@@ -394,7 +394,20 @@ runs:
           name="${name%%:*}"
           remote="${REGISTRY_PREFIX}/${name}:${tag}"
           echo "Pulling ${remote} -> ${img}"
-          if ! docker pull "$remote"; then
+          # ghcr egress from the self-hosted box times out sporadically — a
+          # different image failed on each of two consecutive runs with
+          # "dial tcp ...:443: i/o timeout". One transient timeout should not
+          # cost a whole e2e run, so retry with a short backoff first.
+          pulled=""
+          for attempt in 1 2 3; do
+            if docker pull "$remote"; then
+              pulled=1
+              break
+            fi
+            echo "Pull attempt ${attempt}/3 for ${remote} failed; retrying in $((attempt * 10))s"
+            sleep $((attempt * 10))
+          done
+          if [ -z "$pulled" ]; then
             echo "::error::Failed to pull ${remote}. Check: pyhive-repo's 'Publish Hive Images' workflow has run for this Hive commit; this repo has read access to the packages (package settings → Manage Actions access) or registry-token is a PAT with read:packages; registry-prefix/registry-tag inputs are correct. Fall back to image-source: build if needed."
             exit 1
           fi

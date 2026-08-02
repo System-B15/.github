@@ -452,10 +452,21 @@ runs:
         # data directory it does not own:
         #   FATAL: data directory "/var/lib/postgresql/18/docker" has wrong ownership
         # The container runs as uid/gid 999, so pre-create and chown the path.
-        db_path="$(grep -E '^HIVE_DATABASE_PATH=' .env | tail -1 | cut -d= -f2-)"
-        db_path="${db_path:-./db}"
-        mkdir -p "$db_path"
-        sudo chown -R 999:999 "$db_path" || chown -R 999:999 "$db_path" || true
+        # The default ./db puts it inside the workspace, which on the
+        # self-hosted runner is an NTFS (fuseblk) mount: ownership is fixed at
+        # mount time and chown silently no-ops, so Postgres can never own its
+        # data dir there. Relocate to a runner-local ext4 path instead.
+        # RUNNER_TEMP is deliberately NOT used: on this runner it lives on the
+        # same NTFS mount as the workspace. /var/tmp is on the OS disk.
+        db_root="${HIVE_PGDATA_ROOT:-/var/tmp}"
+        mkdir -p "$db_root"
+        db_path="$(mktemp -d "${db_root}/hive-pgdata-XXXXXX")"
+        sudo chown -R 999:999 "$db_path" || chown -R 999:999 "$db_path"
+        if [ "$(stat -c '%u' "$db_path")" != "999" ]; then
+          echo "::error::${db_path} could not be chowned to 999 (filesystem does not support ownership). Postgres will refuse to start."
+          exit 1
+        fi
+        echo "HIVE_DATABASE_PATH=${db_path}" >> .env.override
 
         compose="docker compose -f docker-compose.yaml"
 

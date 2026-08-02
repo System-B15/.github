@@ -1,0 +1,35 @@
+name: Deploy package index
+
+# The Pages site is only the pip index under pypi/. A branch-source Pages
+# deployment rebuilds on every push to main, which meant a full deploy run for
+# each unrelated actions/ commit. Path-filtered so it fires only when a package
+# actually changes.
+on:
+    push:
+        branches: [main]
+        paths: ['pypi/**']
+    workflow_dispatch:
+
+concurrency:
+    group: pages
+    cancel-in-progress: true
+
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+jobs:
+    deploy:
+        runs-on: ubuntu-24.04
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        steps:
+            - uses: actions/checkout@v7
+            - uses: actions/configure-pages@v5
+            - uses: actions/upload-pages-artifact@v4
+              with:
+                  path: .
+            - id: deployment
+              uses: actions/deploy-pages@v4

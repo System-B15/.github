@@ -211,7 +211,11 @@ runs:
     - name: Reset Hive stack workspace (registry mode)
       if: inputs.image-source == 'registry'
       shell: bash
-      run: rm -rf "${{ inputs.hive-path }}"
+      # Hive's containers write into this tree as root (prometheus/tempo data),
+      # so an unprivileged rm leaves directories behind — which then fails the
+      # *next* run's checkout with "ENOTEMPTY ... hive/metrics/data/wal". The
+      # reclaim step above has already removed the containers holding them.
+      run: sudo rm -rf "${{ inputs.hive-path }}" || rm -rf "${{ inputs.hive-path }}"
 
     - name: Checkout Hive stack config (registry mode)
       if: inputs.image-source == 'registry'

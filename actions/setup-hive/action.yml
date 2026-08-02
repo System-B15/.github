@@ -551,7 +551,18 @@ runs:
 
         # Start the stack from (cached, pulled, or freshly built) images. The
         # DB volume is never cached, so migrations + seeding run every time.
-        $compose up -d
+        #
+        # `up` re-evaluates depends_on with its own fixed budget, which the wait
+        # above does not extend. Creating the remaining ~12 containers can take
+        # longer than that budget on a busy host, and compose then aborts with
+        # "dependency failed to start: container hive-postgres is unhealthy" —
+        # about a database that is healthy before and after. Retrying costs
+        # almost nothing, since the containers it already created survive.
+        if ! $compose up -d; then
+          echo "Stack bring-up failed; retrying once now that the containers exist."
+          docker ps -a --filter "name=^/hive-" --format '  {{.Names}} ({{.Status}})'
+          $compose up -d
+        fi
         $compose exec -T core python manage.py migrate
         $compose exec -T core python manage.py collectstatic --noinput
         $compose exec -T database sh /update.sh

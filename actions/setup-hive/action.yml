@@ -209,9 +209,11 @@ runs:
       with:
         repository: ${{ inputs.pyhive-repo }}
         path: ${{ inputs.hive-path }}
-        sparse-checkout: |
-          hive-stack
-        sparse-checkout-cone-mode: false
+        # No sparse-checkout. The non-cone `hive-stack` pattern resolved to an
+        # empty working tree on the self-hosted runner (git 2.43), so the
+        # flatten step below failed with "docker-compose.yaml not found" on
+        # every run even though the file was present at the checked-out sha.
+        # pyhive is ~1.2 MB — sparse was saving nothing worth this failure mode.
         token: ${{ inputs.hive-token || github.token }}
         persist-credentials: false
 

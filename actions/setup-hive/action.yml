@@ -157,11 +157,8 @@ runs:
         fi
         # Any surviving hive-* container — prometheus and tempo in particular,
         # which publish no ports and so escape the filter above — keeps its
-        # bind-mounted data files open. On the self-hosted runner that tree
-        # lives on NTFS, where an open unlinked file becomes .fuse_hidden*, and
-        # even `sudo rm -rf` then fails with "Directory not empty" on
-        # hive/metrics/data/wal. Clear them before anything tries to remove the
-        # workspace.
+        # bind-mounted data files open, which blocks removal of the workspace
+        # later. Clear them before anything tries to remove it.
         leftovers=$(docker ps -aq --filter "name=^/hive-")
         if [ -n "$leftovers" ]; then
           echo "Removing leftover hive-* containers:"
@@ -225,10 +222,10 @@ runs:
       if: inputs.image-source == 'registry'
       shell: bash
       # Hive's containers write into this tree as root (prometheus/tempo data),
-      # so an unprivileged rm leaves directories behind — which then fails the
-      # *next* run's checkout with "ENOTEMPTY ... hive/metrics/data/wal". The
-      # reclaim step above has already removed the containers holding them.
-      run: sudo rm -rf "${{ inputs.hive-path }}" || rm -rf "${{ inputs.hive-path }}"
+      # so an unprivileged rm can leave directories behind and fail the *next*
+      # run's checkout with "ENOTEMPTY ... hive/metrics/data/wal". The reclaim
+      # step above has already removed the containers holding them open.
+      run: rm -rf "${{ inputs.hive-path }}" 2>/dev/null || sudo rm -rf "${{ inputs.hive-path }}"
 
     - name: Checkout Hive stack config (registry mode)
       if: inputs.image-source == 'registry'
@@ -464,32 +461,22 @@ runs:
         HIVE_CORE_THREADS=2
         HIVE_NGINX_WORKERS=1
         EOF
-        # HIVE_DATABASE_PATH is a bind mount (./db by default). Docker creates
-        # a missing bind source as root, and Postgres 18 refuses to start on a
-        # data directory it does not own:
+        # Postgres 18 refuses to start on a data directory it does not own:
         #   FATAL: data directory "/var/lib/postgresql/18/docker" has wrong ownership
-        # The container runs as uid/gid 999, so pre-create and chown the path.
-        # The default ./db puts it inside the workspace, which on the
-        # self-hosted runner is an NTFS (fuseblk) mount: ownership is fixed at
-        # mount time and chown silently no-ops, so Postgres can never own its
-        # data dir there. Relocate to a runner-local ext4 path instead.
-        # RUNNER_TEMP is deliberately NOT used: on this runner it lives on the
-        # same NTFS mount as the workspace. /var/tmp is on the OS disk.
-        db_root="${HIVE_PGDATA_ROOT:-/var/tmp}"
-        mkdir -p "$db_root"
-        db_path="$(mktemp -d "${db_root}/hive-pgdata-XXXXXX")"
-        sudo chown -R 999:999 "$db_path" || chown -R 999:999 "$db_path"
+        # HIVE_DATABASE_PATH is a bind mount, and Docker creates a missing bind
+        # source as root, so pre-create it and hand it to uid/gid 999 — the
+        # ids the image runs as. The workspace must be on a filesystem that
+        # actually records ownership; the guard makes a filesystem that does
+        # not (an NTFS mount, say) fail here rather than as an opaque
+        # restart-loop 10 minutes later.
+        db_path="$(grep -E '^HIVE_DATABASE_PATH=' .env | tail -1 | cut -d= -f2-)"
+        db_path="${db_path:-./db}"
+        mkdir -p "$db_path"
+        chown -R 999:999 "$db_path" 2>/dev/null || sudo chown -R 999:999 "$db_path"
         if [ "$(stat -c '%u' "$db_path")" != "999" ]; then
-          echo "::error::${db_path} could not be chowned to 999 (filesystem does not support ownership). Postgres will refuse to start."
+          echo "::error::${db_path} could not be chowned to 999 — this filesystem does not support ownership. Run the job where the workspace is on a real Linux filesystem."
           exit 1
         fi
-        # Compose interpolates ${HIVE_DATABASE_PATH} in the volume mapping from
-        # the project .env and the process environment — NOT from .env.override,
-        # which is only a service-level env_file. Writing it there left the
-        # mapping pointing at the old ./db. Rewrite .env and export it.
-        sed -i '/^HIVE_DATABASE_PATH=/d' .env
-        echo "HIVE_DATABASE_PATH=${db_path}" >> .env
-        export HIVE_DATABASE_PATH="${db_path}"
 
         compose="docker compose -f docker-compose.yaml"
 

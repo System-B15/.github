@@ -524,13 +524,32 @@ runs:
         else
           echo "Waiting for Postgres to report healthy (up to $((DB_WAIT_ATTEMPTS * 5))s)..."
           db_ok=""
+          stable=0
           for i in $(seq 1 "$DB_WAIT_ATTEMPTS"); do
             status=$(docker inspect --format '{{.State.Health.Status}}' "$db_cid" 2>/dev/null || echo unknown)
-            if [ "$status" = "healthy" ]; then
-              echo "Postgres healthy after $((i * 5))s."
-              db_ok=1
-              break
+            # The container healthcheck is a bare `pg_isready`, which talks to
+            # the local socket — and on a first boot the entrypoint runs initdb
+            # against a *temporary* socket-only server before shutting it down
+            # and starting the real one. That temp server answers the probe, so
+            # "healthy" here can be a database that is about to disappear: the
+            # wait passed at 10s, and 35s later compose's own depends_on
+            # re-check found it unhealthy and aborted the bring-up.
+            #
+            # `-h 127.0.0.1` forces TCP, which the temp server does not listen
+            # on, so only the real server can satisfy it. Requiring two
+            # consecutive passes also rides out the shutdown between them.
+            if [ "$status" = "healthy" ] && docker exec "$db_cid" pg_isready -h 127.0.0.1 -p 5432 >/dev/null 2>&1; then
+              stable=$((stable + 1))
+              if [ "$stable" -ge 2 ]; then
+                echo "Postgres healthy and accepting TCP after $((i * 5))s."
+                db_ok=1
+                break
+              fi
+              echo "Attempt $i/$DB_WAIT_ATTEMPTS — Postgres ready ($stable/2 consecutive), confirming..."
+              sleep 5
+              continue
             fi
+            stable=0
             if [ "$status" = "unhealthy" ]; then
               # Keep waiting: on a loaded host Postgres often reports unhealthy
               # for the first probes and then recovers. Only the loop's overall

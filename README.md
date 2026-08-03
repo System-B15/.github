@@ -12,9 +12,21 @@ In a consumer repo's E2E workflow:
 ```yaml
 jobs:
   e2e:
-    runs-on: ubuntu-24.04
+    # The org is out of GitHub-hosted minutes — every job runs self-hosted.
+    runs-on: self-hosted
+    # Not for queueing (jobs run in parallel), but so a wedged job cannot hold
+    # a slice of the shared box indefinitely.
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v7
+
+      # Serialise against every other Hive stack in the org. Two booting at
+      # once on the shared 8-vCPU box push each other past their healthchecks.
+      - name: Take the E2E lock
+        id: ci_lock
+        uses: System-B90/.github/actions/ci-lock@main
+        with:
+          token: ${{ secrets.CI_LOCK_TOKEN }}
 
       - name: Set up Hive
         uses: System-B90/.github/actions/setup-hive@main
@@ -26,6 +38,19 @@ jobs:
         uses: System-B90/.github/actions/setup-playwright@main
 
       # ... boot your own stack, run tests ...
+
+      # Both cleanup steps must run even when the tests fail, or the box keeps
+      # filling up and the next repo waits out the lock's stale timeout.
+      - name: Tear down Hive
+        if: always()
+        uses: System-B90/.github/actions/teardown-hive@main
+
+      - name: Release the E2E lock
+        if: always()
+        uses: System-B90/.github/actions/ci-unlock@main
+        with:
+          token: ${{ secrets.CI_LOCK_TOKEN }}
+          acquired: ${{ steps.ci_lock.outputs.acquired }}
 ```
 
 ## Actions
@@ -58,6 +83,48 @@ Key inputs (all optional except `hive-token`): `hive-repo`, `hive-ref`,
 `extra-hosts`, `python-version`, `image-source`, `registry-prefix`,
 `registry-token`, `registry-tag`, `cache-version`, `free-disk-space`,
 `wait-attempts`. Outputs: `hive-sha`, `cache-hit`.
+
+Beyond the ordered steps above, `setup-hive` refuses to start when the runner
+has less than `min-free-disk-gb` (default 10) free after cleanup. Every symptom
+in [#12](https://github.com/System-B90/.github/issues/12) — `dockerd not ready
+after 120s`, 92-second container creation, unhealthy Postgres — is what a full
+host looks like from inside a job that already spent 20 minutes getting there.
+Failing at the preflight costs seconds and names the actual cause.
+
+### `actions/teardown-hive`
+
+Brings the Hive stack down and reclaims its disk. Call it with `if: always()`
+as the last step of any job that used `setup-hive`.
+
+`setup-hive` already clears leftovers at the *start* of a run, which keeps that
+run correct but leaves a dead stack occupying the box in between. Releasing at
+the end shrinks that window to nothing. Never fails the job — a cleanup error
+turning a green run red would be a worse bug than the one it fixes.
+
+Inputs: `hive-path`, `prune` (`safe` | `aggressive` | `none`), `report-disk`.
+
+### `actions/ci-lock` and `actions/ci-unlock`
+
+A mutex **across repositories**. GitHub's `concurrency:` key only serialises
+within one repo, and the contention that matters here is between them: bluz,
+peek-a-boo, madash and hive-core each boot a Hive stack onto the same 8-vCPU
+host, and two arriving together push both past their healthchecks.
+
+The lock is a file created through the Contents API on a `ci-locks` branch of
+this repo. Creating a file without passing its blob SHA fails when the path
+exists — that rejection is the atomic test-and-set. The body records the holder
+and a timestamp, so a lock orphaned by a cancelled run is reclaimed on age
+(`stale-minutes`, default 75) instead of wedging every repo's E2E.
+
+**Requires a `CI_LOCK_TOKEN` secret** — a PAT with `contents:write` on this
+repo, available to every repo that boots Hive. `SYSTEM_B90_READ` is read-only
+and will not work. Without the secret both actions warn and no-op, so a repo
+that lacks it still runs; it just isn't serialised.
+
+`ci-unlock` is a separate action because composite actions cannot register
+post-job steps. Always call it with `if: always()`, passing `ci-lock`'s
+`acquired` output — it deletes the lock only if this job still holds it, so a
+lock already reclaimed as stale is left with its new owner.
 
 ### `actions/setup-playwright`
 

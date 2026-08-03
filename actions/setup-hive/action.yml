@@ -105,6 +105,16 @@ inputs:
       skips cleanup entirely.
     required: false
     default: "auto"
+  min-free-disk-gb:
+    description: >-
+      Fail the job before booting Hive if less than this many GB remain after
+      cleanup. A Hive stack needs roughly 8 GB of images plus its database and
+      logs; starting one below that does not fail cleanly, it fails as
+      "dockerd not ready after 120s" or a container that takes 11 minutes to
+      create, 20 minutes into the run (System-B90/.github#12). Failing here
+      costs seconds and names the real cause. Set "0" to disable.
+    required: false
+    default: "10"
   wait-attempts:
     description: Readiness-check attempts (5s apart) before failing.
     required: false
@@ -203,6 +213,36 @@ runs:
         fi
         echo "Disk space after cleanup:"
         df -h /
+
+    # Cleanup above reclaims what it can; this decides whether what remains is
+    # enough to bother starting. Every symptom in System-B90/.github#12 —
+    # dockerd not ready, 92s container creation, unhealthy Postgres — is what
+    # disk exhaustion looks like from inside a job that already committed 20
+    # minutes to the attempt.
+    - name: Verify enough disk to boot Hive
+      if: inputs.min-free-disk-gb != '0'
+      shell: bash
+      env:
+        MIN_FREE_GB: ${{ inputs.min-free-disk-gb }}
+      run: |
+        avail_kb=$(df -Pk / | awk 'NR==2 {print $4}')
+        avail_gb=$((avail_kb / 1024 / 1024))
+        echo "Free disk after cleanup: ${avail_gb} GB (minimum ${MIN_FREE_GB} GB)"
+
+        if [ "$avail_gb" -lt "$MIN_FREE_GB" ]; then
+          echo "Docker is using:"
+          docker system df || true
+          echo "::error::Only ${avail_gb} GB free on the runner — Hive needs at least ${MIN_FREE_GB} GB. This is the host being full, not a fault in this repo: a job that starts here fails later as 'dockerd not ready after 120s' or an unhealthy Postgres. Reclaim space on the runner host (docker system prune -af --volumes on the HOST, and check /opt/hive and stale _work/ directories), or lower min-free-disk-gb if you know this is safe. See System-B90/.github#12."
+          exit 1
+        fi
+
+        # Warn well before the cliff, so the trend is visible in run logs
+        # rather than only at the point of failure.
+        if [ "$avail_gb" -lt $((MIN_FREE_GB * 2)) ]; then
+          echo "::warning::Runner disk is low: ${avail_gb} GB free. Jobs will start failing below ${MIN_FREE_GB} GB."
+        fi
+
+        echo "Free disk before Hive boot: **${avail_gb} GB**" >> "$GITHUB_STEP_SUMMARY"
 
     # ── Registry mode: no Hive checkout, no hive-token needed for Hive
     # itself ─────────────────────────────────────────────────────────────

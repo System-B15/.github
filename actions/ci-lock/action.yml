@@ -1,0 +1,226 @@
+name: CI Lock
+description: >-
+  Cross-repository mutex for jobs that cannot safely run at the same time on the
+  shared self-hosted box — primarily E2E jobs that each boot a full Hive stack.
+
+  GitHub's own `concurrency:` key only serialises within one repository, and the
+  contention this exists for is between repositories: bluz, peek-a-boo, madash
+  and hive-core all boot Hive stacks onto the same 8-vCPU host, and two of them
+  arriving together pushes both past their healthchecks (see System-B90/.github#12).
+
+  The lock is a file created through the GitHub Contents API on a dedicated
+  branch of a shared repo. Creating a file without passing its blob SHA fails if
+  the path already exists, which is the atomic test-and-set this needs. The file
+  body records who holds it, so a lock orphaned by a cancelled run can be
+  reclaimed on age rather than wedging the org's CI.
+
+  Degrades to a no-op when no token is available, so a repo without the secret
+  still runs — it just isn't serialised.
+
+inputs:
+  token:
+    description: >-
+      PAT with contents:write on lock-repo. Must be able to WRITE — the
+      read-scoped SYSTEM_B90_READ is not sufficient. Leave empty to disable
+      locking entirely (the action warns and continues).
+    required: false
+    default: ""
+  lock-repo:
+    description: Repository (owner/name) holding the lock files.
+    required: false
+    default: System-B90/.github
+  lock-branch:
+    description: >-
+      Branch in lock-repo where lock files live. Kept off the default branch so
+      lock churn never triggers that branch's workflows or pollutes its history.
+    required: false
+    default: ci-locks
+  lock-name:
+    description: >-
+      Which mutex to take. Jobs sharing a name are serialised against each
+      other; jobs with different names are not. Default serialises every Hive
+      stack in the org.
+    required: false
+    default: hive-e2e
+  timeout-minutes:
+    description: >-
+      How long to keep trying before giving up. Exceeding this fails the step
+      unless continue-on-timeout is true.
+    required: false
+    default: "30"
+  stale-minutes:
+    description: >-
+      Reclaim a lock held longer than this. Must exceed the longest legitimate
+      hold, or two jobs will run concurrently — the exact thing being prevented.
+      E2E jobs on this box have legitimately taken 45+ minutes under load.
+    required: false
+    default: "75"
+  poll-seconds:
+    description: Seconds between attempts while waiting.
+    required: false
+    default: "20"
+  continue-on-timeout:
+    description: >-
+      When true, a timeout warns and proceeds without the lock instead of
+      failing the job. Preferred for E2E: running unserialised is degraded, but
+      failing outright on a lock timeout is worse.
+    required: false
+    default: "true"
+
+outputs:
+  acquired:
+    description: '"true" if this job holds the lock, "false" if it proceeded without one.'
+    value: ${{ steps.acquire.outputs.acquired }}
+
+runs:
+  using: composite
+  steps:
+    - name: Acquire CI lock
+      id: acquire
+      shell: bash
+      env:
+        LOCK_TOKEN: ${{ inputs.token }}
+        LOCK_REPO: ${{ inputs.lock-repo }}
+        LOCK_BRANCH: ${{ inputs.lock-branch }}
+        LOCK_NAME: ${{ inputs.lock-name }}
+        TIMEOUT_MINUTES: ${{ inputs.timeout-minutes }}
+        STALE_MINUTES: ${{ inputs.stale-minutes }}
+        POLL_SECONDS: ${{ inputs.poll-seconds }}
+        CONTINUE_ON_TIMEOUT: ${{ inputs.continue-on-timeout }}
+      run: |
+        set -uo pipefail
+
+        if [ -z "$LOCK_TOKEN" ]; then
+          echo "::warning::No ci-lock token configured — running without a lock. If this job boots a Hive stack it may contend with another repo's E2E run. Add a PAT with contents:write on ${LOCK_REPO} and pass it as the 'token' input."
+          echo "acquired=false" >> "$GITHUB_OUTPUT"
+          exit 0
+        fi
+
+        API="https://api.github.com/repos/${LOCK_REPO}"
+        LOCK_PATH=".ci-locks/${LOCK_NAME}.json"
+        HOLDER="${GITHUB_REPOSITORY}#${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+
+        api() {
+          local method="$1" url="$2" body="${3:-}"
+          if [ -n "$body" ]; then
+            curl -sS -X "$method" "$url" \
+              -H "Authorization: Bearer ${LOCK_TOKEN}" \
+              -H "Accept: application/vnd.github+json" \
+              -H "Content-Type: application/json" \
+              -d "$body" -w '\n%{http_code}'
+          else
+            curl -sS -X "$method" "$url" \
+              -H "Authorization: Bearer ${LOCK_TOKEN}" \
+              -H "Accept: application/vnd.github+json" -w '\n%{http_code}'
+          fi
+        }
+        body_of()  { echo "$1" | sed '$d'; }
+        code_of()  { echo "$1" | tail -n1; }
+
+        # The lock branch is created on first use. Keeping locks off the default
+        # branch means this action's writes never trigger that branch's
+        # workflows or show up in its history.
+        resp=$(api GET "${API}/branches/${LOCK_BRANCH}")
+        if [ "$(code_of "$resp")" = "404" ]; then
+          echo "Lock branch '${LOCK_BRANCH}' does not exist — creating it."
+          repo_resp=$(api GET "$API")
+          default_branch=$(body_of "$repo_resp" | python3 -c "import json,sys; print(json.load(sys.stdin)['default_branch'])")
+          head_resp=$(api GET "${API}/git/ref/heads/${default_branch}")
+          head_sha=$(body_of "$head_resp" | python3 -c "import json,sys; print(json.load(sys.stdin)['object']['sha'])")
+          create=$(api POST "${API}/git/refs" \
+            "$(python3 -c "import json,sys; print(json.dumps({'ref':'refs/heads/${LOCK_BRANCH}','sha':'${head_sha}'}))")")
+          if [ "$(code_of "$create")" != "201" ]; then
+            # A parallel job may have created it in the same instant; that is a
+            # success for our purposes. Anything else means locking is not
+            # usable, and blocking CI on that is worse than not locking.
+            recheck=$(api GET "${API}/branches/${LOCK_BRANCH}")
+            if [ "$(code_of "$recheck")" != "200" ]; then
+              echo "::warning::Could not create lock branch '${LOCK_BRANCH}' on ${LOCK_REPO} (HTTP $(code_of "$create")). Check the token has contents:write. Proceeding without a lock."
+              body_of "$create"
+              echo "acquired=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          fi
+        fi
+
+        deadline=$(( $(date +%s) + TIMEOUT_MINUTES * 60 ))
+        attempt=0
+
+        while :; do
+          attempt=$((attempt + 1))
+
+          payload=$(python3 - <<PY
+        import base64, json, os, time
+        content = json.dumps({
+            "holder": os.environ["HOLDER"],
+            "repository": os.environ["GITHUB_REPOSITORY"],
+            "workflow": os.environ.get("GITHUB_WORKFLOW", ""),
+            "run_url": f"{os.environ.get('GITHUB_SERVER_URL','https://github.com')}/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}",
+            "acquired_at": int(time.time()),
+        }, indent=2)
+        print(json.dumps({
+            "message": f"ci-lock: {os.environ['LOCK_NAME']} taken by {os.environ['HOLDER']}",
+            "content": base64.b64encode(content.encode()).decode(),
+            "branch": os.environ["LOCK_BRANCH"],
+        }))
+        PY
+        )
+
+          # No "sha" field: the Contents API rejects the write if the path
+          # already exists. That rejection IS the mutex.
+          put=$(api PUT "${API}/contents/${LOCK_PATH}" "$payload")
+          code=$(code_of "$put")
+
+          if [ "$code" = "201" ]; then
+            echo "Acquired lock '${LOCK_NAME}' as ${HOLDER} (attempt ${attempt})."
+            echo "acquired=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ "$code" != "422" ] && [ "$code" != "409" ]; then
+            echo "::warning::Unexpected HTTP ${code} taking lock '${LOCK_NAME}'. Proceeding without a lock."
+            body_of "$put"
+            echo "acquired=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Held by someone else. Report who, and reclaim it if it is stale —
+          # a cancelled run never releases, and without this the whole org's
+          # E2E would stay blocked until a human noticed.
+          cur=$(api GET "${API}/contents/${LOCK_PATH}?ref=${LOCK_BRANCH}")
+          if [ "$(code_of "$cur")" = "200" ]; then
+            info=$(body_of "$cur" | python3 -c "
+        import base64, json, sys, time
+        d = json.load(sys.stdin)
+        meta = json.loads(base64.b64decode(d['content']).decode())
+        age = int(time.time()) - meta.get('acquired_at', 0)
+        print(d['sha'], age, meta.get('holder', '?'), meta.get('run_url', ''))
+        " 2>/dev/null || true)
+            if [ -n "$info" ]; then
+              blob_sha=$(echo "$info" | cut -d' ' -f1)
+              age=$(echo "$info" | cut -d' ' -f2)
+              holder=$(echo "$info" | cut -d' ' -f3)
+              run_url=$(echo "$info" | cut -d' ' -f4)
+
+              if [ "$age" -gt $((STALE_MINUTES * 60)) ]; then
+                echo "::warning::Lock '${LOCK_NAME}' held by ${holder} for $((age / 60))m, past the ${STALE_MINUTES}m stale threshold — reclaiming. If that run is still going, it was slower than stale-minutes allows and the two jobs will now overlap."
+                api DELETE "${API}/contents/${LOCK_PATH}" \
+                  "$(python3 -c "import json; print(json.dumps({'message':'ci-lock: reclaiming stale ${LOCK_NAME}','sha':'${blob_sha}','branch':'${LOCK_BRANCH}'}))")" >/dev/null
+                continue
+              fi
+              echo "Attempt ${attempt}: held by ${holder} for $((age / 60))m — ${run_url}"
+            fi
+          fi
+
+          if [ "$(date +%s)" -ge "$deadline" ]; then
+            if [ "$CONTINUE_ON_TIMEOUT" = "true" ]; then
+              echo "::warning::Timed out after ${TIMEOUT_MINUTES}m waiting for lock '${LOCK_NAME}'. Proceeding WITHOUT it — this job may contend with another Hive stack."
+              echo "acquired=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "::error::Timed out after ${TIMEOUT_MINUTES}m waiting for lock '${LOCK_NAME}'."
+            exit 1
+          fi
+
+          sleep "$POLL_SECONDS"
+        done

@@ -1,0 +1,108 @@
+name: CI Unlock
+description: >-
+  Releases a mutex taken by actions/ci-lock. Call it with `if: always()` as the
+  last step of the job, so a failing or cancelled job still frees the lock
+  instead of leaving the org's E2E queue blocked until the stale timeout.
+
+  Composite actions cannot register post-job steps, which is why this is a
+  separate action rather than part of ci-lock.
+
+  Deletes the lock only when this job still holds it. A lock reclaimed as stale
+  by someone else now belongs to them, and deleting it would hand a third job a
+  lock two jobs think they hold.
+
+inputs:
+  token:
+    description: Same token passed to ci-lock. Empty makes this a no-op.
+    required: false
+    default: ""
+  lock-repo:
+    description: Repository (owner/name) holding the lock files.
+    required: false
+    default: System-B90/.github
+  lock-branch:
+    description: Branch in lock-repo where lock files live.
+    required: false
+    default: ci-locks
+  lock-name:
+    description: Which mutex to release. Must match the ci-lock call.
+    required: false
+    default: hive-e2e
+  acquired:
+    description: >-
+      The `acquired` output from the matching ci-lock step. When "false" this
+      action does nothing — the job ran unserialised and holds nothing to free.
+    required: false
+    default: "true"
+
+runs:
+  using: composite
+  steps:
+    - name: Release CI lock
+      shell: bash
+      env:
+        LOCK_TOKEN: ${{ inputs.token }}
+        LOCK_REPO: ${{ inputs.lock-repo }}
+        LOCK_BRANCH: ${{ inputs.lock-branch }}
+        LOCK_NAME: ${{ inputs.lock-name }}
+        ACQUIRED: ${{ inputs.acquired }}
+      run: |
+        set -uo pipefail
+
+        if [ -z "$LOCK_TOKEN" ] || [ "$ACQUIRED" != "true" ]; then
+          echo "No lock held — nothing to release."
+          exit 0
+        fi
+
+        API="https://api.github.com/repos/${LOCK_REPO}"
+        LOCK_PATH=".ci-locks/${LOCK_NAME}.json"
+        HOLDER="${GITHUB_REPOSITORY}#${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+
+        resp=$(curl -sS "${API}/contents/${LOCK_PATH}?ref=${LOCK_BRANCH}" \
+          -H "Authorization: Bearer ${LOCK_TOKEN}" \
+          -H "Accept: application/vnd.github+json" -w '\n%{http_code}')
+        code=$(echo "$resp" | tail -n1)
+        body=$(echo "$resp" | sed '$d')
+
+        if [ "$code" = "404" ]; then
+          echo "Lock '${LOCK_NAME}' is already gone (reclaimed as stale, or released twice)."
+          exit 0
+        fi
+        if [ "$code" != "200" ]; then
+          echo "::warning::Could not read lock '${LOCK_NAME}' to release it (HTTP ${code}). It will be reclaimed on the stale timeout."
+          exit 0
+        fi
+
+        parsed=$(echo "$body" | python3 -c "
+        import base64, json, sys
+        d = json.load(sys.stdin)
+        meta = json.loads(base64.b64decode(d['content']).decode())
+        print(d['sha'], meta.get('holder', ''))
+        " 2>/dev/null || true)
+
+        blob_sha=$(echo "$parsed" | cut -d' ' -f1)
+        holder=$(echo "$parsed" | cut -d' ' -f2)
+
+        if [ -z "$blob_sha" ]; then
+          echo "::warning::Lock '${LOCK_NAME}' has unreadable contents — leaving it for the stale timeout."
+          exit 0
+        fi
+
+        if [ "$holder" != "$HOLDER" ]; then
+          echo "::warning::Lock '${LOCK_NAME}' is now held by '${holder}', not this job ('${HOLDER}') — it was reclaimed as stale while this job was still running. Not deleting it."
+          exit 0
+        fi
+
+        del=$(curl -sS -X DELETE "${API}/contents/${LOCK_PATH}" \
+          -H "Authorization: Bearer ${LOCK_TOKEN}" \
+          -H "Accept: application/vnd.github+json" \
+          -H "Content-Type: application/json" \
+          -d "$(python3 -c "import json; print(json.dumps({'message':'ci-lock: releasing ${LOCK_NAME}','sha':'${blob_sha}','branch':'${LOCK_BRANCH}'}))")" \
+          -w '\n%{http_code}')
+
+        if [ "$(echo "$del" | tail -n1)" = "200" ]; then
+          echo "Released lock '${LOCK_NAME}'."
+        else
+          echo "::warning::Failed to release lock '${LOCK_NAME}' (HTTP $(echo "$del" | tail -n1)). It will be reclaimed on the stale timeout."
+          echo "$del" | sed '$d'
+        fi

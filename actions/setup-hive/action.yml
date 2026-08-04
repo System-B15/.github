@@ -147,12 +147,43 @@ runs:
     # containers) running, which then fights the next run for ports 80/443 and
     # for the hive.org hostname. GitHub-hosted runners get a fresh VM every
     # time and need none of this.
+    # Nothing below this point can work without a daemon, and every step that
+    # follows reports its absence as a bare "exit code 1" from whichever docker
+    # command happened to run first. Observed repeatedly on 2026-08-04: runners
+    # mks-srvu-dind-WVQLk2fxB8NAX, -PPhz8vuujXFOf and -7wcZgHf9JO72J all came up
+    # with no reachable daemon, and three repos' jobs each died on an opaque
+    # error one second in. Name the cause once, here.
+    #
+    # Note this is NOT the disk exhaustion from System-B90/.github#12: the
+    # 12:44 hive-core run reported 105 GB free (76% used). The dind sidecar
+    # itself is failing to come up, which is a different fault with the same
+    # downstream symptoms.
+    - name: Verify Docker daemon is reachable
+      shell: bash
+      run: |
+        if docker info >/dev/null 2>&1; then
+          echo "Docker daemon is up."
+          exit 0
+        fi
+
+        echo "Disk on the runner (for triage — a full disk can stop dockerd starting):"
+        df -h / || true
+
+        echo "::error::No reachable Docker daemon on this runner (${RUNNER_NAME:-unknown}). Every later step in this job needs one, so it would otherwise fail with an opaque 'exit code 1' from an arbitrary docker command. This is a runner-host fault, not a fault in the calling repo — the dind sidecar did not come up. See System-B90/.github#12."
+        exit 1
+
     - name: Reclaim stale containers from previous runs (self-hosted)
       if: runner.environment != 'github-hosted'
       shell: bash
       env:
         HIVE_PATH: ${{ inputs.hive-path }}
       run: |
+        # Best-effort. Composite `run:` blocks execute under `bash -e -o
+        # pipefail`, where a bare `stale=$(docker ps ...)` takes the
+        # substitution's exit status and aborts the step — so a daemon that dies
+        # mid-run turned cleanup into a hard failure. Reclaiming is opportunistic
+        # by nature; it must never be the thing that fails a job.
+        set +e
         if [ -f "${HIVE_PATH}/docker-compose.yaml" ]; then
           echo "Tearing down a leftover Hive stack from a previous run..."
           docker compose -f "${HIVE_PATH}/docker-compose.yaml" down -v --remove-orphans || true
@@ -178,6 +209,7 @@ runs:
         # Volumes and networks orphaned by killed runs accumulate silently.
         docker volume prune -f || true
         docker network prune -f || true
+        exit 0
 
     # Two different jobs, depending on the runner.
     #

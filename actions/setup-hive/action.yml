@@ -155,6 +155,16 @@ runs:
             --format '  {{.Names}} ({{.Image}})'
           docker rm -f $stale || true
         fi
+        # Any surviving hive-* container — prometheus and tempo in particular,
+        # which publish no ports and so escape the filter above — keeps its
+        # bind-mounted data files open, which blocks removal of the workspace
+        # later. Clear them before anything tries to remove it.
+        leftovers=$(docker ps -aq --filter "name=^/hive-")
+        if [ -n "$leftovers" ]; then
+          echo "Removing leftover hive-* containers:"
+          docker ps -a --filter "name=^/hive-" --format '  {{.Names}} ({{.Status}})'
+          docker rm -f $leftovers || true
+        fi
         # Volumes and networks orphaned by killed runs accumulate silently.
         docker volume prune -f || true
         docker network prune -f || true
@@ -203,15 +213,31 @@ runs:
     # Actions "access" setting turned on (that setting only covers reusable
     # workflows/artifacts, not checkout). So this still needs a token with
     # cross-repo read; hive-token doubles as that token here.
+    # The self-hosted runner reuses its workspace, and a `hive/` left behind by
+    # an earlier sparse-checkout run keeps skip-worktree bits in its index. A
+    # fresh `checkout` then finds the index already matching HEAD and writes no
+    # files, leaving an empty tree that looks exactly like "the repo doesn't
+    # have hive-stack". Removing the directory makes each run start clean.
+    - name: Reset Hive stack workspace (registry mode)
+      if: inputs.image-source == 'registry'
+      shell: bash
+      # Hive's containers write into this tree as root (prometheus/tempo data),
+      # so an unprivileged rm can leave directories behind and fail the *next*
+      # run's checkout with "ENOTEMPTY ... hive/metrics/data/wal". The reclaim
+      # step above has already removed the containers holding them open.
+      run: rm -rf "${{ inputs.hive-path }}" 2>/dev/null || sudo rm -rf "${{ inputs.hive-path }}"
+
     - name: Checkout Hive stack config (registry mode)
       if: inputs.image-source == 'registry'
       uses: actions/checkout@v7
       with:
         repository: ${{ inputs.pyhive-repo }}
         path: ${{ inputs.hive-path }}
-        sparse-checkout: |
-          hive-stack
-        sparse-checkout-cone-mode: false
+        # No sparse-checkout. The non-cone `hive-stack` pattern resolved to an
+        # empty working tree on the self-hosted runner (git 2.43), so the
+        # flatten step below failed with "docker-compose.yaml not found" on
+        # every run even though the file was present at the checked-out sha.
+        # pyhive is ~1.2 MB — sparse was saving nothing worth this failure mode.
         token: ${{ inputs.hive-token || github.token }}
         persist-credentials: false
 
@@ -222,6 +248,12 @@ runs:
       run: |
         if [ ! -f hive-stack/docker-compose.yaml ]; then
           echo "::error::${{ inputs.pyhive-repo }}#hive-stack/docker-compose.yaml not found. Has 'Publish Hive Images' run there yet?"
+          # What actually landed, so the next failure is diagnosable from the
+          # log instead of needing another run to find out.
+          echo "pwd: $(pwd)"
+          ls -la . || true
+          ls -la hive-stack || true
+          git -C . log -1 --format='checked out %H' || true
           exit 1
         fi
         # Bash's * glob skips dotfiles (hive-stack/.env) by default, which
@@ -376,7 +408,20 @@ runs:
           name="${name%%:*}"
           remote="${REGISTRY_PREFIX}/${name}:${tag}"
           echo "Pulling ${remote} -> ${img}"
-          if ! docker pull "$remote"; then
+          # ghcr egress from the self-hosted box times out sporadically — a
+          # different image failed on each of two consecutive runs with
+          # "dial tcp ...:443: i/o timeout". One transient timeout should not
+          # cost a whole e2e run, so retry with a short backoff first.
+          pulled=""
+          for attempt in 1 2 3; do
+            if docker pull "$remote"; then
+              pulled=1
+              break
+            fi
+            echo "Pull attempt ${attempt}/3 for ${remote} failed; retrying in $((attempt * 10))s"
+            sleep $((attempt * 10))
+          done
+          if [ -z "$pulled" ]; then
             echo "::error::Failed to pull ${remote}. Check: pyhive-repo's 'Publish Hive Images' workflow has run for this Hive commit; this repo has read access to the packages (package settings → Manage Actions access) or registry-token is a PAT with read:packages; registry-prefix/registry-tag inputs are correct. Fall back to image-source: build if needed."
             exit 1
           fi
@@ -416,6 +461,23 @@ runs:
         HIVE_CORE_THREADS=2
         HIVE_NGINX_WORKERS=1
         EOF
+        # Postgres 18 refuses to start on a data directory it does not own:
+        #   FATAL: data directory "/var/lib/postgresql/18/docker" has wrong ownership
+        # HIVE_DATABASE_PATH is a bind mount, and Docker creates a missing bind
+        # source as root, so pre-create it and hand it to uid/gid 999 — the
+        # ids the image runs as. The workspace must be on a filesystem that
+        # actually records ownership; the guard makes a filesystem that does
+        # not (an NTFS mount, say) fail here rather than as an opaque
+        # restart-loop 10 minutes later.
+        db_path="$(grep -E '^HIVE_DATABASE_PATH=' .env | tail -1 | cut -d= -f2-)"
+        db_path="${db_path:-./db}"
+        mkdir -p "$db_path"
+        chown -R 999:999 "$db_path" 2>/dev/null || sudo chown -R 999:999 "$db_path"
+        if [ "$(stat -c '%u' "$db_path")" != "999" ]; then
+          echo "::error::${db_path} could not be chowned to 999 — this filesystem does not support ownership. Run the job where the workspace is on a real Linux filesystem."
+          exit 1
+        fi
+
         compose="docker compose -f docker-compose.yaml"
 
         if [ "$IMAGE_SOURCE" = "registry" ]; then
@@ -462,13 +524,32 @@ runs:
         else
           echo "Waiting for Postgres to report healthy (up to $((DB_WAIT_ATTEMPTS * 5))s)..."
           db_ok=""
+          stable=0
           for i in $(seq 1 "$DB_WAIT_ATTEMPTS"); do
             status=$(docker inspect --format '{{.State.Health.Status}}' "$db_cid" 2>/dev/null || echo unknown)
-            if [ "$status" = "healthy" ]; then
-              echo "Postgres healthy after $((i * 5))s."
-              db_ok=1
-              break
+            # The container healthcheck is a bare `pg_isready`, which talks to
+            # the local socket — and on a first boot the entrypoint runs initdb
+            # against a *temporary* socket-only server before shutting it down
+            # and starting the real one. That temp server answers the probe, so
+            # "healthy" here can be a database that is about to disappear: the
+            # wait passed at 10s, and 35s later compose's own depends_on
+            # re-check found it unhealthy and aborted the bring-up.
+            #
+            # `-h 127.0.0.1` forces TCP, which the temp server does not listen
+            # on, so only the real server can satisfy it. Requiring two
+            # consecutive passes also rides out the shutdown between them.
+            if [ "$status" = "healthy" ] && docker exec "$db_cid" pg_isready -h 127.0.0.1 -p 5432 >/dev/null 2>&1; then
+              stable=$((stable + 1))
+              if [ "$stable" -ge 2 ]; then
+                echo "Postgres healthy and accepting TCP after $((i * 5))s."
+                db_ok=1
+                break
+              fi
+              echo "Attempt $i/$DB_WAIT_ATTEMPTS — Postgres ready ($stable/2 consecutive), confirming..."
+              sleep 5
+              continue
             fi
+            stable=0
             if [ "$status" = "unhealthy" ]; then
               # Keep waiting: on a loaded host Postgres often reports unhealthy
               # for the first probes and then recovers. Only the loop's overall
@@ -489,7 +570,18 @@ runs:
 
         # Start the stack from (cached, pulled, or freshly built) images. The
         # DB volume is never cached, so migrations + seeding run every time.
-        $compose up -d
+        #
+        # `up` re-evaluates depends_on with its own fixed budget, which the wait
+        # above does not extend. Creating the remaining ~12 containers can take
+        # longer than that budget on a busy host, and compose then aborts with
+        # "dependency failed to start: container hive-postgres is unhealthy" —
+        # about a database that is healthy before and after. Retrying costs
+        # almost nothing, since the containers it already created survive.
+        if ! $compose up -d; then
+          echo "Stack bring-up failed; retrying once now that the containers exist."
+          docker ps -a --filter "name=^/hive-" --format '  {{.Names}} ({{.Status}})'
+          $compose up -d
+        fi
         $compose exec -T core python manage.py migrate
         $compose exec -T core python manage.py collectstatic --noinput
         $compose exec -T database sh /update.sh

@@ -9,8 +9,11 @@ installs the CLI from the org's public pip index instead.
 
 ```
 /plugin marketplace add System-B90/.github
-/plugin install bluz-cli@bluz-cli
+/plugin install bluz-cli@system-b90-marketplace
 ```
+
+(`system-b90-marketplace` is the marketplace name from the repo-root
+`.claude-plugin/marketplace.json` — not the plugin name.)
 
 On the next session start, the plugin checks whether `bluz` is on PATH and
 installs it from `https://system-b90.github.io/.github/pypi/`
@@ -34,5 +37,5 @@ and pushes. Same mechanism pyhive uses for `pyhivelms`.
 ## Uninstall
 
 ```
-/plugin uninstall bluz-cli@bluz-cli
+/plugin uninstall bluz-cli@system-b90-marketplace
 ```

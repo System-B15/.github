@@ -57,10 +57,12 @@ Local checkouts all live under `C:\Users\mkupe\Code\system-b90\<repo-name>`. Dir
 ## Claude Code plugins hosted here
 
 Plugins live under `plugins/<name>/` — each is a self-contained Claude Code
-plugin (`.claude-plugin/plugin.json` + `.claude-plugin/marketplace.json` +
-`skills/`, optionally `hooks/`). `.github` is the distribution point for any
-plugin whose source repo is private, so installing never requires cloning
-that private repo.
+plugin (`.claude-plugin/plugin.json` + `skills/`, optionally `hooks/`). The
+marketplace itself is a single root-level `.claude-plugin/marketplace.json`
+(name: `system-b90-marketplace`) listing every plugin by its `plugins/<name>`
+path — plugin directories do **not** carry their own marketplace file.
+`.github` is the distribution point for any plugin whose source repo is
+private, so installing never requires cloning that private repo.
 
 Currently hosted:
 
@@ -80,8 +82,8 @@ Install any hosted plugin:
 e.g. `/plugin install bluz-cli@system-b90-marketplace`.
 
 Adding a new plugin here: create `plugins/<name>/` following the `bluz-cli`
-layout, keep its `marketplace.json` `source` as `"./"` (self-referencing,
-consistent with `bluz-cli`'s), and add a row to the table above.
+layout, then add an entry to the root `.claude-plugin/marketplace.json` with
+`"source": "./plugins/<name>"` and a row to the table above.
 
 ## Git workflow
 
@@ -90,6 +92,7 @@ consistent with `bluz-cli`'s), and add a row to the table above.
 - **Commit message format: `Vibe-<PastTenseVerb> <description>`** — e.g. `Vibe-Implemented`, `Vibe-Fixed`, `Vibe-Refactored`, `Vibe-Removed`. No `feat:`/`fix:`/`chore:` prefixes anywhere in the org.
 - PR target branch: `master` for most repos; `dev` for bluz feature work specifically (bluz has a live `dev` branch that other repos don't).
 - **Never skip commit hooks** (no `-n` / `--no-verify`) — run the repo's auto-fixers first (see CI/CD rules below) so the Husky pre-commit hook passes cleanly instead of being bypassed.
+  - **Known conflict:** `bluz`'s own `CLAUDE.md` tells agents to auto-commit with `-n`. That contradicts this rule and this rule wins — flagged here rather than silently overridden. Fix belongs in `bluz/CLAUDE.md`.
 
 ## CI/CD rules
 

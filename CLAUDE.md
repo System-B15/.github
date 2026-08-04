@@ -90,7 +90,7 @@ layout, then add an entry to the root `.claude-plugin/marketplace.json` with
 - Never commit directly to `main`/`master` — always use a feature branch.
 - For parallel work, use git worktrees: `git worktree add ../repo-wt-<feature> -b <branch>`. Clean up worktrees after merging.
 - **Commit message format: `Vibe-<PastTenseVerb> <description>`** — e.g. `Vibe-Implemented`, `Vibe-Fixed`, `Vibe-Refactored`, `Vibe-Removed`. No `feat:`/`fix:`/`chore:` prefixes anywhere in the org.
-- PR target branch: `master` for most repos; `dev` for bluz feature work specifically (bluz has a live `dev` branch that other repos don't).
+- PR target branch: `master` everywhere. This previously said bluz targets a `dev` branch; bluz has no `dev` branch (verified 2026-08-03 — its long-lived branch is `master`), so that instruction sent PRs at a base that does not exist.
 - **Never skip commit hooks** (no `-n` / `--no-verify`) — run the repo's auto-fixers first (see CI/CD rules below) so the Husky pre-commit hook passes cleanly instead of being bypassed.
   - **Known conflict:** `bluz`'s own `CLAUDE.md` tells agents to auto-commit with `-n`. That contradicts this rule and this rule wins — flagged here rather than silently overridden. Fix belongs in `bluz/CLAUDE.md`.
 
@@ -172,6 +172,11 @@ Secret names are **not** uniform across repos — verify with `gh secret list` i
 - `CLASSIC_ACCESS_TOKEN` — used as an `ACCESS_TOKEN` fallback in some workflows (e.g. `bluz`, pyhive's `publish-hive-images.yml`); present in `bluz` where `ACCESS_TOKEN` is not.
 - `HIVE_REPO_TOKEN` — scoped for checking out/pushing to Hive-related repos; present in `bluz`, `pyhive`.
 - `GITHUB_TOKEN` — standard Actions token, auto-provided, limited to the current repo.
+- `CI_LOCK_TOKEN` — **does not exist yet.** Needed by `actions/ci-lock` to serialise
+  Hive-booting jobs across repos; must be a PAT with `contents:write` on `.github`,
+  available to every repo that boots Hive. `SYSTEM_B90_READ` is read-only and will not
+  work. Until it exists, `ci-lock`/`ci-unlock` warn and no-op, and E2E jobs across repos
+  stay unserialised.
 
 ## What NOT to do
 

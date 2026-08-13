@@ -33,9 +33,18 @@ inputs:
     required: false
     default: hive
   hive-hostname:
-    description: Hostname mapped to 127.0.0.1 that Hive's nginx serves.
+    description: Hostname that Hive's nginx serves, mapped to hive-host-ip.
     required: false
     default: hive.org
+  hive-host-ip:
+    description: >-
+      Loopback address Hive's nginx publishes on, and therefore what
+      hive-hostname must resolve to on the runner. Matches the bind address in
+      pyhive's hive-stack/docker-compose.yaml; Hive keeps its own alias so a
+      co-located consumer (Bluz on 127.0.0.3) does not collide with it on
+      :80/:443.
+    required: false
+    default: 127.0.0.6
   extra-hosts:
     description: >-
       Extra /etc/hosts lines for the consumer app, one per line,
@@ -413,6 +422,7 @@ runs:
       shell: bash
       env:
         HIVE_HOSTNAME: ${{ inputs.hive-hostname }}
+        HIVE_HOST_IP: ${{ inputs.hive-host-ip }}
         EXTRA_HOSTS: ${{ inputs.extra-hosts }}
       run: |
         add_host() {
@@ -424,7 +434,25 @@ runs:
             echo "$line" | sudo tee -a /etc/hosts
           fi
         }
-        add_host "127.0.0.1 ${HIVE_HOSTNAME}"
+        # Hive's bind address can change between runs (it moved to a loopback
+        # alias so a co-located Bluz can keep :80/:443 on 127.0.0.3). A
+        # self-hosted /etc/hosts survives the job, and the *first* matching
+        # line wins resolution — so a stale mapping silently sends every
+        # client to an address nothing listens on. Replace, don't append.
+        map_host() {
+          local ip="$1" host="$2"
+          if grep -qxF "$ip $host" /etc/hosts; then
+            echo "already mapped: $ip $host"
+            return 0
+          fi
+          if awk -v h="$host" '$2 == h { found = 1 } END { exit !found }' /etc/hosts; then
+            echo "remapping $host -> $ip (dropping stale entries)"
+            sudo cp /etc/hosts /tmp/hosts.setup-hive
+            awk -v h="$host" '$2 != h' /tmp/hosts.setup-hive | sudo tee /etc/hosts >/dev/null
+          fi
+          echo "$ip $host" | sudo tee -a /etc/hosts
+        }
+        map_host "${HIVE_HOST_IP}" "${HIVE_HOSTNAME}"
         if [ -n "$EXTRA_HOSTS" ]; then
           while IFS= read -r line; do
             add_host "$line"

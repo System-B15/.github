@@ -240,6 +240,34 @@ bluz gantt events materialize <id> --curriculum-id <c> --module-id <m> --day-id 
 ```
 `materialize` splits one occurrence into a standalone event *and* excepts the source from that day — use it when a single occurrence needs to differ; use `except-occurrence` when it should simply not happen.
 
+## Scheduling guardrails — meal breaks are fixed points
+
+Meal breaks are not ordinary events. Their times come from the `mealTimes`
+setting and the rest of the day is built around them, so moving one silently
+invalidates everything the humans already agreed on.
+
+**Never move, resize, delete, unmap or re-map a meal break unless the user asks
+for that break by name in the current request.** "Fit the schedule", "make room
+for X", "rebalance the day" and the like are *not* permission — reflow the other
+events around the break, and if the day genuinely cannot fit, say so and stop
+rather than reclaiming the break's minutes.
+
+How to recognise them:
+
+- Calendar events (`bluz events`): `type` is `"הפסקה"` (`EventType.BREAK`).
+- Gantt events (`bluz gantt events`): they live under the auto-seeded syllabus
+  titled `"הפסקות"`; the three seeded titles are `"ארוחת בוקר"` (breakfast),
+  `"הפסקת צהריים"` (lunch) and `"ארוחת ערב"` (dinner).
+- Their intended times live in `bluz settings get mealTimes`
+  (`breakfastTime` / `lunchTime` / `dinnerTime`, `"HH:mm"`).
+
+Lunch and dinner are the ones users care about most — they are long enough that
+a scheduler is tempted to raid them. Don't.
+
+To change a break time deliberately, change the setting (`bluz settings set
+mealTimes --value '{...}'`) rather than dragging the individual events, so every
+day stays consistent.
+
 ## Known server bugs (not CLI bugs — don't waste time debugging the CLI for these)
 
 None currently open. The two that used to live here — [#309](https://github.com/System-B90/Bluz/issues/309) (`weeks`/`days` list 500) and [#310](https://github.com/System-B90/Bluz/issues/310) (no parent id on gantt list/get) — are both fixed and closed. `weeks`/`days` now label by `number`/`dayIndex`, and parent ids are available via `bluz gantt <entity> list --with-parents`.

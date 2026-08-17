@@ -1,0 +1,21 @@
+[**TypeDoc API**](../../../../index.md)
+
+***
+
+[TypeDoc API](../../../../index.md) / [api-server/gantt/reload](../index.md) / ReloadOutcome
+
+# Type Alias: ReloadOutcome
+
+> **ReloadOutcome** = \{ `error`: [`ApiCurriculumReloadError`](../../../../api-shared/types/gantt/reload/type-aliases/ApiCurriculumReloadError.md); `ok`: `false`; \} \| \{ `ok`: `true`; `result`: [`ApiCurriculumReloadResponse`](../../../../api-shared/types/gantt/reload/type-aliases/ApiCurriculumReloadResponse.md); \}
+
+Defined in: [ui/src/api-server/gantt/reload.ts:43](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/gantt/reload.ts#L43)
+
+Schedule reload ("עדכון הלו״ז לפי הגאנט"): re-plans a curriculum that was
+already cut and reconciles the difference into the linked iteration's
+schedule — adding new occurrences, retiming changed ones and archiving ones
+the gantt dropped.
+
+Precedence: an event a human edited after the cut wins. Such events are
+reported as conflicts and skipped unless the caller passes their ids in
+`overrideEventIds`. "Edited by a human" comes from the event change log
+(`db-event-history`), never from guessing at field values.

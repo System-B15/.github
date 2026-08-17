@@ -1,0 +1,70 @@
+[**TypeDoc API**](../../../../index.md)
+
+***
+
+[TypeDoc API](../../../../index.md) / [api-server/gantt/db-base](../index.md) / ParentJunctionConfig
+
+# Type Alias: ParentJunctionConfig
+
+> **ParentJunctionConfig** = `object`
+
+Defined in: [ui/src/api-server/gantt/db-base.ts:114](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/gantt/db-base.ts#L114)
+
+## Properties
+
+### cardinality
+
+> **cardinality**: `"many"` \| `"one"`
+
+Defined in: [ui/src/api-server/gantt/db-base.ts:141](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/gantt/db-base.ts#L141)
+
+How many parents a child may have. Every junction table has a composite
+`(parent, child)` primary key, so the schema permits many everywhere;
+this records the *domain* rule the schema doesn't express.
+
+`"one"` — event→module, module→syllabus, day→week, week→curriculum.
+  Surfaced as a scalar id, or `null` when unlinked.
+`"many"` — syllabus→curriculum. A syllabus is deliberately shareable
+  across curricula (see `addSyllabusToCurriculum`), so collapsing it to
+  a scalar would pick an arbitrary parent. Surfaced as a sorted array.
+
+***
+
+### outputKey?
+
+> `optional` **outputKey?**: `string`
+
+Defined in: [ui/src/api-server/gantt/db-base.ts:129](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/gantt/db-base.ts#L129)
+
+Field name the parent is surfaced under on read. Defaults to
+`parentKey`; set it when the read shape differs, e.g. a `"many"`
+junction that wants a plural name for its array.
+
+***
+
+### parentKey
+
+> **parentKey**: `string`
+
+Defined in: [ui/src/api-server/gantt/db-base.ts:122](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/gantt/db-base.ts#L122)
+
+Column on the junction table holding the parent id. Doubles as the key
+`createNewItem` reads the parent out of the create payload, so it must
+keep matching the payload field — use `outputKey` to surface it under a
+different name.
+
+***
+
+### selfKey
+
+> **selfKey**: `string`
+
+Defined in: [ui/src/api-server/gantt/db-base.ts:123](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/gantt/db-base.ts#L123)
+
+***
+
+### table
+
+> **table**: `PgTableWithColumns`\<`any`\>
+
+Defined in: [ui/src/api-server/gantt/db-base.ts:115](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/gantt/db-base.ts#L115)

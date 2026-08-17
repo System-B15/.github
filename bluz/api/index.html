@@ -1,0 +1,1313 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Internal developer documentation for the Bluz scheduling & curriculum-management platform.">
+      
+      
+      
+        <link rel="canonical" href="https://system-b90.github.io/bluz/api/">
+      
+      
+        <link rel="prev" href="../duplication-audit/">
+      
+      
+        <link rel="next" href="../cli/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>API Reference - Bluz Developer Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#typedoc-api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Bluz Developer Documentation" class="md-header__button md-logo" aria-label="Bluz Developer Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bluz Developer Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/system-b90/bluz" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    system-b90/bluz
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Bluz Developer Documentation" class="md-nav__button md-logo" aria-label="Bluz Developer Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Bluz Developer Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/system-b90/bluz" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    system-b90/bluz
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../performance-and-scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance & Scaling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup-and-restore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backup & Restore
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-quality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Quality Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../duplication-audit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Duplication Audit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modules
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modules
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<p><strong>TypeDoc API</strong></p>
+<hr />
+<h1 id="typedoc-api">TypeDoc API<a class="headerlink" href="#typedoc-api" title="Permanent link">&para;</a></h1>
+<h2 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="api-client/calendar/">api-client/calendar</a></li>
+<li><a href="api-client/calendar-drafts/">api-client/calendar-drafts</a></li>
+<li><a href="api-client/calendar-snapshots/">api-client/calendar-snapshots</a></li>
+<li><a href="api-client/common/">api-client/common</a></li>
+<li><a href="api-client/courses/">api-client/courses</a></li>
+<li><a href="api-client/custom-colors/">api-client/custom-colors</a></li>
+<li><a href="api-client/gantt/">api-client/gantt</a></li>
+<li><a href="api-client/gantt/apply-template/">api-client/gantt/apply-template</a></li>
+<li><a href="api-client/gantt/base/">api-client/gantt/base</a></li>
+<li><a href="api-client/gantt/constraints/">api-client/gantt/constraints</a></li>
+<li><a href="api-client/gantt/curriculum/">api-client/gantt/curriculum</a></li>
+<li><a href="api-client/gantt/cut/">api-client/gantt/cut</a></li>
+<li><a href="api-client/gantt/day/">api-client/gantt/day</a></li>
+<li><a href="api-client/gantt/drizzle-normalize/">api-client/gantt/drizzle-normalize</a></li>
+<li><a href="api-client/gantt/execution/">api-client/gantt/execution</a></li>
+<li><a href="api-client/gantt/mappings/">api-client/gantt/mappings</a></li>
+<li><a href="api-client/gantt/module/">api-client/gantt/module</a></li>
+<li><a href="api-client/gantt/module-event/">api-client/gantt/module-event</a></li>
+<li><a href="api-client/gantt/recurrence-exceptions/">api-client/gantt/recurrence-exceptions</a></li>
+<li><a href="api-client/gantt/reorder/">api-client/gantt/reorder</a></li>
+<li><a href="api-client/gantt/syllabus/">api-client/gantt/syllabus</a></li>
+<li><a href="api-client/gantt/week/">api-client/gantt/week</a></li>
+<li><a href="api-client/google-calendar/">api-client/google-calendar</a></li>
+<li><a href="api-client/google-identity/">api-client/google-identity</a></li>
+<li><a href="api-client/hive/">api-client/hive</a></li>
+<li><a href="api-client/iteration-query/">api-client/iteration-query</a></li>
+<li><a href="api-client/iterations/">api-client/iterations</a></li>
+<li><a href="api-client/meal-settings/">api-client/meal-settings</a></li>
+<li><a href="api-client/outsiders/">api-client/outsiders</a></li>
+<li><a href="api-client/personal-settings/">api-client/personal-settings</a></li>
+<li><a href="api-client/prayer/">api-client/prayer</a></li>
+<li><a href="api-client/reservations/">api-client/reservations</a></li>
+<li><a href="api-client/rooms/">api-client/rooms</a></li>
+<li><a href="api-client/schedule-settings/">api-client/schedule-settings</a></li>
+<li><a href="api-client/settings/">api-client/settings</a></li>
+<li><a href="api-server/calendar-store-request/">api-server/calendar-store-request</a></li>
+<li><a href="api-server/common/">api-server/common</a></li>
+<li><a href="api-server/db-calendar-draft/">api-server/db-calendar-draft</a></li>
+<li><a href="api-server/db-calendar-snapshot/">api-server/db-calendar-snapshot</a></li>
+<li><a href="api-server/db-courses/">api-server/db-courses</a></li>
+<li><a href="api-server/db-custom-colors/">api-server/db-custom-colors</a></li>
+<li><a href="api-server/db-event/">api-server/db-event</a></li>
+<li><a href="api-server/db-event-history/">api-server/db-event-history</a></li>
+<li><a href="api-server/db-iterations/">api-server/db-iterations</a></li>
+<li><a href="api-server/db-outsiders/">api-server/db-outsiders</a></li>
+<li><a href="api-server/db-personal-settings/">api-server/db-personal-settings</a></li>
+<li><a href="api-server/db-reservations/">api-server/db-reservations</a></li>
+<li><a href="api-server/db-room-extended-info/">api-server/db-room-extended-info</a></li>
+<li><a href="api-server/db-rooms/">api-server/db-rooms</a></li>
+<li><a href="api-server/db-settings/">api-server/db-settings</a></li>
+<li><a href="api-server/drizzle-migrate/">api-server/drizzle-migrate</a></li>
+<li><a href="api-server/gantt/">api-server/gantt</a></li>
+<li><a href="api-server/gantt/cut/">api-server/gantt/cut</a></li>
+<li><a href="api-server/gantt/db-base/">api-server/gantt/db-base</a></li>
+<li><a href="api-server/gantt/db-constraints/">api-server/gantt/db-constraints</a></li>
+<li><a href="api-server/gantt/db-curriculum/">api-server/gantt/db-curriculum</a></li>
+<li><a href="api-server/gantt/db-day/">api-server/gantt/db-day</a></li>
+<li><a href="api-server/gantt/db-mappings/">api-server/gantt/db-mappings</a></li>
+<li><a href="api-server/gantt/db-module/">api-server/gantt/db-module</a></li>
+<li><a href="api-server/gantt/db-module-event/">api-server/gantt/db-module-event</a></li>
+<li><a href="api-server/gantt/db-recurrence-exceptions/">api-server/gantt/db-recurrence-exceptions</a></li>
+<li><a href="api-server/gantt/db-syllabus/">api-server/gantt/db-syllabus</a></li>
+<li><a href="api-server/gantt/db-week/">api-server/gantt/db-week</a></li>
+<li><a href="api-server/gantt/execution/">api-server/gantt/execution</a></li>
+<li><a href="api-server/gantt/reload/">api-server/gantt/reload</a></li>
+<li><a href="api-server/gantt/schema/">api-server/gantt/schema</a></li>
+<li><a href="api-server/gantt/schema/constraints/">api-server/gantt/schema/constraints</a></li>
+<li><a href="api-server/gantt/schema/curriculums/">api-server/gantt/schema/curriculums</a></li>
+<li><a href="api-server/gantt/schema/days/">api-server/gantt/schema/days</a></li>
+<li><a href="api-server/gantt/schema/enums/">api-server/gantt/schema/enums</a></li>
+<li><a href="api-server/gantt/schema/event-recurrence-exceptions/">api-server/gantt/schema/event-recurrence-exceptions</a></li>
+<li><a href="api-server/gantt/schema/events/">api-server/gantt/schema/events</a></li>
+<li><a href="api-server/gantt/schema/junctions/">api-server/gantt/schema/junctions</a></li>
+<li><a href="api-server/gantt/schema/mappings/">api-server/gantt/schema/mappings</a></li>
+<li><a href="api-server/gantt/schema/modules/">api-server/gantt/schema/modules</a></li>
+<li><a href="api-server/gantt/schema/syllabuses/">api-server/gantt/schema/syllabuses</a></li>
+<li><a href="api-server/gantt/schema/weeks/">api-server/gantt/schema/weeks</a></li>
+<li><a href="api-server/google/google-calendar-service/">api-server/google/google-calendar-service</a></li>
+<li><a href="api-server/google/google-calendar-sync/">api-server/google/google-calendar-sync</a></li>
+<li><a href="api-server/health/">api-server/health</a></li>
+<li><a href="api-server/hive/build-cache/">api-server/hive/build-cache</a></li>
+<li><a href="api-server/hive/client/">api-server/hive/client</a></li>
+<li><a href="api-server/hive/health/">api-server/hive/health</a></li>
+<li><a href="api-server/hive/lesson-activation/">api-server/hive/lesson-activation</a></li>
+<li><a href="api-server/hive/lesson-sync/">api-server/hive/lesson-sync</a></li>
+<li><a href="api-server/hive/service-client/">api-server/hive/service-client</a></li>
+<li><a href="api-server/hive/session-client/">api-server/hive/session-client</a></li>
+<li><a href="api-server/hive/sso/">api-server/hive/sso</a></li>
+<li><a href="api-server/hive/students/">api-server/hive/students</a></li>
+<li><a href="api-server/iteration-request/">api-server/iteration-request</a></li>
+<li><a href="api-server/mongo-db-controller/">api-server/mongo-db-controller</a></li>
+<li><a href="api-server/mongo-transactions/">api-server/mongo-transactions</a></li>
+<li><a href="api-server/prayer/">api-server/prayer</a></li>
+<li><a href="api-server/secret-box/">api-server/secret-box</a></li>
+<li><a href="api-server/session-user/">api-server/session-user</a></li>
+<li><a href="api-server/web-socket-utils/">api-server/web-socket-utils</a></li>
+<li><a href="api-shared/break-windows/">api-shared/break-windows</a></li>
+<li><a href="api-shared/calendar/">api-shared/calendar</a></li>
+<li><a href="api-shared/common/">api-shared/common</a></li>
+<li><a href="api-shared/date-fixer/">api-shared/date-fixer</a></li>
+<li><a href="api-shared/dayjs-setup/">api-shared/dayjs-setup</a></li>
+<li><a href="api-shared/errors/">api-shared/errors</a></li>
+<li><a href="api-shared/event-history/">api-shared/event-history</a></li>
+<li><a href="api-shared/gantt/allocate-time/">api-shared/gantt/allocate-time</a></li>
+<li><a href="api-shared/gantt/cut-planner/">api-shared/gantt/cut-planner</a></li>
+<li><a href="api-shared/gantt/execution/">api-shared/gantt/execution</a></li>
+<li><a href="api-shared/gantt/recurrence/">api-shared/gantt/recurrence</a></li>
+<li><a href="api-shared/gantt/reload-diff/">api-shared/gantt/reload-diff</a></li>
+<li><a href="api-shared/gantt/week-defaults/">api-shared/gantt/week-defaults</a></li>
+<li><a href="api-shared/hive-links/">api-shared/hive-links</a></li>
+<li><a href="api-shared/interval-layout/">api-shared/interval-layout</a></li>
+<li><a href="api-shared/types/">api-shared/types</a></li>
+<li><a href="api-shared/types/course/">api-shared/types/course</a></li>
+<li><a href="api-shared/types/custom-color/">api-shared/types/custom-color</a></li>
+<li><a href="api-shared/types/event/">api-shared/types/event</a></li>
+<li><a href="api-shared/types/event-history/">api-shared/types/event-history</a></li>
+<li><a href="api-shared/types/gantt/api-layer/">api-shared/types/gantt/api-layer</a></li>
+<li><a href="api-shared/types/gantt/create-payloads/">api-shared/types/gantt/create-payloads</a></li>
+<li><a href="api-shared/types/gantt/cut/">api-shared/types/gantt/cut</a></li>
+<li><a href="api-shared/types/gantt/execution/">api-shared/types/gantt/execution</a></li>
+<li><a href="api-shared/types/gantt/maker/">api-shared/types/gantt/maker</a></li>
+<li><a href="api-shared/types/gantt/models/">api-shared/types/gantt/models</a></li>
+<li><a href="api-shared/types/gantt/models/constraint/">api-shared/types/gantt/models/constraint</a></li>
+<li><a href="api-shared/types/gantt/models/curriculum/">api-shared/types/gantt/models/curriculum</a></li>
+<li><a href="api-shared/types/gantt/models/curriculum-day-module-mapping/">api-shared/types/gantt/models/curriculum-day-module-mapping</a></li>
+<li><a href="api-shared/types/gantt/models/day/">api-shared/types/gantt/models/day</a></li>
+<li><a href="api-shared/types/gantt/models/event/">api-shared/types/gantt/models/event</a></li>
+<li><a href="api-shared/types/gantt/models/module/">api-shared/types/gantt/models/module</a></li>
+<li><a href="api-shared/types/gantt/models/recurrence-exception/">api-shared/types/gantt/models/recurrence-exception</a></li>
+<li><a href="api-shared/types/gantt/models/shared/">api-shared/types/gantt/models/shared</a></li>
+<li><a href="api-shared/types/gantt/models/syllabus/">api-shared/types/gantt/models/syllabus</a></li>
+<li><a href="api-shared/types/gantt/models/week/">api-shared/types/gantt/models/week</a></li>
+<li><a href="api-shared/types/gantt/reload/">api-shared/types/gantt/reload</a></li>
+<li><a href="api-shared/types/gantt/templates/">api-shared/types/gantt/templates</a></li>
+<li><a href="api-shared/types/google-calendar/">api-shared/types/google-calendar</a></li>
+<li><a href="api-shared/types/hive/">api-shared/types/hive</a></li>
+<li><a href="api-shared/types/hive-activation/">api-shared/types/hive-activation</a></li>
+<li><a href="api-shared/types/iteration/">api-shared/types/iteration</a></li>
+<li><a href="api-shared/types/module/">api-shared/types/module</a></li>
+<li><a href="api-shared/types/outsider/">api-shared/types/outsider</a></li>
+<li><a href="api-shared/types/personal-settings/">api-shared/types/personal-settings</a></li>
+<li><a href="api-shared/types/reservation/">api-shared/types/reservation</a></li>
+<li><a href="api-shared/types/room/">api-shared/types/room</a></li>
+<li><a href="api-shared/types/settings/meal/">api-shared/types/settings/meal</a></li>
+<li><a href="api-shared/types/settings/prayer/">api-shared/types/settings/prayer</a></li>
+<li><a href="api-shared/types/settings/schedule/">api-shared/types/settings/schedule</a></li>
+<li><a href="api-shared/types/settings/settings/">api-shared/types/settings/settings</a></li>
+<li><a href="api-shared/types/sso/">api-shared/types/sso</a></li>
+<li><a href="api-shared/types/subject/">api-shared/types/subject</a></li>
+<li><a href="app/%28themed%29/%28post-auth%29/%28with-hive%29/%28schedule%29/-layout/">app/(themed)/(post-auth)/(with-hive)/(schedule)/-layout</a></li>
+<li><a href="app/%28themed%29/%28post-auth%29/%28with-hive%29/%28schedule%29/page/">app/(themed)/(post-auth)/(with-hive)/(schedule)/page</a></li>
+<li><a href="app/%28themed%29/%28post-auth%29/%28with-hive%29/gantt/layout/">app/(themed)/(post-auth)/(with-hive)/gantt/layout</a></li>
+<li><a href="app/%28themed%29/%28post-auth%29/%28with-hive%29/gantt/page/">app/(themed)/(post-auth)/(with-hive)/gantt/page</a></li>
+<li><a href="app/%28themed%29/%28post-auth%29/%28with-hive%29/layout/">app/(themed)/(post-auth)/(with-hive)/layout</a></li>
+<li><a href="app/%28themed%29/%28post-auth%29/cli-auth/cli-auth-widget/">app/(themed)/(post-auth)/cli-auth/cli-auth-widget</a></li>
+<li><a href="app/%28themed%29/%28post-auth%29/cli-auth/page/">app/(themed)/(post-auth)/cli-auth/page</a></li>
+<li><a href="app/%28themed%29/%28post-auth%29/error/">app/(themed)/(post-auth)/error</a></li>
+<li><a href="app/%28themed%29/%28post-auth%29/layout/">app/(themed)/(post-auth)/layout</a></li>
+<li><a href="app/%28themed%29/%28pre-auth%29/layout/">app/(themed)/(pre-auth)/layout</a></li>
+<li><a href="app/%28themed%29/%28pre-auth%29/login/login-with-hive-button/">app/(themed)/(pre-auth)/login/login-with-hive-button</a></li>
+<li><a href="app/%28themed%29/%28pre-auth%29/login/page/">app/(themed)/(pre-auth)/login/page</a></li>
+<li><a href="app/%28themed%29/layout/">app/(themed)/layout</a></li>
+<li><a href="app/api/auth/%5B...nextauth%5D/route/">app/api/auth/[...nextauth]/route</a></li>
+<li><a href="app/api/auth/hive-status/route/">app/api/auth/hive-status/route</a></li>
+<li><a href="app/api/calendar/drafts/route/">app/api/calendar/drafts/route</a></li>
+<li><a href="app/api/calendar/snapshots/restore/route/">app/api/calendar/snapshots/restore/route</a></li>
+<li><a href="app/api/calendar/snapshots/route/">app/api/calendar/snapshots/route</a></li>
+<li><a href="app/api/course/route/">app/api/course/route</a></li>
+<li><a href="app/api/custom-colors/route/">app/api/custom-colors/route</a></li>
+<li><a href="app/api/event/compare/route/">app/api/event/compare/route</a></li>
+<li><a href="app/api/event/export/ics/calendar/">app/api/event/export/ics/calendar</a></li>
+<li><a href="app/api/event/export/ics/route/">app/api/event/export/ics/route</a></li>
+<li><a href="app/api/event/history/route/">app/api/event/history/route</a></li>
+<li><a href="app/api/event/route/">app/api/event/route</a></li>
+<li><a href="app/api/gantt/base-allocate-time/">app/api/gantt/base-allocate-time</a></li>
+<li><a href="app/api/gantt/base-collection/">app/api/gantt/base-collection</a></li>
+<li><a href="app/api/gantt/base-item/">app/api/gantt/base-item</a></li>
+<li><a href="app/api/gantt/base-link/">app/api/gantt/base-link</a></li>
+<li><a href="app/api/gantt/curriculums/%5Bid%5D/constraints/route/">app/api/gantt/curriculums/[id]/constraints/route</a></li>
+<li><a href="app/api/gantt/curriculums/%5Bid%5D/cut/preview/route/">app/api/gantt/curriculums/[id]/cut/preview/route</a></li>
+<li><a href="app/api/gantt/curriculums/%5Bid%5D/cut/route/">app/api/gantt/curriculums/[id]/cut/route</a></li>
+<li><a href="app/api/gantt/curriculums/%5Bid%5D/duplicate/route/">app/api/gantt/curriculums/[id]/duplicate/route</a></li>
+<li><a href="app/api/gantt/curriculums/%5Bid%5D/execution/route/">app/api/gantt/curriculums/[id]/execution/route</a></li>
+<li><a href="app/api/gantt/curriculums/%5Bid%5D/export/excel/route/">app/api/gantt/curriculums/[id]/export/excel/route</a></li>
+<li><a href="app/api/gantt/curriculums/%5Bid%5D/export/excel/workbook/">app/api/gantt/curriculums/[id]/export/excel/workbook</a></li>
+<li><a href="app/api/gantt/curriculums/%5Bid%5D/export/route/">app/api/gantt/curriculums/[id]/export/route</a></li>
+<li><a href="app/api/gantt/curriculums/%5Bid%5D/mappings/route/">app/api/gantt/curriculums/[id]/mappings/route</a></li>
+<li><a href="app/api/gantt/curriculums/%5Bid%5D/recurrence-exceptions/route/">app/api/gantt/curriculums/[id]/recurrence-exceptions/route</a></li>
+<li><a href="app/api/gantt/curriculums/%5Bid%5D/route/">app/api/gantt/curriculums/[id]/route</a></li>
+<li><a href="app/api/gantt/curriculums/import/route/">app/api/gantt/curriculums/import/route</a></li>
+<li><a href="app/api/gantt/curriculums/route/">app/api/gantt/curriculums/route</a></li>
+<li><a href="app/api/gantt/days/%5Bid%5D/route/">app/api/gantt/days/[id]/route</a></li>
+<li><a href="app/api/gantt/days/route/">app/api/gantt/days/route</a></li>
+<li><a href="app/api/gantt/events/%5Bid%5D/allocate-time/route/">app/api/gantt/events/[id]/allocate-time/route</a></li>
+<li><a href="app/api/gantt/events/%5Bid%5D/duplicate/route/">app/api/gantt/events/[id]/duplicate/route</a></li>
+<li><a href="app/api/gantt/events/%5Bid%5D/duplicate/title-utils/">app/api/gantt/events/[id]/duplicate/title-utils</a></li>
+<li><a href="app/api/gantt/events/%5Bid%5D/link/route/">app/api/gantt/events/[id]/link/route</a></li>
+<li><a href="app/api/gantt/events/%5Bid%5D/materialize/route/">app/api/gantt/events/[id]/materialize/route</a></li>
+<li><a href="app/api/gantt/events/%5Bid%5D/recurrence-exceptions/route/">app/api/gantt/events/[id]/recurrence-exceptions/route</a></li>
+<li><a href="app/api/gantt/events/%5Bid%5D/route/">app/api/gantt/events/[id]/route</a></li>
+<li><a href="app/api/gantt/events/route/">app/api/gantt/events/route</a></li>
+<li><a href="app/api/gantt/modules/%5Bid%5D/allocate-time/route/">app/api/gantt/modules/[id]/allocate-time/route</a></li>
+<li><a href="app/api/gantt/modules/%5Bid%5D/link/route/">app/api/gantt/modules/[id]/link/route</a></li>
+<li><a href="app/api/gantt/modules/%5Bid%5D/reorder-events/route/">app/api/gantt/modules/[id]/reorder-events/route</a></li>
+<li><a href="app/api/gantt/modules/%5Bid%5D/route/">app/api/gantt/modules/[id]/route</a></li>
+<li><a href="app/api/gantt/modules/route/">app/api/gantt/modules/route</a></li>
+<li><a href="app/api/gantt/syllabuses/%5Bid%5D/link/route/">app/api/gantt/syllabuses/[id]/link/route</a></li>
+<li><a href="app/api/gantt/syllabuses/%5Bid%5D/reorder-modules/route/">app/api/gantt/syllabuses/[id]/reorder-modules/route</a></li>
+<li><a href="app/api/gantt/syllabuses/%5Bid%5D/route/">app/api/gantt/syllabuses/[id]/route</a></li>
+<li><a href="app/api/gantt/syllabuses/route/">app/api/gantt/syllabuses/route</a></li>
+<li><a href="app/api/gantt/weeks/%5Bid%5D/route/">app/api/gantt/weeks/[id]/route</a></li>
+<li><a href="app/api/gantt/weeks/route/">app/api/gantt/weeks/route</a></li>
+<li><a href="app/api/health/route/">app/api/health/route</a></li>
+<li><a href="app/api/hive/classes/route/">app/api/hive/classes/route</a></li>
+<li><a href="app/api/hive/lesson-activation/route/">app/api/hive/lesson-activation/route</a></li>
+<li><a href="app/api/hive/lessons/route/">app/api/hive/lessons/route</a></li>
+<li><a href="app/api/hive/modules/route/">app/api/hive/modules/route</a></li>
+<li><a href="app/api/hive/queues/route/">app/api/hive/queues/route</a></li>
+<li><a href="app/api/hive/rooms/route/">app/api/hive/rooms/route</a></li>
+<li><a href="app/api/hive/students/route/">app/api/hive/students/route</a></li>
+<li><a href="app/api/hive/subjects/route/">app/api/hive/subjects/route</a></li>
+<li><a href="app/api/hive/users/avatars/%5Bslug%5D/route/">app/api/hive/users/avatars/[slug]/route</a></li>
+<li><a href="app/api/hive/users/route/">app/api/hive/users/route</a></li>
+<li><a href="app/api/integrations/google-calendar/connect/route/">app/api/integrations/google-calendar/connect/route</a></li>
+<li><a href="app/api/integrations/google-calendar/disconnect/route/">app/api/integrations/google-calendar/disconnect/route</a></li>
+<li><a href="app/api/integrations/google-calendar/status/route/">app/api/integrations/google-calendar/status/route</a></li>
+<li><a href="app/api/integrations/google-calendar/sync/route/">app/api/integrations/google-calendar/sync/route</a></li>
+<li><a href="app/api/iterations/%5Bid%5D/route/">app/api/iterations/[id]/route</a></li>
+<li><a href="app/api/iterations/%5Bid%5D/sync-hive/route/">app/api/iterations/[id]/sync-hive/route</a></li>
+<li><a href="app/api/iterations/current/route/">app/api/iterations/current/route</a></li>
+<li><a href="app/api/iterations/route/">app/api/iterations/route</a></li>
+<li><a href="app/api/outsiders/route/">app/api/outsiders/route</a></li>
+<li><a href="app/api/personal-settings/route/">app/api/personal-settings/route</a></li>
+<li><a href="app/api/reservations/route/">app/api/reservations/route</a></li>
+<li><a href="app/api/rooms/route/">app/api/rooms/route</a></li>
+<li><a href="app/api/rooms/utils/">app/api/rooms/utils</a></li>
+<li><a href="app/api/settings/%5Bslug%5D/route/">app/api/settings/[slug]/route</a></li>
+<li><a href="app/api/ws-ticket/route/">app/api/ws-ticket/route</a></li>
+<li><a href="app/global-error/">app/global-error</a></li>
+<li><a href="app/layout/">app/layout</a></li>
+<li><a href="app/manifest/">app/manifest</a></li>
+<li><a href="app/not-found/">app/not-found</a></li>
+<li><a href="components/app-commands/BluzCommandPalette/">components/app-commands/BluzCommandPalette</a></li>
+<li><a href="components/app-commands/GanttContentCommands/">components/app-commands/GanttContentCommands</a></li>
+<li><a href="components/app-commands/labels/">components/app-commands/labels</a></li>
+<li><a href="components/app-commands/use-appearance-commands/">components/app-commands/use-appearance-commands</a></li>
+<li><a href="components/app-commands/use-curriculum-commands/">components/app-commands/use-curriculum-commands</a></li>
+<li><a href="components/app-commands/use-directory-commands/">components/app-commands/use-directory-commands</a></li>
+<li><a href="components/app-commands/use-navigation-commands/">components/app-commands/use-navigation-commands</a></li>
+<li><a href="components/app-commands/use-schedule-commands/">components/app-commands/use-schedule-commands</a></li>
+<li><a href="components/app-commands/use-settings-commands/">components/app-commands/use-settings-commands</a></li>
+<li><a href="components/auth/AuthProvider/">components/auth/AuthProvider</a></li>
+<li><a href="components/base/CalendarFilterProvider/">components/base/CalendarFilterProvider</a></li>
+<li><a href="components/base/collapse-course-selection/">components/base/collapse-course-selection</a></li>
+<li><a href="components/base/collection/create-collection-provider/">components/base/collection/create-collection-provider</a></li>
+<li><a href="components/base/CoursesProvider/">components/base/CoursesProvider</a></li>
+<li><a href="components/base/CustomColorsProvider/">components/base/CustomColorsProvider</a></li>
+<li><a href="components/base/EmptyState/">components/base/EmptyState</a></li>
+<li><a href="components/base/EntitySelect/">components/base/EntitySelect</a></li>
+<li><a href="components/base/HiveLessonSelect/">components/base/HiveLessonSelect</a></li>
+<li><a href="components/base/HiveLessonsProvider/">components/base/HiveLessonsProvider</a></li>
+<li><a href="components/base/HiveLogo/">components/base/HiveLogo</a></li>
+<li><a href="components/base/HiveModuleSelect/">components/base/HiveModuleSelect</a></li>
+<li><a href="components/base/HiveModulesProvider/">components/base/HiveModulesProvider</a></li>
+<li><a href="components/base/HiveSubjectSelect/">components/base/HiveSubjectSelect</a></li>
+<li><a href="components/base/HiveSubjectsProvider/">components/base/HiveSubjectsProvider</a></li>
+<li><a href="components/base/HiveUsersProvider/">components/base/HiveUsersProvider</a></li>
+<li><a href="components/base/ImportExportMenuButton/">components/base/ImportExportMenuButton</a></li>
+<li><a href="components/base/InstructorSelect/">components/base/InstructorSelect</a></li>
+<li><a href="components/base/IterationProvider/">components/base/IterationProvider</a></li>
+<li><a href="components/base/NumberSpinner/">components/base/NumberSpinner</a></li>
+<li><a href="components/base/OfflineProvider/">components/base/OfflineProvider</a></li>
+<li><a href="components/base/OutsidersProvider/">components/base/OutsidersProvider</a></li>
+<li><a href="components/base/RoomsProvider/">components/base/RoomsProvider</a></li>
+<li><a href="components/base/SettingsProvider/">components/base/SettingsProvider</a></li>
+<li><a href="components/base/use-grouped-instructors/">components/base/use-grouped-instructors</a></li>
+<li><a href="components/base/utils/phone-numbers/">components/base/utils/phone-numbers</a></li>
+<li><a href="components/CalendarMessages/">components/CalendarMessages</a></li>
+<li><a href="components/errors/ErrorBoundary/">components/errors/ErrorBoundary</a></li>
+<li><a href="components/errors/ErrorSurface/">components/errors/ErrorSurface</a></li>
+<li><a href="components/gantt/curriculum-fab/">components/gantt/curriculum-fab</a></li>
+<li><a href="components/gantt/curriculum-fab/action-items/ActionItemButton/">components/gantt/curriculum-fab/action-items/ActionItemButton</a></li>
+<li><a href="components/gantt/curriculum-fab/action-items/ActionItemProps/">components/gantt/curriculum-fab/action-items/ActionItemProps</a></li>
+<li><a href="components/gantt/curriculum-fab/action-items/CreateCurriculumHoverMenu/">components/gantt/curriculum-fab/action-items/CreateCurriculumHoverMenu</a></li>
+<li><a href="components/gantt/curriculum-fab/action-items/CreateDraftAction/">components/gantt/curriculum-fab/action-items/CreateDraftAction</a></li>
+<li><a href="components/gantt/curriculum-fab/action-items/CreateFromTemplateAction/">components/gantt/curriculum-fab/action-items/CreateFromTemplateAction</a></li>
+<li><a href="components/gantt/curriculum-fab/action-items/CutToScheduleAction/">components/gantt/curriculum-fab/action-items/CutToScheduleAction</a></li>
+<li><a href="components/gantt/curriculum-fab/action-items/DeleteCurriculumAction/">components/gantt/curriculum-fab/action-items/DeleteCurriculumAction</a></li>
+<li><a href="components/gantt/curriculum-fab/action-items/DuplicateCurriculumAction/">components/gantt/curriculum-fab/action-items/DuplicateCurriculumAction</a></li>
+<li><a href="components/gantt/curriculum-fab/action-items/ToggleArchiveAction/">components/gantt/curriculum-fab/action-items/ToggleArchiveAction</a></li>
+<li><a href="components/gantt/curriculum-fab/action-items/ToggleDraftAction/">components/gantt/curriculum-fab/action-items/ToggleDraftAction</a></li>
+<li><a href="components/gantt/curriculum-fab/action-items/use-async-action/">components/gantt/curriculum-fab/action-items/use-async-action</a></li>
+<li><a href="components/gantt/curriculum-fab/curriculum-sync-context/">components/gantt/curriculum-fab/curriculum-sync-context</a></li>
+<li><a href="components/gantt/curriculum-fab/CurriculumActionItems/">components/gantt/curriculum-fab/CurriculumActionItems</a></li>
+<li><a href="components/gantt/curriculum-fab/CurriculumEntry/">components/gantt/curriculum-fab/CurriculumEntry</a></li>
+<li><a href="components/gantt/curriculum-fab/CurriculumListItems/">components/gantt/curriculum-fab/CurriculumListItems</a></li>
+<li><a href="components/gantt/curriculum-fab/utils/">components/gantt/curriculum-fab/utils</a></li>
+<li><a href="components/gantt/curriculum-view/">components/gantt/curriculum-view</a></li>
+<li><a href="components/gantt/curriculum-view/components/curriculum-about-card/">components/gantt/curriculum-view/components/curriculum-about-card</a></li>
+<li><a href="components/gantt/curriculum-view/components/curriculum-about-card/CurriculumDescription/">components/gantt/curriculum-view/components/curriculum-about-card/CurriculumDescription</a></li>
+<li><a href="components/gantt/curriculum-view/components/curriculum-about-card/CurriculumName/">components/gantt/curriculum-view/components/curriculum-about-card/CurriculumName</a></li>
+<li><a href="components/gantt/curriculum-view/components/curriculum-about-card/CurriculumStatusActions/">components/gantt/curriculum-view/components/curriculum-about-card/CurriculumStatusActions</a></li>
+<li><a href="components/gantt/curriculum-view/components/curriculum-about-card/EditableCurriculumField/">components/gantt/curriculum-view/components/curriculum-about-card/EditableCurriculumField</a></li>
+<li><a href="components/gantt/curriculum-view/components/curriculum-about-card/IterationLinkField/">components/gantt/curriculum-view/components/curriculum-about-card/IterationLinkField</a></li>
+<li><a href="components/gantt/curriculum-view/components/HoursCard/">components/gantt/curriculum-view/components/HoursCard</a></li>
+<li><a href="components/gantt/curriculum-view/components/sidebars/">components/gantt/curriculum-view/components/sidebars</a></li>
+<li><a href="components/gantt/curriculum-view/components/sidebars/about-time/">components/gantt/curriculum-view/components/sidebars/about-time</a></li>
+<li><a href="components/gantt/curriculum-view/components/syllabuses-actions-box/">components/gantt/curriculum-view/components/syllabuses-actions-box</a></li>
+<li><a href="components/gantt/curriculum-view/components/syllabuses-actions-box/CreateSyllabusButton/">components/gantt/curriculum-view/components/syllabuses-actions-box/CreateSyllabusButton</a></li>
+<li><a href="components/gantt/curriculum-view/components/syllabuses-actions-box/SyllabusSelectionField/">components/gantt/curriculum-view/components/syllabuses-actions-box/SyllabusSelectionField</a></li>
+<li><a href="components/gantt/curriculum-view/components/WorkTimePanel/">components/gantt/curriculum-view/components/WorkTimePanel</a></li>
+<li><a href="components/gantt/curriculum-view/components/WorkTimePanel/DaysTable/">components/gantt/curriculum-view/components/WorkTimePanel/DaysTable</a></li>
+<li><a href="components/gantt/curriculum-view/components/WorkTimePanel/defaults/">components/gantt/curriculum-view/components/WorkTimePanel/defaults</a></li>
+<li><a href="components/gantt/curriculum-view/components/WorkTimePanel/OverviewTab/">components/gantt/curriculum-view/components/WorkTimePanel/OverviewTab</a></li>
+<li><a href="components/gantt/curriculum-view/components/WorkTimePanel/types/">components/gantt/curriculum-view/components/WorkTimePanel/types</a></li>
+<li><a href="components/gantt/curriculum-view/components/WorkTimePanel/UseWorkTimePanelLogic/">components/gantt/curriculum-view/components/WorkTimePanel/UseWorkTimePanelLogic</a></li>
+<li><a href="components/gantt/curriculum-view/components/WorkTimePanel/utils/">components/gantt/curriculum-view/components/WorkTimePanel/utils</a></li>
+<li><a href="components/gantt/curriculum-view/components/WorkTimePanel/WeekAccordion/">components/gantt/curriculum-view/components/WorkTimePanel/WeekAccordion</a></li>
+<li><a href="components/gantt/curriculum-view/gantt-time-utils/">components/gantt/curriculum-view/gantt-time-utils</a></li>
+<li><a href="components/gantt/curriculum-view/search/fuzzy/">components/gantt/curriculum-view/search/fuzzy</a></li>
+<li><a href="components/gantt/curriculum-view/search/GanttSearchField/">components/gantt/curriculum-view/search/GanttSearchField</a></li>
+<li><a href="components/gantt/curriculum-view/search/GanttSearchNavProvider/">components/gantt/curriculum-view/search/GanttSearchNavProvider</a></li>
+<li><a href="components/gantt/curriculum-view/search/use-gantt-search-items/">components/gantt/curriculum-view/search/use-gantt-search-items</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/">components/gantt/curriculum-view/tabs</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/builder-tab/components/dnd-types/">components/gantt/curriculum-view/tabs/builder-tab/components/dnd-types</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/builder-tab/components/syllabus-modules/ModuleItem/">components/gantt/curriculum-view/tabs/builder-tab/components/syllabus-modules/ModuleItem</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/builder-tab/components/syllabus-modules/SyllabusSection/">components/gantt/curriculum-view/tabs/builder-tab/components/syllabus-modules/SyllabusSection</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/builder-tab/components/utils/">components/gantt/curriculum-view/tabs/builder-tab/components/utils</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/cut-preview-tab/">components/gantt/curriculum-view/tabs/cut-preview-tab</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/cut-preview-tab/PreviewShell/">components/gantt/curriculum-view/tabs/cut-preview-tab/PreviewShell</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/cut-preview-tab/UseCutPreview/">components/gantt/curriculum-view/tabs/cut-preview-tab/UseCutPreview</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/">components/gantt/curriculum-view/tabs/gantt-view-tab</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/CurriculumGanttViewInner/">components/gantt/curriculum-view/tabs/gantt-view-tab/CurriculumGanttViewInner</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/ConstraintLines/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/ConstraintLines</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/context/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/context</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/flash/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/flash</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttBlock/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttBlock</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttCell/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttCell</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttEventCells/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttEventCells</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttEventLabelCell/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttEventLabelCell</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttEventRow/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttEventRow</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttHeader/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttHeader</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttModuleRow/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttModuleRow</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttSyllabusGroup/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttSyllabusGroup</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttToolbar/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttToolbar</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttUnallocatedPanel/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttUnallocatedPanel</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttView/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttView</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/types/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/types</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-drag/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-drag</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-expansion/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-expansion</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-mappings-merge/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-mappings-merge</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-reveal/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-reveal</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-scheduling/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-scheduling</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-search/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-search</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-unallocated/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-unallocated</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-undo/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-undo</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-violations/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-violations</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-zoom/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-zoom</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/UseGanttView/">components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/UseGanttView</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/syllabuses-tab/">components/gantt/curriculum-view/tabs/syllabuses-tab</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/timeframe-events-tab/">components/gantt/curriculum-view/tabs/timeframe-events-tab</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/UseProgressiveItemCount/">components/gantt/curriculum-view/tabs/UseProgressiveItemCount</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/weeks-tab/">components/gantt/curriculum-view/tabs/weeks-tab</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/weeks-tab/ApplyTemplateButton/">components/gantt/curriculum-view/tabs/weeks-tab/ApplyTemplateButton</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/weeks-tab/ClosingSaturdayChip/">components/gantt/curriculum-view/tabs/weeks-tab/ClosingSaturdayChip</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/weeks-tab/CourseStartDateControl/">components/gantt/curriculum-view/tabs/weeks-tab/CourseStartDateControl</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell/">components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/weeks-tab/DayEntry/">components/gantt/curriculum-view/tabs/weeks-tab/DayEntry</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/weeks-tab/WeekLengthMenu/">components/gantt/curriculum-view/tabs/weeks-tab/WeekLengthMenu</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/weeks-tab/WeekPanel/">components/gantt/curriculum-view/tabs/weeks-tab/WeekPanel</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/weeks-tab/WeeksCapacityGrid/">components/gantt/curriculum-view/tabs/weeks-tab/WeeksCapacityGrid</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/weeks-tab/WeeksSummaryBar/">components/gantt/curriculum-view/tabs/weeks-tab/WeeksSummaryBar</a></li>
+<li><a href="components/gantt/cut-dialog/">components/gantt/cut-dialog</a></li>
+<li><a href="components/gantt/cut-dialog/PullBackScheduleDialog/">components/gantt/cut-dialog/PullBackScheduleDialog</a></li>
+<li><a href="components/gantt/cut-dialog/ReloadScheduleDialog/">components/gantt/cut-dialog/ReloadScheduleDialog</a></li>
+<li><a href="components/gantt/event-dialog/">components/gantt/event-dialog</a></li>
+<li><a href="components/gantt/event-dialog/CollapsibleSection/">components/gantt/event-dialog/CollapsibleSection</a></li>
+<li><a href="components/gantt/event-dialog/constraints/EventConstraintsView/">components/gantt/event-dialog/constraints/EventConstraintsView</a></li>
+<li><a href="components/gantt/event-dialog/constraints/virtual-constraints/">components/gantt/event-dialog/constraints/virtual-constraints</a></li>
+<li><a href="components/gantt/event-dialog/DetailsForm/">components/gantt/event-dialog/DetailsForm</a></li>
+<li><a href="components/gantt/event-dialog/DialogContent/">components/gantt/event-dialog/DialogContent</a></li>
+<li><a href="components/gantt/event-dialog/DialogHeader/">components/gantt/event-dialog/DialogHeader</a></li>
+<li><a href="components/gantt/event-dialog/EventHiveLinkageFields/">components/gantt/event-dialog/EventHiveLinkageFields</a></li>
+<li><a href="components/gantt/event-dialog/EventMappingField/">components/gantt/event-dialog/EventMappingField</a></li>
+<li><a href="components/gantt/event-dialog/EventOrchestratorField/">components/gantt/event-dialog/EventOrchestratorField</a></li>
+<li><a href="components/gantt/event-dialog/EventRecurrenceField/">components/gantt/event-dialog/EventRecurrenceField</a></li>
+<li><a href="components/gantt/event-dialog/EventRoomRequirementsField/">components/gantt/event-dialog/EventRoomRequirementsField</a></li>
+<li><a href="components/gantt/event-dialog/ExecutionComparisonSection/">components/gantt/event-dialog/ExecutionComparisonSection</a></li>
+<li><a href="components/gantt/event-dialog/RecommendedLecturersField/">components/gantt/event-dialog/RecommendedLecturersField</a></li>
+<li><a href="components/gantt/event-dialog/SystemRequirementsField/">components/gantt/event-dialog/SystemRequirementsField</a></li>
+<li><a href="components/gantt/module-dialog/">components/gantt/module-dialog</a></li>
+<li><a href="components/gantt/module-dialog/constraints/ConstraintHumanReadableEntry/">components/gantt/module-dialog/constraints/ConstraintHumanReadableEntry</a></li>
+<li><a href="components/gantt/module-dialog/constraints/ConstraintListItem/">components/gantt/module-dialog/constraints/ConstraintListItem</a></li>
+<li><a href="components/gantt/module-dialog/constraints/ConstraintRows/">components/gantt/module-dialog/constraints/ConstraintRows</a></li>
+<li><a href="components/gantt/module-dialog/constraints/DraftConstraintForm/">components/gantt/module-dialog/constraints/DraftConstraintForm</a></li>
+<li><a href="components/gantt/module-dialog/constraints/ModuleConstraintsView/">components/gantt/module-dialog/constraints/ModuleConstraintsView</a></li>
+<li><a href="components/gantt/module-dialog/constraints/RelationalDraftFields/">components/gantt/module-dialog/constraints/RelationalDraftFields</a></li>
+<li><a href="components/gantt/module-dialog/constraints/TemporalDraftFields/">components/gantt/module-dialog/constraints/TemporalDraftFields</a></li>
+<li><a href="components/gantt/module-dialog/constraints/types/">components/gantt/module-dialog/constraints/types</a></li>
+<li><a href="components/gantt/module-dialog/constraints/use-constraint-editor/">components/gantt/module-dialog/constraints/use-constraint-editor</a></li>
+<li><a href="components/gantt/module-dialog/constraints/use-target-options/">components/gantt/module-dialog/constraints/use-target-options</a></li>
+<li><a href="components/gantt/module-dialog/ModuleEventsView/">components/gantt/module-dialog/ModuleEventsView</a></li>
+<li><a href="components/gantt/module-dialog/ModuleEventView/">components/gantt/module-dialog/ModuleEventView</a></li>
+<li><a href="components/gantt/module-dialog/MoveEventDialog/">components/gantt/module-dialog/MoveEventDialog</a></li>
+<li><a href="components/gantt/module-dialog/utils/">components/gantt/module-dialog/utils</a></li>
+<li><a href="components/gantt/ShuffleSelect/">components/gantt/ShuffleSelect</a></li>
+<li><a href="components/gantt/state/constraints/context/">components/gantt/state/constraints/context</a></li>
+<li><a href="components/gantt/state/constraints/hooks/">components/gantt/state/constraints/hooks</a></li>
+<li><a href="components/gantt/state/constraints/Provider/">components/gantt/state/constraints/Provider</a></li>
+<li><a href="components/gantt/state/constraints/reducer/">components/gantt/state/constraints/reducer</a></li>
+<li><a href="components/gantt/state/constraints/types/">components/gantt/state/constraints/types</a></li>
+<li><a href="components/gantt/state/execution/context/">components/gantt/state/execution/context</a></li>
+<li><a href="components/gantt/state/execution/hooks/">components/gantt/state/execution/hooks</a></li>
+<li><a href="components/gantt/state/execution/Provider/">components/gantt/state/execution/Provider</a></li>
+<li><a href="components/gantt/state/hooks/">components/gantt/state/hooks</a></li>
+<li><a href="components/gantt/state/hooks/gantt-funcs/MakeEntityActions/">components/gantt/state/hooks/gantt-funcs/MakeEntityActions</a></li>
+<li><a href="components/gantt/state/hooks/gantt-funcs/UseCurriculumActions/">components/gantt/state/hooks/gantt-funcs/UseCurriculumActions</a></li>
+<li><a href="components/gantt/state/hooks/gantt-funcs/UseModuleActions/">components/gantt/state/hooks/gantt-funcs/UseModuleActions</a></li>
+<li><a href="components/gantt/state/hooks/gantt-funcs/UseModuleEventActions/">components/gantt/state/hooks/gantt-funcs/UseModuleEventActions</a></li>
+<li><a href="components/gantt/state/hooks/gantt-funcs/UseSyllabusActions/">components/gantt/state/hooks/gantt-funcs/UseSyllabusActions</a></li>
+<li><a href="components/gantt/state/hooks/gantt-funcs/UseWeekActions/">components/gantt/state/hooks/gantt-funcs/UseWeekActions</a></li>
+<li><a href="components/gantt/state/hooks/gantt-funcs/WithGantErrorHandling/">components/gantt/state/hooks/gantt-funcs/WithGantErrorHandling</a></li>
+<li><a href="components/gantt/state/hooks/UseCurriculum/">components/gantt/state/hooks/UseCurriculum</a></li>
+<li><a href="components/gantt/state/hooks/UseDay/">components/gantt/state/hooks/UseDay</a></li>
+<li><a href="components/gantt/state/hooks/UseEvent/">components/gantt/state/hooks/UseEvent</a></li>
+<li><a href="components/gantt/state/hooks/UseModule/">components/gantt/state/hooks/UseModule</a></li>
+<li><a href="components/gantt/state/hooks/UseSyllabus/">components/gantt/state/hooks/UseSyllabus</a></li>
+<li><a href="components/gantt/state/hooks/UseWeek/">components/gantt/state/hooks/UseWeek</a></li>
+<li><a href="components/gantt/state/mappings/context/">components/gantt/state/mappings/context</a></li>
+<li><a href="components/gantt/state/mappings/hooks/">components/gantt/state/mappings/hooks</a></li>
+<li><a href="components/gantt/state/mappings/Provider/">components/gantt/state/mappings/Provider</a></li>
+<li><a href="components/gantt/state/mappings/reducer/">components/gantt/state/mappings/reducer</a></li>
+<li><a href="components/gantt/state/mappings/types/">components/gantt/state/mappings/types</a></li>
+<li><a href="components/gantt/state/provider/">components/gantt/state/provider</a></li>
+<li><a href="components/gantt/state/providers/SyllabusNamesProvider/">components/gantt/state/providers/SyllabusNamesProvider</a></li>
+<li><a href="components/gantt/state/recurrence-exceptions/context/">components/gantt/state/recurrence-exceptions/context</a></li>
+<li><a href="components/gantt/state/recurrence-exceptions/hooks/">components/gantt/state/recurrence-exceptions/hooks</a></li>
+<li><a href="components/gantt/state/recurrence-exceptions/Provider/">components/gantt/state/recurrence-exceptions/Provider</a></li>
+<li><a href="components/gantt/state/recurrence-exceptions/reducer/">components/gantt/state/recurrence-exceptions/reducer</a></li>
+<li><a href="components/gantt/state/recurrence-exceptions/types/">components/gantt/state/recurrence-exceptions/types</a></li>
+<li><a href="components/gantt/state/reducer/">components/gantt/state/reducer</a></li>
+<li><a href="components/gantt/state/reducers/actions/">components/gantt/state/reducers/actions</a></li>
+<li><a href="components/gantt/state/reducers/curriculum-reducer/">components/gantt/state/reducers/curriculum-reducer</a></li>
+<li><a href="components/gantt/state/reducers/day-reducer/">components/gantt/state/reducers/day-reducer</a></li>
+<li><a href="components/gantt/state/reducers/event-reducer/">components/gantt/state/reducers/event-reducer</a></li>
+<li><a href="components/gantt/state/reducers/inject-document-times/">components/gantt/state/reducers/inject-document-times</a></li>
+<li><a href="components/gantt/state/reducers/module-reducer/">components/gantt/state/reducers/module-reducer</a></li>
+<li><a href="components/gantt/state/reducers/syllabus-reducer/">components/gantt/state/reducers/syllabus-reducer</a></li>
+<li><a href="components/gantt/state/reducers/week-reducer/">components/gantt/state/reducers/week-reducer</a></li>
+<li><a href="components/gantt/syllabus-card/">components/gantt/syllabus-card</a></li>
+<li><a href="components/gantt/syllabus-card/CreateModuleButton/">components/gantt/syllabus-card/CreateModuleButton</a></li>
+<li><a href="components/gantt/syllabus-card/HoursBox/">components/gantt/syllabus-card/HoursBox</a></li>
+<li><a href="components/gantt/syllabus-card/ModuleRow/">components/gantt/syllabus-card/ModuleRow</a></li>
+<li><a href="components/gantt/syllabus-card/ModulesTable/">components/gantt/syllabus-card/ModulesTable</a></li>
+<li><a href="components/gantt/syllabus-card/OpenHandsIcon/">components/gantt/syllabus-card/OpenHandsIcon</a></li>
+<li><a href="components/gantt/syllabus-card/SyllabusCardActions/">components/gantt/syllabus-card/SyllabusCardActions</a></li>
+<li><a href="components/gantt/syllabus-card/SyllabusCardHeader/">components/gantt/syllabus-card/SyllabusCardHeader</a></li>
+<li><a href="components/gantt/syllabus-card/SyllabusName/">components/gantt/syllabus-card/SyllabusName</a></li>
+<li><a href="components/gantt/syllabus-card/SyllabusShuffles/">components/gantt/syllabus-card/SyllabusShuffles</a></li>
+<li><a href="components/gantt/utils/">components/gantt/utils</a></li>
+<li><a href="components/header/AppBar/">components/header/AppBar</a></li>
+<li><a href="components/header/CommandPaletteButton/">components/header/CommandPaletteButton</a></li>
+<li><a href="components/header/CurriculumIcon/">components/header/CurriculumIcon</a></li>
+<li><a href="components/header/FilterCourses/">components/header/FilterCourses</a></li>
+<li><a href="components/header/FilterIcon/">components/header/FilterIcon</a></li>
+<li><a href="components/header/FilterInstructor/">components/header/FilterInstructor</a></li>
+<li><a href="components/header/FilterRoom/">components/header/FilterRoom</a></li>
+<li><a href="components/header/filters/">components/header/filters</a></li>
+<li><a href="components/header/HiveAvatarImage/">components/header/HiveAvatarImage</a></li>
+<li><a href="components/header/InstructorToolsIcon/">components/header/InstructorToolsIcon</a></li>
+<li><a href="components/header/logo/">components/header/logo</a></li>
+<li><a href="components/header/logo/LogoGraphic/">components/header/logo/LogoGraphic</a></li>
+<li><a href="components/header/OfflineModeIcon/">components/header/OfflineModeIcon</a></li>
+<li><a href="components/header/ThemeSelector/">components/header/ThemeSelector</a></li>
+<li><a href="components/header/UserAccessCard/">components/header/UserAccessCard</a></li>
+<li><a href="components/schedule/calendar/calendar/">components/schedule/calendar/calendar</a></li>
+<li><a href="components/schedule/calendar/calendar-provider/">components/schedule/calendar/calendar-provider</a></li>
+<li><a href="components/schedule/calendar/calendar-provider/CalendarContext/">components/schedule/calendar/calendar-provider/CalendarContext</a></li>
+<li><a href="components/schedule/calendar/calendar-provider/EventFactory/">components/schedule/calendar/calendar-provider/EventFactory</a></li>
+<li><a href="components/schedule/calendar/calendar-provider/hooks/UseEventActions/">components/schedule/calendar/calendar-provider/hooks/UseEventActions</a></li>
+<li><a href="components/schedule/calendar/calendar-provider/hooks/UseEventState/">components/schedule/calendar/calendar-provider/hooks/UseEventState</a></li>
+<li><a href="components/schedule/calendar/calendar-provider/hooks/UseEventWebsocket/">components/schedule/calendar/calendar-provider/hooks/UseEventWebsocket</a></li>
+<li><a href="components/schedule/calendar/calendar-provider/lock-state/">components/schedule/calendar/calendar-provider/lock-state</a></li>
+<li><a href="components/schedule/calendar/calendar/CalendarStoreMenu/">components/schedule/calendar/calendar/CalendarStoreMenu</a></li>
+<li><a href="components/schedule/calendar/calendar/CalendarToolbar/">components/schedule/calendar/calendar/CalendarToolbar</a></li>
+<li><a href="components/schedule/calendar/calendar/CalendarView/">components/schedule/calendar/calendar/CalendarView</a></li>
+<li><a href="components/schedule/calendar/calendar/DndLocalizer/">components/schedule/calendar/calendar/DndLocalizer</a></li>
+<li><a href="components/schedule/calendar/calendar/DraftsMenu/">components/schedule/calendar/calendar/DraftsMenu</a></li>
+<li><a href="components/schedule/calendar/calendar/IterationSelector/">components/schedule/calendar/calendar/IterationSelector</a></li>
+<li><a href="components/schedule/calendar/calendar/SnapshotMenu/">components/schedule/calendar/calendar/SnapshotMenu</a></li>
+<li><a href="components/schedule/calendar/calendar/toolbar-button-sx/">components/schedule/calendar/calendar/toolbar-button-sx</a></li>
+<li><a href="components/schedule/calendar/calendar/UseCalendarHandlers/">components/schedule/calendar/calendar/UseCalendarHandlers</a></li>
+<li><a href="components/schedule/calendar/CalendarSkeleton/">components/schedule/calendar/CalendarSkeleton</a></li>
+<li><a href="components/schedule/calendar/CustomWorkWeek/">components/schedule/calendar/CustomWorkWeek</a></li>
+<li><a href="components/schedule/calendar/instructor-dnd/assign/">components/schedule/calendar/instructor-dnd/assign</a></li>
+<li><a href="components/schedule/calendar/instructor-dnd/InstructorDndProvider/">components/schedule/calendar/instructor-dnd/InstructorDndProvider</a></li>
+<li><a href="components/schedule/calendar/instructor-dnd/InstructorRail/">components/schedule/calendar/instructor-dnd/InstructorRail</a></li>
+<li><a href="components/schedule/calendar/instructor-dnd/types/">components/schedule/calendar/instructor-dnd/types</a></li>
+<li><a href="components/schedule/calendar/instructor-dnd/use-event-drop-target/">components/schedule/calendar/instructor-dnd/use-event-drop-target</a></li>
+<li><a href="components/schedule/calendar/split/segment-layout/">components/schedule/calendar/split/segment-layout</a></li>
+<li><a href="components/schedule/calendar/split/segments/">components/schedule/calendar/split/segments</a></li>
+<li><a href="components/schedule/calendar/split/SplitCalendarContext/">components/schedule/calendar/split/SplitCalendarContext</a></li>
+<li><a href="components/schedule/calendar/utils/">components/schedule/calendar/utils</a></li>
+<li><a href="components/schedule/DeleteDialog/">components/schedule/DeleteDialog</a></li>
+<li><a href="components/schedule/event-component/base/">components/schedule/event-component/base</a></li>
+<li><a href="components/schedule/event-component/event-colors/">components/schedule/event-component/event-colors</a></li>
+<li><a href="components/schedule/event-component/EventDurationLabel/">components/schedule/event-component/EventDurationLabel</a></li>
+<li><a href="components/schedule/event-component/EventStatusIcons/">components/schedule/event-component/EventStatusIcons</a></li>
+<li><a href="components/schedule/event-component/EventTooltip/">components/schedule/event-component/EventTooltip</a></li>
+<li><a href="components/schedule/event-component/EventTypeIcon/">components/schedule/event-component/EventTypeIcon</a></li>
+<li><a href="components/schedule/event-component/NameUtils/">components/schedule/event-component/NameUtils</a></li>
+<li><a href="components/schedule/event-component/parts/course/">components/schedule/event-component/parts/course</a></li>
+<li><a href="components/schedule/event-component/parts/person/">components/schedule/event-component/parts/person</a></li>
+<li><a href="components/schedule/event-component/parts/room/">components/schedule/event-component/parts/room</a></li>
+<li><a href="components/schedule/event-component/parts/subject/">components/schedule/event-component/parts/subject</a></li>
+<li><a href="components/schedule/event-component/parts/tag-sx/">components/schedule/event-component/parts/tag-sx</a></li>
+<li><a href="components/schedule/event-component/UnifiedEvent/">components/schedule/event-component/UnifiedEvent</a></li>
+<li><a href="components/schedule/event-component/use-event-duration/">components/schedule/event-component/use-event-duration</a></li>
+<li><a href="components/schedule/event-component/utils/">components/schedule/event-component/utils</a></li>
+<li><a href="components/schedule/event-dialog/">components/schedule/event-dialog</a></li>
+<li><a href="components/schedule/event-dialog/ColorPickerField/">components/schedule/event-dialog/ColorPickerField</a></li>
+<li><a href="components/schedule/event-dialog/CourseField/">components/schedule/event-dialog/CourseField</a></li>
+<li><a href="components/schedule/event-dialog/event-history/">components/schedule/event-dialog/event-history</a></li>
+<li><a href="components/schedule/event-dialog/event-history/EventHistoryTimeline/">components/schedule/event-dialog/event-history/EventHistoryTimeline</a></li>
+<li><a href="components/schedule/event-dialog/event-history/format-change/">components/schedule/event-dialog/event-history/format-change</a></li>
+<li><a href="components/schedule/event-dialog/event-history/initiator-presentation/">components/schedule/event-dialog/event-history/initiator-presentation</a></li>
+<li><a href="components/schedule/event-dialog/EventClassification/">components/schedule/event-dialog/EventClassification</a></li>
+<li><a href="components/schedule/event-dialog/EventPrimaryDetails/">components/schedule/event-dialog/EventPrimaryDetails</a></li>
+<li><a href="components/schedule/event-dialog/EventToggles/">components/schedule/event-dialog/EventToggles</a></li>
+<li><a href="components/schedule/event-dialog/EventTypeField/">components/schedule/event-dialog/EventTypeField</a></li>
+<li><a href="components/schedule/event-dialog/HiveQueueMapping/">components/schedule/event-dialog/HiveQueueMapping</a></li>
+<li><a href="components/schedule/event-dialog/InstructorsField/">components/schedule/event-dialog/InstructorsField</a></li>
+<li><a href="components/schedule/event-dialog/LessonField/">components/schedule/event-dialog/LessonField</a></li>
+<li><a href="components/schedule/event-dialog/ModuleField/">components/schedule/event-dialog/ModuleField</a></li>
+<li><a href="components/schedule/event-dialog/PrayerType/">components/schedule/event-dialog/PrayerType</a></li>
+<li><a href="components/schedule/event-dialog/RoomField/">components/schedule/event-dialog/RoomField</a></li>
+<li><a href="components/schedule/event-dialog/SubjectField/">components/schedule/event-dialog/SubjectField</a></li>
+<li><a href="components/schedule/event-dialog/TimeFields/">components/schedule/event-dialog/TimeFields</a></li>
+<li><a href="components/schedule/event-dialog/utils/">components/schedule/event-dialog/utils</a></li>
+<li><a href="components/schedule/offline-dialogs/push-updates-dialog/">components/schedule/offline-dialogs/push-updates-dialog</a></li>
+<li><a href="components/schedule/offline-dialogs/push-updates-dialog/DeletedItemPlaceholder/">components/schedule/offline-dialogs/push-updates-dialog/DeletedItemPlaceholder</a></li>
+<li><a href="components/schedule/offline-dialogs/push-updates-dialog/DiffDetailsTable/">components/schedule/offline-dialogs/push-updates-dialog/DiffDetailsTable</a></li>
+<li><a href="components/schedule/offline-dialogs/push-updates-dialog/EventCollisionsList/">components/schedule/offline-dialogs/push-updates-dialog/EventCollisionsList</a></li>
+<li><a href="components/schedule/offline-dialogs/push-updates-dialog/EventListEntry/">components/schedule/offline-dialogs/push-updates-dialog/EventListEntry</a></li>
+<li><a href="components/schedule/offline-dialogs/push-updates-dialog/types/">components/schedule/offline-dialogs/push-updates-dialog/types</a></li>
+<li><a href="components/schedule/offline-dialogs/push-updates-dialog/utils/">components/schedule/offline-dialogs/push-updates-dialog/utils</a></li>
+<li><a href="components/schedule/subject-dialog/">components/schedule/subject-dialog</a></li>
+<li><a href="components/schedule/types/config/">components/schedule/types/config</a></li>
+<li><a href="components/schedule/types/event/">components/schedule/types/event</a></li>
+<li><a href="components/schedule/types/EventUtils/">components/schedule/types/EventUtils</a></li>
+<li><a href="components/schedule/types/group/">components/schedule/types/group</a></li>
+<li><a href="components/schedule/types/tag/">components/schedule/types/tag</a></li>
+<li><a href="components/schedule/types/types/">components/schedule/types/types</a></li>
+<li><a href="components/schedule/types/user/">components/schedule/types/user</a></li>
+<li><a href="components/SessionWs/">components/SessionWs</a></li>
+<li><a href="components/settings-dialog/SettingsDialog/">components/settings-dialog/SettingsDialog</a></li>
+<li><a href="components/settings-dialog/SettingsDialogUrl/">components/settings-dialog/SettingsDialogUrl</a></li>
+<li><a href="components/settings-dialog/tabs/global/CalendarHoursSetting/">components/settings-dialog/tabs/global/CalendarHoursSetting</a></li>
+<li><a href="components/settings-dialog/tabs/global/color-settings/">components/settings-dialog/tabs/global/color-settings</a></li>
+<li><a href="components/settings-dialog/tabs/global/color-settings/ColorFormCard/">components/settings-dialog/tabs/global/color-settings/ColorFormCard</a></li>
+<li><a href="components/settings-dialog/tabs/global/color-settings/ColorListCard/">components/settings-dialog/tabs/global/color-settings/ColorListCard</a></li>
+<li><a href="components/settings-dialog/tabs/global/color-settings/types/">components/settings-dialog/tabs/global/color-settings/types</a></li>
+<li><a href="components/settings-dialog/tabs/global/common/">components/settings-dialog/tabs/global/common</a></li>
+<li><a href="components/settings-dialog/tabs/global/common/AddButton/">components/settings-dialog/tabs/global/common/AddButton</a></li>
+<li><a href="components/settings-dialog/tabs/global/common/BaseTimeSettingsCard/">components/settings-dialog/tabs/global/common/BaseTimeSettingsCard</a></li>
+<li><a href="components/settings-dialog/tabs/global/common/FormActions/">components/settings-dialog/tabs/global/common/FormActions</a></li>
+<li><a href="components/settings-dialog/tabs/global/common/FormCard/">components/settings-dialog/tabs/global/common/FormCard</a></li>
+<li><a href="components/settings-dialog/tabs/global/common/FormHeader/">components/settings-dialog/tabs/global/common/FormHeader</a></li>
+<li><a href="components/settings-dialog/tabs/global/common/FormPlaceholder/">components/settings-dialog/tabs/global/common/FormPlaceholder</a></li>
+<li><a href="components/settings-dialog/tabs/global/common/ListCard/">components/settings-dialog/tabs/global/common/ListCard</a></li>
+<li><a href="components/settings-dialog/tabs/global/common/ListItem/">components/settings-dialog/tabs/global/common/ListItem</a></li>
+<li><a href="components/settings-dialog/tabs/global/common/ListItemText/">components/settings-dialog/tabs/global/common/ListItemText</a></li>
+<li><a href="components/settings-dialog/tabs/global/common/ScrollArea/">components/settings-dialog/tabs/global/common/ScrollArea</a></li>
+<li><a href="components/settings-dialog/tabs/global/common/SearchField/">components/settings-dialog/tabs/global/common/SearchField</a></li>
+<li><a href="components/settings-dialog/tabs/global/common/SecondaryAction/">components/settings-dialog/tabs/global/common/SecondaryAction</a></li>
+<li><a href="components/settings-dialog/tabs/global/common/SectionHeader/">components/settings-dialog/tabs/global/common/SectionHeader</a></li>
+<li><a href="components/settings-dialog/tabs/global/common/SettingsTextField/">components/settings-dialog/tabs/global/common/SettingsTextField</a></li>
+<li><a href="components/settings-dialog/tabs/global/common/styles/">components/settings-dialog/tabs/global/common/styles</a></li>
+<li><a href="components/settings-dialog/tabs/global/common/UseConfirmDialog/">components/settings-dialog/tabs/global/common/UseConfirmDialog</a></li>
+<li><a href="components/settings-dialog/tabs/global/common/UseEntityForm/">components/settings-dialog/tabs/global/common/UseEntityForm</a></li>
+<li><a href="components/settings-dialog/tabs/global/course-settings/">components/settings-dialog/tabs/global/course-settings</a></li>
+<li><a href="components/settings-dialog/tabs/global/course-settings/CourseItem/">components/settings-dialog/tabs/global/course-settings/CourseItem</a></li>
+<li><a href="components/settings-dialog/tabs/global/course-settings/CourseItemQuickActionControls/">components/settings-dialog/tabs/global/course-settings/CourseItemQuickActionControls</a></li>
+<li><a href="components/settings-dialog/tabs/global/course-settings/dnd-types/">components/settings-dialog/tabs/global/course-settings/dnd-types</a></li>
+<li><a href="components/settings-dialog/tabs/global/course-settings/InstructorSourceList/">components/settings-dialog/tabs/global/course-settings/InstructorSourceList</a></li>
+<li><a href="components/settings-dialog/tabs/global/CourseBuilderSettings/">components/settings-dialog/tabs/global/CourseBuilderSettings</a></li>
+<li><a href="components/settings-dialog/tabs/global/DayStartTimeSetting/">components/settings-dialog/tabs/global/DayStartTimeSetting</a></li>
+<li><a href="components/settings-dialog/tabs/global/GlobalSettings/">components/settings-dialog/tabs/global/GlobalSettings</a></li>
+<li><a href="components/settings-dialog/tabs/global/group-tree/">components/settings-dialog/tabs/global/group-tree</a></li>
+<li><a href="components/settings-dialog/tabs/global/group-tree/GroupField/">components/settings-dialog/tabs/global/group-tree/GroupField</a></li>
+<li><a href="components/settings-dialog/tabs/global/group-tree/GroupMembersField/">components/settings-dialog/tabs/global/group-tree/GroupMembersField</a></li>
+<li><a href="components/settings-dialog/tabs/global/group-tree/MemberField/">components/settings-dialog/tabs/global/group-tree/MemberField</a></li>
+<li><a href="components/settings-dialog/tabs/global/iteration-settings/">components/settings-dialog/tabs/global/iteration-settings</a></li>
+<li><a href="components/settings-dialog/tabs/global/iteration-settings/IterationFormCard/">components/settings-dialog/tabs/global/iteration-settings/IterationFormCard</a></li>
+<li><a href="components/settings-dialog/tabs/global/iteration-settings/IterationListCard/">components/settings-dialog/tabs/global/iteration-settings/IterationListCard</a></li>
+<li><a href="components/settings-dialog/tabs/global/iteration-settings/values/">components/settings-dialog/tabs/global/iteration-settings/values</a></li>
+<li><a href="components/settings-dialog/tabs/global/LectureComfortSwitch/">components/settings-dialog/tabs/global/LectureComfortSwitch</a></li>
+<li><a href="components/settings-dialog/tabs/global/MealTimesSetting/">components/settings-dialog/tabs/global/MealTimesSetting</a></li>
+<li><a href="components/settings-dialog/tabs/global/outsider-settings/">components/settings-dialog/tabs/global/outsider-settings</a></li>
+<li><a href="components/settings-dialog/tabs/global/outsider-settings/OutsiderFormCard/">components/settings-dialog/tabs/global/outsider-settings/OutsiderFormCard</a></li>
+<li><a href="components/settings-dialog/tabs/global/outsider-settings/OutsiderFormFields/">components/settings-dialog/tabs/global/outsider-settings/OutsiderFormFields</a></li>
+<li><a href="components/settings-dialog/tabs/global/outsider-settings/OutsiderListCard/">components/settings-dialog/tabs/global/outsider-settings/OutsiderListCard</a></li>
+<li><a href="components/settings-dialog/tabs/global/outsider-settings/values/">components/settings-dialog/tabs/global/outsider-settings/values</a></li>
+<li><a href="components/settings-dialog/tabs/global/outsider-settings/VCardQrCode/">components/settings-dialog/tabs/global/outsider-settings/VCardQrCode</a></li>
+<li><a href="components/settings-dialog/tabs/global/PrayerSettings/">components/settings-dialog/tabs/global/PrayerSettings</a></li>
+<li><a href="components/settings-dialog/tabs/global/room-settings/">components/settings-dialog/tabs/global/room-settings</a></li>
+<li><a href="components/settings-dialog/tabs/global/room-settings/reservations/ReservationDialog/">components/settings-dialog/tabs/global/room-settings/reservations/ReservationDialog</a></li>
+<li><a href="components/settings-dialog/tabs/global/room-settings/RoomExtendedInfoChip/">components/settings-dialog/tabs/global/room-settings/RoomExtendedInfoChip</a></li>
+<li><a href="components/settings-dialog/tabs/global/room-settings/RoomFormCard/">components/settings-dialog/tabs/global/room-settings/RoomFormCard</a></li>
+<li><a href="components/settings-dialog/tabs/global/room-settings/RoomListCard/">components/settings-dialog/tabs/global/room-settings/RoomListCard</a></li>
+<li><a href="components/settings-dialog/tabs/global/room-settings/RoomListItem/">components/settings-dialog/tabs/global/room-settings/RoomListItem</a></li>
+<li><a href="components/settings-dialog/tabs/global/room-settings/values/">components/settings-dialog/tabs/global/room-settings/values</a></li>
+<li><a href="components/settings-dialog/tabs/global/RoomBooleanSwitch/">components/settings-dialog/tabs/global/RoomBooleanSwitch</a></li>
+<li><a href="components/settings-dialog/tabs/PersonalSettings/">components/settings-dialog/tabs/PersonalSettings</a></li>
+<li><a href="components/settings-dialog/UseSettingsDialogUrl/">components/settings-dialog/UseSettingsDialogUrl</a></li>
+<li><a href="components/theme/CreateFromPalette/">components/theme/CreateFromPalette</a></li>
+<li><a href="components/theme/MuiEmotionCacheProvider/">components/theme/MuiEmotionCacheProvider</a></li>
+<li><a href="components/theme/ThemeProvider/">components/theme/ThemeProvider</a></li>
+<li><a href="components/WebsocketConfigProvider/">components/WebsocketConfigProvider</a></li>
+<li><a href="instrumentation/">instrumentation</a></li>
+<li><a href="logging/pino/">logging/pino</a></li>
+<li><a href="proxy/">proxy</a></li>
+<li><a href="settings/">settings</a></li>
+<li><a href="types/mui-theme/">types/mui-theme</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 System B90
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

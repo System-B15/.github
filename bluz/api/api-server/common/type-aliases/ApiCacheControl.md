@@ -1,0 +1,16 @@
+[**TypeDoc API**](../../../index.md)
+
+***
+
+[TypeDoc API](../../../index.md) / [api-server/common](../index.md) / ApiCacheControl
+
+# Type Alias: ApiCacheControl
+
+> **ApiCacheControl** = `"immutable"` \| `"must-revalidate"` \| `"no-cache"` \| `"no-store"` \| \{ `immutable?`: `boolean`; `maxAge`: `number`; `scope`: `"private"` \| `"public"`; \} \| `number`
+
+Defined in: [ui/src/api-server/common.tsx:22](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/common.tsx#L22)
+
+The object form is explicit, for responses that must not land in a shared
+cache. Every API route sits behind Hive SSO, so anything user- or
+tenant-visible has to be `private` — a proxy holding a `public` copy would
+serve it on.

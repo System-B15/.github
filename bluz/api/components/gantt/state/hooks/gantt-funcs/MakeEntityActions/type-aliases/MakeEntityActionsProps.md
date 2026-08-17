@@ -1,0 +1,120 @@
+[**TypeDoc API**](../../../../../../../index.md)
+
+***
+
+[TypeDoc API](../../../../../../../index.md) / [components/gantt/state/hooks/gantt-funcs/MakeEntityActions](../index.md) / MakeEntityActionsProps
+
+# Type Alias: MakeEntityActionsProps\<TEntity, TContainerId, TCreatePayload\>
+
+> **MakeEntityActionsProps**\<`TEntity`, `TContainerId`, `TCreatePayload`\> = `object`
+
+Defined in: [ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx:31](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx#L31)
+
+## Type Parameters
+
+### TEntity
+
+`TEntity` *extends* [`BaseGantItem`](../../../../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem.md)
+
+### TContainerId
+
+`TContainerId` *extends* [`BaseGantItem`](../../../../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem.md)\[`"id"`\]
+
+### TCreatePayload
+
+`TCreatePayload`
+
+## Properties
+
+### api
+
+> **api**: [`BasicGantApi`](../../../../../../../api-client/gantt/base/type-aliases/BasicGantApi.md)\<`TEntity`, `TCreatePayload`\>
+
+Defined in: [ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx:36](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx#L36)
+
+***
+
+### builders
+
+> **builders**: [`EntityActionBuilders`](EntityActionBuilders.md)\<`TEntity`, `TContainerId`\>
+
+Defined in: [ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx:42](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx#L42)
+
+***
+
+### containerLabel
+
+> **containerLabel**: `string`
+
+Defined in: [ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx:41](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx#L41)
+
+Container name used in link/unlink error messages, e.g. "syllabus".
+
+***
+
+### dispatch
+
+> **dispatch**: `Dispatch`\<[`Action`](../../../../reducers/actions/type-aliases/Action.md)\>
+
+Defined in: [ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx:37](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx#L37)
+
+***
+
+### getAllocatedTime?
+
+> `optional` **getAllocatedTime?**: (`id`) => `number` \| `undefined`
+
+Defined in: [ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx:61](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx#L61)
+
+Reads the entity's current allocated duration. When provided,
+`allocateTime` becomes optimistic and rolls back to this value on
+failure.
+
+Only supply it when `builders.allocateTime` maps to a *scalar* reducer
+action. Events qualify (`ALLOCATE_TIME` writes one field); modules do
+not — `ALLOCATE_TIME_TO_MODULE` redistributes time across every child
+event, so restoring a single number would not undo it. Modules
+therefore omit this and keep waiting on the server (#328).
+
+#### Parameters
+
+##### id
+
+`TEntity`\[`"id"`\]
+
+#### Returns
+
+`number` \| `undefined`
+
+***
+
+### getEntity?
+
+> `optional` **getEntity?**: (`id`) => `TEntity` \| `undefined`
+
+Defined in: [ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx:49](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx#L49)
+
+Reads the current entity from the store. When provided, `update` becomes
+optimistic: it snapshots these values, dispatches immediately, and rolls
+back on failure — like `updateWeek` (#327, #328). Must be stable (e.g. a
+ref-backed useCallback) so the returned actions stay memoized.
+
+#### Parameters
+
+##### id
+
+`TEntity`\[`"id"`\]
+
+#### Returns
+
+`TEntity` \| `undefined`
+
+***
+
+### label
+
+> **label**: `string`
+
+Defined in: [ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx:39](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx#L39)
+
+Entity name used in error messages, e.g. "module".

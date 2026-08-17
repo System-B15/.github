@@ -1,0 +1,21 @@
+[**TypeDoc API**](../../../../../index.md)
+
+***
+
+[TypeDoc API](../../../../../index.md) / [api-server/db-custom-colors](../../../index.md) / [DbCustomColors](../index.md) / create
+
+# Variable: create
+
+> `const` **create**: (`customColor`) => `Promise`\<[`CustomColor`](../../../../../api-shared/types/custom-color/type-aliases/CustomColor.md)\> = `createDbCustomColor`
+
+Defined in: [ui/src/api-server/db-custom-colors.ts:43](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/db-custom-colors.ts#L43)
+
+## Parameters
+
+### customColor
+
+[`CustomColor`](../../../../../api-shared/types/custom-color/type-aliases/CustomColor.md)
+
+## Returns
+
+`Promise`\<[`CustomColor`](../../../../../api-shared/types/custom-color/type-aliases/CustomColor.md)\>

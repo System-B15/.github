@@ -1,0 +1,5707 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Internal developer documentation for the Bluz scheduling & curriculum-management platform.">
+      
+      
+      
+        <link rel="canonical" href="https://system-b90.github.io/bluz/cli/">
+      
+      
+        <link rel="prev" href="../api/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>CLI Reference - Bluz Developer Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cli-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Bluz Developer Documentation" class="md-header__button md-logo" aria-label="Bluz Developer Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bluz Developer Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CLI Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/system-b90/bluz" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    system-b90/bluz
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Bluz Developer Documentation" class="md-nav__button md-logo" aria-label="Bluz Developer Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Bluz Developer Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/system-b90/bluz" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    system-b90/bluz
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../performance-and-scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance & Scaling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup-and-restore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backup & Restore
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-quality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Quality Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../duplication-audit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Duplication Audit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#global-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global Options
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#global-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global Options
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="cli-reference">CLI Reference<a class="headerlink" href="#cli-reference" title="Permanent link">&para;</a></h1>
+<p>The <code>bluz</code> CLI is a Python command-line tool for driving the Bluz scheduling &amp;
+curriculum API from your terminal. Built with <a href="https://typer.tiangolo.com/">Typer</a>
+and <a href="https://github.com/Textualize/rich">Rich</a>.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>./cli
+</code></pre></div>
+<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>bluz<span class="w"> </span>login<span class="w">           </span><span class="c1"># Interactive — prompts for URL and session token</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>bluz<span class="w"> </span>auth<span class="w"> </span>config<span class="w">     </span><span class="c1"># Show current config file location and values</span>
+</code></pre></div>
+<h2 id="quick-examples">Quick Examples<a class="headerlink" href="#quick-examples" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>bluz<span class="w"> </span>iterations<span class="w"> </span>list
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>bluz<span class="w"> </span>rooms<span class="w"> </span>list
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>bluz<span class="w"> </span>gantt<span class="w"> </span>curriculums<span class="w"> </span>list
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>bluz<span class="w"> </span>--json<span class="w"> </span>events<span class="w"> </span>list<span class="w"> </span>--start<span class="w"> </span><span class="m">2026</span>-01-01T00:00:00Z<span class="w"> </span>--end<span class="w"> </span><span class="m">2026</span>-01-08T00:00:00Z
+</code></pre></div>
+<h2 id="global-options">Global Options<a class="headerlink" href="#global-options" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--json</code></td>
+<td>Emit raw JSON instead of Rich tables</td>
+</tr>
+<tr>
+<td><code>--url</code></td>
+<td>Override the Bluz base URL for one invocation</td>
+</tr>
+<tr>
+<td><code>--token</code></td>
+<td>Override the session token for one invocation</td>
+</tr>
+<tr>
+<td><code>--insecure / --secure</code></td>
+<td>Toggle TLS verification</td>
+</tr>
+<tr>
+<td><code>--quiet</code> / <code>-q</code></td>
+<td>Suppress success/warning chatter — only data and errors</td>
+</tr>
+<tr>
+<td><code>--version</code></td>
+<td>Print the CLI version</td>
+</tr>
+</tbody>
+</table>
+<p>Global flags are accepted before <em>or</em> after the subcommand, so
+<code>bluz gantt curriculums list --json</code> and <code>bluz --json gantt curriculums list</code>
+are equivalent.</p>
+<h2 id="command-reference">Command Reference<a class="headerlink" href="#command-reference" title="Permanent link">&para;</a></h2>
+<p>The following reference is auto-generated from the CLI source code.</p>
+<div class="typer-docs">
+<h1 id="bluz">bluz<a class="headerlink" href="#bluz" title="Permanent link">&para;</a></h1>
+<p>Bluz CLI — drive the Bluz scheduling &amp; curriculum API from your terminal.</p>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p><code>bluz [OPTIONS] COMMAND [ARGS]...</code></p>
+<h2 id="arguments">Arguments<a class="headerlink" href="#arguments" title="Permanent link">&para;</a></h2>
+<p><em>No arguments available</em></p>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--url <str></code></td>
+<td>Bluz base URL (overrides config/env).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--token <str></code></td>
+<td>Session token (overrides config/env).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--insecure / --secure</code></td>
+<td>Toggle TLS verification.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--json</code></td>
+<td>Emit raw JSON instead of tables.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>-q, --quiet</code></td>
+<td>Suppress success/warning chatter — only data and errors. For scripting/agents.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--version</code></td>
+<td>Show version and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--install-completion</code></td>
+<td>Install completion for the current shell.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--show-completion</code></td>
+<td>Show completion for the current shell, to copy it or customize the installation.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>login</code></td>
+<td>Store credentials interactively.</td>
+</tr>
+<tr>
+<td><code>logout</code></td>
+<td>Forget the stored session token (keeps the...</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>Print the CLI version.</td>
+</tr>
+<tr>
+<td><code>auth</code></td>
+<td>Authentication and CLI configuration.</td>
+</tr>
+<tr>
+<td><code>iterations</code></td>
+<td>Course iterations (bi-annual runs).</td>
+</tr>
+<tr>
+<td><code>rooms</code></td>
+<td>Rooms (custom + Hive).</td>
+</tr>
+<tr>
+<td><code>courses</code></td>
+<td>Courses.</td>
+</tr>
+<tr>
+<td><code>reservations</code></td>
+<td>Room reservations.</td>
+</tr>
+<tr>
+<td><code>outsiders</code></td>
+<td>Outsiders (external visitors).</td>
+</tr>
+<tr>
+<td><code>events</code></td>
+<td>Calendar events.</td>
+</tr>
+<tr>
+<td><code>calendar</code></td>
+<td>Shared calendar drafts, snapshots and ICS...</td>
+</tr>
+<tr>
+<td><code>settings</code></td>
+<td>Application settings.</td>
+</tr>
+<tr>
+<td><code>personal</code></td>
+<td>Personal (per-user) settings.</td>
+</tr>
+<tr>
+<td><code>colors</code></td>
+<td>Custom event colours.</td>
+</tr>
+<tr>
+<td><code>gantt</code></td>
+<td>Gantt / curriculum engine.</td>
+</tr>
+<tr>
+<td><code>hive</code></td>
+<td>Hive LMS reference data (read-only).</td>
+</tr>
+<tr>
+<td><code>integrations</code></td>
+<td>Third-party integrations.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="subcommands">Subcommands<a class="headerlink" href="#subcommands" title="Permanent link">&para;</a></h2>
+<h3 id="bluz-login"><code>bluz login</code><a class="headerlink" href="#bluz-login" title="Permanent link">&para;</a></h3>
+<p>Store credentials interactively.</p>
+<p>Grab the session token from your browser's cookies for the Bluz site
+(<code>__Secure-next-auth.session-token</code> over HTTPS, <code>next-auth.session-token</code>
+over HTTP) and paste it when prompted.</p>
+<h4 id="usage_1">Usage<a class="headerlink" href="#usage_1" title="Permanent link">&para;</a></h4>
+<p><code>bluz login [OPTIONS]</code></p>
+<h4 id="arguments_1">Arguments<a class="headerlink" href="#arguments_1" title="Permanent link">&para;</a></h4>
+<p><em>No arguments available</em></p>
+<h4 id="options_1">Options<a class="headerlink" href="#options_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--url <str></code></td>
+<td>Bluz base URL, e.g. https://bluz.example.com.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--token <str></code></td>
+<td>next-auth session token (skips the prompt).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--insecure / --secure</code></td>
+<td>Skip TLS verification (self-signed certs).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bluz-logout"><code>bluz logout</code><a class="headerlink" href="#bluz-logout" title="Permanent link">&para;</a></h3>
+<p>Forget the stored session token (keeps the server URL).</p>
+<h4 id="usage_2">Usage<a class="headerlink" href="#usage_2" title="Permanent link">&para;</a></h4>
+<p><code>bluz logout [OPTIONS]</code></p>
+<h4 id="arguments_2">Arguments<a class="headerlink" href="#arguments_2" title="Permanent link">&para;</a></h4>
+<p><em>No arguments available</em></p>
+<h4 id="options_2">Options<a class="headerlink" href="#options_2" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bluz-version"><code>bluz version</code><a class="headerlink" href="#bluz-version" title="Permanent link">&para;</a></h3>
+<p>Print the CLI version.</p>
+<h4 id="usage_3">Usage<a class="headerlink" href="#usage_3" title="Permanent link">&para;</a></h4>
+<p><code>bluz version [OPTIONS]</code></p>
+<h4 id="arguments_3">Arguments<a class="headerlink" href="#arguments_3" title="Permanent link">&para;</a></h4>
+<p><em>No arguments available</em></p>
+<h4 id="options_3">Options<a class="headerlink" href="#options_3" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bluz-auth"><code>bluz auth</code><a class="headerlink" href="#bluz-auth" title="Permanent link">&para;</a></h3>
+<p>Authentication and CLI configuration.</p>
+<h4 id="usage_4">Usage<a class="headerlink" href="#usage_4" title="Permanent link">&para;</a></h4>
+<p><code>bluz auth [OPTIONS] COMMAND [ARGS]...</code></p>
+<h4 id="arguments_4">Arguments<a class="headerlink" href="#arguments_4" title="Permanent link">&para;</a></h4>
+<p><em>No arguments available</em></p>
+<h4 id="options_4">Options<a class="headerlink" href="#options_4" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="subcommands_1">Subcommands<a class="headerlink" href="#subcommands_1" title="Permanent link">&para;</a></h4>
+<h5 id="bluz-auth-login"><code>bluz auth login</code><a class="headerlink" href="#bluz-auth-login" title="Permanent link">&para;</a></h5>
+<p>Store credentials interactively.</p>
+<p>Grab the session token from your browser's cookies for the Bluz site
+(<code>__Secure-next-auth.session-token</code> over HTTPS, <code>next-auth.session-token</code>
+over HTTP) and paste it when prompted.</p>
+<h6 id="usage_5">Usage<a class="headerlink" href="#usage_5" title="Permanent link">&para;</a></h6>
+<p><code>bluz auth login [OPTIONS]</code></p>
+<h6 id="arguments_5">Arguments<a class="headerlink" href="#arguments_5" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_5">Options<a class="headerlink" href="#options_5" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--url <str></code></td>
+<td>Bluz base URL, e.g. https://bluz.example.com.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--token <str></code></td>
+<td>next-auth session token (skips the prompt).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--insecure / --secure</code></td>
+<td>Skip TLS verification (self-signed certs).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-auth-logout"><code>bluz auth logout</code><a class="headerlink" href="#bluz-auth-logout" title="Permanent link">&para;</a></h5>
+<p>Forget the stored session token (keeps the server URL).</p>
+<h6 id="usage_6">Usage<a class="headerlink" href="#usage_6" title="Permanent link">&para;</a></h6>
+<p><code>bluz auth logout [OPTIONS]</code></p>
+<h6 id="arguments_6">Arguments<a class="headerlink" href="#arguments_6" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_6">Options<a class="headerlink" href="#options_6" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-auth-config"><code>bluz auth config</code><a class="headerlink" href="#bluz-auth-config" title="Permanent link">&para;</a></h5>
+<p>Show the resolved configuration (token is masked).</p>
+<h6 id="usage_7">Usage<a class="headerlink" href="#usage_7" title="Permanent link">&para;</a></h6>
+<p><code>bluz auth config [OPTIONS]</code></p>
+<h6 id="arguments_7">Arguments<a class="headerlink" href="#arguments_7" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_7">Options<a class="headerlink" href="#options_7" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-auth-hive-status"><code>bluz auth hive-status</code><a class="headerlink" href="#bluz-auth-hive-status" title="Permanent link">&para;</a></h5>
+<p>Check whether the server can reach Hive (drives the SSO outage banner).</p>
+<h6 id="usage_8">Usage<a class="headerlink" href="#usage_8" title="Permanent link">&para;</a></h6>
+<p><code>bluz auth hive-status [OPTIONS]</code></p>
+<h6 id="arguments_8">Arguments<a class="headerlink" href="#arguments_8" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_8">Options<a class="headerlink" href="#options_8" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bluz-iterations"><code>bluz iterations</code><a class="headerlink" href="#bluz-iterations" title="Permanent link">&para;</a></h3>
+<p>Course iterations (bi-annual runs).</p>
+<h4 id="usage_9">Usage<a class="headerlink" href="#usage_9" title="Permanent link">&para;</a></h4>
+<p><code>bluz iterations [OPTIONS] COMMAND [ARGS]...</code></p>
+<h4 id="arguments_9">Arguments<a class="headerlink" href="#arguments_9" title="Permanent link">&para;</a></h4>
+<p><em>No arguments available</em></p>
+<h4 id="options_9">Options<a class="headerlink" href="#options_9" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="subcommands_2">Subcommands<a class="headerlink" href="#subcommands_2" title="Permanent link">&para;</a></h4>
+<h5 id="bluz-iterations-list"><code>bluz iterations list</code><a class="headerlink" href="#bluz-iterations-list" title="Permanent link">&para;</a></h5>
+<p>List all registered iterations.</p>
+<h6 id="usage_10">Usage<a class="headerlink" href="#usage_10" title="Permanent link">&para;</a></h6>
+<p><code>bluz iterations list [OPTIONS]</code></p>
+<h6 id="arguments_10">Arguments<a class="headerlink" href="#arguments_10" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_10">Options<a class="headerlink" href="#options_10" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-iterations-current"><code>bluz iterations current</code><a class="headerlink" href="#bluz-iterations-current" title="Permanent link">&para;</a></h5>
+<p>Show the current (active, writable) iteration.</p>
+<h6 id="usage_11">Usage<a class="headerlink" href="#usage_11" title="Permanent link">&para;</a></h6>
+<p><code>bluz iterations current [OPTIONS]</code></p>
+<h6 id="arguments_11">Arguments<a class="headerlink" href="#arguments_11" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_11">Options<a class="headerlink" href="#options_11" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-iterations-get"><code>bluz iterations get</code><a class="headerlink" href="#bluz-iterations-get" title="Permanent link">&para;</a></h5>
+<p>Fetch a single iteration by id.</p>
+<h6 id="usage_12">Usage<a class="headerlink" href="#usage_12" title="Permanent link">&para;</a></h6>
+<p><code>bluz iterations get [OPTIONS] {iteration_id}</code></p>
+<h6 id="arguments_12">Arguments<a class="headerlink" href="#arguments_12" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>iteration_id</code></td>
+<td>Iteration id, e.g. 2026a.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_12">Options<a class="headerlink" href="#options_12" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-iterations-register"><code>bluz iterations register</code><a class="headerlink" href="#bluz-iterations-register" title="Permanent link">&para;</a></h5>
+<p>Register a new iteration.</p>
+<h6 id="usage_13">Usage<a class="headerlink" href="#usage_13" title="Permanent link">&para;</a></h6>
+<p><code>bluz iterations register [OPTIONS] {iteration_id}</code></p>
+<h6 id="arguments_13">Arguments<a class="headerlink" href="#arguments_13" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>iteration_id</code></td>
+<td>Stable id, e.g. 2026a.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_13">Options<a class="headerlink" href="#options_13" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--label <str></code></td>
+<td>Human label, e.g. "מחזור 2026 א'".</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--db-name <str></code></td>
+<td>Mongo DB name (derived from id if omitted).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--hive-url <str></code></td>
+<td>Per-iteration Hive base URL.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--start-date <str></code></td>
+<td>ISO start date.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--end-date <str></code></td>
+<td>ISO end date.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--gantt-curriculum-id <str></code></td>
+<td>Linked Postgres curriculum id.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-iterations-patch"><code>bluz iterations patch</code><a class="headerlink" href="#bluz-iterations-patch" title="Permanent link">&para;</a></h5>
+<p>Patch mutable fields of an iteration.</p>
+<h6 id="usage_14">Usage<a class="headerlink" href="#usage_14" title="Permanent link">&para;</a></h6>
+<p><code>bluz iterations patch [OPTIONS] {iteration_id}</code></p>
+<h6 id="arguments_14">Arguments<a class="headerlink" href="#arguments_14" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>iteration_id</code></td>
+<td>Iteration id to update.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_14">Options<a class="headerlink" href="#options_14" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--label <str></code></td>
+<td>New label.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--hive-url <str></code></td>
+<td>New Hive URL.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--start-date <str></code></td>
+<td>New ISO start date.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--end-date <str></code></td>
+<td>New ISO end date.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--gantt-curriculum-id <str></code></td>
+<td>Linked curriculum id.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--current / --not-current</code></td>
+<td>Mark this iteration current.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-iterations-set-current"><code>bluz iterations set-current</code><a class="headerlink" href="#bluz-iterations-set-current" title="Permanent link">&para;</a></h5>
+<p>Make an iteration the current (writable) one.</p>
+<h6 id="usage_15">Usage<a class="headerlink" href="#usage_15" title="Permanent link">&para;</a></h6>
+<p><code>bluz iterations set-current [OPTIONS] {iteration_id}</code></p>
+<h6 id="arguments_15">Arguments<a class="headerlink" href="#arguments_15" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>iteration_id</code></td>
+<td>Iteration id to activate.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_15">Options<a class="headerlink" href="#options_15" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-iterations-delete"><code>bluz iterations delete</code><a class="headerlink" href="#bluz-iterations-delete" title="Permanent link">&para;</a></h5>
+<p>Delete an iteration.</p>
+<h6 id="usage_16">Usage<a class="headerlink" href="#usage_16" title="Permanent link">&para;</a></h6>
+<p><code>bluz iterations delete [OPTIONS] {iteration_id}</code></p>
+<h6 id="arguments_16">Arguments<a class="headerlink" href="#arguments_16" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>iteration_id</code></td>
+<td>Iteration id to delete.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_16">Options<a class="headerlink" href="#options_16" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-y, --yes</code></td>
+<td>Skip confirmation.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-iterations-sync-hive"><code>bluz iterations sync-hive</code><a class="headerlink" href="#bluz-iterations-sync-hive" title="Permanent link">&para;</a></h5>
+<p>Re-snapshot the iteration's Hive module/subject/room names.</p>
+<h6 id="usage_17">Usage<a class="headerlink" href="#usage_17" title="Permanent link">&para;</a></h6>
+<p><code>bluz iterations sync-hive [OPTIONS] {iteration_id}</code></p>
+<h6 id="arguments_17">Arguments<a class="headerlink" href="#arguments_17" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>iteration_id</code></td>
+<td>Iteration id to re-snapshot.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_17">Options<a class="headerlink" href="#options_17" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bluz-rooms"><code>bluz rooms</code><a class="headerlink" href="#bluz-rooms" title="Permanent link">&para;</a></h3>
+<p>Rooms (custom + Hive).</p>
+<h4 id="usage_18">Usage<a class="headerlink" href="#usage_18" title="Permanent link">&para;</a></h4>
+<p><code>bluz rooms [OPTIONS] COMMAND [ARGS]...</code></p>
+<h4 id="arguments_18">Arguments<a class="headerlink" href="#arguments_18" title="Permanent link">&para;</a></h4>
+<p><em>No arguments available</em></p>
+<h4 id="options_18">Options<a class="headerlink" href="#options_18" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="subcommands_3">Subcommands<a class="headerlink" href="#subcommands_3" title="Permanent link">&para;</a></h4>
+<h5 id="bluz-rooms-list"><code>bluz rooms list</code><a class="headerlink" href="#bluz-rooms-list" title="Permanent link">&para;</a></h5>
+<p>List all rooms (custom and Hive-backed).</p>
+<h6 id="usage_19">Usage<a class="headerlink" href="#usage_19" title="Permanent link">&para;</a></h6>
+<p><code>bluz rooms list [OPTIONS]</code></p>
+<h6 id="arguments_19">Arguments<a class="headerlink" href="#arguments_19" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_19">Options<a class="headerlink" href="#options_19" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-rooms-get"><code>bluz rooms get</code><a class="headerlink" href="#bluz-rooms-get" title="Permanent link">&para;</a></h5>
+<p>Fetch a single room by id (filtered client-side — no per-id route).</p>
+<h6 id="usage_20">Usage<a class="headerlink" href="#usage_20" title="Permanent link">&para;</a></h6>
+<p><code>bluz rooms get [OPTIONS] {room_id}</code></p>
+<h6 id="arguments_20">Arguments<a class="headerlink" href="#arguments_20" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>room_id</code></td>
+<td>Room id.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_20">Options<a class="headerlink" href="#options_20" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-rooms-create"><code>bluz rooms create</code><a class="headerlink" href="#bluz-rooms-create" title="Permanent link">&para;</a></h5>
+<p>Create a custom room.</p>
+<h6 id="usage_21">Usage<a class="headerlink" href="#usage_21" title="Permanent link">&para;</a></h6>
+<p><code>bluz rooms create [OPTIONS]</code></p>
+<h6 id="arguments_21">Arguments<a class="headerlink" href="#arguments_21" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_21">Options<a class="headerlink" href="#options_21" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--name <str></code></td>
+<td>Room display name.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--description <str></code></td>
+<td>Optional description.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--id <str></code></td>
+<td>Custom room id (a UUID is generated if omitted).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-rooms-update"><code>bluz rooms update</code><a class="headerlink" href="#bluz-rooms-update" title="Permanent link">&para;</a></h5>
+<p>Update a custom room.</p>
+<h6 id="usage_22">Usage<a class="headerlink" href="#usage_22" title="Permanent link">&para;</a></h6>
+<p><code>bluz rooms update [OPTIONS] {room_id}</code></p>
+<h6 id="arguments_22">Arguments<a class="headerlink" href="#arguments_22" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>room_id</code></td>
+<td>Custom room id to update.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_22">Options<a class="headerlink" href="#options_22" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--name <str></code></td>
+<td>New name.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--description <str></code></td>
+<td>New description.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-rooms-delete"><code>bluz rooms delete</code><a class="headerlink" href="#bluz-rooms-delete" title="Permanent link">&para;</a></h5>
+<p>Delete a custom room.</p>
+<h6 id="usage_23">Usage<a class="headerlink" href="#usage_23" title="Permanent link">&para;</a></h6>
+<p><code>bluz rooms delete [OPTIONS] {room_id}</code></p>
+<h6 id="arguments_23">Arguments<a class="headerlink" href="#arguments_23" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>room_id</code></td>
+<td>Custom room id to delete.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_23">Options<a class="headerlink" href="#options_23" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-y, --yes</code></td>
+<td>Skip confirmation.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-rooms-set-info"><code>bluz rooms set-info</code><a class="headerlink" href="#bluz-rooms-set-info" title="Permanent link">&para;</a></h5>
+<p>Patch a room's extended info (seats, workstations, comfort flags).</p>
+<h6 id="usage_24">Usage<a class="headerlink" href="#usage_24" title="Permanent link">&para;</a></h6>
+<p><code>bluz rooms set-info [OPTIONS] {room_id}</code></p>
+<h6 id="arguments_24">Arguments<a class="headerlink" href="#arguments_24" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>room_id</code></td>
+<td>Room id.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_24">Options<a class="headerlink" href="#options_24" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--source <int></code></td>
+<td>0=custom, 1=hive.</td>
+<td>No</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><code>--info <str></code></td>
+<td>Extended info JSON, e.g. '{"workstationCount":20,"lectureSeatCount":40,"lectureComfortable":true,"peAyin":false}'.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bluz-courses"><code>bluz courses</code><a class="headerlink" href="#bluz-courses" title="Permanent link">&para;</a></h3>
+<p>Courses.</p>
+<h4 id="usage_25">Usage<a class="headerlink" href="#usage_25" title="Permanent link">&para;</a></h4>
+<p><code>bluz courses [OPTIONS] COMMAND [ARGS]...</code></p>
+<h4 id="arguments_25">Arguments<a class="headerlink" href="#arguments_25" title="Permanent link">&para;</a></h4>
+<p><em>No arguments available</em></p>
+<h4 id="options_25">Options<a class="headerlink" href="#options_25" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="subcommands_4">Subcommands<a class="headerlink" href="#subcommands_4" title="Permanent link">&para;</a></h4>
+<h5 id="bluz-courses-list"><code>bluz courses list</code><a class="headerlink" href="#bluz-courses-list" title="Permanent link">&para;</a></h5>
+<p>List all courses.</p>
+<h6 id="usage_26">Usage<a class="headerlink" href="#usage_26" title="Permanent link">&para;</a></h6>
+<p><code>bluz courses list [OPTIONS]</code></p>
+<h6 id="arguments_26">Arguments<a class="headerlink" href="#arguments_26" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_26">Options<a class="headerlink" href="#options_26" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-courses-get"><code>bluz courses get</code><a class="headerlink" href="#bluz-courses-get" title="Permanent link">&para;</a></h5>
+<p>Fetch a single course by id (filtered client-side — no per-id route).</p>
+<h6 id="usage_27">Usage<a class="headerlink" href="#usage_27" title="Permanent link">&para;</a></h6>
+<p><code>bluz courses get [OPTIONS] {course_id}</code></p>
+<h6 id="arguments_27">Arguments<a class="headerlink" href="#arguments_27" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>course_id</code></td>
+<td>Course id.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_27">Options<a class="headerlink" href="#options_27" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-courses-create"><code>bluz courses create</code><a class="headerlink" href="#bluz-courses-create" title="Permanent link">&para;</a></h5>
+<p>Create a course.</p>
+<h6 id="usage_28">Usage<a class="headerlink" href="#usage_28" title="Permanent link">&para;</a></h6>
+<p><code>bluz courses create [OPTIONS]</code></p>
+<h6 id="arguments_28">Arguments<a class="headerlink" href="#arguments_28" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_28">Options<a class="headerlink" href="#options_28" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--name <str></code></td>
+<td>Course name.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--color <str></code></td>
+<td>Hex color, e.g. #2196f3.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--parent-id <str></code></td>
+<td>Parent course id.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--instructor-ids <str></code></td>
+<td>JSON array of Hive instructor ids.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--id <str></code></td>
+<td>Course id (generated if omitted).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-courses-update"><code>bluz courses update</code><a class="headerlink" href="#bluz-courses-update" title="Permanent link">&para;</a></h5>
+<p>Update a course.</p>
+<h6 id="usage_29">Usage<a class="headerlink" href="#usage_29" title="Permanent link">&para;</a></h6>
+<p><code>bluz courses update [OPTIONS] {course_id}</code></p>
+<h6 id="arguments_29">Arguments<a class="headerlink" href="#arguments_29" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>course_id</code></td>
+<td>Course id to update.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_29">Options<a class="headerlink" href="#options_29" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--name <str></code></td>
+<td>New name.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--color <str></code></td>
+<td>New hex color.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--parent-id <str></code></td>
+<td>New parent id.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--instructor-ids <str></code></td>
+<td>JSON array of instructor ids.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-courses-delete"><code>bluz courses delete</code><a class="headerlink" href="#bluz-courses-delete" title="Permanent link">&para;</a></h5>
+<p>Delete a course.</p>
+<h6 id="usage_30">Usage<a class="headerlink" href="#usage_30" title="Permanent link">&para;</a></h6>
+<p><code>bluz courses delete [OPTIONS] {course_id}</code></p>
+<h6 id="arguments_30">Arguments<a class="headerlink" href="#arguments_30" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>course_id</code></td>
+<td>Course id to delete.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_30">Options<a class="headerlink" href="#options_30" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-y, --yes</code></td>
+<td>Skip confirmation.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bluz-reservations"><code>bluz reservations</code><a class="headerlink" href="#bluz-reservations" title="Permanent link">&para;</a></h3>
+<p>Room reservations.</p>
+<h4 id="usage_31">Usage<a class="headerlink" href="#usage_31" title="Permanent link">&para;</a></h4>
+<p><code>bluz reservations [OPTIONS] COMMAND [ARGS]...</code></p>
+<h4 id="arguments_31">Arguments<a class="headerlink" href="#arguments_31" title="Permanent link">&para;</a></h4>
+<p><em>No arguments available</em></p>
+<h4 id="options_31">Options<a class="headerlink" href="#options_31" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="subcommands_5">Subcommands<a class="headerlink" href="#subcommands_5" title="Permanent link">&para;</a></h4>
+<h5 id="bluz-reservations-list"><code>bluz reservations list</code><a class="headerlink" href="#bluz-reservations-list" title="Permanent link">&para;</a></h5>
+<p>List reservations, optionally filtered by room and date range.</p>
+<h6 id="usage_32">Usage<a class="headerlink" href="#usage_32" title="Permanent link">&para;</a></h6>
+<p><code>bluz reservations list [OPTIONS]</code></p>
+<h6 id="arguments_32">Arguments<a class="headerlink" href="#arguments_32" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_32">Options<a class="headerlink" href="#options_32" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--room-id <str></code></td>
+<td>Filter by room id.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--room-source <int></code></td>
+<td>0=custom, 1=hive.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--from <str></code></td>
+<td>ISO start of range.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--to <str></code></td>
+<td>ISO end of range.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-reservations-get"><code>bluz reservations get</code><a class="headerlink" href="#bluz-reservations-get" title="Permanent link">&para;</a></h5>
+<p>Fetch a single reservation by id (filtered client-side — no per-id route).</p>
+<h6 id="usage_33">Usage<a class="headerlink" href="#usage_33" title="Permanent link">&para;</a></h6>
+<p><code>bluz reservations get [OPTIONS] {reservation_id}</code></p>
+<h6 id="arguments_33">Arguments<a class="headerlink" href="#arguments_33" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>reservation_id</code></td>
+<td>Reservation _id.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_33">Options<a class="headerlink" href="#options_33" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-reservations-create"><code>bluz reservations create</code><a class="headerlink" href="#bluz-reservations-create" title="Permanent link">&para;</a></h5>
+<p>Create a reservation.</p>
+<h6 id="usage_34">Usage<a class="headerlink" href="#usage_34" title="Permanent link">&para;</a></h6>
+<p><code>bluz reservations create [OPTIONS]</code></p>
+<h6 id="arguments_34">Arguments<a class="headerlink" href="#arguments_34" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_34">Options<a class="headerlink" href="#options_34" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--room-id <str></code></td>
+<td>Room id.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--room-source <int></code></td>
+<td>0=custom, 1=hive.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--start <str></code></td>
+<td>ISO start datetime.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--end <str></code></td>
+<td>ISO end datetime.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--reserver-type <str></code></td>
+<td>instructor</td>
+<td>outsider.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>--reserver-id <str></code></td>
+<td>Id of the reserver.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--note <str></code></td>
+<td>Optional note.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-reservations-cancel"><code>bluz reservations cancel</code><a class="headerlink" href="#bluz-reservations-cancel" title="Permanent link">&para;</a></h5>
+<p>Cancel (delete) a reservation.</p>
+<h6 id="usage_35">Usage<a class="headerlink" href="#usage_35" title="Permanent link">&para;</a></h6>
+<p><code>bluz reservations cancel [OPTIONS] {reservation_id}</code></p>
+<h6 id="arguments_35">Arguments<a class="headerlink" href="#arguments_35" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>reservation_id</code></td>
+<td>Reservation _id to cancel.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_35">Options<a class="headerlink" href="#options_35" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-y, --yes</code></td>
+<td>Skip confirmation.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bluz-outsiders"><code>bluz outsiders</code><a class="headerlink" href="#bluz-outsiders" title="Permanent link">&para;</a></h3>
+<p>Outsiders (external visitors).</p>
+<h4 id="usage_36">Usage<a class="headerlink" href="#usage_36" title="Permanent link">&para;</a></h4>
+<p><code>bluz outsiders [OPTIONS] COMMAND [ARGS]...</code></p>
+<h4 id="arguments_36">Arguments<a class="headerlink" href="#arguments_36" title="Permanent link">&para;</a></h4>
+<p><em>No arguments available</em></p>
+<h4 id="options_36">Options<a class="headerlink" href="#options_36" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="subcommands_6">Subcommands<a class="headerlink" href="#subcommands_6" title="Permanent link">&para;</a></h4>
+<h5 id="bluz-outsiders-list"><code>bluz outsiders list</code><a class="headerlink" href="#bluz-outsiders-list" title="Permanent link">&para;</a></h5>
+<p>List all outsiders.</p>
+<h6 id="usage_37">Usage<a class="headerlink" href="#usage_37" title="Permanent link">&para;</a></h6>
+<p><code>bluz outsiders list [OPTIONS]</code></p>
+<h6 id="arguments_37">Arguments<a class="headerlink" href="#arguments_37" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_37">Options<a class="headerlink" href="#options_37" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-outsiders-get"><code>bluz outsiders get</code><a class="headerlink" href="#bluz-outsiders-get" title="Permanent link">&para;</a></h5>
+<p>Fetch a single outsider by id (filtered client-side — no per-id route).</p>
+<h6 id="usage_38">Usage<a class="headerlink" href="#usage_38" title="Permanent link">&para;</a></h6>
+<p><code>bluz outsiders get [OPTIONS] {outsider_id}</code></p>
+<h6 id="arguments_38">Arguments<a class="headerlink" href="#arguments_38" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>outsider_id</code></td>
+<td>Outsider id.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_38">Options<a class="headerlink" href="#options_38" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-outsiders-create"><code>bluz outsiders create</code><a class="headerlink" href="#bluz-outsiders-create" title="Permanent link">&para;</a></h5>
+<p>Create an outsider.</p>
+<h6 id="usage_39">Usage<a class="headerlink" href="#usage_39" title="Permanent link">&para;</a></h6>
+<p><code>bluz outsiders create [OPTIONS]</code></p>
+<h6 id="arguments_39">Arguments<a class="headerlink" href="#arguments_39" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_39">Options<a class="headerlink" href="#options_39" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--name <str></code></td>
+<td>Full name (שם מלא).</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--phone <str></code></td>
+<td>Phone (טלפון).</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--personal-number <str></code></td>
+<td>מספר אישי (7 digits).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--id-number <str></code></td>
+<td>ת.ז. (9 digits).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--release-date <str></code></td>
+<td>ISO release date.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--comment <str></code></td>
+<td>Free-text comment (הערה).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--id <str></code></td>
+<td>Outsider id (generated if omitted).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-outsiders-update"><code>bluz outsiders update</code><a class="headerlink" href="#bluz-outsiders-update" title="Permanent link">&para;</a></h5>
+<p>Update an outsider.</p>
+<h6 id="usage_40">Usage<a class="headerlink" href="#usage_40" title="Permanent link">&para;</a></h6>
+<p><code>bluz outsiders update [OPTIONS] {outsider_id}</code></p>
+<h6 id="arguments_40">Arguments<a class="headerlink" href="#arguments_40" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>outsider_id</code></td>
+<td>Outsider id to update.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_40">Options<a class="headerlink" href="#options_40" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--name <str></code></td>
+<td>New name.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--phone <str></code></td>
+<td>New phone.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--personal-number <str></code></td>
+<td>New personal number.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--id-number <str></code></td>
+<td>New ID number.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--release-date <str></code></td>
+<td>New release date.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--comment <str></code></td>
+<td>New comment.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-outsiders-delete"><code>bluz outsiders delete</code><a class="headerlink" href="#bluz-outsiders-delete" title="Permanent link">&para;</a></h5>
+<p>Delete an outsider.</p>
+<h6 id="usage_41">Usage<a class="headerlink" href="#usage_41" title="Permanent link">&para;</a></h6>
+<p><code>bluz outsiders delete [OPTIONS] {outsider_id}</code></p>
+<h6 id="arguments_41">Arguments<a class="headerlink" href="#arguments_41" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>outsider_id</code></td>
+<td>Outsider id to delete.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_41">Options<a class="headerlink" href="#options_41" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-y, --yes</code></td>
+<td>Skip confirmation.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bluz-events"><code>bluz events</code><a class="headerlink" href="#bluz-events" title="Permanent link">&para;</a></h3>
+<p>Calendar events.</p>
+<h4 id="usage_42">Usage<a class="headerlink" href="#usage_42" title="Permanent link">&para;</a></h4>
+<p><code>bluz events [OPTIONS] COMMAND [ARGS]...</code></p>
+<h4 id="arguments_42">Arguments<a class="headerlink" href="#arguments_42" title="Permanent link">&para;</a></h4>
+<p><em>No arguments available</em></p>
+<h4 id="options_42">Options<a class="headerlink" href="#options_42" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="subcommands_7">Subcommands<a class="headerlink" href="#subcommands_7" title="Permanent link">&para;</a></h4>
+<h5 id="bluz-events-list"><code>bluz events list</code><a class="headerlink" href="#bluz-events-list" title="Permanent link">&para;</a></h5>
+<p>List events in a date range (optionally for a specific iteration).</p>
+<h6 id="usage_43">Usage<a class="headerlink" href="#usage_43" title="Permanent link">&para;</a></h6>
+<p><code>bluz events list [OPTIONS]</code></p>
+<h6 id="arguments_43">Arguments<a class="headerlink" href="#arguments_43" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_43">Options<a class="headerlink" href="#options_43" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--start, --sd <str></code></td>
+<td>ISO range start.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--end, --ed <str></code></td>
+<td>ISO range end.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--iteration, --it <str></code></td>
+<td>Iteration id to scope to.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-events-get"><code>bluz events get</code><a class="headerlink" href="#bluz-events-get" title="Permanent link">&para;</a></h5>
+<p>Fetch multiple events by id.</p>
+<h6 id="usage_44">Usage<a class="headerlink" href="#usage_44" title="Permanent link">&para;</a></h6>
+<p><code>bluz events get [OPTIONS] {ids}</code></p>
+<h6 id="arguments_44">Arguments<a class="headerlink" href="#arguments_44" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ids</code></td>
+<td>Comma-separated event ids.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_44">Options<a class="headerlink" href="#options_44" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--iteration, --it <str></code></td>
+<td>Iteration id.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-events-create"><code>bluz events create</code><a class="headerlink" href="#bluz-events-create" title="Permanent link">&para;</a></h5>
+<p>Create a calendar event from a JSON payload.</p>
+<h6 id="usage_45">Usage<a class="headerlink" href="#usage_45" title="Permanent link">&para;</a></h6>
+<p><code>bluz events create [OPTIONS]</code></p>
+<h6 id="arguments_45">Arguments<a class="headerlink" href="#arguments_45" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_45">Options<a class="headerlink" href="#options_45" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--data <str></code></td>
+<td>Event JSON payload.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-events-update"><code>bluz events update</code><a class="headerlink" href="#bluz-events-update" title="Permanent link">&para;</a></h5>
+<p>Update a calendar event from a JSON payload.</p>
+<h6 id="usage_46">Usage<a class="headerlink" href="#usage_46" title="Permanent link">&para;</a></h6>
+<p><code>bluz events update [OPTIONS]</code></p>
+<h6 id="arguments_46">Arguments<a class="headerlink" href="#arguments_46" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_46">Options<a class="headerlink" href="#options_46" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--data <str></code></td>
+<td>Event JSON payload (must include id).</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-events-delete"><code>bluz events delete</code><a class="headerlink" href="#bluz-events-delete" title="Permanent link">&para;</a></h5>
+<p>Delete a calendar event.</p>
+<h6 id="usage_47">Usage<a class="headerlink" href="#usage_47" title="Permanent link">&para;</a></h6>
+<p><code>bluz events delete [OPTIONS] {event_id}</code></p>
+<h6 id="arguments_47">Arguments<a class="headerlink" href="#arguments_47" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>event_id</code></td>
+<td>Event id to delete.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_47">Options<a class="headerlink" href="#options_47" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-y, --yes</code></td>
+<td>Skip confirmation.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-events-compare"><code>bluz events compare</code><a class="headerlink" href="#bluz-events-compare" title="Permanent link">&para;</a></h5>
+<p>Compare events of two iterations over the same range.</p>
+<h6 id="usage_48">Usage<a class="headerlink" href="#usage_48" title="Permanent link">&para;</a></h6>
+<p><code>bluz events compare [OPTIONS]</code></p>
+<h6 id="arguments_48">Arguments<a class="headerlink" href="#arguments_48" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_48">Options<a class="headerlink" href="#options_48" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--start, --sd <str></code></td>
+<td>ISO range start.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--end, --ed <str></code></td>
+<td>ISO range end.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--it-a <str></code></td>
+<td>First iteration id.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--it-b <str></code></td>
+<td>Second iteration id.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bluz-calendar"><code>bluz calendar</code><a class="headerlink" href="#bluz-calendar" title="Permanent link">&para;</a></h3>
+<p>Shared calendar drafts, snapshots and ICS export.</p>
+<h4 id="usage_49">Usage<a class="headerlink" href="#usage_49" title="Permanent link">&para;</a></h4>
+<p><code>bluz calendar [OPTIONS] COMMAND [ARGS]...</code></p>
+<h4 id="arguments_49">Arguments<a class="headerlink" href="#arguments_49" title="Permanent link">&para;</a></h4>
+<p><em>No arguments available</em></p>
+<h4 id="options_49">Options<a class="headerlink" href="#options_49" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="subcommands_8">Subcommands<a class="headerlink" href="#subcommands_8" title="Permanent link">&para;</a></h4>
+<h5 id="bluz-calendar-export-ics"><code>bluz calendar export-ics</code><a class="headerlink" href="#bluz-calendar-export-ics" title="Permanent link">&para;</a></h5>
+<p>Export the schedule in a date range as an ICS calendar (max 366 days).</p>
+<h6 id="usage_50">Usage<a class="headerlink" href="#usage_50" title="Permanent link">&para;</a></h6>
+<p><code>bluz calendar export-ics [OPTIONS]</code></p>
+<h6 id="arguments_50">Arguments<a class="headerlink" href="#arguments_50" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_50">Options<a class="headerlink" href="#options_50" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--start, --sd <str></code></td>
+<td>ISO range start.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--end, --ed <str></code></td>
+<td>ISO range end.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>-o, --output <path></code></td>
+<td>Destination .ics path.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--iteration, --it <str></code></td>
+<td>Iteration id to scope to (default: current).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-calendar-drafts"><code>bluz calendar drafts</code><a class="headerlink" href="#bluz-calendar-drafts" title="Permanent link">&para;</a></h5>
+<p>Shared calendar drafts.</p>
+<h6 id="usage_51">Usage<a class="headerlink" href="#usage_51" title="Permanent link">&para;</a></h6>
+<p><code>bluz calendar drafts delete [OPTIONS] {draft_id}</code></p>
+<h6 id="arguments_51">Arguments<a class="headerlink" href="#arguments_51" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>draft_id</code></td>
+<td>Draft id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>draft_id</code></td>
+<td>Draft id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>draft_id</code></td>
+<td>Draft id.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_51">Options<a class="headerlink" href="#options_51" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--iteration, --it <str></code></td>
+<td>Iteration id to scope to (default: current).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--iteration, --it <str></code></td>
+<td>Iteration id to scope to (default: current).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--label <str></code></td>
+<td>Draft label.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--events <str></code></td>
+<td>Events as a JSON array.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--events-file <path></code></td>
+<td>Path to a JSON file holding the events array.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--iteration, --it <str></code></td>
+<td>Iteration id to scope to (default: current).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--label <str></code></td>
+<td>New label (optional).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--events <str></code></td>
+<td>Events as a JSON array.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--events-file <path></code></td>
+<td>Path to a JSON file holding the events array.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--iteration, --it <str></code></td>
+<td>Iteration id to scope to (default: current).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--iteration, --it <str></code></td>
+<td>Iteration id to scope to (default: current).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>-y, --yes</code></td>
+<td>Skip confirmation.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-calendar-snapshots"><code>bluz calendar snapshots</code><a class="headerlink" href="#bluz-calendar-snapshots" title="Permanent link">&para;</a></h5>
+<p>Calendar snapshots.</p>
+<h6 id="usage_52">Usage<a class="headerlink" href="#usage_52" title="Permanent link">&para;</a></h6>
+<p><code>bluz calendar snapshots restore [OPTIONS] {snapshot_id}</code></p>
+<h6 id="arguments_52">Arguments<a class="headerlink" href="#arguments_52" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>snapshot_id</code></td>
+<td>Snapshot id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>snapshot_id</code></td>
+<td>Snapshot id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>snapshot_id</code></td>
+<td>Snapshot id.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_52">Options<a class="headerlink" href="#options_52" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--iteration, --it <str></code></td>
+<td>Iteration id to scope to (default: current).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--iteration, --it <str></code></td>
+<td>Iteration id to scope to (default: current).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--label <str></code></td>
+<td>Snapshot label.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--events <str></code></td>
+<td>Events as a JSON array.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--events-file <path></code></td>
+<td>Path to a JSON file holding the events array.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--iteration, --it <str></code></td>
+<td>Iteration id to scope to (default: current).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--iteration, --it <str></code></td>
+<td>Iteration id to scope to (default: current).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>-y, --yes</code></td>
+<td>Skip confirmation.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--iteration, --it <str></code></td>
+<td>Iteration id to scope to (default: current).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>-y, --yes</code></td>
+<td>Skip confirmation.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bluz-settings"><code>bluz settings</code><a class="headerlink" href="#bluz-settings" title="Permanent link">&para;</a></h3>
+<p>Application settings.</p>
+<h4 id="usage_53">Usage<a class="headerlink" href="#usage_53" title="Permanent link">&para;</a></h4>
+<p><code>bluz settings [OPTIONS] COMMAND [ARGS]...</code></p>
+<h4 id="arguments_53">Arguments<a class="headerlink" href="#arguments_53" title="Permanent link">&para;</a></h4>
+<p><em>No arguments available</em></p>
+<h4 id="options_53">Options<a class="headerlink" href="#options_53" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="subcommands_9">Subcommands<a class="headerlink" href="#subcommands_9" title="Permanent link">&para;</a></h4>
+<h5 id="bluz-settings-list"><code>bluz settings list</code><a class="headerlink" href="#bluz-settings-list" title="Permanent link">&para;</a></h5>
+<p>List known setting keys (server has no enumeration route — this is a static list).</p>
+<h6 id="usage_54">Usage<a class="headerlink" href="#usage_54" title="Permanent link">&para;</a></h6>
+<p><code>bluz settings list [OPTIONS]</code></p>
+<h6 id="arguments_54">Arguments<a class="headerlink" href="#arguments_54" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_54">Options<a class="headerlink" href="#options_54" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-settings-get"><code>bluz settings get</code><a class="headerlink" href="#bluz-settings-get" title="Permanent link">&para;</a></h5>
+<p>Read a setting by key.</p>
+<h6 id="usage_55">Usage<a class="headerlink" href="#usage_55" title="Permanent link">&para;</a></h6>
+<p><code>bluz settings get [OPTIONS] {name}</code></p>
+<h6 id="arguments_55">Arguments<a class="headerlink" href="#arguments_55" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>Setting key, e.g. prayer-times.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_55">Options<a class="headerlink" href="#options_55" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-settings-set"><code>bluz settings set</code><a class="headerlink" href="#bluz-settings-set" title="Permanent link">&para;</a></h5>
+<p>Write a setting value (JSON).</p>
+<h6 id="usage_56">Usage<a class="headerlink" href="#usage_56" title="Permanent link">&para;</a></h6>
+<p><code>bluz settings set [OPTIONS] {name}</code></p>
+<h6 id="arguments_56">Arguments<a class="headerlink" href="#arguments_56" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>Setting key.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_56">Options<a class="headerlink" href="#options_56" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--value <str></code></td>
+<td>Setting value as JSON.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-settings-get-prayer"><code>bluz settings get-prayer</code><a class="headerlink" href="#bluz-settings-get-prayer" title="Permanent link">&para;</a></h5>
+<p>Read the prayer-times setting.</p>
+<h6 id="usage_57">Usage<a class="headerlink" href="#usage_57" title="Permanent link">&para;</a></h6>
+<p><code>bluz settings get-prayer [OPTIONS]</code></p>
+<h6 id="arguments_57">Arguments<a class="headerlink" href="#arguments_57" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_57">Options<a class="headerlink" href="#options_57" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-settings-set-prayer"><code>bluz settings set-prayer</code><a class="headerlink" href="#bluz-settings-set-prayer" title="Permanent link">&para;</a></h5>
+<p>Write the prayer-times setting.</p>
+<h6 id="usage_58">Usage<a class="headerlink" href="#usage_58" title="Permanent link">&para;</a></h6>
+<p><code>bluz settings set-prayer [OPTIONS]</code></p>
+<h6 id="arguments_58">Arguments<a class="headerlink" href="#arguments_58" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_58">Options<a class="headerlink" href="#options_58" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--value <str></code></td>
+<td>Prayer settings as JSON.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-settings-get-schedule"><code>bluz settings get-schedule</code><a class="headerlink" href="#bluz-settings-get-schedule" title="Permanent link">&para;</a></h5>
+<p>Read the schedule settings (day bounds, slot sizes, working days).</p>
+<h6 id="usage_59">Usage<a class="headerlink" href="#usage_59" title="Permanent link">&para;</a></h6>
+<p><code>bluz settings get-schedule [OPTIONS]</code></p>
+<h6 id="arguments_59">Arguments<a class="headerlink" href="#arguments_59" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_59">Options<a class="headerlink" href="#options_59" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-settings-set-schedule"><code>bluz settings set-schedule</code><a class="headerlink" href="#bluz-settings-set-schedule" title="Permanent link">&para;</a></h5>
+<p>Write the schedule settings.</p>
+<h6 id="usage_60">Usage<a class="headerlink" href="#usage_60" title="Permanent link">&para;</a></h6>
+<p><code>bluz settings set-schedule [OPTIONS]</code></p>
+<h6 id="arguments_60">Arguments<a class="headerlink" href="#arguments_60" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_60">Options<a class="headerlink" href="#options_60" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--value <str></code></td>
+<td>Schedule settings as JSON.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bluz-personal"><code>bluz personal</code><a class="headerlink" href="#bluz-personal" title="Permanent link">&para;</a></h3>
+<p>Personal (per-user) settings.</p>
+<h4 id="usage_61">Usage<a class="headerlink" href="#usage_61" title="Permanent link">&para;</a></h4>
+<p><code>bluz personal [OPTIONS] COMMAND [ARGS]...</code></p>
+<h4 id="arguments_61">Arguments<a class="headerlink" href="#arguments_61" title="Permanent link">&para;</a></h4>
+<p><em>No arguments available</em></p>
+<h4 id="options_61">Options<a class="headerlink" href="#options_61" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="subcommands_10">Subcommands<a class="headerlink" href="#subcommands_10" title="Permanent link">&para;</a></h4>
+<h5 id="bluz-personal-get"><code>bluz personal get</code><a class="headerlink" href="#bluz-personal-get" title="Permanent link">&para;</a></h5>
+<p>Read the signed-in user's personal settings.</p>
+<h6 id="usage_62">Usage<a class="headerlink" href="#usage_62" title="Permanent link">&para;</a></h6>
+<p><code>bluz personal get [OPTIONS]</code></p>
+<h6 id="arguments_62">Arguments<a class="headerlink" href="#arguments_62" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_62">Options<a class="headerlink" href="#options_62" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-personal-set"><code>bluz personal set</code><a class="headerlink" href="#bluz-personal-set" title="Permanent link">&para;</a></h5>
+<p>Update personal settings.</p>
+<p>The endpoint replaces the whole document, so field flags are merged onto the
+current values; <code>--data</code> bypasses the merge and writes verbatim.</p>
+<h6 id="usage_63">Usage<a class="headerlink" href="#usage_63" title="Permanent link">&para;</a></h6>
+<p><code>bluz personal set [OPTIONS]</code></p>
+<h6 id="arguments_63">Arguments<a class="headerlink" href="#arguments_63" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_63">Options<a class="headerlink" href="#options_63" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--data <str></code></td>
+<td>Full settings object as JSON (replaces everything).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--groups <str></code></td>
+<td>Comma-separated group ids.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--instructors <str></code></td>
+<td>Comma-separated instructor ids.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--favorite-outsiders <str></code></td>
+<td>Comma-separated outsider ids.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--google-enabled / --no-google-enabled</code></td>
+<td>Toggle Google Calendar sync for this user.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--google-all-events / --no-google-all-events</code></td>
+<td>Sync every event, not only ones the user teaches.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bluz-colors"><code>bluz colors</code><a class="headerlink" href="#bluz-colors" title="Permanent link">&para;</a></h3>
+<p>Custom event colours.</p>
+<h4 id="usage_64">Usage<a class="headerlink" href="#usage_64" title="Permanent link">&para;</a></h4>
+<p><code>bluz colors [OPTIONS] COMMAND [ARGS]...</code></p>
+<h4 id="arguments_64">Arguments<a class="headerlink" href="#arguments_64" title="Permanent link">&para;</a></h4>
+<p><em>No arguments available</em></p>
+<h4 id="options_64">Options<a class="headerlink" href="#options_64" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="subcommands_11">Subcommands<a class="headerlink" href="#subcommands_11" title="Permanent link">&para;</a></h4>
+<h5 id="bluz-colors-list"><code>bluz colors list</code><a class="headerlink" href="#bluz-colors-list" title="Permanent link">&para;</a></h5>
+<p>List every custom colour.</p>
+<h6 id="usage_65">Usage<a class="headerlink" href="#usage_65" title="Permanent link">&para;</a></h6>
+<p><code>bluz colors list [OPTIONS]</code></p>
+<h6 id="arguments_65">Arguments<a class="headerlink" href="#arguments_65" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_65">Options<a class="headerlink" href="#options_65" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-colors-get"><code>bluz colors get</code><a class="headerlink" href="#bluz-colors-get" title="Permanent link">&para;</a></h5>
+<p>Fetch one colour (filtered client-side — the server has no per-id route).</p>
+<h6 id="usage_66">Usage<a class="headerlink" href="#usage_66" title="Permanent link">&para;</a></h6>
+<p><code>bluz colors get [OPTIONS] {color_id}</code></p>
+<h6 id="arguments_66">Arguments<a class="headerlink" href="#arguments_66" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>color_id</code></td>
+<td>Colour id.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_66">Options<a class="headerlink" href="#options_66" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-colors-create"><code>bluz colors create</code><a class="headerlink" href="#bluz-colors-create" title="Permanent link">&para;</a></h5>
+<p>Create a custom colour. Ids are client-generated — one is minted if omitted.</p>
+<h6 id="usage_67">Usage<a class="headerlink" href="#usage_67" title="Permanent link">&para;</a></h6>
+<p><code>bluz colors create [OPTIONS]</code></p>
+<h6 id="arguments_67">Arguments<a class="headerlink" href="#arguments_67" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_67">Options<a class="headerlink" href="#options_67" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--name <str></code></td>
+<td>Display name.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--hex <str></code></td>
+<td>Hex code, e.g. #3f51b5.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--id <str></code></td>
+<td>Colour id (generated when omitted).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-colors-update"><code>bluz colors update</code><a class="headerlink" href="#bluz-colors-update" title="Permanent link">&para;</a></h5>
+<p>Update a colour. The server replaces the whole record, so unset fields are
+carried over from the current value.</p>
+<h6 id="usage_68">Usage<a class="headerlink" href="#usage_68" title="Permanent link">&para;</a></h6>
+<p><code>bluz colors update [OPTIONS] {color_id}</code></p>
+<h6 id="arguments_68">Arguments<a class="headerlink" href="#arguments_68" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>color_id</code></td>
+<td>Colour id.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_68">Options<a class="headerlink" href="#options_68" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--name <str></code></td>
+<td>New display name.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--hex <str></code></td>
+<td>New hex code.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-colors-delete"><code>bluz colors delete</code><a class="headerlink" href="#bluz-colors-delete" title="Permanent link">&para;</a></h5>
+<p>Delete a custom colour.</p>
+<h6 id="usage_69">Usage<a class="headerlink" href="#usage_69" title="Permanent link">&para;</a></h6>
+<p><code>bluz colors delete [OPTIONS] {color_id}</code></p>
+<h6 id="arguments_69">Arguments<a class="headerlink" href="#arguments_69" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>color_id</code></td>
+<td>Colour id.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_69">Options<a class="headerlink" href="#options_69" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-y, --yes</code></td>
+<td>Skip confirmation.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bluz-gantt"><code>bluz gantt</code><a class="headerlink" href="#bluz-gantt" title="Permanent link">&para;</a></h3>
+<p>Gantt / curriculum engine.</p>
+<h4 id="usage_70">Usage<a class="headerlink" href="#usage_70" title="Permanent link">&para;</a></h4>
+<p><code>bluz gantt [OPTIONS] COMMAND [ARGS]...</code></p>
+<h4 id="arguments_70">Arguments<a class="headerlink" href="#arguments_70" title="Permanent link">&para;</a></h4>
+<p><em>No arguments available</em></p>
+<h4 id="options_70">Options<a class="headerlink" href="#options_70" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="subcommands_12">Subcommands<a class="headerlink" href="#subcommands_12" title="Permanent link">&para;</a></h4>
+<h5 id="bluz-gantt-curriculums"><code>bluz gantt curriculums</code><a class="headerlink" href="#bluz-gantt-curriculums" title="Permanent link">&para;</a></h5>
+<p>Curriculums.</p>
+<h6 id="usage_71">Usage<a class="headerlink" href="#usage_71" title="Permanent link">&para;</a></h6>
+<p><code>bluz gantt curriculums recurrence-exceptions [OPTIONS] {curriculum_id}</code></p>
+<h6 id="arguments_71">Arguments<a class="headerlink" href="#arguments_71" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>ids</code></td>
+<td>Comma-separated ids.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>curriculum_id</code></td>
+<td>Curriculum id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>curriculum_id</code></td>
+<td>Curriculum id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>file</code></td>
+<td>Path to an exported curriculum JSON file.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>curriculum_id</code></td>
+<td>Curriculum id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>curriculum_id</code></td>
+<td>Curriculum id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>curriculum_id</code></td>
+<td>Curriculum id to clone.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>curriculum_id</code></td>
+<td>Curriculum id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>curriculum_id</code></td>
+<td>Curriculum id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>curriculum_id</code></td>
+<td>Curriculum id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>curriculum_id</code></td>
+<td>Curriculum id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>curriculum_id</code></td>
+<td>Curriculum id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>curriculum_id</code></td>
+<td>Curriculum id.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_71">Options<a class="headerlink" href="#options_71" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--with-parents</code></td>
+<td>Include each item's parent id (weeks/days label by number/index).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--data <str></code></td>
+<td>JSON payload.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--data <str></code></td>
+<td>JSON patch payload.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>-y, --yes</code></td>
+<td>Skip confirmation.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>-o, --output <path></code></td>
+<td>Write JSON to this file.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>-o, --output <path></code></td>
+<td>Destination .xlsx path.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--syllabus-id <str></code></td>
+<td>Scope to a syllabus.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--module-id <str></code></td>
+<td>Scope to a module.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--overrides <str></code></td>
+<td>JSON object overriding the clone's fields (defaults to the source's).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--force</code></td>
+<td>Re-cut a curriculum that was already cut.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>-y, --yes</code></td>
+<td>Skip confirmation.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>-y, --yes</code></td>
+<td>Skip confirmation.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-gantt-syllabuses"><code>bluz gantt syllabuses</code><a class="headerlink" href="#bluz-gantt-syllabuses" title="Permanent link">&para;</a></h5>
+<p>Syllabuses.</p>
+<h6 id="usage_72">Usage<a class="headerlink" href="#usage_72" title="Permanent link">&para;</a></h6>
+<p><code>bluz gantt syllabuses reorder-modules [OPTIONS] {item_id} {ids}</code></p>
+<h6 id="arguments_72">Arguments<a class="headerlink" href="#arguments_72" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>ids</code></td>
+<td>Comma-separated ids.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>new_parent_id</code></td>
+<td>New parent id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>old_parent_id</code></td>
+<td>Parent id to detach from.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Parent item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>ids</code></td>
+<td>Comma-separated child ids in new order.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_72">Options<a class="headerlink" href="#options_72" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--with-parents</code></td>
+<td>Include each item's parent id (weeks/days label by number/index).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--data <str></code></td>
+<td>JSON payload.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--data <str></code></td>
+<td>JSON patch payload.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>-y, --yes</code></td>
+<td>Skip confirmation.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-gantt-modules"><code>bluz gantt modules</code><a class="headerlink" href="#bluz-gantt-modules" title="Permanent link">&para;</a></h5>
+<p>Modules.</p>
+<h6 id="usage_73">Usage<a class="headerlink" href="#usage_73" title="Permanent link">&para;</a></h6>
+<p><code>bluz gantt modules reorder-events [OPTIONS] {item_id} {ids}</code></p>
+<h6 id="arguments_73">Arguments<a class="headerlink" href="#arguments_73" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>ids</code></td>
+<td>Comma-separated ids.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>new_parent_id</code></td>
+<td>New parent id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>old_parent_id</code></td>
+<td>Parent id to detach from.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>container_id</code></td>
+<td>Container (curriculum) id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>container_id</code></td>
+<td>Container (curriculum) id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>duration</code></td>
+<td>Duration to allocate.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Parent item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>ids</code></td>
+<td>Comma-separated child ids in new order.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_73">Options<a class="headerlink" href="#options_73" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--with-parents</code></td>
+<td>Include each item's parent id (weeks/days label by number/index).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--data <str></code></td>
+<td>JSON payload.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--data <str></code></td>
+<td>JSON patch payload.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>-y, --yes</code></td>
+<td>Skip confirmation.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-gantt-events"><code>bluz gantt events</code><a class="headerlink" href="#bluz-gantt-events" title="Permanent link">&para;</a></h5>
+<p>Gantt events.</p>
+<h6 id="usage_74">Usage<a class="headerlink" href="#usage_74" title="Permanent link">&para;</a></h6>
+<p><code>bluz gantt events materialize [OPTIONS] {event_id}</code></p>
+<h6 id="arguments_74">Arguments<a class="headerlink" href="#arguments_74" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>ids</code></td>
+<td>Comma-separated ids.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>new_parent_id</code></td>
+<td>New parent id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>old_parent_id</code></td>
+<td>Parent id to detach from.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>container_id</code></td>
+<td>Container (curriculum) id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>container_id</code></td>
+<td>Container (curriculum) id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>duration</code></td>
+<td>Duration to allocate.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>event_id</code></td>
+<td>Gantt event id to clone.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>event_id</code></td>
+<td>Recurring gantt event id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>event_id</code></td>
+<td>Recurring gantt event id.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_74">Options<a class="headerlink" href="#options_74" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--with-parents</code></td>
+<td>Include each item's parent id (weeks/days label by number/index).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--data <str></code></td>
+<td>JSON payload.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--data <str></code></td>
+<td>JSON patch payload.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>-y, --yes</code></td>
+<td>Skip confirmation.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--module-id <str></code></td>
+<td>Module the copy is created under.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--curriculum-id <str></code></td>
+<td>Curriculum id.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--day-id <str></code></td>
+<td>Day the occurrence falls on.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--curriculum-id <str></code></td>
+<td>Curriculum id.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--module-id <str></code></td>
+<td>Module id.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--day-id <str></code></td>
+<td>Day the occurrence falls on.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-gantt-days"><code>bluz gantt days</code><a class="headerlink" href="#bluz-gantt-days" title="Permanent link">&para;</a></h5>
+<p>Curriculum days.</p>
+<h6 id="usage_75">Usage<a class="headerlink" href="#usage_75" title="Permanent link">&para;</a></h6>
+<p><code>bluz gantt days unlink [OPTIONS] {item_id} {old_parent_id}</code></p>
+<h6 id="arguments_75">Arguments<a class="headerlink" href="#arguments_75" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>ids</code></td>
+<td>Comma-separated ids.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>new_parent_id</code></td>
+<td>New parent id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>old_parent_id</code></td>
+<td>Parent id to detach from.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_75">Options<a class="headerlink" href="#options_75" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--with-parents</code></td>
+<td>Include each item's parent id (weeks/days label by number/index).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--data <str></code></td>
+<td>JSON payload.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--data <str></code></td>
+<td>JSON patch payload.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>-y, --yes</code></td>
+<td>Skip confirmation.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-gantt-weeks"><code>bluz gantt weeks</code><a class="headerlink" href="#bluz-gantt-weeks" title="Permanent link">&para;</a></h5>
+<p>Curriculum weeks.</p>
+<h6 id="usage_76">Usage<a class="headerlink" href="#usage_76" title="Permanent link">&para;</a></h6>
+<p><code>bluz gantt weeks unlink [OPTIONS] {item_id} {old_parent_id}</code></p>
+<h6 id="arguments_76">Arguments<a class="headerlink" href="#arguments_76" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>ids</code></td>
+<td>Comma-separated ids.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>new_parent_id</code></td>
+<td>New parent id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>item_id</code></td>
+<td>Item id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>old_parent_id</code></td>
+<td>Parent id to detach from.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h6 id="options_76">Options<a class="headerlink" href="#options_76" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--with-parents</code></td>
+<td>Include each item's parent id (weeks/days label by number/index).</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--data <str></code></td>
+<td>JSON payload.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--data <str></code></td>
+<td>JSON patch payload.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>-y, --yes</code></td>
+<td>Skip confirmation.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bluz-hive"><code>bluz hive</code><a class="headerlink" href="#bluz-hive" title="Permanent link">&para;</a></h3>
+<p>Hive LMS reference data (read-only).</p>
+<h4 id="usage_77">Usage<a class="headerlink" href="#usage_77" title="Permanent link">&para;</a></h4>
+<p><code>bluz hive [OPTIONS] COMMAND [ARGS]...</code></p>
+<h4 id="arguments_77">Arguments<a class="headerlink" href="#arguments_77" title="Permanent link">&para;</a></h4>
+<p><em>No arguments available</em></p>
+<h4 id="options_77">Options<a class="headerlink" href="#options_77" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="subcommands_13">Subcommands<a class="headerlink" href="#subcommands_13" title="Permanent link">&para;</a></h4>
+<h5 id="bluz-hive-users"><code>bluz hive users</code><a class="headerlink" href="#bluz-hive-users" title="Permanent link">&para;</a></h5>
+<p>Hive users (staff).</p>
+<h6 id="usage_78">Usage<a class="headerlink" href="#usage_78" title="Permanent link">&para;</a></h6>
+<p><code>bluz hive users [OPTIONS]</code></p>
+<h6 id="arguments_78">Arguments<a class="headerlink" href="#arguments_78" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_78">Options<a class="headerlink" href="#options_78" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-hive-students"><code>bluz hive students</code><a class="headerlink" href="#bluz-hive-students" title="Permanent link">&para;</a></h5>
+<p>Hive students.</p>
+<h6 id="usage_79">Usage<a class="headerlink" href="#usage_79" title="Permanent link">&para;</a></h6>
+<p><code>bluz hive students [OPTIONS]</code></p>
+<h6 id="arguments_79">Arguments<a class="headerlink" href="#arguments_79" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_79">Options<a class="headerlink" href="#options_79" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-hive-classes"><code>bluz hive classes</code><a class="headerlink" href="#bluz-hive-classes" title="Permanent link">&para;</a></h5>
+<p>Hive classes.</p>
+<h6 id="usage_80">Usage<a class="headerlink" href="#usage_80" title="Permanent link">&para;</a></h6>
+<p><code>bluz hive classes [OPTIONS]</code></p>
+<h6 id="arguments_80">Arguments<a class="headerlink" href="#arguments_80" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_80">Options<a class="headerlink" href="#options_80" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-hive-subjects"><code>bluz hive subjects</code><a class="headerlink" href="#bluz-hive-subjects" title="Permanent link">&para;</a></h5>
+<p>Hive subjects.</p>
+<h6 id="usage_81">Usage<a class="headerlink" href="#usage_81" title="Permanent link">&para;</a></h6>
+<p><code>bluz hive subjects [OPTIONS]</code></p>
+<h6 id="arguments_81">Arguments<a class="headerlink" href="#arguments_81" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_81">Options<a class="headerlink" href="#options_81" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-hive-modules"><code>bluz hive modules</code><a class="headerlink" href="#bluz-hive-modules" title="Permanent link">&para;</a></h5>
+<p>Hive modules.</p>
+<h6 id="usage_82">Usage<a class="headerlink" href="#usage_82" title="Permanent link">&para;</a></h6>
+<p><code>bluz hive modules [OPTIONS]</code></p>
+<h6 id="arguments_82">Arguments<a class="headerlink" href="#arguments_82" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_82">Options<a class="headerlink" href="#options_82" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-hive-rooms"><code>bluz hive rooms</code><a class="headerlink" href="#bluz-hive-rooms" title="Permanent link">&para;</a></h5>
+<p>Hive rooms.</p>
+<h6 id="usage_83">Usage<a class="headerlink" href="#usage_83" title="Permanent link">&para;</a></h6>
+<p><code>bluz hive rooms [OPTIONS]</code></p>
+<h6 id="arguments_83">Arguments<a class="headerlink" href="#arguments_83" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_83">Options<a class="headerlink" href="#options_83" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="bluz-hive-lessons"><code>bluz hive lessons</code><a class="headerlink" href="#bluz-hive-lessons" title="Permanent link">&para;</a></h5>
+<p>Hive lessons, optionally filtered by module or parent program.</p>
+<h6 id="usage_84">Usage<a class="headerlink" href="#usage_84" title="Permanent link">&para;</a></h6>
+<p><code>bluz hive lessons [OPTIONS]</code></p>
+<h6 id="arguments_84">Arguments<a class="headerlink" href="#arguments_84" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_84">Options<a class="headerlink" href="#options_84" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--module-id <str></code></td>
+<td>Filter by Hive module id.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--program-ids <str></code></td>
+<td>Comma-separated parent-program ids to filter by.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--limit <int></code></td>
+<td>Cap the number of rows shown.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--offset <int></code></td>
+<td>Skip this many rows before showing.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bluz-integrations"><code>bluz integrations</code><a class="headerlink" href="#bluz-integrations" title="Permanent link">&para;</a></h3>
+<p>Third-party integrations.</p>
+<h4 id="usage_85">Usage<a class="headerlink" href="#usage_85" title="Permanent link">&para;</a></h4>
+<p><code>bluz integrations [OPTIONS] COMMAND [ARGS]...</code></p>
+<h4 id="arguments_85">Arguments<a class="headerlink" href="#arguments_85" title="Permanent link">&para;</a></h4>
+<p><em>No arguments available</em></p>
+<h4 id="options_85">Options<a class="headerlink" href="#options_85" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="subcommands_14">Subcommands<a class="headerlink" href="#subcommands_14" title="Permanent link">&para;</a></h4>
+<h5 id="bluz-integrations-google"><code>bluz integrations google</code><a class="headerlink" href="#bluz-integrations-google" title="Permanent link">&para;</a></h5>
+<p>Google Calendar integration.</p>
+<h6 id="usage_86">Usage<a class="headerlink" href="#usage_86" title="Permanent link">&para;</a></h6>
+<p><code>bluz integrations google sync [OPTIONS]</code></p>
+<h6 id="arguments_86">Arguments<a class="headerlink" href="#arguments_86" title="Permanent link">&para;</a></h6>
+<p><em>No arguments available</em></p>
+<h6 id="options_86">Options<a class="headerlink" href="#options_86" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--code <str></code></td>
+<td>Authorization code from the Google Identity Services popup.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>-y, --yes</code></td>
+<td>Skip confirmation.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Show this message and exit.</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 System B90
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

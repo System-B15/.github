@@ -1,0 +1,1128 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Internal developer documentation for the Bluz scheduling & curriculum-management platform.">
+      
+      
+      
+        <link rel="canonical" href="https://system-b90.github.io/bluz/duplication-audit/">
+      
+      
+        <link rel="prev" href="../code-quality/">
+      
+      
+        <link rel="next" href="../api/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Duplication Audit - Bluz Developer Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#code-duplication-audit-dry" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Bluz Developer Documentation" class="md-header__button md-logo" aria-label="Bluz Developer Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bluz Developer Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Duplication Audit
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/system-b90/bluz" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    system-b90/bluz
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Bluz Developer Documentation" class="md-nav__button md-logo" aria-label="Bluz Developer Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Bluz Developer Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/system-b90/bluz" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    system-b90/bluz
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../performance-and-scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance & Scaling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup-and-restore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backup & Restore
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-quality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Quality Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Duplication Audit
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Duplication Audit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#violations-found-and-extracted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Violations found and extracted
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Violations found and extracted">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-hive-entity-dropdowns-3-near-identical-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Hive entity dropdowns (3 near-identical components)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-constraint-panels-module-vs-event-the-largest-clone-195-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Constraint panels (module vs event) — the largest clone (~195 lines)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cut-preview-tabs-157-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Cut preview tabs (~157 lines)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-drafts-vs-snapshots-toolbar-menus-123-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Drafts vs snapshots toolbar menus (~123 lines)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-intra-file-clones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Intra-file clones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-calendar-toolbar-button-styles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Calendar toolbar button styles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-event-duration-math" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Event duration math
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-calendar-store-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Calendar store routes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-remaining-clones-left-deliberately" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known remaining clones (left deliberately)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#violations-found-and-extracted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Violations found and extracted
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Violations found and extracted">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-hive-entity-dropdowns-3-near-identical-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Hive entity dropdowns (3 near-identical components)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-constraint-panels-module-vs-event-the-largest-clone-195-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Constraint panels (module vs event) — the largest clone (~195 lines)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cut-preview-tabs-157-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Cut preview tabs (~157 lines)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-drafts-vs-snapshots-toolbar-menus-123-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Drafts vs snapshots toolbar menus (~123 lines)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-intra-file-clones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Intra-file clones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-calendar-toolbar-button-styles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Calendar toolbar button styles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-event-duration-math" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Event duration math
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-calendar-store-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Calendar store routes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-remaining-clones-left-deliberately" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known remaining clones (left deliberately)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="code-duplication-audit-dry">Code Duplication Audit (DRY)<a class="headerlink" href="#code-duplication-audit-dry" title="Permanent link">&para;</a></h1>
+<p>Scan of <code>ui/src</code>, <code>cli</code>, and <code>session-server</code> with <code>jscpd</code> (min 8 lines / 60 tokens).</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Clones</th>
+<th>Duplicated lines</th>
+<th>Share</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Before</td>
+<td>38</td>
+<td>873</td>
+<td>1.14%</td>
+</tr>
+<tr>
+<td>After</td>
+<td>9</td>
+<td>104</td>
+<td>0.14%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">npx</span> <span class="n">jscpd</span><span class="nv">@4</span> <span class="n">ui</span><span class="p">/</span><span class="n">src</span> <span class="nb">cli </span><span class="n">session-server</span> <span class="p">-</span><span class="n">-min-lines</span> <span class="n">8</span> <span class="p">-</span><span class="n">-min-tokens</span> <span class="n">60</span> <span class="p">-</span><span class="n">-reporters</span> <span class="n">console</span> <span class="p">-</span><span class="n">-format</span> <span class="s2">&quot;typescript,tsx,javascript,python&quot;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">npm</span> <span class="n">run</span> <span class="n">typecheck</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">npm</span> <span class="n">run</span> <span class="n">lint</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">npm</span> <span class="n">run</span> <span class="n">test</span><span class="p">:</span><span class="n">unit</span>
+</code></pre></div>
+<hr />
+<h2 id="violations-found-and-extracted">Violations found and extracted<a class="headerlink" href="#violations-found-and-extracted" title="Permanent link">&para;</a></h2>
+<h3 id="1-hive-entity-dropdowns-3-near-identical-components">1. Hive entity dropdowns (3 near-identical components)<a class="headerlink" href="#1-hive-entity-dropdowns-3-near-identical-components" title="Permanent link">&para;</a></h3>
+<p><code>HiveSubjectSelect</code>, <code>HiveModuleSelect</code>, <code>HiveLessonSelect</code> each re-implemented
+the same MUI <code>FormControl</code> + <code>InputLabel</code> + <code>Select</code>, Hebrew-collated sort,
+optional empty entry, and null-normalizing <code>onChange</code>.</p>
+<p><strong>Extracted:</strong> <code>components/base/EntitySelect.tsx</code> — generic over the id type,
+takes <code>options</code>/<code>parseValue</code>. Each <code>Hive*Select</code> is now only its provider lookup
+plus scoping.</p>
+<h3 id="2-constraint-panels-module-vs-event-the-largest-clone-195-lines">2. Constraint panels (module vs event) — the largest clone (~195 lines)<a class="headerlink" href="#2-constraint-panels-module-vs-event-the-largest-clone-195-lines" title="Permanent link">&para;</a></h3>
+<p><code>ModuleConstraintsView</code> and <code>EventConstraintsView</code> duplicated the entire
+create/edit/remove state machine, both draft→payload converters (relational and
+temporal, including the comma-string day parsing), the conflict check, the
+loading skeletons, and the list/edit-form rendering. The only real difference is
+which owner id is stamped on the create payload and which constraints are listed.</p>
+<p><strong>Extracted:</strong>
+- <code>module-dialog/constraints/use-constraint-editor.ts</code> — <code>useConstraintEditor(ownerType, ownerId)</code> owns all state and payload mapping.
+- <code>module-dialog/constraints/ConstraintRows.tsx</code> — the shared list body, plus <code>TEMPORAL_CONFLICT_MESSAGE</code>.</p>
+<p>The views now hold only their own chrome (card vs collapsible section, summary
+chips, virtual sibling constraints).</p>
+<h3 id="3-cut-preview-tabs-157-lines">3. Cut preview tabs (~157 lines)<a class="headerlink" href="#3-cut-preview-tabs-157-lines" title="Permanent link">&para;</a></h3>
+<p><code>cut-preview-tab</code> and <code>timeframe-events-tab</code> duplicated the preview state gate
+(loading / error / validation errors), the prev–start–next stepper, the toolbar
+strip, and the outer full-height column.</p>
+<p><strong>Extracted:</strong> <code>cut-preview-tab/PreviewShell.tsx</code> — <code>renderPreviewBlockers</code>,
+<code>PreviewNavigation</code>, <code>PreviewToolbar</code>, <code>PreviewLayout</code>, <code>PreviewLoading</code>,
+<code>PreviewValidationErrors</code>, <code>PREVIEW_BUTTON_GROUP_SX</code>. (The old re-exports from
+<code>cut-preview-tab/index.tsx</code> are kept, so existing imports still work.)</p>
+<h3 id="4-drafts-vs-snapshots-toolbar-menus-123-lines">4. Drafts vs snapshots toolbar menus (~123 lines)<a class="headerlink" href="#4-drafts-vs-snapshots-toolbar-menus-123-lines" title="Permanent link">&para;</a></h3>
+<p><code>DraftsMenu</code> and <code>SnapshotMenu</code> duplicated the popover shell: trigger button,
+anchor state, "name + create" row, loading spinner, empty text, and the row list
+with disabled-while-busy icon actions.</p>
+<p><strong>Extracted:</strong> <code>schedule/calendar/calendar/CalendarStoreMenu.tsx</code> — generic over
+the entry type, with a declarative <code>actions</code> array. Each menu keeps only its API
+calls, snackbar text, and (for snapshots) the out-of-range confirm dialog.</p>
+<h3 id="5-intra-file-clones">5. Intra-file clones<a class="headerlink" href="#5-intra-file-clones" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Duplication</th>
+<th>Extraction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DayCapacityCell.tsx</code></td>
+<td>Muted and editable cell repeated the header row and the cell padding/background <code>sx</code></td>
+<td><code>DayHeaderRow</code> component + local <code>cellSx</code></td>
+</tr>
+<tr>
+<td><code>GanttSyllabusGroup.tsx</code></td>
+<td>Day-mode and week-mode span cells repeated the whole <code>TableCell</code> + span-bar markup; both span memos re-walked the module/event mappings</td>
+<td><code>SyllabusSpanCell</code> component, module-scope <code>computeSpanVariant</code> / <code>getSpanBorderRadius</code>, shared <code>mappedDays</code> memo</td>
+</tr>
+<tr>
+<td><code>ModuleItem.tsx</code></td>
+<td>Sortable and draggable variants repeated color/title/hours derivation and the meta row</td>
+<td><code>useModuleItemPresentation</code> hook + <code>ModuleItemMeta</code></td>
+</tr>
+<tr>
+<td><code>SettingsProvider.tsx</code></td>
+<td><code>updatePrayerTimes</code> / <code>updatePrayerTime</code> repeated the save + rollback + snackbar block</td>
+<td><code>persistPrayerTimes</code> callback</td>
+</tr>
+<tr>
+<td><code>mongo-db-controller.ts</code></td>
+<td><code>resolveIterationDb</code> / <code>resolveWritableIterationDb</code> repeated the registry lookup</td>
+<td>private <code>lookupIterationDb(id, writable)</code></td>
+</tr>
+<tr>
+<td><code>iteration-request.ts</code></td>
+<td>Both resolvers repeated the <code>it</code> query-param parsing</td>
+<td>exported <code>iterationIdFromRequest</code></td>
+</tr>
+<tr>
+<td><code>base-link.ts</code></td>
+<td>POST and DELETE repeated staff gate + id check + body parse</td>
+<td><code>readLinkRequest&lt;TBody&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-calendar-toolbar-button-styles">6. Calendar toolbar button styles<a class="headerlink" href="#6-calendar-toolbar-button-styles" title="Permanent link">&para;</a></h3>
+<p>The fullscreen/visibility buttons repeated the same hover-tint, press-shrink and
+<code>pulse-expand</code> keyframes in both <code>CalendarToolbar.tsx</code> and <code>calendar/index.tsx</code>.</p>
+<p><strong>Extracted:</strong> <code>schedule/calendar/calendar/toolbar-button-sx.ts</code> —
+<code>CONTROL_BUTTON_SX</code>, <code>PULSING_ICON_BUTTON_SX</code>, <code>GROWING_CONTROL_BUTTON_SX</code>.</p>
+<h3 id="7-event-duration-math">7. Event duration math<a class="headerlink" href="#7-event-duration-math" title="Permanent link">&para;</a></h3>
+<p><code>EventDurationLabel</code> and <code>EventTooltipContent</code> both converted the event times to
+<code>moment</code>, diffed minutes, and split hours/minutes.</p>
+<p><strong>Extracted:</strong> <code>schedule/event-component/use-event-duration.ts</code>. The label
+strings stay per-component (they intentionally differ).</p>
+<h3 id="8-calendar-store-routes">8. Calendar store routes<a class="headerlink" href="#8-calendar-store-routes" title="Permanent link">&para;</a></h3>
+<p><code>app/api/calendar/drafts/route.ts</code> and <code>.../snapshots/route.ts</code> repeated event
+normalization and the <code>?id=</code> requirement.</p>
+<p><strong>Extracted:</strong> <code>api-server/calendar-store-request.ts</code> — <code>normalizeStoredEvents</code>,
+<code>requireIdParam</code>.</p>
+<hr />
+<h2 id="known-remaining-clones-left-deliberately">Known remaining clones (left deliberately)<a class="headerlink" href="#known-remaining-clones-left-deliberately" title="Permanent link">&para;</a></h2>
+<p>All are ≤16 lines and mostly incidental MUI markup; extracting them would add
+indirection without reducing real coupling.</p>
+<table>
+<thead>
+<tr>
+<th>Lines</th>
+<th>Location</th>
+<th>Why left</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16</td>
+<td><code>RelationalDraftFields.tsx</code> (intra-file)</td>
+<td>Two adjacent delay fields; a wrapper would be longer than the markup</td>
+</tr>
+<tr>
+<td>14</td>
+<td><code>CurriculumActionItems.tsx</code> ↔ <code>syllabuses-actions-box/index.tsx</code></td>
+<td>Same action list rendered in two shells with different callbacks</td>
+</tr>
+<tr>
+<td>13</td>
+<td><code>GanttEventLabelCell.tsx</code> ↔ <code>GanttModuleRow.tsx</code></td>
+<td>Sticky label cell <code>sx</code>; a shared constant is a reasonable follow-up</td>
+</tr>
+<tr>
+<td>13</td>
+<td><code>CreateFromTemplateAction.tsx</code> ↔ <code>ApplyTemplateButton.tsx</code></td>
+<td>Template picker dialog body — candidate for a future <code>TemplatePickerDialog</code></td>
+</tr>
+<tr>
+<td>13</td>
+<td><code>ModuleEventsView.tsx</code> ↔ <code>ModulesTable.tsx</code></td>
+<td>Table header rows over different columns</td>
+</tr>
+<tr>
+<td>13</td>
+<td><code>ImportExportMenuButton.tsx</code> ↔ <code>ActionItemButton.tsx</code></td>
+<td>Menu item button styling</td>
+</tr>
+<tr>
+<td>12</td>
+<td><code>api-server/gantt/cut.ts</code> ↔ <code>execution.ts</code></td>
+<td>Similar occurrence loops over different domain types</td>
+</tr>
+<tr>
+<td>10</td>
+<td>drafts ↔ snapshots <code>route.ts</code></td>
+<td>The remaining GET handler shape; the two stores have different DB modules</td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>GanttModuleRow.tsx</code> ↔ <code>GanttSyllabusGroup.tsx</code></td>
+<td>Week-index span memo</td>
+</tr>
+</tbody>
+</table>
+<h2 id="verification">Verification<a class="headerlink" href="#verification" title="Permanent link">&para;</a></h2>
+<p><code>npm run typecheck</code>, <code>npm run lint</code>, and <code>npm run test:unit</code> (63 files, 619
+tests) all pass after the refactor.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 System B90
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

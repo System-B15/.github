@@ -1,13 +1,14 @@
 name: Deploy package index
 
-# The Pages site is only the pip index under pypi/. A branch-source Pages
+# The Pages site covers the pip index under pypi/ and per-repo docs (e.g.
+# bluz/, synced from consumer repos' own docs CI). A branch-source Pages
 # deployment rebuilds on every push to main, which meant a full deploy run for
-# each unrelated actions/ commit. Path-filtered so it fires only when a package
-# actually changes.
+# each unrelated actions/ commit. Path-filtered so it fires only when published
+# content actually changes.
 on:
     push:
         branches: [main]
-        paths: ['pypi/**']
+        paths: ['pypi/**', 'bluz/**']
     workflow_dispatch:
 
 concurrency:

@@ -6,6 +6,10 @@
 
 # components/gantt/utils
 
+## Type Aliases
+
+- [RecurrenceOccurrenceContext](type-aliases/RecurrenceOccurrenceContext.md)
+
 ## Functions
 
 - [appliesToShuffle](functions/appliesToShuffle.md)

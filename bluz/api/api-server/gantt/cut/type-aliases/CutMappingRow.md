@@ -8,7 +8,7 @@
 
 > **CutMappingRow** = `object`
 
-Defined in: [ui/src/api-server/gantt/cut.ts:83](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/cut.ts#L83)
+Defined in: [ui/src/api-server/gantt/cut.ts:83](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/cut.ts#L83)
 
 Plain-data mapping row (subset of the Drizzle `cMDA` row).
 
@@ -18,7 +18,7 @@ Plain-data mapping row (subset of the Drizzle `cMDA` row).
 
 > **dayId**: `string`
 
-Defined in: [ui/src/api-server/gantt/cut.ts:85](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/cut.ts#L85)
+Defined in: [ui/src/api-server/gantt/cut.ts:85](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/cut.ts#L85)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [ui/src/api-server/gantt/cut.ts:85](https://github.com/System-B90/Bl
 
 > **eventId**: `null` \| `string`
 
-Defined in: [ui/src/api-server/gantt/cut.ts:84](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/cut.ts#L84)
+Defined in: [ui/src/api-server/gantt/cut.ts:84](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/cut.ts#L84)
 
 ***
 
@@ -34,4 +34,4 @@ Defined in: [ui/src/api-server/gantt/cut.ts:84](https://github.com/System-B90/Bl
 
 > `optional` **sortOrder?**: `null` \| `number`
 
-Defined in: [ui/src/api-server/gantt/cut.ts:86](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/cut.ts#L86)
+Defined in: [ui/src/api-server/gantt/cut.ts:86](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/cut.ts#L86)

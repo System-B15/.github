@@ -21,4 +21,5 @@
 ## Functions
 
 - [constraintToHumanReadableString](functions/constraintToHumanReadableString.md)
+- [getAllowedDayIndices](functions/getAllowedDayIndices.md)
 - [hasConflictingTemporalConstraints](functions/hasConflictingTemporalConstraints.md)

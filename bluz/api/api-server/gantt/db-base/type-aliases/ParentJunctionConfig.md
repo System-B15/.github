@@ -8,7 +8,7 @@
 
 > **ParentJunctionConfig** = `object`
 
-Defined in: [ui/src/api-server/gantt/db-base.ts:114](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/db-base.ts#L114)
+Defined in: [ui/src/api-server/gantt/db-base.ts:114](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-base.ts#L114)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [ui/src/api-server/gantt/db-base.ts:114](https://github.com/System-B
 
 > **cardinality**: `"many"` \| `"one"`
 
-Defined in: [ui/src/api-server/gantt/db-base.ts:141](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/db-base.ts#L141)
+Defined in: [ui/src/api-server/gantt/db-base.ts:141](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-base.ts#L141)
 
 How many parents a child may have. Every junction table has a composite
 `(parent, child)` primary key, so the schema permits many everywhere;
@@ -34,7 +34,7 @@ this records the *domain* rule the schema doesn't express.
 
 > `optional` **outputKey?**: `string`
 
-Defined in: [ui/src/api-server/gantt/db-base.ts:129](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/db-base.ts#L129)
+Defined in: [ui/src/api-server/gantt/db-base.ts:129](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-base.ts#L129)
 
 Field name the parent is surfaced under on read. Defaults to
 `parentKey`; set it when the read shape differs, e.g. a `"many"`
@@ -46,7 +46,7 @@ junction that wants a plural name for its array.
 
 > **parentKey**: `string`
 
-Defined in: [ui/src/api-server/gantt/db-base.ts:122](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/db-base.ts#L122)
+Defined in: [ui/src/api-server/gantt/db-base.ts:122](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-base.ts#L122)
 
 Column on the junction table holding the parent id. Doubles as the key
 `createNewItem` reads the parent out of the create payload, so it must
@@ -59,7 +59,7 @@ different name.
 
 > **selfKey**: `string`
 
-Defined in: [ui/src/api-server/gantt/db-base.ts:123](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/db-base.ts#L123)
+Defined in: [ui/src/api-server/gantt/db-base.ts:123](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-base.ts#L123)
 
 ***
 
@@ -67,4 +67,4 @@ Defined in: [ui/src/api-server/gantt/db-base.ts:123](https://github.com/System-B
 
 > **table**: `PgTableWithColumns`\<`any`\>
 
-Defined in: [ui/src/api-server/gantt/db-base.ts:115](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/db-base.ts#L115)
+Defined in: [ui/src/api-server/gantt/db-base.ts:115](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-base.ts#L115)

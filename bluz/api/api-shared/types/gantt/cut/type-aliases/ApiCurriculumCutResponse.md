@@ -8,7 +8,7 @@
 
 > **ApiCurriculumCutResponse** = `object`
 
-Defined in: [ui/src/api-shared/types/gantt/cut.ts:63](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/gantt/cut.ts#L63)
+Defined in: [ui/src/api-shared/types/gantt/cut.ts:63](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/gantt/cut.ts#L63)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [ui/src/api-shared/types/gantt/cut.ts:63](https://github.com/System-
 
 > **createdCourses**: `object`[]
 
-Defined in: [ui/src/api-shared/types/gantt/cut.ts:67](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/gantt/cut.ts#L67)
+Defined in: [ui/src/api-shared/types/gantt/cut.ts:67](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/gantt/cut.ts#L67)
 
 Courses that were newly created for shuffles during the cut.
 
@@ -34,7 +34,7 @@ Courses that were newly created for shuffles during the cut.
 
 > **createdEvents**: `number`
 
-Defined in: [ui/src/api-shared/types/gantt/cut.ts:65](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/gantt/cut.ts#L65)
+Defined in: [ui/src/api-shared/types/gantt/cut.ts:65](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/gantt/cut.ts#L65)
 
 Number of schedule events created.
 
@@ -44,7 +44,7 @@ Number of schedule events created.
 
 > **insertedBreaks**: `number`
 
-Defined in: [ui/src/api-shared/types/gantt/cut.ts:78](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/gantt/cut.ts#L78)
+Defined in: [ui/src/api-shared/types/gantt/cut.ts:78](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/gantt/cut.ts#L78)
 
 הפסקה events the break post-pass created.
 
@@ -54,7 +54,7 @@ Defined in: [ui/src/api-shared/types/gantt/cut.ts:78](https://github.com/System-
 
 > **overlaps**: `number`
 
-Defined in: [ui/src/api-shared/types/gantt/cut.ts:69](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/gantt/cut.ts#L69)
+Defined in: [ui/src/api-shared/types/gantt/cut.ts:69](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/gantt/cut.ts#L69)
 
 Occurrences that overlap each other after stacking (informational).
 
@@ -64,7 +64,7 @@ Occurrences that overlap each other after stacking (informational).
 
 > **spilledEvents**: `number`
 
-Defined in: [ui/src/api-shared/types/gantt/cut.ts:71](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/gantt/cut.ts#L71)
+Defined in: [ui/src/api-shared/types/gantt/cut.ts:71](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/gantt/cut.ts#L71)
 
 Events the balancer moved to a later day in the same week.
 
@@ -74,7 +74,7 @@ Events the balancer moved to a later day in the same week.
 
 > **spills**: [`CutSpillDetail`](../../../../gantt/cut-planner/type-aliases/CutSpillDetail.md)[]
 
-Defined in: [ui/src/api-shared/types/gantt/cut.ts:76](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/gantt/cut.ts#L76)
+Defined in: [ui/src/api-shared/types/gantt/cut.ts:76](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/gantt/cut.ts#L76)
 
 The same relocations, one entry each, so the dialog can expand the count
 into exactly what moved and where.

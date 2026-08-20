@@ -8,7 +8,7 @@
 
 > **getConstraintsTargetingEntity**(`targetId`, `targetType`): `Promise`\<`object`[]\>
 
-Defined in: [ui/src/api-server/gantt/db-constraints.ts:51](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/db-constraints.ts#L51)
+Defined in: [ui/src/api-server/gantt/db-constraints.ts:51](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-constraints.ts#L51)
 
 Retrieves constraints targeting a specific Event or Module.
 Useful for cascade checking, highlighting dependencies in the UI, or cyclic dependency resolution.

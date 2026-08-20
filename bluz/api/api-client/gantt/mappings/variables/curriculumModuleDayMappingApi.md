@@ -8,7 +8,7 @@
 
 > `const` **curriculumModuleDayMappingApi**: `object`
 
-Defined in: [ui/src/api-client/gantt/mappings.ts:112](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-client/gantt/mappings.ts#L112)
+Defined in: [ui/src/api-client/gantt/mappings.ts:112](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-client/gantt/mappings.ts#L112)
 
 Client-side API client wrapper for managing curriculum module and event day mappings.
 Provides endpoints for retrieving, creating, updating, and deleting mappings.

@@ -140,6 +140,12 @@ Re-exports [GanttWeekId](week/type-aliases/GanttWeekId.md)
 
 ***
 
+### getAllowedDayIndices
+
+Re-exports [getAllowedDayIndices](constraint/functions/getAllowedDayIndices.md)
+
+***
+
 ### getDayNameDisplay
 
 Re-exports [getDayNameDisplay](day/functions/getDayNameDisplay.md)

@@ -8,7 +8,7 @@
 
 > **ApiGoogleCalendarConnectPayload** = `object`
 
-Defined in: [ui/src/api-shared/types/google-calendar.ts:33](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/google-calendar.ts#L33)
+Defined in: [ui/src/api-shared/types/google-calendar.ts:33](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/google-calendar.ts#L33)
 
 Authorization code minted by the browser-side GIS popup.
 
@@ -18,4 +18,4 @@ Authorization code minted by the browser-side GIS popup.
 
 > **code**: `string`
 
-Defined in: [ui/src/api-shared/types/google-calendar.ts:33](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/google-calendar.ts#L33)
+Defined in: [ui/src/api-shared/types/google-calendar.ts:33](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/google-calendar.ts#L33)

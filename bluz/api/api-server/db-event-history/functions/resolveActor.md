@@ -8,7 +8,7 @@
 
 > **resolveActor**(): `Promise`\<\{ `displayName`: `string`; `id`: `string`; \} \| `null`\>
 
-Defined in: [ui/src/api-server/db-event-history.ts:47](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/db-event-history.ts#L47)
+Defined in: [ui/src/api-server/db-event-history.ts:47](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/db-event-history.ts#L47)
 
 Resolve the acting user once, for reuse across a bulk write.
 

@@ -8,7 +8,7 @@
 
 > **GanttExecutionContextType** = `object`
 
-Defined in: [ui/src/components/gantt/state/execution/context.ts:14](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/state/execution/context.ts#L14)
+Defined in: [ui/src/components/gantt/state/execution/context.ts:14](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/state/execution/context.ts#L14)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [ui/src/components/gantt/state/execution/context.ts:14](https://gith
 
 > **refreshExecution**: () => `Promise`\<`void`\>
 
-Defined in: [ui/src/components/gantt/state/execution/context.ts:17](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/state/execution/context.ts#L17)
+Defined in: [ui/src/components/gantt/state/execution/context.ts:17](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/state/execution/context.ts#L17)
 
 Re-fetches the execution comparison from the server.
 
@@ -30,4 +30,4 @@ Re-fetches the execution comparison from the server.
 
 > **state**: [`GanttExecutionState`](GanttExecutionState.md)
 
-Defined in: [ui/src/components/gantt/state/execution/context.ts:15](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/state/execution/context.ts#L15)
+Defined in: [ui/src/components/gantt/state/execution/context.ts:15](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/state/execution/context.ts#L15)

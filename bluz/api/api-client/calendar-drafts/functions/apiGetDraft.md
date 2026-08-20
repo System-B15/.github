@@ -8,7 +8,7 @@
 
 > **apiGetDraft**(`draftId`, `iterationId?`): `Promise`\<\{ `draft`: [`CalendarDraft`](../../../api-shared/types/type-aliases/CalendarDraft.md); `events`: [`Event`](../../../api-shared/types/event/type-aliases/Event.md)[]; \}\>
 
-Defined in: [ui/src/api-client/calendar-drafts.ts:58](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-client/calendar-drafts.ts#L58)
+Defined in: [ui/src/api-client/calendar-drafts.ts:58](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-client/calendar-drafts.ts#L58)
 
 Fetches one draft including its events, mapped into the client Event shape.
 

@@ -8,7 +8,7 @@
 
 > **CourseStartDateControlProps** = `object`
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/CourseStartDateControl.tsx:22](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/CourseStartDateControl.tsx#L22)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/CourseStartDateControl.tsx:22](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/CourseStartDateControl.tsx#L22)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/CourseStartD
 
 > **curriculum**: [`GanttCurriculum`](../../../../../../../api-shared/types/gantt/models/curriculum/type-aliases/GanttCurriculum.md)
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/CourseStartDateControl.tsx:23](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/CourseStartDateControl.tsx#L23)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/CourseStartDateControl.tsx:23](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/CourseStartDateControl.tsx#L23)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/CourseStartD
 
 > **curriculumId**: [`GanttCurriculumId`](../../../../../../../api-shared/types/gantt/models/curriculum/type-aliases/GanttCurriculumId.md)
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/CourseStartDateControl.tsx:24](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/CourseStartDateControl.tsx#L24)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/CourseStartDateControl.tsx:24](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/CourseStartDateControl.tsx#L24)

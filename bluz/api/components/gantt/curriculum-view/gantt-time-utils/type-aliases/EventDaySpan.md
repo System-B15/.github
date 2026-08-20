@@ -8,7 +8,7 @@
 
 > **EventDaySpan** = `object`
 
-Defined in: [ui/src/components/gantt/curriculum-view/gantt-time-utils.ts:235](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-view/gantt-time-utils.ts#L235)
+Defined in: [ui/src/components/gantt/curriculum-view/gantt-time-utils.ts:235](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/curriculum-view/gantt-time-utils.ts#L235)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [ui/src/components/gantt/curriculum-view/gantt-time-utils.ts:235](ht
 
 > **dayIds**: [`GanttDayId`](../../../../../api-shared/types/gantt/models/day/type-aliases/GanttDayId.md)[]
 
-Defined in: [ui/src/components/gantt/curriculum-view/gantt-time-utils.ts:237](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-view/gantt-time-utils.ts#L237)
+Defined in: [ui/src/components/gantt/curriculum-view/gantt-time-utils.ts:237](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/curriculum-view/gantt-time-utils.ts#L237)
 
 Day ids the event occupies, starting at its mapped day.
 
@@ -26,7 +26,7 @@ Day ids the event occupies, starting at its mapped day.
 
 > **minutesPerDay**: `number`[]
 
-Defined in: [ui/src/components/gantt/curriculum-view/gantt-time-utils.ts:239](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-view/gantt-time-utils.ts#L239)
+Defined in: [ui/src/components/gantt/curriculum-view/gantt-time-utils.ts:239](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/curriculum-view/gantt-time-utils.ts#L239)
 
 Minutes consumed on each spanned day (parallel to `dayIds`).
 
@@ -36,6 +36,6 @@ Minutes consumed on each spanned day (parallel to `dayIds`).
 
 > **spillover**: `boolean`
 
-Defined in: [ui/src/components/gantt/curriculum-view/gantt-time-utils.ts:241](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-view/gantt-time-utils.ts#L241)
+Defined in: [ui/src/components/gantt/curriculum-view/gantt-time-utils.ts:241](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/curriculum-view/gantt-time-utils.ts#L241)
 
 True when the event overflows its start day onto subsequent day(s).

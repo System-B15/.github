@@ -8,7 +8,7 @@
 
 > **groupCurriculumsByStatus**(`curriculums`): [`CurriculumGroups`](../type-aliases/CurriculumGroups.md)
 
-Defined in: [ui/src/components/gantt/curriculum-fab/utils.ts:29](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-fab/utils.ts#L29)
+Defined in: [ui/src/components/gantt/curriculum-fab/utils.ts:29](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/curriculum-fab/utils.ts#L29)
 
 Split curriculums into three buckets — active, drafts, archived — each sorted
 by `updatedAt` descending. Render order is active → drafts → archived.

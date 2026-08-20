@@ -8,7 +8,7 @@
 
 > **reloadCurriculumSchedule**(`curriculumId`, `options?`): `Promise`\<[`ReloadOutcome`](../type-aliases/ReloadOutcome.md)\>
 
-Defined in: [ui/src/api-server/gantt/reload.ts:141](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/reload.ts#L141)
+Defined in: [ui/src/api-server/gantt/reload.ts:141](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/reload.ts#L141)
 
 Re-cut a curriculum onto its existing schedule.
 

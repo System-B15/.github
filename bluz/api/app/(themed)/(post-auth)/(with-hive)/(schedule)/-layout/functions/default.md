@@ -8,7 +8,7 @@
 
 > **default**(`__namedParameters`): `Promise`\<\{ `children`: `ReactNode`; \}\>
 
-Defined in: [ui/src/app/(themed)/(post-auth)/(with-hive)/(schedule)/-layout.tsx:3](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/app/(themed)/(post-auth)/(with-hive)/(schedule)/-layout.tsx#L3)
+Defined in: [ui/src/app/(themed)/(post-auth)/(with-hive)/(schedule)/-layout.tsx:3](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/app/(themed)/(post-auth)/(with-hive)/(schedule)/-layout.tsx#L3)
 
 ## Parameters
 

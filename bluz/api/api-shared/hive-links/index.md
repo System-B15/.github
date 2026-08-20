@@ -10,3 +10,4 @@
 
 - [hiveClassUrl](functions/hiveClassUrl.md)
 - [hiveModuleUrl](functions/hiveModuleUrl.md)
+- [hiveSubjectUrl](functions/hiveSubjectUrl.md)

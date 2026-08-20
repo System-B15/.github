@@ -8,7 +8,7 @@
 
 > **GanttConstraintProvider**(`props`): `Element`
 
-Defined in: [ui/src/components/gantt/state/constraints/Provider.tsx:48](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/state/constraints/Provider.tsx#L48)
+Defined in: [ui/src/components/gantt/state/constraints/Provider.tsx:48](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/state/constraints/Provider.tsx#L48)
 
 Context provider for managing and syncing Gantt constraints.
 Fetches, creates, updates, and deletes constraints and exposes their state.

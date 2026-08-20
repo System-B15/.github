@@ -8,7 +8,7 @@
 
 > **getHealthReport**(): `Promise`\<[`HealthReport`](../type-aliases/HealthReport.md)\>
 
-Defined in: [ui/src/api-server/health.ts:68](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/health.ts#L68)
+Defined in: [ui/src/api-server/health.ts:68](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/health.ts#L68)
 
 Hive is an external service Bluz degrades around rather than depends on
 (see the fallback in the post-auth layout), so its being down must stay

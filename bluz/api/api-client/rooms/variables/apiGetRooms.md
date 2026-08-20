@@ -8,7 +8,7 @@
 
 > `const` **apiGetRooms**: `ClientApiGetRooms`
 
-Defined in: [ui/src/api-client/rooms.ts:46](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-client/rooms.ts#L46)
+Defined in: [ui/src/api-client/rooms.ts:46](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-client/rooms.ts#L46)
 
 Rooms come from the iteration's own database, merged with its Hive
 instance. A past iteration answers from the frozen snapshot, and that

@@ -8,7 +8,7 @@
 
 > **CutPlanWeekInput** = `object`
 
-Defined in: [ui/src/api-shared/gantt/cut-planner.ts:59](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L59)
+Defined in: [ui/src/api-shared/gantt/cut-planner.ts:62](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/gantt/cut-planner.ts#L62)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [ui/src/api-shared/gantt/cut-planner.ts:59](https://github.com/Syste
 
 > **dayIds**: `string`[]
 
-Defined in: [ui/src/api-shared/gantt/cut-planner.ts:62](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L62)
+Defined in: [ui/src/api-shared/gantt/cut-planner.ts:65](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/gantt/cut-planner.ts#L65)
 
 Day ids in this week, in display order.
 
@@ -26,7 +26,7 @@ Day ids in this week, in display order.
 
 > **id**: `string`
 
-Defined in: [ui/src/api-shared/gantt/cut-planner.ts:60](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L60)
+Defined in: [ui/src/api-shared/gantt/cut-planner.ts:63](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/gantt/cut-planner.ts#L63)
 
 ***
 
@@ -34,6 +34,6 @@ Defined in: [ui/src/api-shared/gantt/cut-planner.ts:60](https://github.com/Syste
 
 > `optional` **weekendDuty?**: `boolean`
 
-Defined in: [ui/src/api-shared/gantt/cut-planner.ts:64](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L64)
+Defined in: [ui/src/api-shared/gantt/cut-planner.ts:67](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/gantt/cut-planner.ts#L67)
 
 Whether the trainee was on weekend duty. Defaults to `true` (on duty).

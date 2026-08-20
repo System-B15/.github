@@ -8,7 +8,7 @@
 
 > **updateRecentColorIds**(`prev`, `newId`, `max?`): `string`[]
 
-Defined in: [ui/src/components/schedule/event-component/event-colors.ts:82](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/event-component/event-colors.ts#L82)
+Defined in: [ui/src/components/schedule/event-component/event-colors.ts:82](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/event-component/event-colors.ts#L82)
 
 Moves `newId` to the front of the recent-colors list, dedupes it, and caps
 the list at `max` entries.

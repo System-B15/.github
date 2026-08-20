@@ -6,9 +6,9 @@
 
 # Function: calculateMinimumRequiredTimeForSyllabus()
 
-> **calculateMinimumRequiredTimeForSyllabus**(`syllabus`, `state`): `number`
+> **calculateMinimumRequiredTimeForSyllabus**(`syllabus`, `state`, `occurrenceCtx?`): `number`
 
-Defined in: [ui/src/components/gantt/utils.tsx:190](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/utils.tsx#L190)
+Defined in: [ui/src/components/gantt/utils.tsx:277](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/utils.tsx#L277)
 
 ## Parameters
 
@@ -19,6 +19,10 @@ Defined in: [ui/src/components/gantt/utils.tsx:190](https://github.com/System-B9
 ### state
 
 [`NormalizedStore`](../../../../api-client/gantt/drizzle-normalize/type-aliases/NormalizedStore.md)
+
+### occurrenceCtx?
+
+[`RecurrenceOccurrenceContext`](../type-aliases/RecurrenceOccurrenceContext.md)
 
 ## Returns
 

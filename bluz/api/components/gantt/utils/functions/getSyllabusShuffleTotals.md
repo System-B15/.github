@@ -6,9 +6,9 @@
 
 # Function: getSyllabusShuffleTotals()
 
-> **getSyllabusShuffleTotals**(`syllabus`, `fieldName`, `state`): `Record`\<`string`, `number`\> \| `null`
+> **getSyllabusShuffleTotals**(`syllabus`, `fieldName`, `state`, `occurrenceCtx?`): `Record`\<`string`, `number`\> \| `null`
 
-Defined in: [ui/src/components/gantt/utils.tsx:120](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/utils.tsx#L120)
+Defined in: [ui/src/components/gantt/utils.tsx:199](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/utils.tsx#L199)
 
 Per-shuffle sums of an event field across a whole syllabus, or null when
 neither the syllabus nor its modules/events are shuffle-tagged.
@@ -26,6 +26,10 @@ neither the syllabus nor its modules/events are shuffle-tagged.
 ### state
 
 [`NormalizedStore`](../../../../api-client/gantt/drizzle-normalize/type-aliases/NormalizedStore.md)
+
+### occurrenceCtx?
+
+[`RecurrenceOccurrenceContext`](../type-aliases/RecurrenceOccurrenceContext.md)
 
 ## Returns
 

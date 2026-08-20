@@ -8,7 +8,7 @@
 
 > **presentationFor**(`initiator`): [`InitiatorPresentation`](../type-aliases/InitiatorPresentation.md)
 
-Defined in: [ui/src/components/schedule/event-dialog/event-history/initiator-presentation.tsx:103](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/event-dialog/event-history/initiator-presentation.tsx#L103)
+Defined in: [ui/src/components/schedule/event-dialog/event-history/initiator-presentation.tsx:103](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/event-dialog/event-history/initiator-presentation.tsx#L103)
 
 Icon + colour for an initiator, falling back to a neutral "unknown" marker
 so a value added server-side still renders.

@@ -8,7 +8,7 @@
 
 > **FormattedChange** = `object`
 
-Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:89](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L89)
+Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:94](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L94)
 
 Both sides of a change, ready to render.
 
@@ -18,7 +18,7 @@ Both sides of a change, ready to render.
 
 > **field**: `string`
 
-Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:90](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L90)
+Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:95](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L95)
 
 ***
 
@@ -26,7 +26,15 @@ Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change
 
 > **from**: `string`
 
-Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:91](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L91)
+Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:96](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L96)
+
+***
+
+### fromSwatch?
+
+> `optional` **fromSwatch?**: `string`
+
+Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:97](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L97)
 
 ***
 
@@ -34,4 +42,12 @@ Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change
 
 > **to**: `string`
 
-Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:92](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L92)
+Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:98](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L98)
+
+***
+
+### toSwatch?
+
+> `optional` **toSwatch?**: `string`
+
+Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:99](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L99)

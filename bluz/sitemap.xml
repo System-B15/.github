@@ -2169,6 +2169,10 @@
          <lastmod>2026-08-20</lastmod>
     </url>
     <url>
+         <loc>https://system-b90.github.io/bluz/api/api-shared/types/gantt/models/constraint/functions/getAllowedDayIndices/</loc>
+         <lastmod>2026-08-20</lastmod>
+    </url>
+    <url>
          <loc>https://system-b90.github.io/bluz/api/api-shared/types/gantt/models/constraint/functions/constraintToHumanReadableString/</loc>
          <lastmod>2026-08-20</lastmod>
     </url>
@@ -3110,6 +3114,10 @@
     </url>
     <url>
          <loc>https://system-b90.github.io/bluz/api/api-shared/hive-links/functions/hiveClassUrl/</loc>
+         <lastmod>2026-08-20</lastmod>
+    </url>
+    <url>
+         <loc>https://system-b90.github.io/bluz/api/api-shared/hive-links/functions/hiveSubjectUrl/</loc>
          <lastmod>2026-08-20</lastmod>
     </url>
     <url>
@@ -8738,6 +8746,10 @@
     </url>
     <url>
          <loc>https://system-b90.github.io/bluz/api/components/gantt/utils/functions/getModuleShuffleTotals/</loc>
+         <lastmod>2026-08-20</lastmod>
+    </url>
+    <url>
+         <loc>https://system-b90.github.io/bluz/api/components/gantt/utils/type-aliases/RecurrenceOccurrenceContext/</loc>
          <lastmod>2026-08-20</lastmod>
     </url>
     <url>

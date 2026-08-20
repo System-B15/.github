@@ -6,9 +6,9 @@
 
 # Function: previewCurriculumCut()
 
-> **previewCurriculumCut**(`curriculumId`): `Promise`\<[`ApiCurriculumCutPreviewResponse`](../../../../api-shared/types/gantt/cut/type-aliases/ApiCurriculumCutPreviewResponse.md)\>
+> **previewCurriculumCut**(`curriculumId`, `options?`): `Promise`\<[`ApiCurriculumCutPreviewResponse`](../../../../api-shared/types/gantt/cut/type-aliases/ApiCurriculumCutPreviewResponse.md)\>
 
-Defined in: [ui/src/api-server/gantt/cut.ts:336](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/gantt/cut.ts#L336)
+Defined in: [ui/src/api-server/gantt/cut.ts:561](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/cut.ts#L561)
 
 Dry-run of the cut ("תצוגה מקדימה", preview tabs): runs the exact same
 pipeline as `cutCurriculumToSchedule` up to and including `planCut`, but
@@ -21,6 +21,10 @@ falling back to the defaults otherwise so drafts still preview.
 ### curriculumId
 
 `string`
+
+### options?
+
+[`CutPlanOptions`](../../../../api-shared/gantt/cut-planner/type-aliases/CutPlanOptions.md) = `{}`
 
 ## Returns
 

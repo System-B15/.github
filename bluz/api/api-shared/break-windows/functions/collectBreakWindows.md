@@ -8,7 +8,7 @@
 
 > **collectBreakWindows**(`events`): [`BreakWindow`](../type-aliases/BreakWindow.md)[]
 
-Defined in: [ui/src/api-shared/break-windows.ts:54](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/break-windows.ts#L54)
+Defined in: [ui/src/api-shared/break-windows.ts:54](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/break-windows.ts#L54)
 
 Extracts every break event in `events` as a scoped window. Pass the complete
 event set, not a filtered/visible subset — a break hidden by a filter still

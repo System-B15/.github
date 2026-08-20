@@ -447,6 +447,60 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../../../gantt-cut-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../../../e2e-cloud-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../../../" class="md-nav__link">
         
   
@@ -665,6 +719,28 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#recurrenceenddate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        recurrenceEndDate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recurrencestartdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        recurrenceStartDate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#roomrequirement" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -762,7 +838,7 @@
 <blockquote>
 <p><strong>GanttEvent</strong> = <code>object</code> &amp; <a href="../../../shared/type-aliases/BaseGantItem/"><code>BaseGantItem</code></a></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/gantt/models/event.ts#L25">ui/src/api-shared/types/gantt/models/event.ts:25</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/gantt/models/event.ts#L25">ui/src/api-shared/types/gantt/models/event.ts:25</a></p>
 <h2 id="type-declaration">Type Declaration<a class="headerlink" href="#type-declaration" title="Permanent link">&para;</a></h2>
 <h3 id="allocatedduration">allocatedDuration<a class="headerlink" href="#allocatedduration" title="Permanent link">&para;</a></h3>
 <blockquote>
@@ -819,6 +895,19 @@
 <blockquote>
 <p><strong>recurrence</strong>: <a href="../../enumerations/EventRecurrence/"><code>EventRecurrence</code></a></p>
 </blockquote>
+<h3 id="recurrenceenddate">recurrenceEndDate<a class="headerlink" href="#recurrenceenddate" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>recurrenceEndDate</strong>: <code>null</code> | <code>string</code></p>
+</blockquote>
+<p>Last date the recurrence may echo onto ("YYYY-MM-DD"), or null for "to the
+end of the timeline" (#468).</p>
+<h3 id="recurrencestartdate">recurrenceStartDate<a class="headerlink" href="#recurrencestartdate" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>recurrenceStartDate</strong>: <code>null</code> | <code>string</code></p>
+</blockquote>
+<p>First date the recurrence may echo onto ("YYYY-MM-DD"), or null for "from
+wherever the event is mapped". Lets a recurring event start mid-course
+instead of being pinned to the first week (#468).</p>
 <h3 id="roomrequirement">roomRequirement<a class="headerlink" href="#roomrequirement" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>roomRequirement</strong>: <a href="../../enumerations/RoomRequirement/"><code>RoomRequirement</code></a></p>

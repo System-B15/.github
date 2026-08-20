@@ -8,7 +8,7 @@
 
 > **ApiSuccess**\<`T`\>(`data?`, `cacheControl?`, `init?`): `NextResponse`\<\{ `data`: `T` \| `undefined`; `status`: `number`; \}\>
 
-Defined in: [ui/src/api-server/common.tsx:133](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/common.tsx#L133)
+Defined in: [ui/src/api-server/common.ts:133](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/common.ts#L133)
 
 ## Type Parameters
 

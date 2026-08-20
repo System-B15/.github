@@ -8,7 +8,7 @@
 
 > `const` **DbDay**: `object`
 
-Defined in: [ui/src/api-server/gantt/db-day.ts:43](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/gantt/db-day.ts#L43)
+Defined in: [ui/src/api-server/gantt/db-day.ts:43](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/db-day.ts#L43)
 
 ## Type Declaration
 
@@ -34,7 +34,7 @@ Defined in: [ui/src/api-server/gantt/db-day.ts:43](https://github.com/System-B90
 
 ### createNewItem
 
-> `readonly` **createNewItem**: (`payload`) => `Promise`\<[`GanttDay`](../../../../api-shared/types/gantt/models/day/type-aliases/GanttDay.md) \| `Omit`\<`object` & [`BaseGantItem`](../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem.md) & [`RawBaseDocument`](../../../../api-client/gantt/base/type-aliases/RawBaseDocument.md), `"title"`\>\>
+> `readonly` **createNewItem**: (`payload`) => `Promise`\<[`GanttDay`](../../../../api-shared/types/gantt/models/day/type-aliases/GanttDay.md) \| `Omit`\<`object` & [`BaseGantItem`](../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem.md) & [`RawBaseDocument`](../../../../api-shared/types/gantt/api-layer/type-aliases/RawBaseDocument.md), `"title"`\>\>
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [ui/src/api-server/gantt/db-day.ts:43](https://github.com/System-B90
 
 #### Returns
 
-`Promise`\<[`GanttDay`](../../../../api-shared/types/gantt/models/day/type-aliases/GanttDay.md) \| `Omit`\<`object` & [`BaseGantItem`](../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem.md) & [`RawBaseDocument`](../../../../api-client/gantt/base/type-aliases/RawBaseDocument.md), `"title"`\>\>
+`Promise`\<[`GanttDay`](../../../../api-shared/types/gantt/models/day/type-aliases/GanttDay.md) \| `Omit`\<`object` & [`BaseGantItem`](../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem.md) & [`RawBaseDocument`](../../../../api-shared/types/gantt/api-layer/type-aliases/RawBaseDocument.md), `"title"`\>\>
 
 ### deleteItem
 
@@ -62,7 +62,7 @@ Defined in: [ui/src/api-server/gantt/db-day.ts:43](https://github.com/System-B90
 
 ### getItem
 
-> `readonly` **getItem**: (`id`) => `Promise`\<`Omit`\<`object` & [`BaseGantItem`](../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem.md) & [`RawBaseDocument`](../../../../api-client/gantt/base/type-aliases/RawBaseDocument.md), `"title"`\>\> = `getFullDay`
+> `readonly` **getItem**: (`id`) => `Promise`\<`Omit`\<`object` & [`BaseGantItem`](../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem.md) & [`RawBaseDocument`](../../../../api-shared/types/gantt/api-layer/type-aliases/RawBaseDocument.md), `"title"`\>\> = `getFullDay`
 
 #### Parameters
 
@@ -72,7 +72,7 @@ Defined in: [ui/src/api-server/gantt/db-day.ts:43](https://github.com/System-B90
 
 #### Returns
 
-`Promise`\<`Omit`\<`object` & [`BaseGantItem`](../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem.md) & [`RawBaseDocument`](../../../../api-client/gantt/base/type-aliases/RawBaseDocument.md), `"title"`\>\>
+`Promise`\<`Omit`\<`object` & [`BaseGantItem`](../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem.md) & [`RawBaseDocument`](../../../../api-shared/types/gantt/api-layer/type-aliases/RawBaseDocument.md), `"title"`\>\>
 
 ### getMultipleItems
 

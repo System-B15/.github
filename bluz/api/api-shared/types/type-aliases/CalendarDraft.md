@@ -8,7 +8,7 @@
 
 > **CalendarDraft** = `object`
 
-Defined in: [ui/src/api-shared/types.tsx:83](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types.tsx#L83)
+Defined in: [ui/src/api-shared/types.ts:82](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types.ts#L82)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [ui/src/api-shared/types.tsx:83](https://github.com/System-B90/Bluz/
 
 > **createdAt**: `string`
 
-Defined in: [ui/src/api-shared/types.tsx:86](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types.tsx#L86)
+Defined in: [ui/src/api-shared/types.ts:85](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types.ts#L85)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [ui/src/api-shared/types.tsx:86](https://github.com/System-B90/Bluz/
 
 > **events**: [`DbEventDocument`](../event/type-aliases/DbEventDocument.md)[]
 
-Defined in: [ui/src/api-shared/types.tsx:92](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types.tsx#L92)
+Defined in: [ui/src/api-shared/types.ts:91](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types.ts#L91)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [ui/src/api-shared/types.tsx:92](https://github.com/System-B90/Bluz/
 
 > **id**: `string`
 
-Defined in: [ui/src/api-shared/types.tsx:84](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types.tsx#L84)
+Defined in: [ui/src/api-shared/types.ts:83](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types.ts#L83)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [ui/src/api-shared/types.tsx:84](https://github.com/System-B90/Bluz/
 
 > `optional` **iterationId?**: `string`
 
-Defined in: [ui/src/api-shared/types.tsx:91](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types.tsx#L91)
+Defined in: [ui/src/api-shared/types.ts:90](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types.ts#L90)
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: [ui/src/api-shared/types.tsx:91](https://github.com/System-B90/Bluz/
 
 > **label**: `string`
 
-Defined in: [ui/src/api-shared/types.tsx:85](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types.tsx#L85)
+Defined in: [ui/src/api-shared/types.ts:84](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types.ts#L84)
 
 ***
 
@@ -56,7 +56,7 @@ Defined in: [ui/src/api-shared/types.tsx:85](https://github.com/System-B90/Bluz/
 
 > **updatedAt**: `string`
 
-Defined in: [ui/src/api-shared/types.tsx:87](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types.tsx#L87)
+Defined in: [ui/src/api-shared/types.ts:86](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types.ts#L86)
 
 ***
 
@@ -64,7 +64,7 @@ Defined in: [ui/src/api-shared/types.tsx:87](https://github.com/System-B90/Bluz/
 
 > **updatedBy**: `string`
 
-Defined in: [ui/src/api-shared/types.tsx:88](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types.tsx#L88)
+Defined in: [ui/src/api-shared/types.ts:87](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types.ts#L87)
 
 ***
 
@@ -72,4 +72,4 @@ Defined in: [ui/src/api-shared/types.tsx:88](https://github.com/System-B90/Bluz/
 
 > `optional` **updatedById?**: `string`
 
-Defined in: [ui/src/api-shared/types.tsx:89](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types.tsx#L89)
+Defined in: [ui/src/api-shared/types.ts:88](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types.ts#L88)

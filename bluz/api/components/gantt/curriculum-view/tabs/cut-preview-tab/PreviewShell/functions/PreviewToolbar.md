@@ -8,7 +8,7 @@
 
 > **PreviewToolbar**(`__namedParameters`): `Element`
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/cut-preview-tab/PreviewShell.tsx:124](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-view/tabs/cut-preview-tab/PreviewShell.tsx#L124)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/cut-preview-tab/PreviewShell.tsx:124](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-view/tabs/cut-preview-tab/PreviewShell.tsx#L124)
 
 The toolbar strip above a preview body: navigation, title, extra controls.
 

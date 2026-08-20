@@ -447,6 +447,60 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../gantt-cut-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../e2e-cloud-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../" class="md-nav__link">
         
   
@@ -561,6 +615,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#eventidsbymodule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eventIdsByModule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#eventsbyid" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -576,6 +641,39 @@
     <span class="md-ellipsis">
       
         moduleHiveIdsByEvent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moduleidbyevent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        moduleIdByEvent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moduletitlebyid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        moduleTitleById
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syllabusidbyevent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        syllabusIdByEvent
       
     </span>
   </a>
@@ -625,14 +723,18 @@
 <blockquote>
 <p><strong>indexCurriculumEvents</strong>(<code>curriculum</code>): <code>object</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/gantt/cut.ts#L118">ui/src/api-server/gantt/cut.ts:118</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/cut.ts#L196">ui/src/api-server/gantt/cut.ts:196</a></p>
 <p>Walk the full curriculum tree once, indexing every event by id and recording
 the title of the syllabus each event lives under (used as course provenance).</p>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
 <h3 id="curriculum">curriculum<a class="headerlink" href="#curriculum" title="Permanent link">&para;</a></h3>
 <p><a href="../../../../../api-shared/types/gantt/api-layer/type-aliases/ApiCurriculum/"><code>ApiCurriculum</code></a></p>
 <h2 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h2>
-<p><code>object</code></p>
+<h3 id="eventidsbymodule">eventIdsByModule<a class="headerlink" href="#eventidsbymodule" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>eventIdsByModule</strong>: <code>Map</code>\&lt;<code>string</code>, <code>string</code>[]&gt;</p>
+</blockquote>
+<p>Module id → its event ids, for fanning out module-level constraints.</p>
 <h3 id="eventsbyid">eventsById<a class="headerlink" href="#eventsbyid" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>eventsById</strong>: <code>Map</code>\&lt;<code>string</code>, <a href="../../../../../api-shared/types/gantt/api-layer/type-aliases/ApiModuleEvent/"><code>ApiModuleEvent</code></a>&gt;</p>
@@ -641,6 +743,21 @@ the title of the syllabus each event lives under (used as course provenance).</p
 <blockquote>
 <p><strong>moduleHiveIdsByEvent</strong>: <code>Map</code>\&lt;<code>string</code>, <code>number</code>[]&gt;</p>
 </blockquote>
+<h3 id="moduleidbyevent">moduleIdByEvent<a class="headerlink" href="#moduleidbyevent" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>moduleIdByEvent</strong>: <code>Map</code>\&lt;<code>string</code>, <code>string</code>&gt;</p>
+</blockquote>
+<p>Owning gantt module id per event — spillover keeps a module together.</p>
+<h3 id="moduletitlebyid">moduleTitleById<a class="headerlink" href="#moduletitlebyid" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>moduleTitleById</strong>: <code>Map</code>\&lt;<code>string</code>, <code>string</code>&gt;</p>
+</blockquote>
+<p>Module titles, used in constraint-violation messages.</p>
+<h3 id="syllabusidbyevent">syllabusIdByEvent<a class="headerlink" href="#syllabusidbyevent" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>syllabusIdByEvent</strong>: <code>Map</code>\&lt;<code>string</code>, <code>string</code>&gt;</p>
+</blockquote>
+<p>Owning syllabus id per event — drives the between-syllabuses break rule.</p>
 <h3 id="syllabustitlebyevent">syllabusTitleByEvent<a class="headerlink" href="#syllabustitlebyevent" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>syllabusTitleByEvent</strong>: <code>Map</code>\&lt;<code>string</code>, <code>string</code>&gt;</p>

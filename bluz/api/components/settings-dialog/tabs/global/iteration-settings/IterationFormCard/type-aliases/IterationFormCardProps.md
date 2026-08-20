@@ -8,9 +8,23 @@
 
 > **IterationFormCardProps** = `Omit`\<[`FormCardBaseProps`](../../../common/FormCard/type-aliases/FormCardBaseProps.md)\<[`Iteration`](../../../../../../../api-shared/types/iteration/type-aliases/Iteration.md)\>, `"selectedEntity"`\> & `object`
 
-Defined in: [ui/src/components/settings-dialog/tabs/global/iteration-settings/IterationFormCard.tsx:12](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/settings-dialog/tabs/global/iteration-settings/IterationFormCard.tsx#L12)
+Defined in: [ui/src/components/settings-dialog/tabs/global/iteration-settings/IterationFormCard.tsx:15](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/settings-dialog/tabs/global/iteration-settings/IterationFormCard.tsx#L15)
 
 ## Type Declaration
+
+### handleDelete
+
+> **handleDelete**: (`iteration`) => `void`
+
+#### Parameters
+
+##### iteration
+
+[`Iteration`](../../../../../../../api-shared/types/iteration/type-aliases/Iteration.md)
+
+#### Returns
+
+`void`
 
 ### handleSyncHive
 
@@ -25,6 +39,10 @@ Defined in: [ui/src/components/settings-dialog/tabs/global/iteration-settings/It
 #### Returns
 
 `void`
+
+### isDeleting
+
+> **isDeleting**: `boolean`
 
 ### isSubmitting
 
@@ -57,6 +75,12 @@ Defined in: [ui/src/components/settings-dialog/tabs/global/iteration-settings/It
 #### Returns
 
 `void`
+
+### usage
+
+> **usage**: [`IterationUsage`](../../../../../../../api-shared/types/iteration/type-aliases/IterationUsage.md) \| `null`
+
+Null while the usage probe is still in flight.
 
 ### values
 

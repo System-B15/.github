@@ -8,7 +8,7 @@
 
 > **CreateNewCurriculumProps** = `object`
 
-Defined in: [ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx:25](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx#L25)
+Defined in: [ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx:25](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx#L25)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx:25
 
 > **disabled**: `boolean`
 
-Defined in: [ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx:26](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx#L26)
+Defined in: [ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx:26](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx#L26)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx:26
 
 > **onCreate**: (`newCurriculum`) => `void`
 
-Defined in: [ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx:27](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx#L27)
+Defined in: [ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx:27](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx#L27)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx:27
 
 > **onDelete**: (`deletedCurriculumId`) => `void`
 
-Defined in: [ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx:28](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx#L28)
+Defined in: [ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx:28](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx#L28)
 
 #### Parameters
 
@@ -60,4 +60,4 @@ Defined in: [ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx:28
 
 > `optional` **sourceCurriculum?**: [`GanttCurriculumDocument`](../../../../../api-client/gantt/curriculum/type-aliases/GanttCurriculumDocument.md) \| `null`
 
-Defined in: [ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx:29](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx#L29)
+Defined in: [ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx:29](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-fab/CurriculumActionItems.tsx#L29)

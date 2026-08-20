@@ -447,6 +447,60 @@
   
   
     <li class="md-nav__item">
+      <a href="../../gantt-cut-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../e2e-cloud-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/" class="md-nav__link">
         
   
@@ -667,11 +721,11 @@
 install of <code>bluz-online-*.tar.gz</code> or <code>bluz-offline-*.tar.gz</code>.</p>
 <h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
 <p><strong>Linux / macOS</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>tar<span class="w"> </span>-xzf<span class="w"> </span>bluz-online-v1.0.0.tar.gz<span class="w"> </span>-C<span class="w"> </span>bluz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>bluz
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>tar<span class="w"> </span>-xzf<span class="w"> </span>bluz-online-v1.0.0.tar.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>bluz
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>./install.sh
 </code></pre></div>
 <p><strong>Windows (PowerShell)</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">tar</span> <span class="n">-xzf</span> <span class="n">bluz-online-v1</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span> <span class="n">-C</span> <span class="n">bluz</span><span class="p">;</span> <span class="nb">cd </span><span class="n">bluz</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">tar</span> <span class="n">-xzf</span> <span class="n">bluz-online-v1</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span><span class="p">;</span> <span class="nb">cd </span><span class="n">bluz</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">.\</span><span class="n">install</span><span class="p">.</span><span class="n">ps1</span>
 </code></pre></div>
 <p>That is the whole install. The script checks your prerequisites, runs the
@@ -787,8 +841,8 @@ adds two problems that don't exist otherwise: both stacks want ports 80/443, and
 Bluz's containers need a name that resolves to Hive's container. <code>link-hive.sh</code>
 handles the second; the port question is answered during setup.</p>
 <h3 id="co-located-hive">Co-located Hive<a class="headerlink" href="#co-located-hive" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>./install.sh<span class="w">      </span><span class="c1"># answer &quot;yes&quot; to the ports question, pick 8080/8443</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>./link-hive.sh<span class="w">    </span><span class="c1"># aliases hive.org onto Hive&#39;s nginx, then brings Bluz up</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>./install.sh<span class="w">      </span><span class="c1"># answer "yes" to the ports question, pick 8080/8443</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>./link-hive.sh<span class="w">    </span><span class="c1"># aliases hive.org onto Hive's nginx, then brings Bluz up</span>
 </code></pre></div>
 <p><code>link-hive.sh</code> finds Hive's Docker network and its nginx container, adds a
 <code>hive.org</code> network alias to it, and starts Bluz with the co-located overlay.
@@ -809,20 +863,20 @@ already serves those ports, set different ones in <code>.env</code>:</p>
 alias <em>and</em> the other stack must stop binding <code>0.0.0.0</code> — see
 <a href="../TROUBLESHOOTING/">TROUBLESHOOTING.md</a>.</p>
 <h2 id="verifying-the-install">Verifying the install<a class="headerlink" href="#verifying-the-install" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>ps<span class="w">                       </span><span class="c1"># every service &quot;running&quot;, ui &quot;healthy&quot;</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>curl<span class="w"> </span>-k<span class="w"> </span>https://localhost/api/health<span class="w">     </span><span class="c1"># {&quot;status&quot;:&quot;ok&quot;,...}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>ps<span class="w">                       </span><span class="c1"># every service "running", ui "healthy"</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>curl<span class="w"> </span>-k<span class="w"> </span>https://localhost/api/health<span class="w">     </span><span class="c1"># {"status":"ok",...}</span>
 </code></pre></div>
 <p>Then open your domain in a browser and sign in through Hive. If sign-in fails,
 check <code>.env</code> for <code>MANUAL_ENTRY_REQUIRED</code> — that means SSO registration did not
 complete. <code>TROUBLESHOOTING.md</code> has the manual path.</p>
 <h2 id="day-two-operations">Day-two operations<a class="headerlink" href="#day-two-operations" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>ps<span class="w">            </span><span class="c1"># status</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>ui<span class="w">    </span><span class="c1"># follow a service&#39;s logs</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>ui<span class="w">    </span><span class="c1"># follow a service's logs</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w">          </span><span class="c1"># stop (data volumes are kept)</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span>-v<span class="w">       </span><span class="c1"># stop AND DELETE all data</span>
 </code></pre></div>
 <h3 id="upgrading-a-live-deployment">Upgrading a live deployment<a class="headerlink" href="#upgrading-a-live-deployment" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>tar<span class="w"> </span>-xzf<span class="w"> </span>bluz-online-v1.1.0.tar.gz<span class="w"> </span>-C<span class="w"> </span>bluz<span class="w">   </span><span class="c1"># keeps your .env and nginx/ssl/</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>tar<span class="w"> </span>-xzf<span class="w"> </span>bluz-online-v1.1.0.tar.gz<span class="w">   </span><span class="c1"># extracts into bluz/, keeps your .env and nginx/ssl/</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">cd</span><span class="w"> </span>bluz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./update.sh
 </code></pre></div>
 <p><code>update.sh</code> upgrades in place with near-zero downtime: it backs up both engines
@@ -832,8 +886,9 @@ healthcheck. Postgres migrations run inside the new <code>ui</code> image's entr
 they happen between the pull and the healthcheck; Mongo has no migration
 mechanism today. If any step fails it stops and prints the rollback command plus
 the path of the backup it took at the start.</p>
-<p>It takes the target version from the bundle's <code>VERSION</code> file, or <code>--version
-&lt;tag&gt;</code>. <code>--skip-backup</code> accepts the risk of an unrecoverable migration;
+<p>Without <code>--version</code> it upgrades to the newest published release, falling back
+to the bundle's <code>VERSION</code> file when GitHub is unreachable; <code>--version &lt;tag&gt;</code>
+pins it explicitly. <code>--skip-backup</code> accepts the risk of an unrecoverable migration;
 <code>--yes</code> skips the confirmation prompt. It refuses to run against a stopped
 stack — use <code>./install.sh</code> for a first install.</p>
 <p>Re-running the installer over an existing <code>.env</code> also works and is the fallback

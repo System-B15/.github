@@ -8,9 +8,30 @@
 
 > `const` **ganttApi**: `object`
 
-Defined in: [ui/src/api-client/gantt/index.ts:14](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-client/gantt/index.ts#L14)
+Defined in: [ui/src/api-client/gantt/index.ts:18](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-client/gantt/index.ts#L18)
 
 ## Type Declaration
+
+### applyShuffles
+
+> `readonly` **applyShuffles**: (`syllabusId`, `shuffles`) => `Promise`\<[`ShuffleUsages`](../../../api-shared/types/gantt/shuffles/type-aliases/ShuffleUsages.md)\> = `apiApplyShuffles`
+
+Replaces the syllabus' shuffle list, stripping every removed name off the
+modules and events that carry it. Returns what was stripped.
+
+#### Parameters
+
+##### syllabusId
+
+`string`
+
+##### shuffles
+
+`string`[]
+
+#### Returns
+
+`Promise`\<[`ShuffleUsages`](../../../api-shared/types/gantt/shuffles/type-aliases/ShuffleUsages.md)\>
 
 ### constraints
 
@@ -31,7 +52,7 @@ Note: Assumes the endpoint is nested under the curriculum for uniform routing.
 
 ###### payload
 
-[`CreateConstraintPayload`](../constraints/type-aliases/CreateConstraintPayload.md)
+[`CreateConstraintPayload`](../../../api-shared/types/gantt/create-payloads/type-aliases/CreateConstraintPayload.md)
 
 ###### options?
 
@@ -113,7 +134,7 @@ PATCH: Updates an existing constraint.
 
 ###### payload
 
-`Partial`\<[`CreateConstraintPayload`](../constraints/type-aliases/CreateConstraintPayload.md)\>
+`Partial`\<[`CreateConstraintPayload`](../../../api-shared/types/gantt/create-payloads/type-aliases/CreateConstraintPayload.md)\>
 
 ###### options?
 
@@ -407,7 +428,7 @@ when you need child → parent without fetching each item. See #310.
 
 #### cut.cut
 
-> `readonly` **cut**: (`curriculumId`, `force`) => `Promise`\<[`ApiCurriculumCutResponse`](../../../api-shared/types/gantt/cut/type-aliases/ApiCurriculumCutResponse.md)\> = `cutCurriculumToSchedule`
+> `readonly` **cut**: (`curriculumId`, `options`) => `Promise`\<[`ApiCurriculumCutResponse`](../../../api-shared/types/gantt/cut/type-aliases/ApiCurriculumCutResponse.md)\> = `cutCurriculumToSchedule`
 
 POST /api/gantt/curriculums/[id]/cut — materialize a published, linked
 curriculum into schedule events. Resolves to the cut summary, or throws a
@@ -419,13 +440,35 @@ curriculum into schedule events. Resolves to the cut summary, or throws a
 
 `string`
 
-###### force?
+###### options?
 
-`boolean` = `false`
+[`ApiCurriculumCutPayload`](../../../api-shared/types/gantt/cut/type-aliases/ApiCurriculumCutPayload.md) = `{}`
 
 ##### Returns
 
 `Promise`\<[`ApiCurriculumCutResponse`](../../../api-shared/types/gantt/cut/type-aliases/ApiCurriculumCutResponse.md)\>
+
+#### cut.plan
+
+> `readonly` **plan**: (`curriculumId`, `options`) => `Promise`\<[`ApiCurriculumCutPlanResponse`](../../../api-shared/types/gantt/cut/type-aliases/ApiCurriculumCutPlanResponse.md)\> = `planCurriculumCut`
+
+POST /api/gantt/curriculums/[id]/cut/plan — the "plan" half of the
+plan-then-confirm flow. Runs the full cut pipeline without writing and
+returns what it would do plus the open decisions the dialog must ask about.
+
+##### Parameters
+
+###### curriculumId
+
+`string`
+
+###### options?
+
+[`ApiCurriculumCutPayload`](../../../api-shared/types/gantt/cut/type-aliases/ApiCurriculumCutPayload.md) = `{}`
+
+##### Returns
+
+`Promise`\<[`ApiCurriculumCutPlanResponse`](../../../api-shared/types/gantt/cut/type-aliases/ApiCurriculumCutPlanResponse.md)\>
 
 #### cut.preview
 
@@ -763,6 +806,26 @@ cut into a schedule yet.
 
 `Promise`\<[`ApiCurriculumExecutionResponse`](../../../api-shared/types/gantt/execution/type-aliases/ApiCurriculumExecutionResponse.md)\>
 
+### getShuffleUsages
+
+> `readonly` **getShuffleUsages**: (`syllabusId`, `names`) => `Promise`\<[`ShuffleUsages`](../../../api-shared/types/gantt/shuffles/type-aliases/ShuffleUsages.md)\> = `apiGetShuffleUsages`
+
+Modules and events currently tagged with any of `names`.
+
+#### Parameters
+
+##### syllabusId
+
+`string`
+
+##### names
+
+`string`[]
+
+#### Returns
+
+`Promise`\<[`ShuffleUsages`](../../../api-shared/types/gantt/shuffles/type-aliases/ShuffleUsages.md)\>
+
 ### mappings
 
 > `readonly` **mappings**: `object` = `curriculumModuleDayMappingApi`
@@ -982,6 +1045,36 @@ POST: Materializes a recurring occurrence into its own standalone event.
 ##### Returns
 
 `Promise`\<\{ `event`: `object` & [`BaseGantItem`](../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem.md) & `object`; `mapping`: \{ `dayId`: `string`; `eventId`: `string`; `moduleId`: `string`; \}; \}\>
+
+#### recurrenceExceptions.apiRestoreOccurrence
+
+> **apiRestoreOccurrence**: (`eventId`, `payload`, `options?`) => `Promise`\<\{ `curriculumId`: `string`; `dayId`: `string`; `eventId`: `string`; \}\>
+
+DELETE: Restores a previously skipped occurrence (#469).
+
+##### Parameters
+
+###### eventId
+
+`string`
+
+###### payload
+
+###### curriculumId
+
+`string`
+
+###### dayId
+
+`string`
+
+###### options?
+
+[`ClientApiProps`](../../common/type-aliases/ClientApiProps.md)
+
+##### Returns
+
+`Promise`\<\{ `curriculumId`: `string`; `dayId`: `string`; `eventId`: `string`; \}\>
 
 ### reorderEvents
 

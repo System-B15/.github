@@ -8,7 +8,7 @@
 
 > **CalendarDraftSummary** = `Omit`\<[`CalendarDraft`](CalendarDraft.md), `"events"`\> & `object`
 
-Defined in: [ui/src/api-shared/types.tsx:96](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types.tsx#L96)
+Defined in: [ui/src/api-shared/types.ts:95](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types.ts#L95)
 
 ## Type Declaration
 

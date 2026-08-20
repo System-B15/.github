@@ -8,7 +8,7 @@
 
 > **GanttEvent** = `object` & [`BaseGantItem`](../../shared/type-aliases/BaseGantItem.md)
 
-Defined in: [ui/src/api-shared/types/gantt/models/event.ts:25](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/gantt/models/event.ts#L25)
+Defined in: [ui/src/api-shared/types/gantt/models/event.ts:25](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/gantt/models/event.ts#L25)
 
 ## Type Declaration
 
@@ -73,6 +73,21 @@ Outsider IDs, ordered by recommendation priority (top = most recommended).
 ### recurrence
 
 > **recurrence**: [`EventRecurrence`](../enumerations/EventRecurrence.md)
+
+### recurrenceEndDate
+
+> **recurrenceEndDate**: `null` \| `string`
+
+Last date the recurrence may echo onto ("YYYY-MM-DD"), or null for "to the
+end of the timeline" (#468).
+
+### recurrenceStartDate
+
+> **recurrenceStartDate**: `null` \| `string`
+
+First date the recurrence may echo onto ("YYYY-MM-DD"), or null for "from
+wherever the event is mapped". Lets a recurring event start mid-course
+instead of being pinned to the first week (#468).
 
 ### roomRequirement
 

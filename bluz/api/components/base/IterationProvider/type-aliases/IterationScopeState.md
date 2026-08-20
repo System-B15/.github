@@ -8,15 +8,25 @@
 
 > **IterationScopeState** = `object`
 
-Defined in: [ui/src/components/base/IterationProvider.tsx:18](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/base/IterationProvider.tsx#L18)
+Defined in: [ui/src/components/base/IterationProvider.tsx:25](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/base/IterationProvider.tsx#L25)
 
 ## Properties
+
+### currentIterationId
+
+> **currentIterationId**: [`IterationId`](../../../../api-shared/types/iteration/type-aliases/IterationId.md) \| `undefined`
+
+Defined in: [ui/src/components/base/IterationProvider.tsx:34](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/base/IterationProvider.tsx#L34)
+
+Id of the current (writable) run, once `iterations` has loaded.
+
+***
 
 ### isReadOnlyIteration
 
 > **isReadOnlyIteration**: `boolean`
 
-Defined in: [ui/src/components/base/IterationProvider.tsx:23](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/base/IterationProvider.tsx#L23)
+Defined in: [ui/src/components/base/IterationProvider.tsx:30](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/base/IterationProvider.tsx#L30)
 
 True while viewing a past iteration — every write route rejects it.
 
@@ -26,9 +36,19 @@ True while viewing a past iteration — every write route rejects it.
 
 > **iterationId**: [`IterationId`](../../../../api-shared/types/iteration/type-aliases/IterationId.md) \| `undefined`
 
-Defined in: [ui/src/components/base/IterationProvider.tsx:20](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/base/IterationProvider.tsx#L20)
+Defined in: [ui/src/components/base/IterationProvider.tsx:27](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/base/IterationProvider.tsx#L27)
 
 Active iteration. `undefined` ⇒ the current (writable) run.
+
+***
+
+### iterations
+
+> **iterations**: [`Iteration`](../../../../api-shared/types/iteration/type-aliases/Iteration.md)[]
+
+Defined in: [ui/src/components/base/IterationProvider.tsx:32](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/base/IterationProvider.tsx#L32)
+
+All registered iterations, for pickers like `IterationSelector`.
 
 ***
 
@@ -36,4 +56,4 @@ Active iteration. `undefined` ⇒ the current (writable) run.
 
 > **setIterationId**: `Dispatch`\<`SetStateAction`\<[`IterationId`](../../../../api-shared/types/iteration/type-aliases/IterationId.md) \| `undefined`\>\>
 
-Defined in: [ui/src/components/base/IterationProvider.tsx:21](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/base/IterationProvider.tsx#L21)
+Defined in: [ui/src/components/base/IterationProvider.tsx:28](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/base/IterationProvider.tsx#L28)

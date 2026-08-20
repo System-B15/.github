@@ -6,7 +6,7 @@
 
 # Enumeration: EventType
 
-Defined in: [ui/src/api-shared/types/event.ts:10](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L10)
+Defined in: [ui/src/api-shared/types/event.ts:10](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L10)
 
 Standardized Hebrew event types for the calendar engine,
 fully aligning with the Gantt engine event types.
@@ -17,7 +17,7 @@ fully aligning with the Gantt engine event types.
 
 > **BREAK**: `"הפסקה"`
 
-Defined in: [ui/src/api-shared/types/event.ts:16](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L16)
+Defined in: [ui/src/api-shared/types/event.ts:16](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L16)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [ui/src/api-shared/types/event.ts:16](https://github.com/System-B90/
 
 > **EXERCISE**: "ע\"ע"
 
-Defined in: [ui/src/api-shared/types/event.ts:12](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L12)
+Defined in: [ui/src/api-shared/types/event.ts:12](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L12)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [ui/src/api-shared/types/event.ts:12](https://github.com/System-B90/
 
 > **LECTURE**: `"הרצאה"`
 
-Defined in: [ui/src/api-shared/types/event.ts:13](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L13)
+Defined in: [ui/src/api-shared/types/event.ts:13](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L13)
 
 ***
 
@@ -41,7 +41,7 @@ Defined in: [ui/src/api-shared/types/event.ts:13](https://github.com/System-B90/
 
 > **OTHER**: `"אחר"`
 
-Defined in: [ui/src/api-shared/types/event.ts:18](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L18)
+Defined in: [ui/src/api-shared/types/event.ts:18](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L18)
 
 ***
 
@@ -49,7 +49,7 @@ Defined in: [ui/src/api-shared/types/event.ts:18](https://github.com/System-B90/
 
 > **PRAYER**: `"תפילה"`
 
-Defined in: [ui/src/api-shared/types/event.ts:17](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L17)
+Defined in: [ui/src/api-shared/types/event.ts:17](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L17)
 
 ***
 
@@ -57,7 +57,7 @@ Defined in: [ui/src/api-shared/types/event.ts:17](https://github.com/System-B90/
 
 > **SELF\_TEACHING**: "ל\"ע"
 
-Defined in: [ui/src/api-shared/types/event.ts:15](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L15)
+Defined in: [ui/src/api-shared/types/event.ts:15](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L15)
 
 ***
 
@@ -65,4 +65,4 @@ Defined in: [ui/src/api-shared/types/event.ts:15](https://github.com/System-B90/
 
 > **WORKSHOP**: `"סדנה"`
 
-Defined in: [ui/src/api-shared/types/event.ts:14](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L14)
+Defined in: [ui/src/api-shared/types/event.ts:14](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L14)

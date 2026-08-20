@@ -8,7 +8,7 @@
 
 > `const` **ganttConstraintsApi**: `object`
 
-Defined in: [ui/src/api-client/gantt/constraints.ts:173](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-client/gantt/constraints.ts#L173)
+Defined in: [ui/src/api-client/gantt/constraints.ts:165](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-client/gantt/constraints.ts#L165)
 
 Client-side API client wrapper for managing Gantt constraints.
 Provides endpoints for retrieving, creating, updating, and deleting constraints.
@@ -30,7 +30,7 @@ Note: Assumes the endpoint is nested under the curriculum for uniform routing.
 
 ##### payload
 
-[`CreateConstraintPayload`](../type-aliases/CreateConstraintPayload.md)
+[`CreateConstraintPayload`](../../../../api-shared/types/gantt/create-payloads/type-aliases/CreateConstraintPayload.md)
 
 ##### options?
 
@@ -112,7 +112,7 @@ PATCH: Updates an existing constraint.
 
 ##### payload
 
-`Partial`\<[`CreateConstraintPayload`](../type-aliases/CreateConstraintPayload.md)\>
+`Partial`\<[`CreateConstraintPayload`](../../../../api-shared/types/gantt/create-payloads/type-aliases/CreateConstraintPayload.md)\>
 
 ##### options?
 

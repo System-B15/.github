@@ -8,7 +8,7 @@
 
 > `const` **del**: (`draftId`, `controller`) => `Promise`\<`void`\> = `deleteDraft`
 
-Defined in: [ui/src/api-server/db-calendar-draft.ts:193](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/db-calendar-draft.ts#L193)
+Defined in: [ui/src/api-server/db-calendar-draft.ts:193](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/db-calendar-draft.ts#L193)
 
 Permanently removes a draft.
 

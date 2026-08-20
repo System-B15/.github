@@ -6,9 +6,9 @@
 
 # Function: createRecurrenceException()
 
-> **createRecurrenceException**(`data`): `Promise`\<\{ `createdAt`: `Date`; `curriculumId`: `string`; `dayId`: `string`; `eventId`: `string`; `id`: `string`; \}\>
+> **createRecurrenceException**(`data`): `Promise`\<\{ `createdAt`: `Date`; `curriculumId`: `string`; `dayId`: `string`; `eventId`: `string`; `id`: `string`; `materializedEventId`: `string` \| `null`; \}\>
 
-Defined in: [ui/src/api-server/gantt/db-recurrence-exceptions.ts:36](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/gantt/db-recurrence-exceptions.ts#L36)
+Defined in: [ui/src/api-server/gantt/db-recurrence-exceptions.ts:36](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/db-recurrence-exceptions.ts#L36)
 
 Removes a single recurring occurrence: marks the day as excepted so the
 event no longer echoes onto it, without touching the source event.
@@ -29,6 +29,10 @@ event no longer echoes onto it, without touching the source event.
 
 `string`
 
+#### materializedEventId?
+
+`string` \| `null`
+
 ## Returns
 
-`Promise`\<\{ `createdAt`: `Date`; `curriculumId`: `string`; `dayId`: `string`; `eventId`: `string`; `id`: `string`; \}\>
+`Promise`\<\{ `createdAt`: `Date`; `curriculumId`: `string`; `dayId`: `string`; `eventId`: `string`; `id`: `string`; `materializedEventId`: `string` \| `null`; \}\>

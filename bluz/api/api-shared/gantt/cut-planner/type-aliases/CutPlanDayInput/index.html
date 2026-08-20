@@ -447,6 +447,60 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../gantt-cut-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../e2e-cloud-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../" class="md-nav__link">
         
   
@@ -533,6 +587,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#dayendtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        dayEndTime?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dayindex" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -548,6 +613,17 @@
     <span class="md-ellipsis">
       
         id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#totalworkingminutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        totalWorkingMinutes?
       
     </span>
   </a>
@@ -586,22 +662,38 @@
 <blockquote>
 <p><strong>CutPlanDayInput</strong> = <code>object</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L16">ui/src/api-shared/gantt/cut-planner.ts:16</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L46">ui/src/api-shared/gantt/cut-planner.ts:46</a></p>
 <p>Pure "cut" planner (#117): expands a curriculum's gantt data into dated,
 timed schedule-event occurrences. No DB access, no I/O — the caller adapts
 its own data (Drizzle rows, normalized store, etc.) into <code>CutPlanInput</code>.</p>
 <h2 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h2>
+<h3 id="dayendtime">dayEndTime?<a class="headerlink" href="#dayendtime" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><code>optional</code> <strong>dayEndTime?</strong>: <code>null</code> | <code>string</code></p>
+</blockquote>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L56">ui/src/api-shared/gantt/cut-planner.ts:56</a></p>
+<p>Explicit end of this day's working window (<code>"HH:mm"</code>). Null/absent ⇒
+derived as the day's start time plus <code>totalWorkingMinutes</code>, which is how
+days behaved before the field existed.</p>
+<hr />
 <h3 id="dayindex">dayIndex<a class="headerlink" href="#dayindex" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>dayIndex</strong>: <a href="../../../../types/gantt/models/day/enumerations/GanttDayIndex/"><code>GanttDayIndex</code></a></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L18">ui/src/api-shared/gantt/cut-planner.ts:18</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L48">ui/src/api-shared/gantt/cut-planner.ts:48</a></p>
 <hr />
 <h3 id="id">id<a class="headerlink" href="#id" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>id</strong>: <code>string</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L17">ui/src/api-shared/gantt/cut-planner.ts:17</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L47">ui/src/api-shared/gantt/cut-planner.ts:47</a></p>
+<hr />
+<h3 id="totalworkingminutes">totalWorkingMinutes?<a class="headerlink" href="#totalworkingminutes" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><code>optional</code> <strong>totalWorkingMinutes?</strong>: <code>number</code></p>
+</blockquote>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L50">ui/src/api-shared/gantt/cut-planner.ts:50</a></p>
+<p>Configured working minutes for this day; the fallback for a null end time.</p>
 
 
 

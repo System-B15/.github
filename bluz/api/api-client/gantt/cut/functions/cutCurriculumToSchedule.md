@@ -6,9 +6,9 @@
 
 # Function: cutCurriculumToSchedule()
 
-> **cutCurriculumToSchedule**(`curriculumId`, `force?`): `Promise`\<[`ApiCurriculumCutResponse`](../../../../api-shared/types/gantt/cut/type-aliases/ApiCurriculumCutResponse.md)\>
+> **cutCurriculumToSchedule**(`curriculumId`, `options?`): `Promise`\<[`ApiCurriculumCutResponse`](../../../../api-shared/types/gantt/cut/type-aliases/ApiCurriculumCutResponse.md)\>
 
-Defined in: [ui/src/api-client/gantt/cut.ts:26](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-client/gantt/cut.ts#L26)
+Defined in: [ui/src/api-client/gantt/cut.ts:28](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-client/gantt/cut.ts#L28)
 
 POST /api/gantt/curriculums/[id]/cut — materialize a published, linked
 curriculum into schedule events. Resolves to the cut summary, or throws a
@@ -20,9 +20,9 @@ curriculum into schedule events. Resolves to the cut summary, or throws a
 
 `string`
 
-### force?
+### options?
 
-`boolean` = `false`
+[`ApiCurriculumCutPayload`](../../../../api-shared/types/gantt/cut/type-aliases/ApiCurriculumCutPayload.md) = `{}`
 
 ## Returns
 

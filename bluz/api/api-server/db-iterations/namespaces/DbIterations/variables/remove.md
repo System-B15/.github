@@ -8,12 +8,12 @@
 
 > `const` **remove**: (`id`) => `Promise`\<`void`\> = `deleteIteration`
 
-Defined in: [ui/src/api-server/db-iterations.ts:301](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/db-iterations.ts#L301)
+Defined in: [ui/src/api-server/db-iterations.ts:356](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/db-iterations.ts#L356)
 
-Delete an iteration from the registry. The current iteration can never be
-deleted (there must always be exactly one writable iteration). The backing
-Mongo database is left in place — orphaned, not dropped — since it may hold
-calendar/curriculum history worth keeping around for reference.
+Delete an iteration from the registry. Only an orphaned iteration qualifies:
+the current one is never deletable (there must always be exactly one writable
+iteration), and neither is one that still owns events or a linked curriculum.
+The backing Mongo database is left in place — orphaned, not dropped.
 
 ## Parameters
 

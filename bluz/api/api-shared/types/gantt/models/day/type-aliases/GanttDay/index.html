@@ -447,6 +447,60 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../../../gantt-cut-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../../../e2e-cloud-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../../../" class="md-nav__link">
         
   
@@ -544,6 +598,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#dayendtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        dayEndTime?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dayindex" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -619,12 +684,20 @@
 <blockquote>
 <p><strong>GanttDay</strong> = <code>object</code> &amp; <a href="../../../shared/type-aliases/BaseGantItem/"><code>BaseGantItem</code></a></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/gantt/models/day.ts#L74">ui/src/api-shared/types/gantt/models/day.ts:74</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/gantt/models/day.ts#L74">ui/src/api-shared/types/gantt/models/day.ts:74</a></p>
 <h2 id="type-declaration">Type Declaration<a class="headerlink" href="#type-declaration" title="Permanent link">&para;</a></h2>
 <h3 id="comment">comment?<a class="headerlink" href="#comment" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><code>optional</code> <strong>comment?</strong>: <code>string</code></p>
 </blockquote>
+<h3 id="dayendtime">dayEndTime?<a class="headerlink" href="#dayendtime" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><code>optional</code> <strong>dayEndTime?</strong>: <code>null</code> | <code>string</code></p>
+</blockquote>
+<p>End of this day's working window ("HH:mm"). The cut treats the span from
+the day's start time to this as the day's capacity, and never places an
+event past it. <code>null</code> ⇒ derive as start + GanttDay.totalWorkingMinutes,
+which is how days behaved before the field existed.</p>
 <h3 id="dayindex">dayIndex<a class="headerlink" href="#dayindex" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>dayIndex</strong>: <a href="../../enumerations/GanttDayIndex/"><code>GanttDayIndex</code></a></p>

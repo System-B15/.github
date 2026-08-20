@@ -8,6 +8,7 @@
 
 ## Type Aliases
 
+- [CreateConstraintPayload](type-aliases/CreateConstraintPayload.md)
 - [CreateGanttCurriculumEventDayMapping](type-aliases/CreateGanttCurriculumEventDayMapping.md)
 - [CreateGanttCurriculumPayload](type-aliases/CreateGanttCurriculumPayload.md)
 - [CreateGanttDayPayload](type-aliases/CreateGanttDayPayload.md)

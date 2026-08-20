@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://system-b90.github.io/bluz/api/">
       
       
-        <link rel="prev" href="../duplication-audit/">
+        <link rel="prev" href="../e2e-cloud-runbook/">
       
       
         <link rel="next" href="../cli/">
@@ -448,6 +448,60 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../gantt-cut-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../e2e-cloud-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -638,6 +692,7 @@
 <li><a href="api-client/gantt/module-event/">api-client/gantt/module-event</a></li>
 <li><a href="api-client/gantt/recurrence-exceptions/">api-client/gantt/recurrence-exceptions</a></li>
 <li><a href="api-client/gantt/reorder/">api-client/gantt/reorder</a></li>
+<li><a href="api-client/gantt/shuffles/">api-client/gantt/shuffles</a></li>
 <li><a href="api-client/gantt/syllabus/">api-client/gantt/syllabus</a></li>
 <li><a href="api-client/gantt/week/">api-client/gantt/week</a></li>
 <li><a href="api-client/google-calendar/">api-client/google-calendar</a></li>
@@ -722,7 +777,11 @@
 <li><a href="api-shared/errors/">api-shared/errors</a></li>
 <li><a href="api-shared/event-history/">api-shared/event-history</a></li>
 <li><a href="api-shared/gantt/allocate-time/">api-shared/gantt/allocate-time</a></li>
+<li><a href="api-shared/gantt/cut-balancer/">api-shared/gantt/cut-balancer</a></li>
+<li><a href="api-shared/gantt/cut-breaks/">api-shared/gantt/cut-breaks</a></li>
+<li><a href="api-shared/gantt/cut-constraints/">api-shared/gantt/cut-constraints</a></li>
 <li><a href="api-shared/gantt/cut-planner/">api-shared/gantt/cut-planner</a></li>
+<li><a href="api-shared/gantt/cut-rules/">api-shared/gantt/cut-rules</a></li>
 <li><a href="api-shared/gantt/execution/">api-shared/gantt/execution</a></li>
 <li><a href="api-shared/gantt/recurrence/">api-shared/gantt/recurrence</a></li>
 <li><a href="api-shared/gantt/reload-diff/">api-shared/gantt/reload-diff</a></li>
@@ -751,6 +810,7 @@
 <li><a href="api-shared/types/gantt/models/syllabus/">api-shared/types/gantt/models/syllabus</a></li>
 <li><a href="api-shared/types/gantt/models/week/">api-shared/types/gantt/models/week</a></li>
 <li><a href="api-shared/types/gantt/reload/">api-shared/types/gantt/reload</a></li>
+<li><a href="api-shared/types/gantt/shuffles/">api-shared/types/gantt/shuffles</a></li>
 <li><a href="api-shared/types/gantt/templates/">api-shared/types/gantt/templates</a></li>
 <li><a href="api-shared/types/google-calendar/">api-shared/types/google-calendar</a></li>
 <li><a href="api-shared/types/hive/">api-shared/types/hive</a></li>
@@ -797,6 +857,7 @@
 <li><a href="app/api/gantt/base-item/">app/api/gantt/base-item</a></li>
 <li><a href="app/api/gantt/base-link/">app/api/gantt/base-link</a></li>
 <li><a href="app/api/gantt/curriculums/%5Bid%5D/constraints/route/">app/api/gantt/curriculums/[id]/constraints/route</a></li>
+<li><a href="app/api/gantt/curriculums/%5Bid%5D/cut/plan/route/">app/api/gantt/curriculums/[id]/cut/plan/route</a></li>
 <li><a href="app/api/gantt/curriculums/%5Bid%5D/cut/preview/route/">app/api/gantt/curriculums/[id]/cut/preview/route</a></li>
 <li><a href="app/api/gantt/curriculums/%5Bid%5D/cut/route/">app/api/gantt/curriculums/[id]/cut/route</a></li>
 <li><a href="app/api/gantt/curriculums/%5Bid%5D/duplicate/route/">app/api/gantt/curriculums/[id]/duplicate/route</a></li>
@@ -827,6 +888,7 @@
 <li><a href="app/api/gantt/syllabuses/%5Bid%5D/link/route/">app/api/gantt/syllabuses/[id]/link/route</a></li>
 <li><a href="app/api/gantt/syllabuses/%5Bid%5D/reorder-modules/route/">app/api/gantt/syllabuses/[id]/reorder-modules/route</a></li>
 <li><a href="app/api/gantt/syllabuses/%5Bid%5D/route/">app/api/gantt/syllabuses/[id]/route</a></li>
+<li><a href="app/api/gantt/syllabuses/%5Bid%5D/shuffles/route/">app/api/gantt/syllabuses/[id]/shuffles/route</a></li>
 <li><a href="app/api/gantt/syllabuses/route/">app/api/gantt/syllabuses/route</a></li>
 <li><a href="app/api/gantt/weeks/%5Bid%5D/route/">app/api/gantt/weeks/[id]/route</a></li>
 <li><a href="app/api/gantt/weeks/route/">app/api/gantt/weeks/route</a></li>
@@ -847,7 +909,9 @@
 <li><a href="app/api/integrations/google-calendar/sync/route/">app/api/integrations/google-calendar/sync/route</a></li>
 <li><a href="app/api/iterations/%5Bid%5D/route/">app/api/iterations/[id]/route</a></li>
 <li><a href="app/api/iterations/%5Bid%5D/sync-hive/route/">app/api/iterations/[id]/sync-hive/route</a></li>
+<li><a href="app/api/iterations/%5Bid%5D/usage/route/">app/api/iterations/[id]/usage/route</a></li>
 <li><a href="app/api/iterations/current/route/">app/api/iterations/current/route</a></li>
+<li><a href="app/api/iterations/current/usage/route/">app/api/iterations/current/usage/route</a></li>
 <li><a href="app/api/iterations/route/">app/api/iterations/route</a></li>
 <li><a href="app/api/outsiders/route/">app/api/outsiders/route</a></li>
 <li><a href="app/api/personal-settings/route/">app/api/personal-settings/route</a></li>
@@ -888,6 +952,7 @@
 <li><a href="components/base/ImportExportMenuButton/">components/base/ImportExportMenuButton</a></li>
 <li><a href="components/base/InstructorSelect/">components/base/InstructorSelect</a></li>
 <li><a href="components/base/IterationProvider/">components/base/IterationProvider</a></li>
+<li><a href="components/base/NoIterationPrompt/">components/base/NoIterationPrompt</a></li>
 <li><a href="components/base/NumberSpinner/">components/base/NumberSpinner</a></li>
 <li><a href="components/base/OfflineProvider/">components/base/OfflineProvider</a></li>
 <li><a href="components/base/OutsidersProvider/">components/base/OutsidersProvider</a></li>
@@ -983,15 +1048,20 @@
 <li><a href="components/gantt/curriculum-view/tabs/UseProgressiveItemCount/">components/gantt/curriculum-view/tabs/UseProgressiveItemCount</a></li>
 <li><a href="components/gantt/curriculum-view/tabs/weeks-tab/">components/gantt/curriculum-view/tabs/weeks-tab</a></li>
 <li><a href="components/gantt/curriculum-view/tabs/weeks-tab/ApplyTemplateButton/">components/gantt/curriculum-view/tabs/weeks-tab/ApplyTemplateButton</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/weeks-tab/BulkDayHoursBar/">components/gantt/curriculum-view/tabs/weeks-tab/BulkDayHoursBar</a></li>
 <li><a href="components/gantt/curriculum-view/tabs/weeks-tab/ClosingSaturdayChip/">components/gantt/curriculum-view/tabs/weeks-tab/ClosingSaturdayChip</a></li>
 <li><a href="components/gantt/curriculum-view/tabs/weeks-tab/CourseStartDateControl/">components/gantt/curriculum-view/tabs/weeks-tab/CourseStartDateControl</a></li>
 <li><a href="components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell/">components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell</a></li>
 <li><a href="components/gantt/curriculum-view/tabs/weeks-tab/DayEntry/">components/gantt/curriculum-view/tabs/weeks-tab/DayEntry</a></li>
+<li><a href="components/gantt/curriculum-view/tabs/weeks-tab/DaySelectionContext/">components/gantt/curriculum-view/tabs/weeks-tab/DaySelectionContext</a></li>
 <li><a href="components/gantt/curriculum-view/tabs/weeks-tab/WeekLengthMenu/">components/gantt/curriculum-view/tabs/weeks-tab/WeekLengthMenu</a></li>
 <li><a href="components/gantt/curriculum-view/tabs/weeks-tab/WeekPanel/">components/gantt/curriculum-view/tabs/weeks-tab/WeekPanel</a></li>
 <li><a href="components/gantt/curriculum-view/tabs/weeks-tab/WeeksCapacityGrid/">components/gantt/curriculum-view/tabs/weeks-tab/WeeksCapacityGrid</a></li>
 <li><a href="components/gantt/curriculum-view/tabs/weeks-tab/WeeksSummaryBar/">components/gantt/curriculum-view/tabs/weeks-tab/WeeksSummaryBar</a></li>
 <li><a href="components/gantt/cut-dialog/">components/gantt/cut-dialog</a></li>
+<li><a href="components/gantt/cut-dialog/CutDecisionStep/">components/gantt/cut-dialog/CutDecisionStep</a></li>
+<li><a href="components/gantt/cut-dialog/CutProgressDashes/">components/gantt/cut-dialog/CutProgressDashes</a></li>
+<li><a href="components/gantt/cut-dialog/CutSpillDetails/">components/gantt/cut-dialog/CutSpillDetails</a></li>
 <li><a href="components/gantt/cut-dialog/PullBackScheduleDialog/">components/gantt/cut-dialog/PullBackScheduleDialog</a></li>
 <li><a href="components/gantt/cut-dialog/ReloadScheduleDialog/">components/gantt/cut-dialog/ReloadScheduleDialog</a></li>
 <li><a href="components/gantt/event-dialog/">components/gantt/event-dialog</a></li>
@@ -1074,6 +1144,7 @@
 <li><a href="components/gantt/syllabus-card/ModuleRow/">components/gantt/syllabus-card/ModuleRow</a></li>
 <li><a href="components/gantt/syllabus-card/ModulesTable/">components/gantt/syllabus-card/ModulesTable</a></li>
 <li><a href="components/gantt/syllabus-card/OpenHandsIcon/">components/gantt/syllabus-card/OpenHandsIcon</a></li>
+<li><a href="components/gantt/syllabus-card/ShuffleDeleteDialog/">components/gantt/syllabus-card/ShuffleDeleteDialog</a></li>
 <li><a href="components/gantt/syllabus-card/SyllabusCardActions/">components/gantt/syllabus-card/SyllabusCardActions</a></li>
 <li><a href="components/gantt/syllabus-card/SyllabusCardHeader/">components/gantt/syllabus-card/SyllabusCardHeader</a></li>
 <li><a href="components/gantt/syllabus-card/SyllabusName/">components/gantt/syllabus-card/SyllabusName</a></li>
@@ -1111,6 +1182,7 @@
 <li><a href="components/schedule/calendar/calendar/SnapshotMenu/">components/schedule/calendar/calendar/SnapshotMenu</a></li>
 <li><a href="components/schedule/calendar/calendar/toolbar-button-sx/">components/schedule/calendar/calendar/toolbar-button-sx</a></li>
 <li><a href="components/schedule/calendar/calendar/UseCalendarHandlers/">components/schedule/calendar/calendar/UseCalendarHandlers</a></li>
+<li><a href="components/schedule/calendar/calendar/UsePrecisionDrag/">components/schedule/calendar/calendar/UsePrecisionDrag</a></li>
 <li><a href="components/schedule/calendar/CalendarSkeleton/">components/schedule/calendar/CalendarSkeleton</a></li>
 <li><a href="components/schedule/calendar/CustomWorkWeek/">components/schedule/calendar/CustomWorkWeek</a></li>
 <li><a href="components/schedule/calendar/instructor-dnd/assign/">components/schedule/calendar/instructor-dnd/assign</a></li>

@@ -447,6 +447,60 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../gantt-cut-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../e2e-cloud-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../" class="md-nav__link">
         
   
@@ -577,6 +631,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#materializedeventid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        materializedEventId?
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -623,9 +688,9 @@
 <p><a href="../../../../../">TypeDoc API</a> / <a href="../../">api-server/gantt/db-recurrence-exceptions</a> / createRecurrenceException</p>
 <h1 id="function-createrecurrenceexception">Function: createRecurrenceException()<a class="headerlink" href="#function-createrecurrenceexception" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><strong>createRecurrenceException</strong>(<code>data</code>): <code>Promise</code>\&lt;{ <code>createdAt</code>: <code>Date</code>; <code>curriculumId</code>: <code>string</code>; <code>dayId</code>: <code>string</code>; <code>eventId</code>: <code>string</code>; <code>id</code>: <code>string</code>; }&gt;</p>
+<p><strong>createRecurrenceException</strong>(<code>data</code>): <code>Promise</code>\&lt;{ <code>createdAt</code>: <code>Date</code>; <code>curriculumId</code>: <code>string</code>; <code>dayId</code>: <code>string</code>; <code>eventId</code>: <code>string</code>; <code>id</code>: <code>string</code>; <code>materializedEventId</code>: <code>string</code> | <code>null</code>; }&gt;</p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/gantt/db-recurrence-exceptions.ts#L36">ui/src/api-server/gantt/db-recurrence-exceptions.ts:36</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/db-recurrence-exceptions.ts#L36">ui/src/api-server/gantt/db-recurrence-exceptions.ts:36</a></p>
 <p>Removes a single recurring occurrence: marks the day as excepted so the
 event no longer echoes onto it, without touching the source event.</p>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
@@ -636,8 +701,10 @@ event no longer echoes onto it, without touching the source event.</p>
 <p><code>string</code></p>
 <h4 id="eventid">eventId<a class="headerlink" href="#eventid" title="Permanent link">&para;</a></h4>
 <p><code>string</code></p>
+<h4 id="materializedeventid">materializedEventId?<a class="headerlink" href="#materializedeventid" title="Permanent link">&para;</a></h4>
+<p><code>string</code> | <code>null</code></p>
 <h2 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h2>
-<p><code>Promise</code>\&lt;{ <code>createdAt</code>: <code>Date</code>; <code>curriculumId</code>: <code>string</code>; <code>dayId</code>: <code>string</code>; <code>eventId</code>: <code>string</code>; <code>id</code>: <code>string</code>; }&gt;</p>
+<p><code>Promise</code>\&lt;{ <code>createdAt</code>: <code>Date</code>; <code>curriculumId</code>: <code>string</code>; <code>dayId</code>: <code>string</code>; <code>eventId</code>: <code>string</code>; <code>id</code>: <code>string</code>; <code>materializedEventId</code>: <code>string</code> | <code>null</code>; }&gt;</p>
 
 
 

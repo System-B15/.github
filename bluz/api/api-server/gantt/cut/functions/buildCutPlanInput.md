@@ -8,7 +8,7 @@
 
 > **buildCutPlanInput**(`args`): [`CutPlanInput`](../../../../api-shared/gantt/cut-planner/type-aliases/CutPlanInput.md)
 
-Defined in: [ui/src/api-server/gantt/cut.ts:147](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/gantt/cut.ts#L147)
+Defined in: [ui/src/api-server/gantt/cut.ts:283](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/cut.ts#L283)
 
 Adapt the loaded Postgres rows into the pure planner's plain-data input.
 Weeks are ordered by `number` and days within a week by `dayIndex`, matching
@@ -21,6 +21,12 @@ the timeline ordering used by the client normalizer.
 #### breakfastTime?
 
 `string`
+
+#### constraints?
+
+[`GanttConstraint`](../../../../api-shared/types/gantt/models/constraint/type-aliases/GanttConstraint.md)[]
+
+Constraint rows for this curriculum (owned by its events and modules).
 
 #### curriculum
 
@@ -45,6 +51,12 @@ the timeline ordering used by the client normalizer.
 #### mappings
 
 [`CutMappingRow`](../type-aliases/CutMappingRow.md)[]
+
+#### prayerTimes?
+
+`object`[]
+
+Prayer windows bridged over from the MongoDB schedule settings.
 
 #### weekendHomeStartTime?
 

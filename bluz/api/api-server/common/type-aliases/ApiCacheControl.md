@@ -8,7 +8,7 @@
 
 > **ApiCacheControl** = `"immutable"` \| `"must-revalidate"` \| `"no-cache"` \| `"no-store"` \| \{ `immutable?`: `boolean`; `maxAge`: `number`; `scope`: `"private"` \| `"public"`; \} \| `number`
 
-Defined in: [ui/src/api-server/common.tsx:22](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/common.tsx#L22)
+Defined in: [ui/src/api-server/common.ts:22](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/common.ts#L22)
 
 The object form is explicit, for responses that must not land in a shared
 cache. Every API route sits behind Hive SSO, so anything user- or

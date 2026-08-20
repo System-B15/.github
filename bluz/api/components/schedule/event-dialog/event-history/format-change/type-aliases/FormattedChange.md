@@ -8,7 +8,7 @@
 
 > **FormattedChange** = `object`
 
-Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:86](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L86)
+Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:89](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L89)
 
 Both sides of a change, ready to render.
 
@@ -18,7 +18,7 @@ Both sides of a change, ready to render.
 
 > **field**: `string`
 
-Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:87](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L87)
+Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:90](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L90)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change
 
 > **from**: `string`
 
-Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:88](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L88)
+Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:91](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L91)
 
 ***
 
@@ -34,4 +34,4 @@ Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change
 
 > **to**: `string`
 
-Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:89](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L89)
+Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:92](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L92)

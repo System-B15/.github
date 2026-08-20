@@ -1,0 +1,1204 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Internal developer documentation for the Bluz scheduling & curriculum-management platform.">
+      
+      
+      
+        <link rel="canonical" href="https://system-b90.github.io/bluz/e2e-cloud-runbook/">
+      
+      
+        <link rel="prev" href="../gantt-cut-rules/">
+      
+      
+        <link rel="next" href="../api/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>E2E Cloud Runbook - Bluz Developer Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#running-e2e-in-a-cloud-agent-session" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Bluz Developer Documentation" class="md-header__button md-logo" aria-label="Bluz Developer Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bluz Developer Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              E2E Cloud Runbook
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/system-b90/bluz" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    system-b90/bluz
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Bluz Developer Documentation" class="md-nav__button md-logo" aria-label="Bluz Developer Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Bluz Developer Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/system-b90/bluz" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    system-b90/bluz
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../performance-and-scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance & Scaling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup-and-restore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backup & Restore
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-quality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Quality Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../duplication-audit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Duplication Audit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gantt-cut-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-each-step-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why each step exists
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why each step exists">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-agent-https-proxy-step-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The agent HTTPS proxy (step 0)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-daemon-step-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker daemon (step 1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hostname-aliases-step-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hostname aliases (step 2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hive-images-from-ghcr-not-source-steps-3-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hive images from GHCR, not source (steps 3-4)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hive-bring-up-order-step-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hive bring-up order (step 5)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-test-run-steps-6-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The test run (steps 6-7)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites-already-present-in-a-cloud-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites already present in a cloud session
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resource notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#do-not-commit-the-seed-snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Do not commit the seed snapshot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teardown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Teardown
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-each-step-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why each step exists
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why each step exists">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-agent-https-proxy-step-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The agent HTTPS proxy (step 0)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-daemon-step-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker daemon (step 1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hostname-aliases-step-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hostname aliases (step 2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hive-images-from-ghcr-not-source-steps-3-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hive images from GHCR, not source (steps 3-4)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hive-bring-up-order-step-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hive bring-up order (step 5)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-test-run-steps-6-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The test run (steps 6-7)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites-already-present-in-a-cloud-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites already present in a cloud session
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resource notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#do-not-commit-the-seed-snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Do not commit the seed snapshot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teardown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Teardown
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="running-e2e-in-a-cloud-agent-session">Running E2E in a cloud agent session<a class="headerlink" href="#running-e2e-in-a-cloud-agent-session" title="Permanent link">&para;</a></h1>
+<p>How to get the Playwright suite running inside a <strong>Claude Code cloud session</strong>
+(<code>Bis90-GH-Bluz</code> and friends) — a fresh Linux container with no Docker daemon
+running, no images, and no Hive stack.</p>
+<p>This is the cloud counterpart to the <code>dev-environment</code> skill, which assumes a
+Windows workstation with <code>bluz.dev</code> already in <code>hosts</code> and images already built.
+Nothing here changes how E2E works; it is the same
+<code>scripts/run_tests.py --seed-hive --skip-unit</code> entry point CI uses, with the
+container-specific setup spelled out.</p>
+<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<p>Copy-paste, in order, from the repo root. Budget ~25 minutes of setup before the
+suite starts; the whole thing is slower than the 8-vCPU CI box.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 0. One-time per session: bypass the agent HTTPS proxy for local hostnames.</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">#    Without this every request to hive.org / bluz.dev returns 403 from the proxy.</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">NO_PROXY</span><span class="o">=</span><span class="s2">"hive.org,bluz.dev,127.0.0.3,127.0.0.6,</span><span class="nv">$NO_PROXY</span><span class="s2">"</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">no_proxy</span><span class="o">=</span><span class="s2">"</span><span class="nv">$NO_PROXY</span><span class="s2">"</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># 1. Start the Docker daemon (the socket exists, nothing is listening on it).</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="o">(</span>nohup<span class="w"> </span>dockerd<span class="w"> </span>&gt;<span class="w"> </span>/tmp/dockerd.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span><span class="o">)</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>docker<span class="w"> </span>info<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"docker up"</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># 2. Hostname aliases. Hive's nginx binds 127.0.0.6, Bluz's proxy binds 127.0.0.3,</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1">#    so they can share :80/:443 without colliding.</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nb">printf</span><span class="w"> </span><span class="s2">"127.0.0.6 hive.org\n127.0.0.3 bluz.dev\n"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/hosts
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># 3. Hive stack source (compose + pinned image SHA) from the pyhive repo.</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="w"> </span><span class="m">1</span><span class="w"> </span>https://github.com/System-B90/pyhive<span class="w"> </span>/workspace/pyhive
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>cp<span class="w"> </span>-a<span class="w"> </span>/workspace/pyhive/hive-stack/.<span class="w"> </span>/workspace/hive/<span class="w">     </span><span class="c1"># directory MUST be named "hive"</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># 4. Pull the 14 prebuilt Hive images from GHCR and retag them to hive/*.</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$NPM_TOKEN</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>login<span class="w"> </span>ghcr.io<span class="w"> </span>-u<span class="w"> </span><span class="s2">"</span><span class="nv">$GITHUB_ACTOR</span><span class="s2">"</span><span class="w"> </span>--password-stdin
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="nb">cd</span><span class="w"> </span>/workspace/hive<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nv">TAG</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span>HIVE_SHA<span class="k">)</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="k">for</span><span class="w"> </span>img<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.yaml<span class="w"> </span>config<span class="w"> </span>--images<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">'^hive/'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u<span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="nv">name</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">img</span><span class="p">#hive/</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="nv">name</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">name</span><span class="p">%%:*</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span>docker<span class="w"> </span>pull<span class="w"> </span><span class="s2">"ghcr.io/system-b90/hive/</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">TAG</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>tag<span class="w"> </span><span class="s2">"ghcr.io/system-b90/hive/</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">TAG</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$img</span><span class="s2">"</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="k">done</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="c1"># 5. Boot and initialize Hive (see "Hive bring-up" below for why in this order).</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="nb">printf</span><span class="w"> </span><span class="s1">'HIVE_CORE_WORKERS=2\nHIVE_CORE_THREADS=2\nHIVE_NGINX_WORKERS=1\n'</span><span class="w"> </span>&gt;<span class="w"> </span>.env.override
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>./db<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span><span class="m">999</span>:999<span class="w"> </span>./db
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.yaml<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>database<span class="w"> </span>redis
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="c1"># …wait for Postgres healthy (loop below), then:</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.yaml<span class="w"> </span>up<span class="w"> </span>-d
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="nv">c</span><span class="o">=</span><span class="s2">"docker compose -f docker-compose.yaml"</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="nv">$c</span><span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-T<span class="w"> </span>core<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>migrate
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="nv">$c</span><span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-T<span class="w"> </span>core<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>collectstatic<span class="w"> </span>--noinput
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="nv">$c</span><span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-T<span class="w"> </span>database<span class="w"> </span>sh<span class="w"> </span>/update.sh
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="nv">$c</span><span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-T<span class="w"> </span>core<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>service_accounts
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="nv">$c</span><span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-T<span class="w"> </span>core<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>load_tags
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="nv">$c</span><span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-T<span class="w"> </span>-e<span class="w"> </span><span class="nv">DJANGO_SUPERUSER_USERNAME</span><span class="o">=</span>admin<span class="w"> </span>-e<span class="w"> </span><span class="nv">DJANGO_SUPERUSER_PASSWORD</span><span class="o">=</span>Password1<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">    </span>-e<span class="w"> </span><span class="nv">DJANGO_SUPERUSER_EMAIL</span><span class="o">=</span>admin@hive.org<span class="w"> </span>core<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser<span class="w"> </span>--noinput
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="nv">$c</span><span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-T<span class="w"> </span>core<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>load_programs
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="c1"># 6. Python deps for the test orchestrator.</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="nb">cd</span><span class="w"> </span>/home/user/Bluz
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>/tmp/venv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>/tmp/venv/bin/pip<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>-r<span class="w"> </span>scripts/requirements.txt
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="c1"># 7. Point Playwright at the Chromium this image actually ships (see below),</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="c1">#    then run the suite.</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CI</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">PLAYWRIGHT_BROWSERS_PATH</span><span class="o">=</span>/opt/pw-browsers
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PLAYWRIGHT_CHROMIUM_EXECUTABLE</span><span class="o">=</span><span class="k">$(</span>ls<span class="w"> </span>-d<span class="w"> </span>/opt/pw-browsers/chromium-*/chrome-linux/chrome<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-1<span class="k">)</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>/tmp/venv/bin/python<span class="w"> </span>scripts/run_tests.py<span class="w"> </span>--seed-hive<span class="w"> </span>--skip-unit
+</code></pre></div>
+<h2 id="why-each-step-exists">Why each step exists<a class="headerlink" href="#why-each-step-exists" title="Permanent link">&para;</a></h2>
+<h3 id="the-agent-https-proxy-step-0">The agent HTTPS proxy (step 0)<a class="headerlink" href="#the-agent-https-proxy-step-0" title="Permanent link">&para;</a></h3>
+<p>Cloud sessions route outbound HTTPS through a proxy whose <code>NO_PROXY</code> covers
+<code>127.0.0.1</code> but <strong>not</strong> the <code>hive.org</code> / <code>bluz.dev</code> hostnames. Any client that
+resolves those names — <code>pyhive</code>, Playwright, the seeding scripts — gets a bare
+<code>403 Forbidden</code> from the proxy rather than a connection error, which reads like
+an auth failure and sends you hunting in the wrong place.</p>
+<p>Export <code>NO_PROXY</code>/<code>no_proxy</code> (both spellings; different libraries read
+different ones) before anything touches those hosts. Never disable TLS
+verification or unset <code>HTTPS_PROXY</code> to work around it.</p>
+<h3 id="docker-daemon-step-1">Docker daemon (step 1)<a class="headerlink" href="#docker-daemon-step-1" title="Permanent link">&para;</a></h3>
+<p><code>/var/run/docker.sock</code> exists and <code>docker</code> is installed, but no daemon is
+running — <code>docker info</code> reports "Cannot connect to the Docker daemon". Start
+<code>dockerd</code> yourself. The cgroup v1 deprecation warning it prints is harmless.</p>
+<h3 id="hostname-aliases-step-2">Hostname aliases (step 2)<a class="headerlink" href="#hostname-aliases-step-2" title="Permanent link">&para;</a></h3>
+<p>Two nginx instances share the box. Hive's publishes on <code>127.0.0.6</code>, Bluz's test
+proxy on <code>127.0.0.3</code>. Both need :80/:443, hence the separate loopback aliases.
+Bluz's <code>ui</code> container deliberately has <strong>no</strong> <code>extra_hosts</code> entry for <code>hive.org</code>
+— it joins Hive's Docker network and resolves the container alias over Docker
+DNS, because a <code>host-gateway</code> route cannot reach a loopback-bound port (#412).</p>
+<h3 id="hive-images-from-ghcr-not-source-steps-3-4">Hive images from GHCR, not source (steps 3-4)<a class="headerlink" href="#hive-images-from-ghcr-not-source-steps-3-4" title="Permanent link">&para;</a></h3>
+<p>Hive's source is <code>hivelms/Hive</code>, a different org that a Bluz session cannot
+clone. Use the <strong>registry</strong> path that
+<code>System-B90/.github/actions/setup-hive</code> implements:</p>
+<ul>
+<li>Compose file, <code>.env</code> and the pinned <code>HIVE_SHA</code> come from <code>System-B90/pyhive</code>
+  under <code>hive-stack/</code>.</li>
+<li>Runtime images are published to <code>ghcr.io/system-b90/hive/&lt;service&gt;:&lt;HIVE_SHA&gt;</code>
+  and retagged locally to the <code>hive/&lt;service&gt;</code> names the compose expects.</li>
+<li><code>docker login ghcr.io</code> accepts the session's <code>NPM_TOKEN</code> (the same PAT that
+  <code>.npmrc</code> uses for the private <code>@system-b90/*</code> packages — it carries
+  <code>read:packages</code>).</li>
+</ul>
+<p><strong>The stack directory must be named <code>hive</code>.</strong> Compose derives its project name
+from the directory, and the network name follows: <code>hive/</code> gives
+<code>hive_hive-net</code>, which is what Bluz's <code>.env</code> <code>HIVE_NETWORK_NAME</code> points at.
+Leaving it as <code>hive-stack/</code> yields <code>hive-stack_hive-net</code> and Bluz's <code>ui</code>
+container fails to attach.</p>
+<h3 id="hive-bring-up-order-step-5">Hive bring-up order (step 5)<a class="headerlink" href="#hive-bring-up-order-step-5" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>.env.override</code></strong> caps gunicorn at 2 workers × 2 threads. Hive's committed
+  <code>.env</code> asks for 10 × 8, which starves the Bluz build on a small container.</li>
+<li><strong><code>chown 999:999 ./db</code></strong> — Postgres 18 refuses a data directory it does not
+  own, and Docker creates a missing bind-mount source as root.</li>
+<li><strong>Datastores first, then the rest.</strong> Bring up <code>database</code> and <code>redis</code> alone and
+  wait for Postgres yourself. Compose's <code>depends_on</code> budget is fixed and expires
+  on a slow box, aborting the whole bring-up with "dependency failed to start …
+  is unhealthy" for a database that is merely slow.</li>
+</ul>
+<p>Wait for Postgres like this — the <code>-h 127.0.0.1</code> and the two-consecutive-passes
+rule both matter, because the entrypoint runs <code>initdb</code> against a temporary
+socket-only server that answers the bare healthcheck and then disappears:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">cid</span><span class="o">=</span><span class="k">$(</span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.yaml<span class="w"> </span>ps<span class="w"> </span>-q<span class="w"> </span>database<span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="nv">stable</span><span class="o">=</span><span class="m">0</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>seq<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">90</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nv">s</span><span class="o">=</span><span class="k">$(</span>docker<span class="w"> </span>inspect<span class="w"> </span>--format<span class="w"> </span><span class="s1">'{{.State.Health.Status}}'</span><span class="w"> </span><span class="s2">"</span><span class="nv">$cid</span><span class="s2">"</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>unknown<span class="k">)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$s</span><span class="s2">"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>healthy<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span><span class="s2">"</span><span class="nv">$cid</span><span class="s2">"</span><span class="w"> </span>pg_isready<span class="w"> </span>-h<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>-p<span class="w"> </span><span class="m">5432</span><span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="nv">stable</span><span class="o">=</span><span class="k">$((</span><span class="nv">stable</span><span class="o">+</span><span class="m">1</span><span class="k">))</span><span class="p">;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$stable</span><span class="w"> </span>-ge<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"postgres ready"</span><span class="p">;</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="nv">stable</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="k">fi</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span>sleep<span class="w"> </span><span class="m">5</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">done</span>
+</code></pre></div>
+<p>If <code>docker compose up -d</code> still fails on a dependency, just run it again — the
+containers it already created survive, and the retry usually succeeds.</p>
+<p>Verify before moving on; a broken Hive shows up much later as an opaque
+Playwright auth failure:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/tmp/venv/bin/python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="s2">from pyhive import HiveClient</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="s2">with HiveClient('admin','Password1','https://hive.org',verify=False,timeout=60) as c:</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="s2">    print('Hive OK', c.get_hive_version())"</span>
+</code></pre></div>
+<h3 id="the-test-run-steps-6-7">The test run (steps 6-7)<a class="headerlink" href="#the-test-run-steps-6-7" title="Permanent link">&para;</a></h3>
+<p><code>scripts/run_tests.py</code> is the only entry point worth using. It allocates free
+ports, generates every <code>TEST_*</code> variable the compose override needs, registers
+an OAuth client in Hive, builds and starts the Bluz test stack, seeds both
+databases, and then invokes Playwright. Calling <code>npm run test:e2e</code> directly
+skips all of that — and <code>npm run docker:test</code> is Windows-only (<code>set VAR=…&amp;&amp;</code>).</p>
+<p><strong>Chromium version skew — this will bite you.</strong> Chromium is preinstalled under
+<code>/opt/pw-browsers</code> and <code>playwright install</code> is blocked, but the browser build
+the image ships is pinned independently of the <code>@playwright/test</code> version in
+<code>package.json</code>. When they disagree, all 157 tests fail identically at launch:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Error: browserType.launch: Executable doesn't exist at
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>/opt/pw-browsers/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell
+</code></pre></div>
+<p>(Playwright 1.62 wanted build 1234; the image had 1194.) The playwright config
+honours <code>PLAYWRIGHT_CHROMIUM_EXECUTABLE</code> for exactly this — set it to the
+binary that is present and the run proceeds. Do <strong>not</strong> run
+<code>playwright install</code>, and do not pin the dependency down to match the image:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PLAYWRIGHT_CHROMIUM_EXECUTABLE</span><span class="o">=</span><span class="k">$(</span>ls<span class="w"> </span>-d<span class="w"> </span>/opt/pw-browsers/chromium-*/chrome-linux/chrome<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-1<span class="k">)</span>
+</code></pre></div>
+<p>Use the full <code>chromium-*/chrome-linux/chrome</code> binary rather than
+<code>chromium_headless_shell-*</code>; headless works fine through it.</p>
+<p>Useful flags: <code>--spec gantt</code> / <code>--grep &lt;pattern&gt;</code> to narrow the run,
+<code>--seed-only</code> to stop after the stack is up and seeded, <code>--rebuild</code> to force
+fresh images.</p>
+<h2 id="prerequisites-already-present-in-a-cloud-session">Prerequisites already present in a cloud session<a class="headerlink" href="#prerequisites-already-present-in-a-cloud-session" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Thing</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NPM_TOKEN</code></td>
+<td>Set — used for both <code>npm ci</code> and <code>docker login ghcr.io</code></td>
+</tr>
+<tr>
+<td><code>.env</code></td>
+<td>Present at the repo root, already CI-shaped</td>
+</tr>
+<tr>
+<td><code>nginx/ssl/{cert,key}.pem</code></td>
+<td>Present (self-signed)</td>
+</tr>
+<tr>
+<td>Chromium for Playwright</td>
+<td><code>/opt/pw-browsers</code>, with <code>PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1</code> — <strong>build may not match <code>@playwright/test</code>; see below</strong></td>
+</tr>
+<tr>
+<td>Docker + compose</td>
+<td>Installed; <strong>daemon is not running</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="resource-notes">Resource notes<a class="headerlink" href="#resource-notes" title="Permanent link">&para;</a></h2>
+<p>A full Hive stack plus the Bluz test images needs roughly <strong>20 GB of disk</strong> and
+comfortably more than 8 GB of RAM. Writable disk in a cloud session is a fixed
+allowance, so <code>df</code> "Avail" at 0 with low "Used" means the allowance is spent,
+not that the disk is full — delete build artifacts and stale images to recover.</p>
+<p>Expect the suite to run considerably slower than on CI's 8-vCPU box. Treat a
+first-run failure as suspect until you have matched it against the actual
+failure signature; do not assume the code is at fault before checking whether
+the stack came up cleanly.</p>
+<h2 id="do-not-commit-the-seed-snapshot">Do not commit the seed snapshot<a class="headerlink" href="#do-not-commit-the-seed-snapshot" title="Permanent link">&para;</a></h2>
+<p><code>--seed-hive</code> rewrites the tracked file <code>scripts/demo/hive_data.json</code>. It is a
+generated export of whatever Hive instance you just seeded, so it carries that
+instance's auto-increment IDs — a throwaway Hive in a fresh container produces
+different ids for the same users. It is tracked so a run <em>without</em>
+<code>--seed-hive</code> can reuse it, but your local churn is not a change anyone wants:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>--<span class="w"> </span>scripts/demo/hive_data.json
+</code></pre></div>
+<p>Revert it before committing anything else from an E2E session. A stop hook that
+nags about uncommitted changes will point at this file — it is the one thing
+here that should be discarded rather than committed.</p>
+<h2 id="teardown">Teardown<a class="headerlink" href="#teardown" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>--env-file<span class="w"> </span>.env<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span>-f<span class="w"> </span>deploy/docker-compose.yml<span class="w"> </span>-f<span class="w"> </span>deploy/docker-compose.test.yml<span class="w"> </span>down<span class="w"> </span>-v
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">cd</span><span class="w"> </span>/workspace/hive<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.yaml<span class="w"> </span>down<span class="w"> </span>-v<span class="w"> </span>--remove-orphans
+</code></pre></div>
+<p>Hive's services are <code>restart: always</code>, so they outlive the test run and keep
+holding ports and memory. Tear them down explicitly when finished.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 System B90
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

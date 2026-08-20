@@ -8,7 +8,7 @@
 
 > **CurriculumNameProps** = `object`
 
-Defined in: [ui/src/components/gantt/curriculum-view/components/curriculum-about-card/CurriculumName.tsx:8](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-view/components/curriculum-about-card/CurriculumName.tsx#L8)
+Defined in: [ui/src/components/gantt/curriculum-view/components/curriculum-about-card/CurriculumName.tsx:8](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-view/components/curriculum-about-card/CurriculumName.tsx#L8)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [ui/src/components/gantt/curriculum-view/components/curriculum-about
 
 > **curriculumId**: [`GanttCurriculumId`](../../../../../../../api-shared/types/gantt/models/curriculum/type-aliases/GanttCurriculumId.md) \| `null`
 
-Defined in: [ui/src/components/gantt/curriculum-view/components/curriculum-about-card/CurriculumName.tsx:9](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-view/components/curriculum-about-card/CurriculumName.tsx#L9)
+Defined in: [ui/src/components/gantt/curriculum-view/components/curriculum-about-card/CurriculumName.tsx:9](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-view/components/curriculum-about-card/CurriculumName.tsx#L9)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: [ui/src/components/gantt/curriculum-view/components/curriculum-about
 
 > `optional` **title?**: `string`
 
-Defined in: [ui/src/components/gantt/curriculum-view/components/curriculum-about-card/CurriculumName.tsx:10](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-view/components/curriculum-about-card/CurriculumName.tsx#L10)
+Defined in: [ui/src/components/gantt/curriculum-view/components/curriculum-about-card/CurriculumName.tsx:10](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-view/components/curriculum-about-card/CurriculumName.tsx#L10)

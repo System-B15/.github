@@ -8,4 +8,4 @@
 
 > `const` **POST**: `ServerApiRoomUpdate`
 
-Defined in: [ui/src/app/api/rooms/route.tsx:64](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/app/api/rooms/route.tsx#L64)
+Defined in: [ui/src/app/api/rooms/route.ts:64](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/app/api/rooms/route.ts#L64)

@@ -12,6 +12,7 @@
 - [GanttRecurrenceExceptionContextType](type-aliases/GanttRecurrenceExceptionContextType.md)
 - [MaterializeOccurrence](type-aliases/MaterializeOccurrence.md)
 - [RefreshRecurrenceExceptions](type-aliases/RefreshRecurrenceExceptions.md)
+- [RestoreOccurrence](type-aliases/RestoreOccurrence.md)
 
 ## Variables
 

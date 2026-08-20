@@ -8,7 +8,7 @@
 
 > **useCutPreview**(`curriculumId`): [`CutPreviewState`](../type-aliases/CutPreviewState.md)
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/cut-preview-tab/UseCutPreview.ts:17](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-view/tabs/cut-preview-tab/UseCutPreview.ts#L17)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/cut-preview-tab/UseCutPreview.ts:17](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-view/tabs/cut-preview-tab/UseCutPreview.ts#L17)
 
 Fetches the dry-run cut preview for a curriculum. Refetches whenever the
 curriculum id changes; both preview tabs share this hook so each mount gets

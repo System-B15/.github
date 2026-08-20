@@ -447,6 +447,60 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../gantt-cut-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../e2e-cloud-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../" class="md-nav__link">
         
   
@@ -995,7 +1049,7 @@
 <blockquote>
 <p><code>const</code> <strong>DbDay</strong>: <code>object</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/gantt/db-day.ts#L43">ui/src/api-server/gantt/db-day.ts:43</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/db-day.ts#L43">ui/src/api-server/gantt/db-day.ts:43</a></p>
 <h2 id="type-declaration">Type Declaration<a class="headerlink" href="#type-declaration" title="Permanent link">&para;</a></h2>
 <h3 id="attachparentids">attachParentIds<a class="headerlink" href="#attachparentids" title="Permanent link">&para;</a></h3>
 <blockquote>
@@ -1011,13 +1065,13 @@
 <p><code>Promise</code>\&lt;<code>TItem</code>[]&gt;</p>
 <h3 id="createnewitem">createNewItem<a class="headerlink" href="#createnewitem" title="Permanent link">&para;</a></h3>
 <blockquote>
-<p><code>readonly</code> <strong>createNewItem</strong>: (<code>payload</code>) =&gt; <code>Promise</code>\&lt;<a href="../../../../../api-shared/types/gantt/models/day/type-aliases/GanttDay/"><code>GanttDay</code></a> | <code>Omit</code>\&lt;<code>object</code> &amp; <a href="../../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem/"><code>BaseGantItem</code></a> &amp; <a href="../../../../../api-client/gantt/base/type-aliases/RawBaseDocument/"><code>RawBaseDocument</code></a>, <code>"title"</code>&gt;&gt;</p>
+<p><code>readonly</code> <strong>createNewItem</strong>: (<code>payload</code>) =&gt; <code>Promise</code>\&lt;<a href="../../../../../api-shared/types/gantt/models/day/type-aliases/GanttDay/"><code>GanttDay</code></a> | <code>Omit</code>\&lt;<code>object</code> &amp; <a href="../../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem/"><code>BaseGantItem</code></a> &amp; <a href="../../../../../api-shared/types/gantt/api-layer/type-aliases/RawBaseDocument/"><code>RawBaseDocument</code></a>, <code>"title"</code>&gt;&gt;</p>
 </blockquote>
 <h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <h5 id="payload">payload<a class="headerlink" href="#payload" title="Permanent link">&para;</a></h5>
 <p><a href="../../../../../api-shared/types/gantt/create-payloads/type-aliases/CreateGanttDayPayload/"><code>CreateGanttDayPayload</code></a></p>
 <h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
-<p><code>Promise</code>\&lt;<a href="../../../../../api-shared/types/gantt/models/day/type-aliases/GanttDay/"><code>GanttDay</code></a> | <code>Omit</code>\&lt;<code>object</code> &amp; <a href="../../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem/"><code>BaseGantItem</code></a> &amp; <a href="../../../../../api-client/gantt/base/type-aliases/RawBaseDocument/"><code>RawBaseDocument</code></a>, <code>"title"</code>&gt;&gt;</p>
+<p><code>Promise</code>\&lt;<a href="../../../../../api-shared/types/gantt/models/day/type-aliases/GanttDay/"><code>GanttDay</code></a> | <code>Omit</code>\&lt;<code>object</code> &amp; <a href="../../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem/"><code>BaseGantItem</code></a> &amp; <a href="../../../../../api-shared/types/gantt/api-layer/type-aliases/RawBaseDocument/"><code>RawBaseDocument</code></a>, <code>"title"</code>&gt;&gt;</p>
 <h3 id="deleteitem">deleteItem<a class="headerlink" href="#deleteitem" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><code>readonly</code> <strong>deleteItem</strong>: (<code>id</code>) =&gt; <code>Promise</code>\&lt;<code>void</code>&gt;</p>
@@ -1029,13 +1083,13 @@
 <p><code>Promise</code>\&lt;<code>void</code>&gt;</p>
 <h3 id="getitem">getItem<a class="headerlink" href="#getitem" title="Permanent link">&para;</a></h3>
 <blockquote>
-<p><code>readonly</code> <strong>getItem</strong>: (<code>id</code>) =&gt; <code>Promise</code>\&lt;<code>Omit</code>\&lt;<code>object</code> &amp; <a href="../../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem/"><code>BaseGantItem</code></a> &amp; <a href="../../../../../api-client/gantt/base/type-aliases/RawBaseDocument/"><code>RawBaseDocument</code></a>, <code>"title"</code>&gt;&gt; = <code>getFullDay</code></p>
+<p><code>readonly</code> <strong>getItem</strong>: (<code>id</code>) =&gt; <code>Promise</code>\&lt;<code>Omit</code>\&lt;<code>object</code> &amp; <a href="../../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem/"><code>BaseGantItem</code></a> &amp; <a href="../../../../../api-shared/types/gantt/api-layer/type-aliases/RawBaseDocument/"><code>RawBaseDocument</code></a>, <code>"title"</code>&gt;&gt; = <code>getFullDay</code></p>
 </blockquote>
 <h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
 <h5 id="id_1">id<a class="headerlink" href="#id_1" title="Permanent link">&para;</a></h5>
 <p><code>string</code></p>
 <h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
-<p><code>Promise</code>\&lt;<code>Omit</code>\&lt;<code>object</code> &amp; <a href="../../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem/"><code>BaseGantItem</code></a> &amp; <a href="../../../../../api-client/gantt/base/type-aliases/RawBaseDocument/"><code>RawBaseDocument</code></a>, <code>"title"</code>&gt;&gt;</p>
+<p><code>Promise</code>\&lt;<code>Omit</code>\&lt;<code>object</code> &amp; <a href="../../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem/"><code>BaseGantItem</code></a> &amp; <a href="../../../../../api-shared/types/gantt/api-layer/type-aliases/RawBaseDocument/"><code>RawBaseDocument</code></a>, <code>"title"</code>&gt;&gt;</p>
 <h3 id="getmultipleitems">getMultipleItems<a class="headerlink" href="#getmultipleitems" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><code>readonly</code> <strong>getMultipleItems</strong>: (<code>ids</code>) =&gt; <code>Promise</code>\&lt;<a href="../../../../../api-shared/types/gantt/models/day/type-aliases/GanttDay/"><code>GanttDay</code></a>[]&gt;</p>

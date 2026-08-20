@@ -8,7 +8,7 @@
 
 > **SplitCalendarContextValue** = `object`
 
-Defined in: [ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx:20](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx#L20)
+Defined in: [ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx:20](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx#L20)
 
 Shared state that makes the separate grid boxes of one split event behave as
 a single object: hovering, selecting or dragging any piece lights up all of
@@ -21,7 +21,7 @@ break windows travel with the context.
 
 > **activeDrag**: [`ActiveDrag`](ActiveDrag.md) \| `null`
 
-Defined in: [ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx:22](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx#L22)
+Defined in: [ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx:22](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx#L22)
 
 ***
 
@@ -29,7 +29,7 @@ Defined in: [ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx:
 
 > **breakWindows**: `ReadonlyArray`\<[`BreakWindow`](../../../../../../api-shared/break-windows/type-aliases/BreakWindow.md)\>
 
-Defined in: [ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx:21](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx#L21)
+Defined in: [ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx:21](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx#L21)
 
 ***
 
@@ -37,7 +37,7 @@ Defined in: [ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx:
 
 > **hoveredEventId**: [`EventId`](../../../../../../api-shared/types/event/type-aliases/EventId.md) \| `null`
 
-Defined in: [ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx:23](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx#L23)
+Defined in: [ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx:23](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx#L23)
 
 ***
 
@@ -45,7 +45,7 @@ Defined in: [ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx:
 
 > **selectedEventId**: [`EventId`](../../../../../../api-shared/types/event/type-aliases/EventId.md) \| `null`
 
-Defined in: [ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx:24](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx#L24)
+Defined in: [ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx:24](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx#L24)
 
 ***
 
@@ -53,7 +53,7 @@ Defined in: [ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx:
 
 > **setHoveredEventId**: (`eventId`) => `void`
 
-Defined in: [ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx:25](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx#L25)
+Defined in: [ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx:25](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/calendar/split/SplitCalendarContext.tsx#L25)
 
 #### Parameters
 

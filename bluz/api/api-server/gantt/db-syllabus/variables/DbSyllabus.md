@@ -8,9 +8,35 @@
 
 > `const` **DbSyllabus**: `object`
 
-Defined in: [ui/src/api-server/gantt/db-syllabus.ts:158](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/gantt/db-syllabus.ts#L158)
+Defined in: [ui/src/api-server/gantt/db-syllabus.ts:317](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/db-syllabus.ts#L317)
 
 ## Type Declaration
+
+### applyShuffles
+
+> **applyShuffles**: (`id`, `shuffles`) => `Promise`\<[`ShuffleUsages`](../../../../api-shared/types/gantt/shuffles/type-aliases/ShuffleUsages.md)\>
+
+Replaces the syllabus' shuffle list, cascading every removed name off the
+modules and events that carry it (#485).
+
+Without the cascade the child keeps a dangling name and the UI only offers
+to clear it once the user retypes the deleted shuffle on the syllabus — so
+the caller confirms first (see `SyllabusShuffles`) and this applies both
+sides in one transaction.
+
+#### Parameters
+
+##### id
+
+`string`
+
+##### shuffles
+
+`string`[]
+
+#### Returns
+
+`Promise`\<[`ShuffleUsages`](../../../../api-shared/types/gantt/shuffles/type-aliases/ShuffleUsages.md)\>
 
 ### attachParentIds
 
@@ -59,6 +85,29 @@ Defined in: [ui/src/api-server/gantt/db-syllabus.ts:158](https://github.com/Syst
 #### Returns
 
 `Promise`\<`void`\>
+
+### findShuffleUsages
+
+> **findShuffleUsages**: (`syllabusId`, `shuffleNames`) => `Promise`\<[`ShuffleUsages`](../../../../api-shared/types/gantt/shuffles/type-aliases/ShuffleUsages.md)\>
+
+Modules and events under `syllabusId` tagged with any of `shuffleNames`.
+
+Walks s2m → m2e so the scan stays scoped to the syllabus that owns the
+names; an event reached through another syllabus keeps its own tags.
+
+#### Parameters
+
+##### syllabusId
+
+`string`
+
+##### shuffleNames
+
+`string`[]
+
+#### Returns
+
+`Promise`\<[`ShuffleUsages`](../../../../api-shared/types/gantt/shuffles/type-aliases/ShuffleUsages.md)\>
 
 ### getItem
 
@@ -158,7 +207,10 @@ Defined in: [ui/src/api-server/gantt/db-syllabus.ts:158](https://github.com/Syst
 
 ### updateItem
 
-> `readonly` **updateItem**: (`id`, `updates`) => `Promise`\<[`GanttSyllabus`](../../../../api-shared/types/gantt/models/syllabus/type-aliases/GanttSyllabus.md)\>
+> `readonly` **updateItem**: (`id`, `updateData`) => `Promise`\<[`GanttSyllabus`](../../../../api-shared/types/gantt/models/syllabus/type-aliases/GanttSyllabus.md)\> = `updateSyllabus`
+
+Blocks a plain PATCH that drops a shuffle still in use (#485). Callers that
+mean to cascade go through `applyShuffles` after confirming with the user.
 
 #### Parameters
 
@@ -166,9 +218,9 @@ Defined in: [ui/src/api-server/gantt/db-syllabus.ts:158](https://github.com/Syst
 
 `string`
 
-##### updates
+##### updateData
 
-`Partial`\<`TEntity`\>
+`Partial`\<[`GanttSyllabus`](../../../../api-shared/types/gantt/models/syllabus/type-aliases/GanttSyllabus.md)\>
 
 #### Returns
 

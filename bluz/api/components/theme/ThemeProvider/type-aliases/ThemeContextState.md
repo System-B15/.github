@@ -8,7 +8,7 @@
 
 > **ThemeContextState** = `object`
 
-Defined in: [ui/src/components/theme/ThemeProvider.tsx:31](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/theme/ThemeProvider.tsx#L31)
+Defined in: [ui/src/components/theme/ThemeProvider.tsx:31](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/theme/ThemeProvider.tsx#L31)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [ui/src/components/theme/ThemeProvider.tsx:31](https://github.com/Sy
 
 > **resolvedTheme**: `"dark"` \| `"light"`
 
-Defined in: [ui/src/components/theme/ThemeProvider.tsx:32](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/theme/ThemeProvider.tsx#L32)
+Defined in: [ui/src/components/theme/ThemeProvider.tsx:32](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/theme/ThemeProvider.tsx#L32)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [ui/src/components/theme/ThemeProvider.tsx:32](https://github.com/Sy
 
 > **setTheme**: (`theme`) => `void`
 
-Defined in: [ui/src/components/theme/ThemeProvider.tsx:34](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/theme/ThemeProvider.tsx#L34)
+Defined in: [ui/src/components/theme/ThemeProvider.tsx:34](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/theme/ThemeProvider.tsx#L34)
 
 #### Parameters
 
@@ -42,4 +42,4 @@ Defined in: [ui/src/components/theme/ThemeProvider.tsx:34](https://github.com/Sy
 
 > **theme**: [`ThemeMode`](ThemeMode.md)
 
-Defined in: [ui/src/components/theme/ThemeProvider.tsx:33](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/theme/ThemeProvider.tsx#L33)
+Defined in: [ui/src/components/theme/ThemeProvider.tsx:33](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/theme/ThemeProvider.tsx#L33)

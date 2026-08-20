@@ -8,9 +8,14 @@
 
 ## Type Aliases
 
-- [BasicGantOperations](type-aliases/BasicGantOperations.md)
 - [BuildGantCollectionRoutesProps](type-aliases/BuildGantCollectionRoutesProps.md)
 
 ## Functions
 
 - [buildGantCollectionRoutes](functions/buildGantCollectionRoutes.md)
+
+## References
+
+### BasicGantOperations
+
+Re-exports [BasicGantOperations](../../../../api-shared/types/gantt/api-layer/type-aliases/BasicGantOperations.md)

@@ -8,6 +8,6 @@
 
 > **GanttCellPayloadData** = \{ `dayId`: `string`; `eventId`: `string`; `targetType`: `"event"`; \} \| \{ `dayId`: `string`; `moduleId`: `string`; `targetType`: `"module"`; \}
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/types.ts:104](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/types.ts#L104)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/types.ts:115](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/types.ts#L115)
 
 Drop-target payload identifying which module/event a cell resolves to.

@@ -8,4 +8,4 @@
 
 > `const` **RECURRENCE\_LABELS**: `Record`\<[`EventRecurrence`](../../../../../api-shared/types/gantt/models/event/enumerations/EventRecurrence.md), `string`\>
 
-Defined in: [ui/src/components/gantt/event-dialog/EventRecurrenceField.tsx:10](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/event-dialog/EventRecurrenceField.tsx#L10)
+Defined in: [ui/src/components/gantt/event-dialog/EventRecurrenceField.tsx:11](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/event-dialog/EventRecurrenceField.tsx#L11)

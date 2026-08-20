@@ -8,7 +8,7 @@
 
 > **ApiResponseMaker**\<`T`\>(`data`, `cacheControl?`, `init?`): `NextResponse`\<\{ `data`: `T`; `status`: `number`; \}\>
 
-Defined in: [ui/src/api-server/common.tsx:42](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/common.tsx#L42)
+Defined in: [ui/src/api-server/common.ts:42](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/common.ts#L42)
 
 ## Type Parameters
 

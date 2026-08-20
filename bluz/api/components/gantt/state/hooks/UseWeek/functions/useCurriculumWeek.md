@@ -10,7 +10,7 @@
 
 > **useCurriculumWeek**(`weekId`): `undefined`
 
-Defined in: [ui/src/components/gantt/state/hooks/UseWeek.ts:8](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/state/hooks/UseWeek.ts#L8)
+Defined in: [ui/src/components/gantt/state/hooks/UseWeek.ts:8](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/state/hooks/UseWeek.ts#L8)
 
 ### Parameters
 
@@ -26,7 +26,7 @@ Defined in: [ui/src/components/gantt/state/hooks/UseWeek.ts:8](https://github.co
 
 > **useCurriculumWeek**(`weekId`): `object` & [`BaseGantItem`](../../../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem.md) & `object` \| `undefined`
 
-Defined in: [ui/src/components/gantt/state/hooks/UseWeek.ts:9](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/state/hooks/UseWeek.ts#L9)
+Defined in: [ui/src/components/gantt/state/hooks/UseWeek.ts:9](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/state/hooks/UseWeek.ts#L9)
 
 ### Parameters
 

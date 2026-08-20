@@ -8,7 +8,7 @@
 
 > **CreateCurriculumHoverMenu**(`__namedParameters`): `Element`
 
-Defined in: [ui/src/components/gantt/curriculum-fab/action-items/CreateCurriculumHoverMenu.tsx:27](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-fab/action-items/CreateCurriculumHoverMenu.tsx#L27)
+Defined in: [ui/src/components/gantt/curriculum-fab/action-items/CreateCurriculumHoverMenu.tsx:27](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-fab/action-items/CreateCurriculumHoverMenu.tsx#L27)
 
 Creating a curriculum is a rare action, so the concrete options (blank /
 duplicate / template) stay hidden behind a single trigger and only reveal

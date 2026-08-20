@@ -447,6 +447,60 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../gantt-cut-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../e2e-cloud-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../" class="md-nav__link">
         
   
@@ -554,6 +608,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#firstrequiredweekidx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        firstRequiredWeekIdx?
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -595,12 +660,14 @@
 <p><a href="../../../../../">TypeDoc API</a> / <a href="../../">api-shared/gantt/recurrence</a> / isRecurrenceSatisfied</p>
 <h1 id="function-isrecurrencesatisfied">Function: isRecurrenceSatisfied()<a class="headerlink" href="#function-isrecurrencesatisfied" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><strong>isRecurrenceSatisfied</strong>(<code>recurrence</code>, <code>startWeekIdx</code>): <code>boolean</code></p>
+<p><strong>isRecurrenceSatisfied</strong>(<code>recurrence</code>, <code>startWeekIdx</code>, <code>firstRequiredWeekIdx?</code>): <code>boolean</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/recurrence.ts#L83">ui/src/api-shared/gantt/recurrence.ts:83</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/recurrence.ts#L128">ui/src/api-shared/gantt/recurrence.ts:128</a></p>
 <p>Whether a recurring event's obligation is met: an occurrence exists in every
-week of the timeline. Since occurrences echo forward from the start week, this
-holds exactly when the event starts in the first week (<code>startWeekIdx === 0</code>).
+week the recurrence is supposed to cover. Since occurrences echo forward from
+the start week, this holds exactly when the event starts on or before the
+first required week — week 0 by default, or the week holding the configured
+recurrence start date when one is set (#468).
 Unmapped events (<code>startWeekIdx &lt; 0</code>) are never satisfied. Non-recurring events
 carry no obligation and are always considered satisfied.</p>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
@@ -608,6 +675,8 @@ carry no obligation and are always considered satisfied.</p>
 <p><a href="../../../../types/gantt/models/event/enumerations/EventRecurrence/"><code>EventRecurrence</code></a></p>
 <h3 id="startweekidx">startWeekIdx<a class="headerlink" href="#startweekidx" title="Permanent link">&para;</a></h3>
 <p><code>number</code></p>
+<h3 id="firstrequiredweekidx">firstRequiredWeekIdx?<a class="headerlink" href="#firstrequiredweekidx" title="Permanent link">&para;</a></h3>
+<p><code>number</code> = <code>0</code></p>
 <h2 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h2>
 <p><code>boolean</code></p>
 

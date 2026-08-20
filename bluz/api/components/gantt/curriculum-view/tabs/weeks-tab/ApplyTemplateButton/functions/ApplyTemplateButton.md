@@ -8,7 +8,7 @@
 
 > **ApplyTemplateButton**(`__namedParameters`): `Element`
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/ApplyTemplateButton.tsx:37](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/ApplyTemplateButton.tsx#L37)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/ApplyTemplateButton.tsx:37](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/ApplyTemplateButton.tsx#L37)
 
 ## Parameters
 

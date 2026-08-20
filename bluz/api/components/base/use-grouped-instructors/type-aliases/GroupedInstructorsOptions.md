@@ -8,7 +8,7 @@
 
 > **GroupedInstructorsOptions** = `object`
 
-Defined in: [ui/src/components/base/use-grouped-instructors.ts:23](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/base/use-grouped-instructors.ts#L23)
+Defined in: [ui/src/components/base/use-grouped-instructors.ts:23](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/base/use-grouped-instructors.ts#L23)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [ui/src/components/base/use-grouped-instructors.ts:23](https://githu
 
 > `optional` **excludeTeachers?**: `boolean`
 
-Defined in: [ui/src/components/base/use-grouped-instructors.ts:25](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/base/use-grouped-instructors.ts#L25)
+Defined in: [ui/src/components/base/use-grouped-instructors.ts:25](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/base/use-grouped-instructors.ts#L25)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: [ui/src/components/base/use-grouped-instructors.ts:25](https://githu
 
 > `optional` **searchQuery?**: `string`
 
-Defined in: [ui/src/components/base/use-grouped-instructors.ts:24](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/base/use-grouped-instructors.ts#L24)
+Defined in: [ui/src/components/base/use-grouped-instructors.ts:24](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/base/use-grouped-instructors.ts#L24)

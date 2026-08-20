@@ -6,9 +6,9 @@
 
 # Function: drizzleOperationsBuilder()
 
-> **drizzleOperationsBuilder**\<`T`, `TTable`, `TCreatePayload`\>(`__namedParameters`): `Omit`\<[`BasicGantOperations`](../../../../app/api/gantt/base-collection/type-aliases/BasicGantOperations.md)\<`T`, `TCreatePayload`\>, `"getItem"`\> & `object`
+> **drizzleOperationsBuilder**\<`T`, `TTable`, `TCreatePayload`\>(`__namedParameters`): `Omit`\<[`BasicGantOperations`](../../../../api-shared/types/gantt/api-layer/type-aliases/BasicGantOperations.md)\<`T`, `TCreatePayload`\>, `"getItem"`\> & `object`
 
-Defined in: [ui/src/api-server/gantt/db-base.ts:171](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/gantt/db-base.ts#L171)
+Defined in: [ui/src/api-server/gantt/db-base.ts:171](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/db-base.ts#L171)
 
 ## Type Parameters
 
@@ -32,4 +32,4 @@ Defined in: [ui/src/api-server/gantt/db-base.ts:171](https://github.com/System-B
 
 ## Returns
 
-`Omit`\<[`BasicGantOperations`](../../../../app/api/gantt/base-collection/type-aliases/BasicGantOperations.md)\<`T`, `TCreatePayload`\>, `"getItem"`\> & `object`
+`Omit`\<[`BasicGantOperations`](../../../../api-shared/types/gantt/api-layer/type-aliases/BasicGantOperations.md)\<`T`, `TCreatePayload`\>, `"getItem"`\> & `object`

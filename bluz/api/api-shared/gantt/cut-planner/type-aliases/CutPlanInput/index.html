@@ -447,6 +447,60 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../gantt-cut-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../e2e-cloud-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../" class="md-nav__link">
         
   
@@ -577,6 +631,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#eventidsbymodule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eventIdsByModule?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#events" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -606,6 +671,106 @@
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moduleconstraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        moduleConstraints?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="moduleConstraints?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moduleid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        moduleId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#title" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        title
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prayertimes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prayerTimes?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="prayerTimes?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#durationminutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        durationMinutes?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        name
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        time
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -685,71 +850,119 @@
 <blockquote>
 <p><strong>CutPlanInput</strong> = <code>object</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L55">ui/src/api-shared/gantt/cut-planner.ts:55</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L106">ui/src/api-shared/gantt/cut-planner.ts:106</a></p>
 <h2 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h2>
 <h3 id="breakfasttime">breakfastTime?<a class="headerlink" href="#breakfasttime" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><code>optional</code> <strong>breakfastTime?</strong>: <code>string</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L73">ui/src/api-shared/gantt/cut-planner.ts:73</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L124">ui/src/api-shared/gantt/cut-planner.ts:124</a></p>
 <p>Preferred meal times (<code>"HH:mm"</code>), blocked out as breaks during stacking. Any subset may be omitted.</p>
 <hr />
 <h3 id="days">days<a class="headerlink" href="#days" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>days</strong>: <code>Record</code>\&lt;<code>string</code>, <a href="../CutPlanDayInput/"><code>CutPlanDayInput</code></a>&gt;</p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L60">ui/src/api-shared/gantt/cut-planner.ts:60</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L111">ui/src/api-shared/gantt/cut-planner.ts:111</a></p>
 <p>All days referenced by <code>weeks</code>, keyed by id.</p>
 <hr />
 <h3 id="daystarttime">dayStartTime<a class="headerlink" href="#daystarttime" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>dayStartTime</strong>: <code>string</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L66">ui/src/api-shared/gantt/cut-planner.ts:66</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L117">ui/src/api-shared/gantt/cut-planner.ts:117</a></p>
 <p>Day-start time for stacking, <code>"HH:mm"</code>.</p>
 <hr />
 <h3 id="dinnertime">dinnerTime?<a class="headerlink" href="#dinnertime" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><code>optional</code> <strong>dinnerTime?</strong>: <code>string</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L75">ui/src/api-shared/gantt/cut-planner.ts:75</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L126">ui/src/api-shared/gantt/cut-planner.ts:126</a></p>
+<hr />
+<h3 id="eventidsbymodule">eventIdsByModule?<a class="headerlink" href="#eventidsbymodule" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><code>optional</code> <strong>eventIdsByModule?</strong>: <code>Record</code>\&lt;<code>string</code>, <code>string</code>[]&gt;</p>
+</blockquote>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L141">ui/src/api-shared/gantt/cut-planner.ts:141</a></p>
+<p>Module id → the event ids it contains, for module-level constraints.</p>
 <hr />
 <h3 id="events">events<a class="headerlink" href="#events" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>events</strong>: <a href="../CutPlanEventInput/"><code>CutPlanEventInput</code></a>[]</p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L61">ui/src/api-shared/gantt/cut-planner.ts:61</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L112">ui/src/api-shared/gantt/cut-planner.ts:112</a></p>
 <hr />
 <h3 id="lunchtime">lunchTime?<a class="headerlink" href="#lunchtime" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><code>optional</code> <strong>lunchTime?</strong>: <code>string</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L74">ui/src/api-shared/gantt/cut-planner.ts:74</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L125">ui/src/api-shared/gantt/cut-planner.ts:125</a></p>
 <hr />
 <h3 id="mappings">mappings<a class="headerlink" href="#mappings" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>mappings</strong>: <a href="../CutPlanMappingInput/"><code>CutPlanMappingInput</code></a>[]</p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L63">ui/src/api-shared/gantt/cut-planner.ts:63</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L114">ui/src/api-shared/gantt/cut-planner.ts:114</a></p>
 <p>Event-to-day mappings (<code>cMDA</code> rows with an <code>eventId</code>).</p>
+<hr />
+<h3 id="moduleconstraints">moduleConstraints?<a class="headerlink" href="#moduleconstraints" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><code>optional</code> <strong>moduleConstraints?</strong>: <code>object</code>[]</p>
+</blockquote>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L135">ui/src/api-shared/gantt/cut-planner.ts:135</a></p>
+<p>Constraints owned by gantt modules, fanned out to their events.</p>
+<h4 id="constraints">constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>constraints</strong>: <a href="../../../../types/gantt/models/constraint/type-aliases/GanttConstraint/"><code>GanttConstraint</code></a>[]</p>
+</blockquote>
+<h4 id="moduleid">moduleId<a class="headerlink" href="#moduleid" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>moduleId</strong>: <code>string</code></p>
+</blockquote>
+<h4 id="title">title<a class="headerlink" href="#title" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>title</strong>: <code>string</code></p>
+</blockquote>
+<hr />
+<h3 id="prayertimes">prayerTimes?<a class="headerlink" href="#prayertimes" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><code>optional</code> <strong>prayerTimes?</strong>: <code>object</code>[]</p>
+</blockquote>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L133">ui/src/api-shared/gantt/cut-planner.ts:133</a></p>
+<p>Prayer windows (<code>"HH:mm"</code> starts) read from the schedule settings by the
+server and handed in here — the pure planner has no way to reach Mongo.
+Soft windows: breaks prefer to cover them, lectures prefer to avoid them,
+and neither ever extends a day. See <code>PRAYER_RULES</code>.</p>
+<h4 id="durationminutes">durationMinutes?<a class="headerlink" href="#durationminutes" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><code>optional</code> <strong>durationMinutes?</strong>: <code>number</code></p>
+</blockquote>
+<h4 id="name">name<a class="headerlink" href="#name" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>name</strong>: <code>string</code></p>
+</blockquote>
+<h4 id="time">time<a class="headerlink" href="#time" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>time</strong>: <code>string</code></p>
+</blockquote>
 <hr />
 <h3 id="recurrenceexceptions">recurrenceExceptions<a class="headerlink" href="#recurrenceexceptions" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>recurrenceExceptions</strong>: <a href="../CutPlanRecurrenceExceptionInput/"><code>CutPlanRecurrenceExceptionInput</code></a>[]</p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L64">ui/src/api-shared/gantt/cut-planner.ts:64</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L115">ui/src/api-shared/gantt/cut-planner.ts:115</a></p>
 <hr />
 <h3 id="startdate">startDate<a class="headerlink" href="#startdate" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>startDate</strong>: <code>null</code> | <code>string</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L56">ui/src/api-shared/gantt/cut-planner.ts:56</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L107">ui/src/api-shared/gantt/cut-planner.ts:107</a></p>
 <hr />
 <h3 id="weekendhomestarttime">weekendHomeStartTime?<a class="headerlink" href="#weekendhomestarttime" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><code>optional</code> <strong>weekendHomeStartTime?</strong>: <code>string</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L71">ui/src/api-shared/gantt/cut-planner.ts:71</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L122">ui/src/api-shared/gantt/cut-planner.ts:122</a></p>
 <p>Sunday start time (<code>"HH:mm"</code>) when the trainee was home (not on
 weekend duty). Falls back to <code>dayStartTime</code> when omitted.</p>
 <hr />
@@ -757,7 +970,7 @@ weekend duty). Falls back to <code>dayStartTime</code> when omitted.</p>
 <blockquote>
 <p><strong>weeks</strong>: <a href="../CutPlanWeekInput/"><code>CutPlanWeekInput</code></a>[]</p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L58">ui/src/api-shared/gantt/cut-planner.ts:58</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L109">ui/src/api-shared/gantt/cut-planner.ts:109</a></p>
 <p>Weeks in timeline (junction) order.</p>
 
 

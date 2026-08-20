@@ -8,10 +8,14 @@
 
 > **SyllabusShuffles**(`__namedParameters`): `Element` \| `null`
 
-Defined in: [ui/src/components/gantt/syllabus-card/SyllabusShuffles.tsx:18](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/syllabus-card/SyllabusShuffles.tsx#L18)
+Defined in: [ui/src/components/gantt/syllabus-card/SyllabusShuffles.tsx:34](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/syllabus-card/SyllabusShuffles.tsx#L34)
 
 Free-text chips editor for the syllabus' shuffle (student group) names.
 Modules and events can then be tagged with a subset of these names.
+
+Deleting a name that modules or events still use goes through a confirmation
+dialog that lists them and cascades the removal (#485) — otherwise those
+items keep a dangling name the UI cannot clear.
 
 ## Parameters
 

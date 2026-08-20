@@ -447,6 +447,60 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../../gantt-cut-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../../e2e-cloud-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../../" class="md-nav__link">
         
   
@@ -589,6 +643,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#skipped" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -634,9 +699,9 @@
 <p><a href="../../../../../../">TypeDoc API</a> / <a href="../../">api-shared/types/gantt/cut</a> / ApiCurriculumCutPreviewResponse</p>
 <h1 id="type-alias-apicurriculumcutpreviewresponse">Type Alias: ApiCurriculumCutPreviewResponse<a class="headerlink" href="#type-alias-apicurriculumcutpreviewresponse" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><strong>ApiCurriculumCutPreviewResponse</strong> = { <code>errors</code>: <a href="../../../../../gantt/cut-planner/type-aliases/CutValidationError/"><code>CutValidationError</code></a>[]; <code>ok</code>: <code>false</code>; } | { <code>occurrences</code>: <a href="../ApiCutPreviewOccurrence/"><code>ApiCutPreviewOccurrence</code></a>[]; <code>ok</code>: <code>true</code>; <code>overlaps</code>: <code>number</code>; <code>skipped</code>: <a href="../../../../../gantt/cut-planner/type-aliases/CutValidationError/"><code>CutValidationError</code></a>[]; }</p>
+<p><strong>ApiCurriculumCutPreviewResponse</strong> = { <code>errors</code>: <a href="../../../../../gantt/cut-planner/type-aliases/CutValidationError/"><code>CutValidationError</code></a>[]; <code>ok</code>: <code>false</code>; } | { <code>occurrences</code>: <a href="../ApiCutPreviewOccurrence/"><code>ApiCutPreviewOccurrence</code></a>[]; <code>ok</code>: <code>true</code>; <code>overlaps</code>: <code>number</code>; <code>report</code>: <a href="../../../../../gantt/cut-planner/type-aliases/CutPlanReport/"><code>CutPlanReport</code></a>; <code>skipped</code>: <a href="../../../../../gantt/cut-planner/type-aliases/CutValidationError/"><code>CutValidationError</code></a>[]; }</p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/gantt/cut.ts#L63">ui/src/api-shared/types/gantt/cut.ts:63</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/gantt/cut.ts#L123">ui/src/api-shared/types/gantt/cut.ts:123</a></p>
 <p>Response of GET .../cut/preview — a dry-run of the cut planner. Never
 writes. <code>ok: false</code> carries the planner's validation errors (e.g. missing
 start date) so the preview UI can explain why nothing renders.</p>
@@ -645,7 +710,7 @@ start date) so the preview UI can explain why nothing renders.</p>
 <p>{ <code>errors</code>: <a href="../../../../../gantt/cut-planner/type-aliases/CutValidationError/"><code>CutValidationError</code></a>[]; <code>ok</code>: <code>false</code>; }</p>
 <hr />
 <h3 id="type-literal_1">Type Literal<a class="headerlink" href="#type-literal_1" title="Permanent link">&para;</a></h3>
-<p>{ <code>occurrences</code>: <a href="../ApiCutPreviewOccurrence/"><code>ApiCutPreviewOccurrence</code></a>[]; <code>ok</code>: <code>true</code>; <code>overlaps</code>: <code>number</code>; <code>skipped</code>: <a href="../../../../../gantt/cut-planner/type-aliases/CutValidationError/"><code>CutValidationError</code></a>[]; }</p>
+<p>{ <code>occurrences</code>: <a href="../ApiCutPreviewOccurrence/"><code>ApiCutPreviewOccurrence</code></a>[]; <code>ok</code>: <code>true</code>; <code>overlaps</code>: <code>number</code>; <code>report</code>: <a href="../../../../../gantt/cut-planner/type-aliases/CutPlanReport/"><code>CutPlanReport</code></a>; <code>skipped</code>: <a href="../../../../../gantt/cut-planner/type-aliases/CutValidationError/"><code>CutValidationError</code></a>[]; }</p>
 <h4 id="occurrences">occurrences<a class="headerlink" href="#occurrences" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p><strong>occurrences</strong>: <a href="../ApiCutPreviewOccurrence/"><code>ApiCutPreviewOccurrence</code></a>[]</p>
@@ -658,6 +723,11 @@ start date) so the preview UI can explain why nothing renders.</p>
 <blockquote>
 <p><strong>overlaps</strong>: <code>number</code></p>
 </blockquote>
+<h4 id="report">report<a class="headerlink" href="#report" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>report</strong>: <a href="../../../../../gantt/cut-planner/type-aliases/CutPlanReport/"><code>CutPlanReport</code></a></p>
+</blockquote>
+<p>What the balancer, break pass and constraint solver did.</p>
 <h4 id="skipped">skipped<a class="headerlink" href="#skipped" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p><strong>skipped</strong>: <a href="../../../../../gantt/cut-planner/type-aliases/CutValidationError/"><code>CutValidationError</code></a>[]</p>

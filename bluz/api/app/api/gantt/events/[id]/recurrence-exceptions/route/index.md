@@ -8,5 +8,6 @@
 
 ## Variables
 
+- [DELETE](variables/DELETE.md)
 - [dynamic](variables/dynamic.md)
 - [POST](variables/POST.md)

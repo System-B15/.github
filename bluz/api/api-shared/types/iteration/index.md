@@ -12,6 +12,7 @@
 - [HiveIterationCache](type-aliases/HiveIterationCache.md)
 - [Iteration](type-aliases/Iteration.md)
 - [IterationId](type-aliases/IterationId.md)
+- [IterationUsage](type-aliases/IterationUsage.md)
 - [PatchIterationPayload](type-aliases/PatchIterationPayload.md)
 - [RegisterIterationPayload](type-aliases/RegisterIterationPayload.md)
 - [SyncHiveResult](type-aliases/SyncHiveResult.md)

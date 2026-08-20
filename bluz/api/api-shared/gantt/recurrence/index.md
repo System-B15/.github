@@ -9,9 +9,12 @@
 ## Type Aliases
 
 - [GetRecurrenceOccurrenceDayIdsParams](type-aliases/GetRecurrenceOccurrenceDayIdsParams.md)
+- [RecurrenceWindow](type-aliases/RecurrenceWindow.md)
 
 ## Functions
 
+- [getFirstRequiredRecurrenceWeekIdx](functions/getFirstRequiredRecurrenceWeekIdx.md)
 - [getOccurrenceDayIdForWeek](functions/getOccurrenceDayIdForWeek.md)
 - [getRecurrenceOccurrenceDayIds](functions/getRecurrenceOccurrenceDayIds.md)
+- [isDayInRecurrenceWindow](functions/isDayInRecurrenceWindow.md)
 - [isRecurrenceSatisfied](functions/isRecurrenceSatisfied.md)

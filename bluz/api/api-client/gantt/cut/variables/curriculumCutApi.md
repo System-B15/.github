@@ -8,13 +8,13 @@
 
 > `const` **curriculumCutApi**: `object`
 
-Defined in: [ui/src/api-client/gantt/cut.ts:119](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-client/gantt/cut.ts#L119)
+Defined in: [ui/src/api-client/gantt/cut.ts:143](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-client/gantt/cut.ts#L143)
 
 ## Type Declaration
 
 ### cut
 
-> `readonly` **cut**: (`curriculumId`, `force`) => `Promise`\<[`ApiCurriculumCutResponse`](../../../../api-shared/types/gantt/cut/type-aliases/ApiCurriculumCutResponse.md)\> = `cutCurriculumToSchedule`
+> `readonly` **cut**: (`curriculumId`, `options`) => `Promise`\<[`ApiCurriculumCutResponse`](../../../../api-shared/types/gantt/cut/type-aliases/ApiCurriculumCutResponse.md)\> = `cutCurriculumToSchedule`
 
 POST /api/gantt/curriculums/[id]/cut — materialize a published, linked
 curriculum into schedule events. Resolves to the cut summary, or throws a
@@ -26,13 +26,35 @@ curriculum into schedule events. Resolves to the cut summary, or throws a
 
 `string`
 
-##### force?
+##### options?
 
-`boolean` = `false`
+[`ApiCurriculumCutPayload`](../../../../api-shared/types/gantt/cut/type-aliases/ApiCurriculumCutPayload.md) = `{}`
 
 #### Returns
 
 `Promise`\<[`ApiCurriculumCutResponse`](../../../../api-shared/types/gantt/cut/type-aliases/ApiCurriculumCutResponse.md)\>
+
+### plan
+
+> `readonly` **plan**: (`curriculumId`, `options`) => `Promise`\<[`ApiCurriculumCutPlanResponse`](../../../../api-shared/types/gantt/cut/type-aliases/ApiCurriculumCutPlanResponse.md)\> = `planCurriculumCut`
+
+POST /api/gantt/curriculums/[id]/cut/plan — the "plan" half of the
+plan-then-confirm flow. Runs the full cut pipeline without writing and
+returns what it would do plus the open decisions the dialog must ask about.
+
+#### Parameters
+
+##### curriculumId
+
+`string`
+
+##### options?
+
+[`ApiCurriculumCutPayload`](../../../../api-shared/types/gantt/cut/type-aliases/ApiCurriculumCutPayload.md) = `{}`
+
+#### Returns
+
+`Promise`\<[`ApiCurriculumCutPlanResponse`](../../../../api-shared/types/gantt/cut/type-aliases/ApiCurriculumCutPlanResponse.md)\>
 
 ### preview
 

@@ -33,6 +33,7 @@
 - [getSpilloverMinutesByDay](functions/getSpilloverMinutesByDay.md)
 - [getTentativeMinutesForModuleIds](functions/getTentativeMinutesForModuleIds.md)
 - [getWeekDateRange](functions/getWeekDateRange.md)
+- [getWeekOverAllocationSeverity](functions/getWeekOverAllocationSeverity.md)
 - [getWeekScheduledMinutes](functions/getWeekScheduledMinutes.md)
 - [getWeekTotalMinutes](functions/getWeekTotalMinutes.md)
 - [parseTimeInputToMinutes](functions/parseTimeInputToMinutes.md)

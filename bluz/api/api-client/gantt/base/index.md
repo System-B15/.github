@@ -13,9 +13,14 @@
 - [ClientGantApiBuilderProps](type-aliases/ClientGantApiBuilderProps.md)
 - [DateFixup](type-aliases/DateFixup.md)
 - [ListEntryWithParent](type-aliases/ListEntryWithParent.md)
-- [RawBaseDocument](type-aliases/RawBaseDocument.md)
 
 ## Functions
 
 - [baseDocumentFixup](functions/baseDocumentFixup.md)
 - [clientGantApiBuilder](functions/clientGantApiBuilder.md)
+
+## References
+
+### RawBaseDocument
+
+Re-exports [RawBaseDocument](../../../api-shared/types/gantt/api-layer/type-aliases/RawBaseDocument.md)

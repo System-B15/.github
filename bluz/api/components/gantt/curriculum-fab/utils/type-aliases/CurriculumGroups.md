@@ -8,7 +8,7 @@
 
 > **CurriculumGroups** = `object`
 
-Defined in: [ui/src/components/gantt/curriculum-fab/utils.ts:8](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-fab/utils.ts#L8)
+Defined in: [ui/src/components/gantt/curriculum-fab/utils.ts:8](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-fab/utils.ts#L8)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [ui/src/components/gantt/curriculum-fab/utils.ts:8](https://github.c
 
 > **active**: [`GanttCurriculumId`](../../../../../api-shared/types/gantt/models/curriculum/type-aliases/GanttCurriculumId.md)[]
 
-Defined in: [ui/src/components/gantt/curriculum-fab/utils.ts:9](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-fab/utils.ts#L9)
+Defined in: [ui/src/components/gantt/curriculum-fab/utils.ts:9](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-fab/utils.ts#L9)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [ui/src/components/gantt/curriculum-fab/utils.ts:9](https://github.c
 
 > **archived**: [`GanttCurriculumId`](../../../../../api-shared/types/gantt/models/curriculum/type-aliases/GanttCurriculumId.md)[]
 
-Defined in: [ui/src/components/gantt/curriculum-fab/utils.ts:11](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-fab/utils.ts#L11)
+Defined in: [ui/src/components/gantt/curriculum-fab/utils.ts:11](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-fab/utils.ts#L11)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [ui/src/components/gantt/curriculum-fab/utils.ts:11](https://github.
 
 > **drafts**: [`GanttCurriculumId`](../../../../../api-shared/types/gantt/models/curriculum/type-aliases/GanttCurriculumId.md)[]
 
-Defined in: [ui/src/components/gantt/curriculum-fab/utils.ts:10](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-fab/utils.ts#L10)
+Defined in: [ui/src/components/gantt/curriculum-fab/utils.ts:10](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-fab/utils.ts#L10)

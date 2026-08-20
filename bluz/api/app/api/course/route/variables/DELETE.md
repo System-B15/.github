@@ -8,4 +8,4 @@
 
 > `const` **DELETE**: `ServerApiCourseDelete`
 
-Defined in: [ui/src/app/api/course/route.tsx:52](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/app/api/course/route.tsx#L52)
+Defined in: [ui/src/app/api/course/route.ts:52](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/app/api/course/route.ts#L52)

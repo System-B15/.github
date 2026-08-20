@@ -8,13 +8,22 @@
 
 > **GanttDay** = `object` & [`BaseGantItem`](../../shared/type-aliases/BaseGantItem.md)
 
-Defined in: [ui/src/api-shared/types/gantt/models/day.ts:74](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/gantt/models/day.ts#L74)
+Defined in: [ui/src/api-shared/types/gantt/models/day.ts:74](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/gantt/models/day.ts#L74)
 
 ## Type Declaration
 
 ### comment?
 
 > `optional` **comment?**: `string`
+
+### dayEndTime?
+
+> `optional` **dayEndTime?**: `null` \| `string`
+
+End of this day's working window ("HH:mm"). The cut treats the span from
+the day's start time to this as the day's capacity, and never places an
+event past it. `null` ⇒ derive as start + GanttDay.totalWorkingMinutes,
+which is how days behaved before the field existed.
 
 ### dayIndex
 

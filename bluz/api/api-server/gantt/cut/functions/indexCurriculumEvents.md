@@ -8,7 +8,7 @@
 
 > **indexCurriculumEvents**(`curriculum`): `object`
 
-Defined in: [ui/src/api-server/gantt/cut.ts:118](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/gantt/cut.ts#L118)
+Defined in: [ui/src/api-server/gantt/cut.ts:196](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/cut.ts#L196)
 
 Walk the full curriculum tree once, indexing every event by id and recording
 the title of the syllabus each event lives under (used as course provenance).
@@ -21,7 +21,11 @@ the title of the syllabus each event lives under (used as course provenance).
 
 ## Returns
 
-`object`
+### eventIdsByModule
+
+> **eventIdsByModule**: `Map`\<`string`, `string`[]\>
+
+Module id → its event ids, for fanning out module-level constraints.
 
 ### eventsById
 
@@ -30,6 +34,24 @@ the title of the syllabus each event lives under (used as course provenance).
 ### moduleHiveIdsByEvent
 
 > **moduleHiveIdsByEvent**: `Map`\<`string`, `number`[]\>
+
+### moduleIdByEvent
+
+> **moduleIdByEvent**: `Map`\<`string`, `string`\>
+
+Owning gantt module id per event — spillover keeps a module together.
+
+### moduleTitleById
+
+> **moduleTitleById**: `Map`\<`string`, `string`\>
+
+Module titles, used in constraint-violation messages.
+
+### syllabusIdByEvent
+
+> **syllabusIdByEvent**: `Map`\<`string`, `string`\>
+
+Owning syllabus id per event — drives the between-syllabuses break rule.
 
 ### syllabusTitleByEvent
 

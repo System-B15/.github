@@ -8,7 +8,7 @@
 
 > **startLessonActivationLoop**(): `void`
 
-Defined in: [ui/src/api-server/hive/lesson-activation.ts:248](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/hive/lesson-activation.ts#L248)
+Defined in: [ui/src/api-server/hive/lesson-activation.ts:248](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/hive/lesson-activation.ts#L248)
 
 Starts the activation timer. Idempotent, and a no-op without service
 credentials so dev machines and unit runs stay quiet.

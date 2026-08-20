@@ -8,6 +8,7 @@
 
 ## Variables
 
+- [DELETE](variables/DELETE.md)
 - [dynamic](variables/dynamic.md)
 - [GET](variables/GET.md)
 - [PATCH](variables/PATCH.md)

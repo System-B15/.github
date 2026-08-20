@@ -8,7 +8,7 @@
 
 > **ChangeValueLookups** = `object`
 
-Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:12](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L12)
+Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:12](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L12)
 
 Renders a logged field value for humans. The log stores raw wire values
 (epoch ms for dates, id arrays for people/rooms/courses), so the panel needs
@@ -21,7 +21,7 @@ testable without React providers.
 
 > **courseName**: (`id`) => `string` \| `undefined`
 
-Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:13](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L13)
+Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:13](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L13)
 
 #### Parameters
 
@@ -39,7 +39,7 @@ Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change
 
 > **instructorName**: (`id`) => `string` \| `undefined`
 
-Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:14](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L14)
+Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:14](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L14)
 
 #### Parameters
 
@@ -57,7 +57,7 @@ Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change
 
 > **roomName**: (`id`) => `string` \| `undefined`
 
-Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:15](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L15)
+Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:15](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L15)
 
 #### Parameters
 

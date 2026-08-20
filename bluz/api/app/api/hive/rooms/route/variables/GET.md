@@ -8,4 +8,4 @@
 
 > `const` **GET**: `ServerApiHiveRoomsGet`
 
-Defined in: [ui/src/app/api/hive/rooms/route.tsx:13](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/app/api/hive/rooms/route.tsx#L13)
+Defined in: [ui/src/app/api/hive/rooms/route.ts:13](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/app/api/hive/rooms/route.ts#L13)

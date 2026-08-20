@@ -8,7 +8,7 @@
 
 > **RegisterIterationPayload** = `object`
 
-Defined in: [ui/src/api-shared/types/iteration.ts:83](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/iteration.ts#L83)
+Defined in: [ui/src/api-shared/types/iteration.ts:96](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/iteration.ts#L96)
 
 Payload to register a new iteration. `dbName` is derived from `id` when omitted.
 
@@ -18,7 +18,7 @@ Payload to register a new iteration. `dbName` is derived from `id` when omitted.
 
 > `optional` **dbName?**: `string`
 
-Defined in: [ui/src/api-shared/types/iteration.ts:86](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/iteration.ts#L86)
+Defined in: [ui/src/api-shared/types/iteration.ts:99](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/iteration.ts#L99)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [ui/src/api-shared/types/iteration.ts:86](https://github.com/System-
 
 > `optional` **endDate?**: `Date` \| `null` \| `string`
 
-Defined in: [ui/src/api-shared/types/iteration.ts:91](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/iteration.ts#L91)
+Defined in: [ui/src/api-shared/types/iteration.ts:104](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/iteration.ts#L104)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [ui/src/api-shared/types/iteration.ts:91](https://github.com/System-
 
 > `optional` **ganttCurriculumId?**: `string`
 
-Defined in: [ui/src/api-shared/types/iteration.ts:92](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/iteration.ts#L92)
+Defined in: [ui/src/api-shared/types/iteration.ts:105](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/iteration.ts#L105)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [ui/src/api-shared/types/iteration.ts:92](https://github.com/System-
 
 > `optional` **hiveCache?**: [`HiveIterationCache`](HiveIterationCache.md)
 
-Defined in: [ui/src/api-shared/types/iteration.ts:89](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/iteration.ts#L89)
+Defined in: [ui/src/api-shared/types/iteration.ts:102](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/iteration.ts#L102)
 
 Optional pre-computed Hive name cache (the route fills this in).
 
@@ -52,7 +52,7 @@ Optional pre-computed Hive name cache (the route fills this in).
 
 > `optional` **hiveUrl?**: `string`
 
-Defined in: [ui/src/api-shared/types/iteration.ts:87](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/iteration.ts#L87)
+Defined in: [ui/src/api-shared/types/iteration.ts:100](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/iteration.ts#L100)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [ui/src/api-shared/types/iteration.ts:87](https://github.com/System-
 
 > **id**: [`IterationId`](IterationId.md)
 
-Defined in: [ui/src/api-shared/types/iteration.ts:84](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/iteration.ts#L84)
+Defined in: [ui/src/api-shared/types/iteration.ts:97](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/iteration.ts#L97)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [ui/src/api-shared/types/iteration.ts:84](https://github.com/System-
 
 > **label**: `string`
 
-Defined in: [ui/src/api-shared/types/iteration.ts:85](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/iteration.ts#L85)
+Defined in: [ui/src/api-shared/types/iteration.ts:98](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/iteration.ts#L98)
 
 ***
 
@@ -76,4 +76,4 @@ Defined in: [ui/src/api-shared/types/iteration.ts:85](https://github.com/System-
 
 > `optional` **startDate?**: `Date` \| `string`
 
-Defined in: [ui/src/api-shared/types/iteration.ts:90](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/iteration.ts#L90)
+Defined in: [ui/src/api-shared/types/iteration.ts:103](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/iteration.ts#L103)

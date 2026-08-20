@@ -8,7 +8,7 @@
 
 > **CollectionConfig**\<`T`, `TId`, `TCreate`\> = `object`
 
-Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:95](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/base/collection/create-collection-provider.tsx#L95)
+Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:95](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/base/collection/create-collection-provider.tsx#L95)
 
 ## Type Parameters
 
@@ -30,7 +30,7 @@ Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:95
 
 > **api**: [`CollectionApi`](CollectionApi.md)\<`T`, `TId`\>
 
-Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:96](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/base/collection/create-collection-provider.tsx#L96)
+Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:96](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/base/collection/create-collection-provider.tsx#L96)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:96
 
 > **buildItem**: (`data`) => `T`
 
-Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:103](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/base/collection/create-collection-provider.tsx#L103)
+Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:103](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/base/collection/create-collection-provider.tsx#L103)
 
 Builds the optimistic item — including its temporary id — from form data.
 
@@ -58,7 +58,7 @@ Builds the optimistic item — including its temporary id — from form data.
 
 > **getId**: (`item`) => `TId`
 
-Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:99](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/base/collection/create-collection-provider.tsx#L99)
+Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:99](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/base/collection/create-collection-provider.tsx#L99)
 
 #### Parameters
 
@@ -76,7 +76,7 @@ Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:99
 
 > **getKey**: (`item`) => `string`
 
-Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:98](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/base/collection/create-collection-provider.tsx#L98)
+Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:98](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/base/collection/create-collection-provider.tsx#L98)
 
 Stable store key. May be composite (e.g. rooms key on `source:id`).
 
@@ -96,7 +96,7 @@ Stable store key. May be composite (e.g. rooms key on `source:id`).
 
 > **getLabel**: (`item`) => `string`
 
-Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:101](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/base/collection/create-collection-provider.tsx#L101)
+Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:101](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/base/collection/create-collection-provider.tsx#L101)
 
 Human-readable name used in the Hebrew snackbar texts.
 
@@ -116,7 +116,7 @@ Human-readable name used in the Hebrew snackbar texts.
 
 > **messages**: `object`
 
-Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:104](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/base/collection/create-collection-provider.tsx#L104)
+Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:104](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/base/collection/create-collection-provider.tsx#L104)
 
 #### createFailure
 
@@ -212,7 +212,7 @@ Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:10
 
 > **websocket**: `object`
 
-Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:113](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/base/collection/create-collection-provider.tsx#L113)
+Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:113](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/base/collection/create-collection-provider.tsx#L113)
 
 #### keyOf?
 

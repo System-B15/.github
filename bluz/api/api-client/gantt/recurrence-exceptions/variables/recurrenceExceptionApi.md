@@ -8,7 +8,7 @@
 
 > `const` **recurrenceExceptionApi**: `object`
 
-Defined in: [ui/src/api-client/gantt/recurrence-exceptions.ts:67](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-client/gantt/recurrence-exceptions.ts#L67)
+Defined in: [ui/src/api-client/gantt/recurrence-exceptions.ts:89](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-client/gantt/recurrence-exceptions.ts#L89)
 
 ## Type Declaration
 
@@ -95,3 +95,33 @@ POST: Materializes a recurring occurrence into its own standalone event.
 #### Returns
 
 `Promise`\<\{ `event`: `object` & [`BaseGantItem`](../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem.md) & `object`; `mapping`: \{ `dayId`: `string`; `eventId`: `string`; `moduleId`: `string`; \}; \}\>
+
+### apiRestoreOccurrence
+
+> **apiRestoreOccurrence**: (`eventId`, `payload`, `options?`) => `Promise`\<\{ `curriculumId`: `string`; `dayId`: `string`; `eventId`: `string`; \}\>
+
+DELETE: Restores a previously skipped occurrence (#469).
+
+#### Parameters
+
+##### eventId
+
+`string`
+
+##### payload
+
+###### curriculumId
+
+`string`
+
+###### dayId
+
+`string`
+
+##### options?
+
+[`ClientApiProps`](../../../common/type-aliases/ClientApiProps.md)
+
+#### Returns
+
+`Promise`\<\{ `curriculumId`: `string`; `dayId`: `string`; `eventId`: `string`; \}\>

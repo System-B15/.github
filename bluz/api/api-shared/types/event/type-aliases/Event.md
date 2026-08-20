@@ -8,7 +8,7 @@
 
 > **Event** = `object`
 
-Defined in: [ui/src/api-shared/types/event.ts:35](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L35)
+Defined in: [ui/src/api-shared/types/event.ts:35](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L35)
 
 Represents a standard calendar event in the Bluz schedule.
 
@@ -18,7 +18,7 @@ Represents a standard calendar event in the Bluz schedule.
 
 > `optional` **color?**: `string`
 
-Defined in: [ui/src/api-shared/types/event.ts:76](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L76)
+Defined in: [ui/src/api-shared/types/event.ts:76](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L76)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [ui/src/api-shared/types/event.ts:76](https://github.com/System-B90/
 
 > **courses**: [`CourseId`](../../course/type-aliases/CourseId.md)[]
 
-Defined in: [ui/src/api-shared/types/event.ts:55](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L55)
+Defined in: [ui/src/api-shared/types/event.ts:55](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L55)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [ui/src/api-shared/types/event.ts:55](https://github.com/System-B90/
 
 > **endTime**: `Dayjs`
 
-Defined in: [ui/src/api-shared/types/event.ts:53](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L53)
+Defined in: [ui/src/api-shared/types/event.ts:53](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L53)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [ui/src/api-shared/types/event.ts:53](https://github.com/System-B90/
 
 > `optional` **fake?**: `boolean`
 
-Defined in: [ui/src/api-shared/types/event.ts:83](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L83)
+Defined in: [ui/src/api-shared/types/event.ts:83](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L83)
 
 "פיקטיבי" marker (issue #102): shown to students as a normal event but
 acts as a placeholder for Checkers/Segel. Fake events are not wired to
@@ -55,7 +55,7 @@ and a comment.
 
 > `optional` **ganttEventId?**: `string`
 
-Defined in: [ui/src/api-shared/types/event.ts:88](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L88)
+Defined in: [ui/src/api-shared/types/event.ts:88](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L88)
 
 Gantt event this schedule event was cut from (גזירה ללו"ז); absent for
 normal events. Set by the curriculum cut endpoint (#118).
@@ -66,7 +66,7 @@ normal events. Set by the curriculum cut endpoint (#118).
 
 > `optional` **ganttOccurrenceDate?**: `string`
 
-Defined in: [ui/src/api-shared/types/event.ts:93](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L93)
+Defined in: [ui/src/api-shared/types/event.ts:93](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L93)
 
 ISO date (yyyy-MM-dd) of the planned occurrence — disambiguates
 recurrence occurrences of the same gantt event. Absent for normal events.
@@ -77,7 +77,7 @@ recurrence occurrences of the same gantt event. Absent for normal events.
 
 > **hidden**: `boolean`
 
-Defined in: [ui/src/api-shared/types/event.ts:62](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L62)
+Defined in: [ui/src/api-shared/types/event.ts:62](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L62)
 
 ***
 
@@ -85,7 +85,7 @@ Defined in: [ui/src/api-shared/types/event.ts:62](https://github.com/System-B90/
 
 > `optional` **hiveLesson?**: `null` \| `number`
 
-Defined in: [ui/src/api-shared/types/event.ts:40](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L40)
+Defined in: [ui/src/api-shared/types/event.ts:40](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L40)
 
 ***
 
@@ -93,7 +93,7 @@ Defined in: [ui/src/api-shared/types/event.ts:40](https://github.com/System-B90/
 
 > **hiveModule**: `number`
 
-Defined in: [ui/src/api-shared/types/event.ts:39](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L39)
+Defined in: [ui/src/api-shared/types/event.ts:39](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L39)
 
 ***
 
@@ -101,7 +101,7 @@ Defined in: [ui/src/api-shared/types/event.ts:39](https://github.com/System-B90/
 
 > `optional` **hiveQueues?**: `Record`\<[`CourseId`](../../course/type-aliases/CourseId.md), `number`\>
 
-Defined in: [ui/src/api-shared/types/event.ts:51](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L51)
+Defined in: [ui/src/api-shared/types/event.ts:51](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L51)
 
 Per-shuffle Hive queue mapping: Bluz course id → Hive queue id. A course
 is a shuffle, which is 1:1 with a Hive student group, so this is what
@@ -118,7 +118,7 @@ into `hiveLesson`. Clearing it (or archiving the event) deletes them.
 
 > **id**: [`EventId`](EventId.md)
 
-Defined in: [ui/src/api-shared/types/event.ts:36](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L36)
+Defined in: [ui/src/api-shared/types/event.ts:36](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L36)
 
 ***
 
@@ -126,7 +126,7 @@ Defined in: [ui/src/api-shared/types/event.ts:36](https://github.com/System-B90/
 
 > **instructors**: `number`[]
 
-Defined in: [ui/src/api-shared/types/event.ts:57](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L57)
+Defined in: [ui/src/api-shared/types/event.ts:57](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L57)
 
 ***
 
@@ -134,7 +134,7 @@ Defined in: [ui/src/api-shared/types/event.ts:57](https://github.com/System-B90/
 
 > `optional` **lecturers?**: [`PersonId`](PersonId.md)[]
 
-Defined in: [ui/src/api-shared/types/event.ts:58](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L58)
+Defined in: [ui/src/api-shared/types/event.ts:58](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L58)
 
 ***
 
@@ -142,7 +142,7 @@ Defined in: [ui/src/api-shared/types/event.ts:58](https://github.com/System-B90/
 
 > **locked**: `boolean`
 
-Defined in: [ui/src/api-shared/types/event.ts:61](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L61)
+Defined in: [ui/src/api-shared/types/event.ts:61](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L61)
 
 ***
 
@@ -150,7 +150,7 @@ Defined in: [ui/src/api-shared/types/event.ts:61](https://github.com/System-B90/
 
 > **name**: `string`
 
-Defined in: [ui/src/api-shared/types/event.ts:37](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L37)
+Defined in: [ui/src/api-shared/types/event.ts:37](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L37)
 
 ***
 
@@ -158,7 +158,7 @@ Defined in: [ui/src/api-shared/types/event.ts:37](https://github.com/System-B90/
 
 > **notes**: `string`
 
-Defined in: [ui/src/api-shared/types/event.ts:60](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L60)
+Defined in: [ui/src/api-shared/types/event.ts:60](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L60)
 
 ***
 
@@ -166,7 +166,7 @@ Defined in: [ui/src/api-shared/types/event.ts:60](https://github.com/System-B90/
 
 > **personalTalk**: `boolean`
 
-Defined in: [ui/src/api-shared/types/event.ts:64](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L64)
+Defined in: [ui/src/api-shared/types/event.ts:64](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L64)
 
 ***
 
@@ -174,7 +174,7 @@ Defined in: [ui/src/api-shared/types/event.ts:64](https://github.com/System-B90/
 
 > **required**: `boolean`
 
-Defined in: [ui/src/api-shared/types/event.ts:63](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L63)
+Defined in: [ui/src/api-shared/types/event.ts:63](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L63)
 
 ***
 
@@ -182,7 +182,7 @@ Defined in: [ui/src/api-shared/types/event.ts:63](https://github.com/System-B90/
 
 > **rooms**: [`ResolvableRoom`](../../room/type-aliases/ResolvableRoom.md)[]
 
-Defined in: [ui/src/api-shared/types/event.ts:56](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L56)
+Defined in: [ui/src/api-shared/types/event.ts:56](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L56)
 
 ***
 
@@ -190,7 +190,7 @@ Defined in: [ui/src/api-shared/types/event.ts:56](https://github.com/System-B90/
 
 > **splitAcrossBreaks**: `boolean`
 
-Defined in: [ui/src/api-shared/types/event.ts:75](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L75)
+Defined in: [ui/src/api-shared/types/event.ts:75](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L75)
 
 When true, a break (הפסקה) the event runs into interrupts it instead of
 overlapping it: the event pauses at the break's start and resumes when
@@ -207,7 +207,7 @@ calendar simply re-lays it out. See `api-shared/break-windows.ts`.
 
 > **startTime**: `Dayjs`
 
-Defined in: [ui/src/api-shared/types/event.ts:52](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L52)
+Defined in: [ui/src/api-shared/types/event.ts:52](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L52)
 
 ***
 
@@ -215,7 +215,7 @@ Defined in: [ui/src/api-shared/types/event.ts:52](https://github.com/System-B90/
 
 > **subject**: `number`
 
-Defined in: [ui/src/api-shared/types/event.ts:38](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L38)
+Defined in: [ui/src/api-shared/types/event.ts:38](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L38)
 
 ***
 
@@ -223,7 +223,7 @@ Defined in: [ui/src/api-shared/types/event.ts:38](https://github.com/System-B90/
 
 > **tags**: `number`[]
 
-Defined in: [ui/src/api-shared/types/event.ts:59](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L59)
+Defined in: [ui/src/api-shared/types/event.ts:59](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L59)
 
 ***
 
@@ -231,7 +231,7 @@ Defined in: [ui/src/api-shared/types/event.ts:59](https://github.com/System-B90/
 
 > **type**: [`EventType`](../enumerations/EventType.md)
 
-Defined in: [ui/src/api-shared/types/event.ts:54](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L54)
+Defined in: [ui/src/api-shared/types/event.ts:54](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L54)
 
 ***
 
@@ -239,7 +239,7 @@ Defined in: [ui/src/api-shared/types/event.ts:54](https://github.com/System-B90/
 
 > `optional` **updatedAt?**: `number`
 
-Defined in: [ui/src/api-shared/types/event.ts:101](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/event.ts#L101)
+Defined in: [ui/src/api-shared/types/event.ts:101](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/event.ts#L101)
 
 Client-stamped revision (epoch ms) set at save time (#156). Used as an
 optimistic-concurrency guard: an incoming upsert (server resolve echo or

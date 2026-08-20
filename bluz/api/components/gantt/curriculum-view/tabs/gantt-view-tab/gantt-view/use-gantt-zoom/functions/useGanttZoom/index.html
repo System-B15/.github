@@ -447,6 +447,60 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../../../../../gantt-cut-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../../../../../e2e-cloud-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../../../../../" class="md-nav__link">
         
   
@@ -705,6 +759,62 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#stepzoomedweek" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stepZoomedWeek
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="stepZoomedWeek">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        delta
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Returns
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#timelineweeks" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -791,12 +901,11 @@
 <blockquote>
 <p><strong>useGanttZoom</strong>(<code>__namedParameters</code>): <code>object</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-zoom.ts#L17">ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-zoom.ts:17</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-zoom.ts#L17">ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-zoom.ts:17</a></p>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
 <h3 id="__namedparameters">__namedParameters<a class="headerlink" href="#__namedparameters" title="Permanent link">&para;</a></h3>
 <p><code>UseGanttZoomArgs</code></p>
 <h2 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h2>
-<p><code>object</code></p>
 <h3 id="alltimelineweeks">allTimelineWeeks<a class="headerlink" href="#alltimelineweeks" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>allTimelineWeeks</strong>: <a href="../../../../../../../../../api-shared/types/gantt/models/week/type-aliases/GanttWeek/"><code>GanttWeek</code></a>[]</p>
@@ -838,6 +947,18 @@
 <blockquote>
 <p><strong>singleWeekDayZoom</strong>: <code>boolean</code></p>
 </blockquote>
+<h3 id="stepzoomedweek">stepZoomedWeek<a class="headerlink" href="#stepzoomedweek" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>stepZoomedWeek</strong>: (<code>delta</code>) =&gt; <code>void</code></p>
+</blockquote>
+<p>Move the zoomed week by <code>delta</code> weeks, clamped to the curriculum. In
+day view without a zoomed week yet, the first step picks a week to zoom
+(stepping forward starts at the first week, back at the last).</p>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
+<h5 id="delta">delta<a class="headerlink" href="#delta" title="Permanent link">&para;</a></h5>
+<p><code>number</code></p>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
+<p><code>void</code></p>
 <h3 id="timelineweeks">timelineWeeks<a class="headerlink" href="#timelineweeks" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>timelineWeeks</strong>: <a href="../../../../../../../../../api-shared/types/gantt/models/week/type-aliases/GanttWeek/"><code>GanttWeek</code></a>[]</p>

@@ -447,6 +447,60 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../gantt-cut-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../e2e-cloud-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../" class="md-nav__link">
         
   
@@ -822,6 +876,112 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#apirestoreoccurrence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        apiRestoreOccurrence
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="apiRestoreOccurrence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eventid_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eventId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#payload_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        payload
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="payload">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#curriculumid_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        curriculumId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dayid_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        dayId
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        options?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Returns
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -854,7 +1014,7 @@
 <blockquote>
 <p><code>const</code> <strong>recurrenceExceptionApi</strong>: <code>object</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-client/gantt/recurrence-exceptions.ts#L67">ui/src/api-client/gantt/recurrence-exceptions.ts:67</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-client/gantt/recurrence-exceptions.ts#L89">ui/src/api-client/gantt/recurrence-exceptions.ts:89</a></p>
 <h2 id="type-declaration">Type Declaration<a class="headerlink" href="#type-declaration" title="Permanent link">&para;</a></h2>
 <h3 id="apideleteoccurrence">apiDeleteOccurrence<a class="headerlink" href="#apideleteoccurrence" title="Permanent link">&para;</a></h3>
 <blockquote>
@@ -904,6 +1064,23 @@
 <p><a href="../../../../common/type-aliases/ClientApiProps/"><code>ClientApiProps</code></a></p>
 <h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <p><code>Promise</code>\&lt;{ <code>event</code>: <code>object</code> &amp; <a href="../../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem/"><code>BaseGantItem</code></a> &amp; <code>object</code>; <code>mapping</code>: { <code>dayId</code>: <code>string</code>; <code>eventId</code>: <code>string</code>; <code>moduleId</code>: <code>string</code>; }; }&gt;</p>
+<h3 id="apirestoreoccurrence">apiRestoreOccurrence<a class="headerlink" href="#apirestoreoccurrence" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>apiRestoreOccurrence</strong>: (<code>eventId</code>, <code>payload</code>, <code>options?</code>) =&gt; <code>Promise</code>\&lt;{ <code>curriculumId</code>: <code>string</code>; <code>dayId</code>: <code>string</code>; <code>eventId</code>: <code>string</code>; }&gt;</p>
+</blockquote>
+<p>DELETE: Restores a previously skipped occurrence (#469).</p>
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
+<h5 id="eventid_2">eventId<a class="headerlink" href="#eventid_2" title="Permanent link">&para;</a></h5>
+<p><code>string</code></p>
+<h5 id="payload_2">payload<a class="headerlink" href="#payload_2" title="Permanent link">&para;</a></h5>
+<h6 id="curriculumid_3">curriculumId<a class="headerlink" href="#curriculumid_3" title="Permanent link">&para;</a></h6>
+<p><code>string</code></p>
+<h6 id="dayid_2">dayId<a class="headerlink" href="#dayid_2" title="Permanent link">&para;</a></h6>
+<p><code>string</code></p>
+<h5 id="options_3">options?<a class="headerlink" href="#options_3" title="Permanent link">&para;</a></h5>
+<p><a href="../../../../common/type-aliases/ClientApiProps/"><code>ClientApiProps</code></a></p>
+<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
+<p><code>Promise</code>\&lt;{ <code>curriculumId</code>: <code>string</code>; <code>dayId</code>: <code>string</code>; <code>eventId</code>: <code>string</code>; }&gt;</p>
 
 
 

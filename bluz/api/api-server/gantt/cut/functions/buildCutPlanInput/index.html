@@ -447,6 +447,60 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../gantt-cut-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../e2e-cloud-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../" class="md-nav__link">
         
   
@@ -556,6 +610,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        constraints?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#curriculum" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -622,6 +687,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#prayertimes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prayerTimes?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#weekendhomestarttime" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -680,7 +756,7 @@
 <blockquote>
 <p><strong>buildCutPlanInput</strong>(<code>args</code>): <a href="../../../../../api-shared/gantt/cut-planner/type-aliases/CutPlanInput/"><code>CutPlanInput</code></a></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/gantt/cut.ts#L147">ui/src/api-server/gantt/cut.ts:147</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/gantt/cut.ts#L283">ui/src/api-server/gantt/cut.ts:283</a></p>
 <p>Adapt the loaded Postgres rows into the pure planner's plain-data input.
 Weeks are ordered by <code>number</code> and days within a week by <code>dayIndex</code>, matching
 the timeline ordering used by the client normalizer.</p>
@@ -688,6 +764,9 @@ the timeline ordering used by the client normalizer.</p>
 <h3 id="args">args<a class="headerlink" href="#args" title="Permanent link">&para;</a></h3>
 <h4 id="breakfasttime">breakfastTime?<a class="headerlink" href="#breakfasttime" title="Permanent link">&para;</a></h4>
 <p><code>string</code></p>
+<h4 id="constraints">constraints?<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h4>
+<p><a href="../../../../../api-shared/types/gantt/models/constraint/type-aliases/GanttConstraint/"><code>GanttConstraint</code></a>[]</p>
+<p>Constraint rows for this curriculum (owned by its events and modules).</p>
 <h4 id="curriculum">curriculum<a class="headerlink" href="#curriculum" title="Permanent link">&para;</a></h4>
 <p><a href="../../../../../api-shared/types/gantt/api-layer/type-aliases/ApiCurriculum/"><code>ApiCurriculum</code></a></p>
 <h4 id="daystarttime">dayStartTime<a class="headerlink" href="#daystarttime" title="Permanent link">&para;</a></h4>
@@ -700,6 +779,9 @@ the timeline ordering used by the client normalizer.</p>
 <p><code>string</code></p>
 <h4 id="mappings">mappings<a class="headerlink" href="#mappings" title="Permanent link">&para;</a></h4>
 <p><a href="../../type-aliases/CutMappingRow/"><code>CutMappingRow</code></a>[]</p>
+<h4 id="prayertimes">prayerTimes?<a class="headerlink" href="#prayertimes" title="Permanent link">&para;</a></h4>
+<p><code>object</code>[]</p>
+<p>Prayer windows bridged over from the MongoDB schedule settings.</p>
 <h4 id="weekendhomestarttime">weekendHomeStartTime?<a class="headerlink" href="#weekendhomestarttime" title="Permanent link">&para;</a></h4>
 <p><code>string</code></p>
 <h2 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h2>

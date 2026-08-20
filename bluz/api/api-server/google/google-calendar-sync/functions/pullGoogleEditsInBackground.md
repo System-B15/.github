@@ -8,7 +8,7 @@
 
 > **pullGoogleEditsInBackground**(`userId`): `void`
 
-Defined in: [ui/src/api-server/google/google-calendar-sync.ts:57](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/google/google-calendar-sync.ts#L57)
+Defined in: [ui/src/api-server/google/google-calendar-sync.ts:57](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/google/google-calendar-sync.ts#L57)
 
 Fire-and-forget, throttled (per user, 5 min): pulls Google-side edits of
 Bluz-pushed events back into Bluz. Hung off calendar reads so Google edits

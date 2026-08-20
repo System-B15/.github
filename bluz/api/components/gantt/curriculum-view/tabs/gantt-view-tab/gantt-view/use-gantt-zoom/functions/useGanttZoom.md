@@ -8,7 +8,7 @@
 
 > **useGanttZoom**(`__namedParameters`): `object`
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-zoom.ts:17](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-zoom.ts#L17)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-zoom.ts:17](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/use-gantt-zoom.ts#L17)
 
 ## Parameters
 
@@ -17,8 +17,6 @@ Defined in: [ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-v
 `UseGanttZoomArgs`
 
 ## Returns
-
-`object`
 
 ### allTimelineWeeks
 
@@ -65,6 +63,24 @@ Defined in: [ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-v
 ### singleWeekDayZoom
 
 > **singleWeekDayZoom**: `boolean`
+
+### stepZoomedWeek
+
+> **stepZoomedWeek**: (`delta`) => `void`
+
+Move the zoomed week by `delta` weeks, clamped to the curriculum. In
+day view without a zoomed week yet, the first step picks a week to zoom
+(stepping forward starts at the first week, back at the last).
+
+#### Parameters
+
+##### delta
+
+`number`
+
+#### Returns
+
+`void`
 
 ### timelineWeeks
 

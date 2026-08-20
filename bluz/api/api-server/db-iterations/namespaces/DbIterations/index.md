@@ -10,6 +10,7 @@
 
 - [assertWritable](variables/assertWritable.md)
 - [current](variables/current.md)
+- [currentOrNull](variables/currentOrNull.md)
 - [ensure](variables/ensure.md)
 - [get](variables/get.md)
 - [getByCurriculum](variables/getByCurriculum.md)
@@ -18,3 +19,4 @@
 - [register](variables/register.md)
 - [remove](variables/remove.md)
 - [setHiveCache](variables/setHiveCache.md)
+- [usage](variables/usage.md)

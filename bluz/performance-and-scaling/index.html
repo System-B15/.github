@@ -581,6 +581,60 @@
   
   
     <li class="md-nav__item">
+      <a href="../gantt-cut-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../e2e-cloud-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../api/" class="md-nav__link">
         
   
@@ -788,7 +842,7 @@ iteration databases:</p>
 <h3 id="real-time-broadcast-path">Real-time broadcast path<a class="headerlink" href="#real-time-broadcast-path" title="Permanent link">&para;</a></h3>
 <ul>
 <li>The Next.js server keeps <strong>one persistent WebSocket</strong> to the session server
-  (<code>ui/src/api-server/web-socket-utils.tsx</code>). Broadcasts cost a single <code>send()</code>
+  (<code>ui/src/api-server/web-socket-utils.ts</code>). Broadcasts cost a single <code>send()</code>
   instead of a TCP + WebSocket handshake per message. Messages sent while
   (re)connecting are queued (bounded at 1000) and flushed on open.</li>
 <li>The session server (<code>session-server/session-server.ts</code>) tracks connections in

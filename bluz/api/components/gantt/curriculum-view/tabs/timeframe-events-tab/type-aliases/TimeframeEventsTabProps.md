@@ -8,7 +8,7 @@
 
 > **TimeframeEventsTabProps** = `object`
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/timeframe-events-tab/index.tsx:23](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-view/tabs/timeframe-events-tab/index.tsx#L23)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/timeframe-events-tab/index.tsx:23](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-view/tabs/timeframe-events-tab/index.tsx#L23)
 
 ## Properties
 
@@ -16,4 +16,4 @@ Defined in: [ui/src/components/gantt/curriculum-view/tabs/timeframe-events-tab/i
 
 > **curriculumId**: [`GanttCurriculumId`](../../../../../../api-shared/types/gantt/models/curriculum/type-aliases/GanttCurriculumId.md)
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/timeframe-events-tab/index.tsx:24](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-view/tabs/timeframe-events-tab/index.tsx#L24)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/timeframe-events-tab/index.tsx:24](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-view/tabs/timeframe-events-tab/index.tsx#L24)

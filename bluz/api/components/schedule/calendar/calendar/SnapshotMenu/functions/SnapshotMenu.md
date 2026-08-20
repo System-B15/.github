@@ -8,7 +8,7 @@
 
 > **SnapshotMenu**(): `Element`
 
-Defined in: [ui/src/components/schedule/calendar/calendar/SnapshotMenu.tsx:44](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/calendar/calendar/SnapshotMenu.tsx#L44)
+Defined in: [ui/src/components/schedule/calendar/calendar/SnapshotMenu.tsx:44](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/calendar/calendar/SnapshotMenu.tsx#L44)
 
 Toolbar control for git-tag-like calendar snapshots: create a named restore
 point from the current calendar, list existing ones, restore one (via a

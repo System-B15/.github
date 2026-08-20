@@ -8,7 +8,7 @@
 
 > **EventSegment** = `object`
 
-Defined in: [ui/src/components/schedule/calendar/split/segments.ts:20](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/calendar/split/segments.ts#L20)
+Defined in: [ui/src/components/schedule/calendar/split/segments.ts:20](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/calendar/split/segments.ts#L20)
 
 One drawn piece of an event. A plain event yields exactly one segment; an
 event that jumps over N breaks yields N+1.
@@ -25,7 +25,7 @@ which is what makes a split event behave as one cohesive thing.
 
 > **count**: `number`
 
-Defined in: [ui/src/components/schedule/calendar/split/segments.ts:32](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/calendar/split/segments.ts#L32)
+Defined in: [ui/src/components/schedule/calendar/split/segments.ts:32](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/calendar/split/segments.ts#L32)
 
 How many pieces the event was drawn as.
 
@@ -35,7 +35,7 @@ How many pieces the event was drawn as.
 
 > **event**: [`Event`](../../../../../../api-shared/types/event/type-aliases/Event.md)
 
-Defined in: [ui/src/components/schedule/calendar/split/segments.ts:24](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/calendar/split/segments.ts#L24)
+Defined in: [ui/src/components/schedule/calendar/split/segments.ts:24](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/calendar/split/segments.ts#L24)
 
 The whole, canonical event this piece belongs to.
 
@@ -45,7 +45,7 @@ The whole, canonical event this piece belongs to.
 
 > **from**: `Dayjs`
 
-Defined in: [ui/src/components/schedule/calendar/split/segments.ts:26](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/calendar/split/segments.ts#L26)
+Defined in: [ui/src/components/schedule/calendar/split/segments.ts:26](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/calendar/split/segments.ts#L26)
 
 This piece's own start on the grid.
 
@@ -55,7 +55,7 @@ This piece's own start on the grid.
 
 > **index**: `number`
 
-Defined in: [ui/src/components/schedule/calendar/split/segments.ts:30](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/calendar/split/segments.ts#L30)
+Defined in: [ui/src/components/schedule/calendar/split/segments.ts:30](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/calendar/split/segments.ts#L30)
 
 0-based position among the event's pieces.
 
@@ -65,7 +65,7 @@ Defined in: [ui/src/components/schedule/calendar/split/segments.ts:30](https://g
 
 > **key**: `string`
 
-Defined in: [ui/src/components/schedule/calendar/split/segments.ts:22](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/calendar/split/segments.ts#L22)
+Defined in: [ui/src/components/schedule/calendar/split/segments.ts:22](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/calendar/split/segments.ts#L22)
 
 Stable identity for this piece (`<event id>#<index>`).
 
@@ -75,6 +75,6 @@ Stable identity for this piece (`<event id>#<index>`).
 
 > **to**: `Dayjs`
 
-Defined in: [ui/src/components/schedule/calendar/split/segments.ts:28](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/calendar/split/segments.ts#L28)
+Defined in: [ui/src/components/schedule/calendar/split/segments.ts:28](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/calendar/split/segments.ts#L28)
 
 This piece's own end on the grid.

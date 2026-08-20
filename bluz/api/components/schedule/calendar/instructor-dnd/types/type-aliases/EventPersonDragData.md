@@ -8,7 +8,7 @@
 
 > **EventPersonDragData** = `object`
 
-Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:22](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/calendar/instructor-dnd/types.ts#L22)
+Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:22](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/calendar/instructor-dnd/types.ts#L22)
 
 Payload carried by a drag that started on a person chip rendered inside an
 event — dragging it away is the unassign gesture.
@@ -19,7 +19,7 @@ event — dragging it away is the unassign gesture.
 
 > **eventId**: [`EventId`](../../../../../../api-shared/types/event/type-aliases/EventId.md)
 
-Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:25](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/calendar/instructor-dnd/types.ts#L25)
+Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:25](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/calendar/instructor-dnd/types.ts#L25)
 
 ***
 
@@ -27,7 +27,7 @@ Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:25](htt
 
 > **kind**: `"event-person"`
 
-Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:23](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/calendar/instructor-dnd/types.ts#L23)
+Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:23](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/calendar/instructor-dnd/types.ts#L23)
 
 ***
 
@@ -35,4 +35,4 @@ Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:23](htt
 
 > **personId**: [`PersonId`](../../../../../../api-shared/types/event/type-aliases/PersonId.md)
 
-Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:24](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/schedule/calendar/instructor-dnd/types.ts#L24)
+Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:24](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/schedule/calendar/instructor-dnd/types.ts#L24)

@@ -8,7 +8,7 @@
 
 > **withApi**\<`TRequest`, `TContext`\>(`handler`): (`request`, `context?`) => `Promise`\<`Response`\>
 
-Defined in: [ui/src/api-server/common.tsx:208](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/common.tsx#L208)
+Defined in: [ui/src/api-server/common.ts:219](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/common.ts#L219)
 
 Wrap a route handler with the standard error boundary. Thrown
 `UserNotLoggedInError` / `ClientApiError` / unexpected errors map to

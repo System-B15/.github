@@ -15,3 +15,5 @@
 - [ApiModuleEvent](type-aliases/ApiModuleEvent.md)
 - [ApiSyllabus](type-aliases/ApiSyllabus.md)
 - [ApiT](type-aliases/ApiT.md)
+- [BasicGantOperations](type-aliases/BasicGantOperations.md)
+- [RawBaseDocument](type-aliases/RawBaseDocument.md)

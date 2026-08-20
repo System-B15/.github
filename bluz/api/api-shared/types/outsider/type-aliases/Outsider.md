@@ -8,7 +8,7 @@
 
 > **Outsider** = `object`
 
-Defined in: [ui/src/api-shared/types/outsider.ts:1](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/outsider.ts#L1)
+Defined in: [ui/src/api-shared/types/outsider.ts:1](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/outsider.ts#L1)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [ui/src/api-shared/types/outsider.ts:1](https://github.com/System-B9
 
 > `optional` **comment?**: `string`
 
-Defined in: [ui/src/api-shared/types/outsider.ts:8](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/outsider.ts#L8)
+Defined in: [ui/src/api-shared/types/outsider.ts:8](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/outsider.ts#L8)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [ui/src/api-shared/types/outsider.ts:8](https://github.com/System-B9
 
 > **id**: `string`
 
-Defined in: [ui/src/api-shared/types/outsider.ts:2](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/outsider.ts#L2)
+Defined in: [ui/src/api-shared/types/outsider.ts:2](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/outsider.ts#L2)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [ui/src/api-shared/types/outsider.ts:2](https://github.com/System-B9
 
 > `optional` **idNumber?**: `string`
 
-Defined in: [ui/src/api-shared/types/outsider.ts:6](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/outsider.ts#L6)
+Defined in: [ui/src/api-shared/types/outsider.ts:6](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/outsider.ts#L6)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [ui/src/api-shared/types/outsider.ts:6](https://github.com/System-B9
 
 > **name**: `string`
 
-Defined in: [ui/src/api-shared/types/outsider.ts:3](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/outsider.ts#L3)
+Defined in: [ui/src/api-shared/types/outsider.ts:3](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/outsider.ts#L3)
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: [ui/src/api-shared/types/outsider.ts:3](https://github.com/System-B9
 
 > `optional` **personalNumber?**: `string`
 
-Defined in: [ui/src/api-shared/types/outsider.ts:5](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/outsider.ts#L5)
+Defined in: [ui/src/api-shared/types/outsider.ts:5](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/outsider.ts#L5)
 
 ***
 
@@ -56,7 +56,7 @@ Defined in: [ui/src/api-shared/types/outsider.ts:5](https://github.com/System-B9
 
 > **phone**: `string`
 
-Defined in: [ui/src/api-shared/types/outsider.ts:4](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/outsider.ts#L4)
+Defined in: [ui/src/api-shared/types/outsider.ts:4](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/outsider.ts#L4)
 
 ***
 
@@ -64,4 +64,4 @@ Defined in: [ui/src/api-shared/types/outsider.ts:4](https://github.com/System-B9
 
 > `optional` **releaseDate?**: `string`
 
-Defined in: [ui/src/api-shared/types/outsider.ts:7](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/outsider.ts#L7)
+Defined in: [ui/src/api-shared/types/outsider.ts:7](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/outsider.ts#L7)

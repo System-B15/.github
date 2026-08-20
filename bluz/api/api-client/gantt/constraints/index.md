@@ -6,10 +6,12 @@
 
 # api-client/gantt/constraints
 
-## Type Aliases
-
-- [CreateConstraintPayload](type-aliases/CreateConstraintPayload.md)
-
 ## Variables
 
 - [ganttConstraintsApi](variables/ganttConstraintsApi.md)
+
+## References
+
+### CreateConstraintPayload
+
+Re-exports [CreateConstraintPayload](../../../api-shared/types/gantt/create-payloads/type-aliases/CreateConstraintPayload.md)

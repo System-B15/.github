@@ -1,0 +1,1395 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Internal developer documentation for the Bluz scheduling & curriculum-management platform.">
+      
+      
+      
+        <link rel="canonical" href="https://system-b90.github.io/bluz/gantt-cut-rules/">
+      
+      
+        <link rel="prev" href="../duplication-audit/">
+      
+      
+        <link rel="next" href="../e2e-cloud-runbook/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Gantt Cut Rules - Bluz Developer Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gantt-cut-scheduling-rules-and-priorities" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Bluz Developer Documentation" class="md-header__button md-logo" aria-label="Bluz Developer Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bluz Developer Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Gantt Cut Rules
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/system-b90/bluz" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    system-b90/bluz
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Bluz Developer Documentation" class="md-nav__button md-logo" aria-label="Bluz Developer Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Bluz Developer Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/system-b90/bluz" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    system-b90/bluz
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../performance-and-scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance & Scaling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup-and-restore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backup & Restore
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-quality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Quality Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../duplication-audit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Duplication Audit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#priority-ladder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Priority ladder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-capacity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day capacity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spillover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spillover
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Spillover">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-a-week-does-not-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When a week does not fit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#breaks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Breaks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Breaks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#placement-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Placement rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#materialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Materialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prayers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prayers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plan-then-confirm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plan-then-confirm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-things-live" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where things live
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../e2e-cloud-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#priority-ladder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Priority ladder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-capacity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day capacity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spillover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spillover
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Spillover">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-a-week-does-not-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When a week does not fit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#breaks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Breaks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Breaks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#placement-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Placement rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#materialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Materialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prayers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prayers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plan-then-confirm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plan-then-confirm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-things-live" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where things live
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="gantt-cut-scheduling-rules-and-priorities">Gantt cut — scheduling rules and priorities<a class="headerlink" href="#gantt-cut-scheduling-rules-and-priorities" title="Permanent link">&para;</a></h1>
+<p>How the curriculum → schedule cut (<strong>גזירה ללו"ז</strong>) decides <em>where</em> every event
+lands: how a week is balanced, how breaks are spread through a day, and how
+constraints are honoured.</p>
+<p>Every threshold, weight and priority described here is a named constant in
+<strong><a href="../ui/src/api-shared/gantt/cut-rules.ts"><code>ui/src/api-shared/gantt/cut-rules.ts</code></a></strong>.
+That file is the tunable source of truth — change policy there, not in the
+planner. This page is its prose companion; keep the two in sync.</p>
+<h2 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<p>Change a rule without touching any algorithm:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c"># All tunables live in one file</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">code</span> <span class="n">ui</span><span class="p">/</span><span class="n">src</span><span class="p">/</span><span class="n">api-shared</span><span class="p">/</span><span class="n">gantt</span><span class="p">/</span><span class="n">cut-rules</span><span class="p">.</span><span class="n">ts</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c"># Longer post-exercise break:      BREAK_RULES["post-long-exercise"].preferredMinutes</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c"># Different long-ע"ע threshold:    LONG_EXERCISE_THRESHOLD_MINUTES</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c"># Stronger module cohesion:        SPILLOVER_RULES.moduleCohesionBonusMinutes</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c"># Turn a break rule off entirely:  BREAK_RULES[&lt;kind&gt;].enabled = false</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c"># Reorder the whole ladder:        CUT_PRIORITY_LADDER</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">npm</span> <span class="n">run</span> <span class="n">typecheck</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">npm</span> <span class="n">run</span> <span class="n">test</span><span class="p">:</span><span class="n">unit</span>
+</code></pre></div>
+<h2 id="the-pipeline">The pipeline<a class="headerlink" href="#the-pipeline" title="Permanent link">&para;</a></h2>
+<p>The cut runs four passes, in this order. Each one may only rearrange what the
+previous one produced — never undo it.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Pass</th>
+<th>Module</th>
+<th>What it decides</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Expand</td>
+<td><code>cut-planner.ts</code></td>
+<td>Which days each event and recurrence echo lands on.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Balance</td>
+<td><code>cut-balancer.ts</code></td>
+<td>Spills work off over-full days onto later days in the same week.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Constraints</td>
+<td><code>cut-constraints.ts</code></td>
+<td>Reorders within a day; proposes cross-day moves.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Breaks</td>
+<td><code>cut-breaks.ts</code></td>
+<td>Spreads a day's leftover slack through the day as הפסקה events.</td>
+</tr>
+</tbody>
+</table>
+<p>Passes 2–4 are pure and minute-domain. Only the planner touches timezones.</p>
+<h2 id="priority-ladder">Priority ladder<a class="headerlink" href="#priority-ladder" title="Permanent link">&para;</a></h2>
+<p>When two rules disagree, the <strong>earlier</strong> entry wins. This is the tie-breaker of
+record — the balancer, the break pass and the constraint solver all resolve
+conflicts by consulting <code>CUT_PRIORITY_LADDER</code>.</p>
+<ol>
+<li><strong><code>within-working-hours</code></strong> — nothing is ever placed past a day's end time.
+   Overlapping events is always the lesser wrong.</li>
+<li><strong><code>same-week-only</code></strong> — spillover flows between days of one week, never
+   between weeks.</li>
+<li><strong><code>never-spill-into-full-day</code></strong> — an overlap on day X beats a spill onto a
+   day X+1 that is already at capacity.</li>
+<li><strong><code>pinned-events-stay</code></strong> — meals and daily recurrence echoes never move;
+   weekly echoes are free to.</li>
+<li><strong><code>satisfy-constraints</code></strong> — subject to everything above.</li>
+<li><strong><code>module-cohesion</code></strong> — events from one module stay on one day when possible.</li>
+<li><strong><code>breaks-by-priority</code></strong> — breaks fill existing slack only, in rule order.</li>
+<li><strong><code>prayer-alignment</code></strong> — best-effort on both sides (cover prayers with
+   breaks, keep lectures off them).</li>
+</ol>
+<h2 id="day-capacity">Day capacity<a class="headerlink" href="#day-capacity" title="Permanent link">&para;</a></h2>
+<p>A day's capacity is its <strong>working window</strong> — the clock span from its start time
+to <code>GanttDay.dayEndTime</code>, editable per day in the Weeks tab.</p>
+<ul>
+<li>Leaving the end time empty means <em>derive it</em>: the day's start time plus
+  <code>totalWorkingMinutes</code>. That is exactly how days behaved before the field
+  existed, so nothing changes for a curriculum that never sets it.</li>
+<li>The start time comes from the schedule settings (<code>dayStartTime</code>, or
+  <code>weekendHomeStartTime</code> for a Sunday after a weekend at home).</li>
+<li><strong>Everything inside the window counts against it</strong>: lessons, pinned meal
+  events, and generated breaks alike.</li>
+<li>Slack below <code>CAPACITY_RULES.negligibleSlackMinutes</code> is treated as zero.</li>
+</ul>
+<h2 id="spillover">Spillover<a class="headerlink" href="#spillover" title="Permanent link">&para;</a></h2>
+<p>Auto-spillover is on by default and can be unchecked per cut in the dialog.</p>
+<p><strong>Invariants</strong> (<code>SPILLOVER_RULES</code>) — the balancer may never break these:</p>
+<ol>
+<li>Never across weeks.</li>
+<li>Never onto a day that cannot hold the event inside its own window.</li>
+<li>Never past a day's end time.</li>
+<li>Forward only — an event's mapped day is the earliest anyone asked for it.</li>
+</ol>
+<p>Spill <strong>cascades</strong>: work pushed off ראשון can be pushed again off שני, so a week
+with everything piled onto one day rebalances across the whole week.</p>
+<p><strong>Selection</strong> is best-fit: the balancer picks whichever movable event packs the
+later days most tightly, adjusted by two weights —
+<code>moduleCohesionBonusMinutes</code> (rewards landing beside same-module siblings) and
+<code>moduleSplitPenaltyMinutes</code> (discourages leaving siblings behind).</p>
+<p><strong>What may move</strong> (<code>isSpillable</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Kind</th>
+<th>Movable</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ordinary mapped event</td>
+<td>✅</td>
+<td></td>
+</tr>
+<tr>
+<td>Weekly recurrence (anchor or echo)</td>
+<td>✅</td>
+<td>Its day is a preference, not a promise.</td>
+</tr>
+<tr>
+<td>Daily recurrence (anchor or echo)</td>
+<td>❌</td>
+<td>"Every day" stops being true the moment one hops. Moving the <em>anchor</em> is worse still: echo days are derived from its mapping before balancing runs, so relocating it empties the mapped day and doubles up on the target.</td>
+</tr>
+<tr>
+<td>Pinned meal event</td>
+<td>❌</td>
+<td>Its whole purpose is a fixed clock time.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="when-a-week-does-not-fit">When a week does not fit<a class="headerlink" href="#when-a-week-does-not-fit" title="Permanent link">&para;</a></h3>
+<p>If a week is still over capacity after balancing, the cut does <strong>not</strong> invent
+hours. It reports a <code>week-overflow</code> decision and the dialog asks the user, one
+week at a time:</p>
+<table>
+<thead>
+<tr>
+<th>Resolution</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>overlap-source</code> <em>(default)</em></td>
+<td>Leftovers overlap inside the day's window — the stack wraps back to the day's start rather than running past its end.</td>
+</tr>
+<tr>
+<td><code>overlap-least-full</code></td>
+<td>Overlap is placed on the week's least-loaded day.</td>
+</tr>
+<tr>
+<td><code>extend-day</code></td>
+<td>The only resolution that lets a day run past its end time.</td>
+</tr>
+<tr>
+<td><code>drop</code></td>
+<td>Leftovers are simply not cut.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="breaks">Breaks<a class="headerlink" href="#breaks" title="Permanent link">&para;</a></h2>
+<p>The break pass runs after events have their final days and times. Its job is to
+take the empty tail that would otherwise sit at the end of a day and spread it
+through the day deliberately.</p>
+<p><strong>Hard guarantee: breaks never extend a day.</strong> They only consume existing
+slack. When there is less slack than the day wants, higher-priority kinds are
+satisfied first and the rest are dropped — never shortened below their
+<code>minimumMinutes</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Kind</th>
+<th>Length (min/preferred/max)</th>
+<th>Trigger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>post-long-exercise</code></td>
+<td>10 / 15 / 20</td>
+<td>After ≥ 90 min of continuous ע"ע.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>between-syllabuses</code></td>
+<td>10 / 15 / 20</td>
+<td>Between consecutive lectures from different syllabuses.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>prayer-cover</code></td>
+<td>10 / 15 / 20</td>
+<td>A break positioned to cover a prayer window.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>post-lecture</code></td>
+<td>10 / 10 / 15</td>
+<td>After any lecture.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>room-change</code> <em>(disabled)</em></td>
+<td>5 / 5 / 5</td>
+<td>Between events in different rooms.</td>
+</tr>
+</tbody>
+</table>
+<p><code>room-change</code> is <strong>specified but disabled</strong>: the cut assigns no rooms today
+(<code>rooms: []</code> in <code>api-server/gantt/cut.ts</code>) and a Gantt event only carries a
+coarse <code>roomRequirement</code>. Flip <code>BREAK_RULES["room-change"].enabled</code> on once real
+room assignment lands — <code>roomKeyOf</code> already exempts <code>ללא כיתה</code> and <code>בחוץ</code>.</p>
+<h3 id="placement-rules">Placement rules<a class="headerlink" href="#placement-rules" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Never adjacent to an existing הפסקה</strong> — a meal event or anything from the
+  auto-seeded הפסקות syllabus. Two touching breaks read as one dead zone.
+  Instead, an <em>earlier</em> break in the same day is grown, up to
+  <code>earlierBreakGrowthCapMinutes</code> (20).</li>
+<li><strong>No implicit 25+ minute breaks.</strong> <code>implicitBreakCeilingMinutes</code> caps how far
+  any single break may grow — two breaks of 10 and 15 at different times beat
+  one of 25.</li>
+<li><strong>Leftover slack is redistributed</strong>, highest-priority break first, rather
+  than left as one long empty tail at the end of the day.</li>
+<li>Breaks under <code>minimumMaterializedMinutes</code> (5) are not worth creating.</li>
+</ul>
+<h3 id="materialization">Materialization<a class="headerlink" href="#materialization" title="Permanent link">&para;</a></h3>
+<p>Generated breaks are <strong>real schedule events</strong> of type <code>BREAK</code>, titled <code>הפסקה</code>.
+They carry a synthetic <code>ganttEventId</code> prefixed <code>cut-break:</code>, which means:</p>
+<ul>
+<li>a pull-back (משיכה חזרה) archives them alongside everything else the cut
+  created, since it matches on <code>ganttEventId</code> existing;</li>
+<li>a re-cut never duplicates them.</li>
+</ul>
+<h2 id="prayers">Prayers<a class="headerlink" href="#prayers" title="Permanent link">&para;</a></h2>
+<p>Prayer times (שחרית / מנחה / ערבית) live in the <strong>MongoDB</strong> schedule settings,
+while the cut reads its data from <strong>PostgreSQL</strong>. The server is the only layer
+that can bridge the two engines: <code>prayerWindowsFromSettings</code> in
+<code>api-server/gantt/cut.ts</code> reads them and hands the pure planner plain <code>"HH:mm"</code>
+strings.</p>
+<p>They are <strong>soft</strong> windows, unlike meals:</p>
+<ul>
+<li>Breaks prefer positions that cover a prayer — a boundary whose break would
+  land on one is promoted above the normal priority order, because prayer
+  alignment costs nothing when it is achievable.</li>
+<li>A break counts as covering a prayer at <code>coverageThresholdMinutes</code> (10) of
+  overlap.</li>
+<li>Lectures prefer not to sit on a prayer, but a prayer never forces spillover
+  and never extends a day (<code>mayExtendDay: false</code>).</li>
+<li>A missing or malformed prayer setting contributes no window. Prayers must
+  never fail a cut.</li>
+</ul>
+<h2 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h2>
+<p><code>GanttConstraint</code>s come in two shapes — relational (<code>after</code>/<code>before</code>, with
+optional <code>minDelayDays</code>/<code>maxDelayDays</code>) and temporal (allowed/forbidden
+weekdays) — and may be owned by an event or by a whole module (which fans out
+to all of its events).</p>
+<p>The solver (<code>CONSTRAINT_RULES</code>):</p>
+<ul>
+<li><strong>reorders within a day</strong> silently — nothing moves between days, so there is
+  nothing to ask about;</li>
+<li><strong>proposes cross-day moves</strong> within the same week, and never applies them
+  silently. They surface as a <code>constraint-moves</code> decision the dialog asks the
+  user to accept or reject, because the user mapped those days deliberately;</li>
+<li><strong>discards any proposal that would break capacity</strong> before showing it —
+  <code>capacityOutranksConstraints</code> means the cut may not place anything outside
+  working hours to satisfy a constraint;</li>
+<li><strong>reports rather than blocks</strong>: a constraint no legal placement satisfies
+  becomes a <code>constraint-violation</code> decision. The cut still proceeds.</li>
+</ul>
+<p>Cross-week moves are deliberately out of scope. A constraint that could only be
+satisfied by moving between weeks is reported as a violation.</p>
+<p><code>maxSolverPasses</code> (8) bounds the loop so a cyclic constraint graph terminates.</p>
+<h2 id="plan-then-confirm">Plan-then-confirm<a class="headerlink" href="#plan-then-confirm" title="Permanent link">&para;</a></h2>
+<p>The cut is a two-phase flow so the dialog can ask small questions one at a time
+instead of presenting a switchboard.</p>
+<ol>
+<li><code>POST /api/gantt/curriculums/{id}/cut/plan</code> — runs the whole pipeline,
+   <strong>writes nothing</strong>, and returns <code>report.decisions</code>.</li>
+<li>The dialog walks the decisions one per screen, collecting answers.</li>
+<li><code>POST /api/gantt/curriculums/{id}/cut</code> — commits, carrying
+   <code>acceptedConstraintMoves</code> and <code>weekOverflowResolutions</code>.</li>
+</ol>
+<p>When the plan raises no questions the dialog commits immediately, so the common
+case is still a single click.</p>
+<h2 id="preview">Preview<a class="headerlink" href="#preview" title="Permanent link">&para;</a></h2>
+<p>The Cut Preview tab runs the same pipeline as the real cut and highlights the
+diff:</p>
+<ul>
+<li>relocated occurrences are outlined with a dashed warning-coloured border;</li>
+<li>generated breaks render as neutral filler rather than as lessons;</li>
+<li>the toolbar summarises how many events were rebalanced and how many breaks
+  were added.</li>
+</ul>
+<h2 id="where-things-live">Where things live<a class="headerlink" href="#where-things-live" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>File</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Every tunable and the priority ladder</td>
+<td><code>ui/src/api-shared/gantt/cut-rules.ts</code></td>
+</tr>
+<tr>
+<td>Expansion, timing, materialization</td>
+<td><code>ui/src/api-shared/gantt/cut-planner.ts</code></td>
+</tr>
+<tr>
+<td>Spillover balancer</td>
+<td><code>ui/src/api-shared/gantt/cut-balancer.ts</code></td>
+</tr>
+<tr>
+<td>Break post-pass</td>
+<td><code>ui/src/api-shared/gantt/cut-breaks.ts</code></td>
+</tr>
+<tr>
+<td>Constraint solver</td>
+<td><code>ui/src/api-shared/gantt/cut-constraints.ts</code></td>
+</tr>
+<tr>
+<td>Server orchestration, Mongo/Postgres bridge</td>
+<td><code>ui/src/api-server/gantt/cut.ts</code></td>
+</tr>
+<tr>
+<td>Plan endpoint</td>
+<td><code>ui/src/app/api/gantt/curriculums/[id]/cut/plan/route.ts</code></td>
+</tr>
+<tr>
+<td>Dialog and decision steps</td>
+<td><code>ui/src/components/gantt/cut-dialog/</code></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 System B90
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -8,7 +8,7 @@
 
 > **apiCreateDraft**(`label`, `events`, `iterationId?`): `Promise`\<[`CalendarDraftSummary`](../../../api-shared/types/type-aliases/CalendarDraftSummary.md)\>
 
-Defined in: [ui/src/api-client/calendar-drafts.ts:25](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-client/calendar-drafts.ts#L25)
+Defined in: [ui/src/api-client/calendar-drafts.ts:25](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-client/calendar-drafts.ts#L25)
 
 Creates a new shared draft capturing the supplied events.
 

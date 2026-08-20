@@ -8,7 +8,7 @@
 
 > **UpdateConstraint** = (`id`, `payload`) => `Promise`\<`void`\>
 
-Defined in: [ui/src/components/gantt/state/constraints/context.ts:28](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/state/constraints/context.ts#L28)
+Defined in: [ui/src/components/gantt/state/constraints/context.ts:28](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/state/constraints/context.ts#L28)
 
 Type signature for the function that updates an existing constraint.
 
@@ -22,7 +22,7 @@ The unique constraint identifier.
 
 ### payload
 
-`Partial`\<[`CreateConstraintPayload`](../../../../../../api-client/gantt/constraints/type-aliases/CreateConstraintPayload.md)\>
+`Partial`\<[`CreateConstraintPayload`](../../../../../../api-shared/types/gantt/create-payloads/type-aliases/CreateConstraintPayload.md)\>
 
 The fields to update.
 

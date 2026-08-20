@@ -6,13 +6,15 @@
 
 # Function: isRecurrenceSatisfied()
 
-> **isRecurrenceSatisfied**(`recurrence`, `startWeekIdx`): `boolean`
+> **isRecurrenceSatisfied**(`recurrence`, `startWeekIdx`, `firstRequiredWeekIdx?`): `boolean`
 
-Defined in: [ui/src/api-shared/gantt/recurrence.ts:83](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/recurrence.ts#L83)
+Defined in: [ui/src/api-shared/gantt/recurrence.ts:128](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/recurrence.ts#L128)
 
 Whether a recurring event's obligation is met: an occurrence exists in every
-week of the timeline. Since occurrences echo forward from the start week, this
-holds exactly when the event starts in the first week (`startWeekIdx === 0`).
+week the recurrence is supposed to cover. Since occurrences echo forward from
+the start week, this holds exactly when the event starts on or before the
+first required week — week 0 by default, or the week holding the configured
+recurrence start date when one is set (#468).
 Unmapped events (`startWeekIdx < 0`) are never satisfied. Non-recurring events
 carry no obligation and are always considered satisfied.
 
@@ -25,6 +27,10 @@ carry no obligation and are always considered satisfied.
 ### startWeekIdx
 
 `number`
+
+### firstRequiredWeekIdx?
+
+`number` = `0`
 
 ## Returns
 

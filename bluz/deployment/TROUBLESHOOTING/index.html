@@ -447,6 +447,60 @@
   
   
     <li class="md-nav__item">
+      <a href="../../gantt-cut-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../e2e-cloud-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/" class="md-nav__link">
         
   
@@ -649,7 +703,7 @@ whose paths are relative to a <code>deploy/</code> subdirectory that the bundle 
 have.</p>
 <p><strong>Fix:</strong> upgrade to a bundle that ships <code>docker-compose.yml</code> with root-relative
 paths. To verify yours is correct:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>grep<span class="w"> </span>-nE<span class="w"> </span><span class="s1">&#39;(\.\./|build:)&#39;</span><span class="w"> </span>docker-compose.yml<span class="w">   </span><span class="c1"># should print nothing</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>grep<span class="w"> </span>-nE<span class="w"> </span><span class="s1">'(\.\./|build:)'</span><span class="w"> </span>docker-compose.yml<span class="w">   </span><span class="c1"># should print nothing</span>
 </code></pre></div>
 <p>If you must stay on the old bundle: create a <code>deploy/</code> directory, move
 <code>docker-compose.yml</code> into it, copy <code>.env</code> into <em>both</em> that directory and the
@@ -684,7 +738,7 @@ resolving to empty strings — so images fall back to <code>latest</code> (a tag
 publishes) and Postgres initialises with no credentials.</p>
 <p><strong>Fix:</strong> keep <code>.env</code> next to <code>docker-compose.yml</code>. Confirm what Compose actually
 resolved:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>config<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;image:|POSTGRES_USER&#39;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>config<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">'image:|POSTGRES_USER'</span>
 </code></pre></div>
 <p>Current bundles fail loudly instead — <code>${BLUZ_VERSION:?...}</code> aborts with the
 variable name rather than substituting a blank.</p>
@@ -693,7 +747,7 @@ variable name rather than substituting a blank.</p>
 <p>Two different problems produce this one message.</p>
 <p><strong>1. The bind IP is not usable.</strong> On Windows, <code>127.0.0.2</code> and above are not
 bindable until added to the loopback interface. As Administrator, once:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">netsh</span> <span class="n">interface</span> <span class="n">ipv4</span> <span class="n">add</span> <span class="n">address</span> <span class="s2">&quot;Loopback Pseudo-Interface 1&quot;</span> <span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">3</span> <span class="n">255</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">netsh</span> <span class="n">interface</span> <span class="n">ipv4</span> <span class="n">add</span> <span class="n">address</span> <span class="s2">"Loopback Pseudo-Interface 1"</span> <span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">3</span> <span class="n">255</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span>
 </code></pre></div>
 <p><strong>2. Another service holds the port on <code>0.0.0.0</code>.</strong> This is the one that
 surprises people. Docker Desktop on Windows reserves a published port <strong>by port
@@ -707,13 +761,13 @@ even though the addresses differ.</p>
 </code></pre></div>
 <p><strong>Fix — distinct IPs.</strong> Works, but <em>both</em> stacks must bind specifically. Leaving
 either on <code>0.0.0.0</code> re-creates the conflict:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Hive&#39;s compose             # Bluz&#39;s .env</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Hive's compose             # Bluz's .env</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">ports</span><span class="p">:</span><span class="w">                       </span><span class="l l-Scalar l-Scalar-Plain">BLUZ_BIND_IP=127.0.0.3</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">- &quot;127.0.0.1:80:80&quot;</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">- &quot;127.0.0.1:443:443&quot;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">- "127.0.0.1:80:80"</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">- "127.0.0.1:443:443"</span>
 </code></pre></div>
 <p>Find what currently holds the port:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ss<span class="w"> </span>-ltnp<span class="w"> </span><span class="s2">&quot;sport = :80&quot;</span><span class="w">                          </span><span class="c1"># Linux</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ss<span class="w"> </span>-ltnp<span class="w"> </span><span class="s2">"sport = :80"</span><span class="w">                          </span><span class="c1"># Linux</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Get-NetTCPConnection<span class="w"> </span>-State<span class="w"> </span>Listen<span class="w"> </span>-LocalPort<span class="w"> </span><span class="m">80</span><span class="w">  </span><span class="c1"># Windows</span>
 </code></pre></div>
 <hr />
@@ -727,8 +781,8 @@ Hive proves nothing about what <code>ui</code> can reach.</p>
 — and inside <code>ui</code>'s network namespace, <code>127.0.0.1</code> is <code>ui</code> itself. It tries to
 talk OAuth to itself.</p>
 <p><strong>Diagnose:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>bluz-ui<span class="w"> </span>node<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;require(&#39;dns&#39;).lookup(&#39;hive.org&#39;,console.log)&quot;</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>bluz-ui<span class="w"> </span>node<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;fetch(&#39;https://hive.org/api/core/version/&#39;).then(r=&gt;console.log(r.status)).catch(console.error)&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>bluz-ui<span class="w"> </span>node<span class="w"> </span>-e<span class="w"> </span><span class="s2">"require('dns').lookup('hive.org',console.log)"</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>bluz-ui<span class="w"> </span>node<span class="w"> </span>-e<span class="w"> </span><span class="s2">"fetch('https://hive.org/api/core/version/').then(r=&gt;console.log(r.status)).catch(console.error)"</span>
 </code></pre></div>
 <p><strong>Fix — Hive on another machine:</strong> set <code>NEXT_PUBLIC_HIVE_URL</code> to a hostname that
 resolves from inside containers (a real DNS name, not a hosts-file entry).</p>

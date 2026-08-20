@@ -447,6 +447,60 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../gantt-cut-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../e2e-cloud-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../" class="md-nav__link">
         
   
@@ -555,6 +609,56 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#generatedbreak" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        generatedBreak?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="generatedBreak?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coversprayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        coversPrayer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        kind
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#title" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        title
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#isrecurrenceecho" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -570,6 +674,17 @@
     <span class="md-ellipsis">
       
         occurrenceDate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spilledfromdayid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        spilledFromDayId?
       
     </span>
   </a>
@@ -619,39 +734,70 @@
 <blockquote>
 <p><strong>PlannedOccurrence</strong> = <code>object</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L81">ui/src/api-shared/gantt/cut-planner.ts:81</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L160">ui/src/api-shared/gantt/cut-planner.ts:160</a></p>
 <h2 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h2>
 <h3 id="endtime">endTime<a class="headerlink" href="#endtime" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>endTime</strong>: <code>Date</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L86">ui/src/api-shared/gantt/cut-planner.ts:86</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L165">ui/src/api-shared/gantt/cut-planner.ts:165</a></p>
 <hr />
 <h3 id="gantteventid">ganttEventId<a class="headerlink" href="#gantteventid" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>ganttEventId</strong>: <code>string</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L82">ui/src/api-shared/gantt/cut-planner.ts:82</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L161">ui/src/api-shared/gantt/cut-planner.ts:161</a></p>
+<hr />
+<h3 id="generatedbreak">generatedBreak?<a class="headerlink" href="#generatedbreak" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><code>optional</code> <strong>generatedBreak?</strong>: <code>object</code></p>
+</blockquote>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L179">ui/src/api-shared/gantt/cut-planner.ts:179</a></p>
+<p>Set on occurrences the break post-pass generated rather than the gantt.
+These are real הפסקה events in the schedule, tagged so a pull-back
+archives them alongside everything else the cut created.</p>
+<h4 id="coversprayer">coversPrayer<a class="headerlink" href="#coversprayer" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>coversPrayer</strong>: <code>null</code> | <code>string</code></p>
+</blockquote>
+<p>Prayer this break was positioned to cover, when any.</p>
+<h4 id="kind">kind<a class="headerlink" href="#kind" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>kind</strong>: <code>string</code></p>
+</blockquote>
+<h4 id="title">title<a class="headerlink" href="#title" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>title</strong>: <code>string</code></p>
+</blockquote>
 <hr />
 <h3 id="isrecurrenceecho">isRecurrenceEcho<a class="headerlink" href="#isrecurrenceecho" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>isRecurrenceEcho</strong>: <code>boolean</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L88">ui/src/api-shared/gantt/cut-planner.ts:88</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L167">ui/src/api-shared/gantt/cut-planner.ts:167</a></p>
 <p>True when this is a recurrence echo rather than the mapped start day.</p>
 <hr />
 <h3 id="occurrencedate">occurrenceDate<a class="headerlink" href="#occurrencedate" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>occurrenceDate</strong>: <code>string</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L84">ui/src/api-shared/gantt/cut-planner.ts:84</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L163">ui/src/api-shared/gantt/cut-planner.ts:163</a></p>
 <p>ISO date (yyyy-MM-dd) of the occurrence — also the recurrence disambiguator.</p>
+<hr />
+<h3 id="spilledfromdayid">spilledFromDayId?<a class="headerlink" href="#spilledfromdayid" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><code>optional</code> <strong>spilledFromDayId?</strong>: <code>string</code></p>
+</blockquote>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L173">ui/src/api-shared/gantt/cut-planner.ts:173</a></p>
+<p>Set when the balancer relocated this occurrence off the day it was mapped
+to — the id of that original day. Drives the preview's moved/unmoved
+highlight.</p>
 <hr />
 <h3 id="starttime">startTime<a class="headerlink" href="#starttime" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>startTime</strong>: <code>Date</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/gantt/cut-planner.ts#L85">ui/src/api-shared/gantt/cut-planner.ts:85</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/gantt/cut-planner.ts#L164">ui/src/api-shared/gantt/cut-planner.ts:164</a></p>
 
 
 

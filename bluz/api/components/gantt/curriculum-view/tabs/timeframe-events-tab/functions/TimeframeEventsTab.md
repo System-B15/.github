@@ -8,7 +8,7 @@
 
 > **TimeframeEventsTab**(`__namedParameters`): `string` \| `number` \| `bigint` \| `true` \| `Iterable`\<`ReactNode`, `any`, `any`\> \| `Promise`\<`AwaitedReactNode`\> \| `Element`
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/timeframe-events-tab/index.tsx:100](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/gantt/curriculum-view/tabs/timeframe-events-tab/index.tsx#L100)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/timeframe-events-tab/index.tsx:100](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/gantt/curriculum-view/tabs/timeframe-events-tab/index.tsx#L100)
 
 All planned occurrences within a chosen timeframe (default: one week from
 the curriculum start), grouped by day — a flat agenda over the same cut

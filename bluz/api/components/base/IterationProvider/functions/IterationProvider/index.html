@@ -447,6 +447,60 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../gantt-cut-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gantt Cut Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../e2e-cloud-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Cloud Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../" class="md-nav__link">
         
   
@@ -603,13 +657,15 @@
 <blockquote>
 <p><strong>IterationProvider</strong>(<code>__namedParameters</code>): <code>Element</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/base/IterationProvider.tsx#L42">ui/src/components/base/IterationProvider.tsx:42</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/base/IterationProvider.tsx#L52">ui/src/components/base/IterationProvider.tsx:52</a></p>
 <p>Owns the iteration the whole app is scoped to. This state used to live in
 <code>CalendarProvider</code>, but everything backed by the iteration's database —
 settings included — has to read it, and those providers mount above the
 calendar. It therefore sits at the top of the post-auth tree instead.</p>
-<p>Mirrored to a <code>?iteration=</code> URL param so a refresh or a shared link keeps
-the selected iteration instead of silently falling back to "current" (#456).</p>
+<p>Mirrored to a <code>?it=</code> URL param (<code>ITERATION_QUERY_PARAM</code>) so a refresh or a
+shared link keeps the selected iteration instead of silently falling back
+to "current" (#456). Backfilled with the current iteration's id once known
+if the param is missing, so the param is always present.</p>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
 <h3 id="__namedparameters">__namedParameters<a class="headerlink" href="#__namedparameters" title="Permanent link">&para;</a></h3>
 <h4 id="children">children<a class="headerlink" href="#children" title="Permanent link">&para;</a></h4>

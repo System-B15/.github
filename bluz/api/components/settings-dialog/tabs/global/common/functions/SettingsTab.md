@@ -8,7 +8,7 @@
 
 > **SettingsTab**\<`TEntity`, `FormCardProps`, `ListCardProps`\>(`__namedParameters`): `Element`
 
-Defined in: [ui/src/components/settings-dialog/tabs/global/common/index.tsx:47](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/components/settings-dialog/tabs/global/common/index.tsx#L47)
+Defined in: [ui/src/components/settings-dialog/tabs/global/common/index.tsx:47](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/components/settings-dialog/tabs/global/common/index.tsx#L47)
 
 ## Type Parameters
 

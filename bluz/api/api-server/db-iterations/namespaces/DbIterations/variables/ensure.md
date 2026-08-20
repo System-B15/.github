@@ -8,11 +8,17 @@
 
 > `const` **ensure**: () => `Promise`\<`void`\> = `ensureSeeded`
 
-Defined in: [ui/src/api-server/db-iterations.ts:294](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-server/db-iterations.ts#L294)
+Defined in: [ui/src/api-server/db-iterations.ts:347](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-server/db-iterations.ts#L347)
 
-One-off migration: make sure the `bluz_meta.iterations` registry exists and
-holds the existing `bluz` database as the first, current iteration. No
-documents are moved — the existing data stays exactly where it is.
+One-off migration for installs that predate the registry: the existing `bluz`
+database is registered as the first, current iteration so its data stays
+reachable. No documents are moved.
+
+A *fresh* install is deliberately left with an empty registry (#471) — an
+auto-created "current" iteration has no real name or id, and its literal id
+collided with the `/api/iterations/current` route segment (#472). The UI
+prompts for a real iteration instead.
+
 Uses upsert to avoid a TOCTOU race on concurrent cold starts.
 
 ## Returns

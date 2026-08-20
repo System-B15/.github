@@ -15,6 +15,7 @@
 
 - [ApiCurriculumCutError](type-aliases/ApiCurriculumCutError.md)
 - [ApiCurriculumCutPayload](type-aliases/ApiCurriculumCutPayload.md)
+- [ApiCurriculumCutPlanResponse](type-aliases/ApiCurriculumCutPlanResponse.md)
 - [ApiCurriculumCutPreviewResponse](type-aliases/ApiCurriculumCutPreviewResponse.md)
 - [ApiCurriculumCutResponse](type-aliases/ApiCurriculumCutResponse.md)
 - [ApiCurriculumCutStatus](type-aliases/ApiCurriculumCutStatus.md)

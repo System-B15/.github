@@ -8,7 +8,7 @@
 
 > **enqueueSnackbarWithSubtext**(`enqueueSnackbar`, `mainText`, `subText`, `options?`): `void`
 
-Defined in: [ui/src/api-client/common.tsx:73](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-client/common.tsx#L73)
+Defined in: [ui/src/api-client/common.tsx:73](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-client/common.tsx#L73)
 
 ## Parameters
 

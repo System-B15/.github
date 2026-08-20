@@ -6,6 +6,6 @@
 
 # Type Alias: ApiCurriculumDay
 
-> **ApiCurriculumDay** = `object` & `Omit`\<[`GanttDay`](../../models/day/type-aliases/GanttDay.md) & [`RawBaseDocument`](../../../../../api-client/gantt/base/type-aliases/RawBaseDocument.md), `"title"`\>
+> **ApiCurriculumDay** = `object` & `Omit`\<[`GanttDay`](../../models/day/type-aliases/GanttDay.md) & [`RawBaseDocument`](RawBaseDocument.md), `"title"`\>
 
-Defined in: [ui/src/api-shared/types/gantt/api-layer.ts:45](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/types/gantt/api-layer.ts#L45)
+Defined in: [ui/src/api-shared/types/gantt/api-layer.ts:83](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/types/gantt/api-layer.ts#L83)

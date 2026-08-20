@@ -8,7 +8,7 @@
 
 > **ApiResponseJson**\<`T`\> = `object`
 
-Defined in: [ui/src/api-shared/common.tsx:1](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/common.tsx#L1)
+Defined in: [ui/src/api-shared/common.ts:1](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/common.ts#L1)
 
 ## Type Parameters
 
@@ -22,7 +22,7 @@ Defined in: [ui/src/api-shared/common.tsx:1](https://github.com/System-B90/Bluz/
 
 > `optional` **data?**: `T`
 
-Defined in: [ui/src/api-shared/common.tsx:3](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/common.tsx#L3)
+Defined in: [ui/src/api-shared/common.ts:3](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/common.ts#L3)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [ui/src/api-shared/common.tsx:3](https://github.com/System-B90/Bluz/
 
 > `optional` **error?**: `unknown`
 
-Defined in: [ui/src/api-shared/common.tsx:4](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/common.tsx#L4)
+Defined in: [ui/src/api-shared/common.ts:4](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/common.ts#L4)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [ui/src/api-shared/common.tsx:4](https://github.com/System-B90/Bluz/
 
 > **status**: `number`
 
-Defined in: [ui/src/api-shared/common.tsx:2](https://github.com/System-B90/Bluz/blob/f301f10c1bb9834bcd5366030d83d6d723a957b6/ui/src/api-shared/common.tsx#L2)
+Defined in: [ui/src/api-shared/common.ts:2](https://github.com/System-B90/Bluz/blob/9ff254f3ea99198e34f175d27168c811b549666b/ui/src/api-shared/common.ts#L2)

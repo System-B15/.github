@@ -15,7 +15,7 @@ web UI. This skill is self-sufficient — do not read `cli/bluz_cli/*` or
 ```bash
 # No Bluz checkout? Install from the org's public pip index (the plugin's
 # SessionStart hook already does this for you):
-pip install bluz-cli --index-url https://raw.githubusercontent.com/System-B90/.github/main/pypi/
+pip install bluz-cli --index-url https://system-b90.github.io/.github/pypi/
 
 # From a Bluz checkout instead:
 pip install ./cli          # once, from repo root

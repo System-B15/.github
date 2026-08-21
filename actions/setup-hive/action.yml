@@ -181,7 +181,14 @@ runs:
         # it cannot be relied on alone: it is baked into one image, and a
         # daemon can also die mid-run. Waiting here makes the guard correct
         # regardless of which runner variant picked the job up.
-        for attempt in $(seq 1 60); do
+        #
+        # 300s, matching that hook's own budget. 120s was not enough: on
+        # 2026-08-21 a hive-core run waited the full two minutes on
+        # mks-dind-ic4g7TwskSpzB and still failed, on a box where the same
+        # daemon starts in 2.4s when idle. The same job spent 5m26s in
+        # "Set up runner". Under I/O contention this host is simply slow, and
+        # waiting costs nothing next to losing an hour-long suite.
+        for attempt in $(seq 1 150); do
           if docker info >/dev/null 2>&1; then
             if [ "$attempt" -gt 1 ]; then
               echo "Docker daemon came up after $(( attempt * 2 ))s."
@@ -196,7 +203,7 @@ runs:
         echo "Disk on the runner (for triage — a full disk can stop dockerd starting):"
         df -h / || true
 
-        echo "::error::No reachable Docker daemon on this runner (${RUNNER_NAME:-unknown}) after waiting 120s. Every later step in this job needs one, so it would otherwise fail with an opaque 'exit code 1' from an arbitrary docker command. This is a runner-host fault, not a fault in the calling repo — the dind sidecar did not come up. See System-B90/.github#12."
+        echo "::error::No reachable Docker daemon on this runner (${RUNNER_NAME:-unknown}) after waiting 300s. Every later step in this job needs one, so it would otherwise fail with an opaque 'exit code 1' from an arbitrary docker command. This is a runner-host fault, not a fault in the calling repo — the dind sidecar did not come up. See System-B90/.github#12."
         exit 1
 
     - name: Reclaim stale containers from previous runs (self-hosted)

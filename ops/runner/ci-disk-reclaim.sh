@@ -19,7 +19,7 @@
 
 set -uo pipefail
 
-FLOOR_GB="${FLOOR_GB:-60}"          # reclaim when free space drops below this
+FLOOR_GB="${FLOOR_GB:-30}"          # reclaim when free space drops below this
 IMAGE_MIN_AGE="${IMAGE_MIN_AGE:-6h}" # never touch images newer than this
 BUILDER_RESERVE="${BUILDER_RESERVE:-10GB}"
 JOURNAL_KEEP="${JOURNAL_KEEP:-200M}"

@@ -27,7 +27,7 @@ containerd snapshots, 8.8 GB of content blobs, and **36.8 GB of buildkit cache**
 | | |
 | --- | --- |
 | Runs | hourly (`OnUnitActiveSec=1h`, 5 min jitter, `Persistent=true`) |
-| Floor | 60 GB free — well above Hive's 10 GB minimum, because one e2e run pulls tens of GB and reclaiming at 10 GB is already too late |
+| Floor | 30 GB free — well above Hive's 10 GB minimum, because one e2e run pulls tens of GB and reclaiming at 10 GB is already too late. Not higher: with an e2e in flight the box settles around 46–52 GB free, and a 60 GB floor alerted hourly about a healthy machine |
 | Reclaims | build cache (keeping a 10 GB reserve), images older than 6 h, journals over 200 MB |
 | Never touches | volumes, containers, `/home` |
 
@@ -59,7 +59,7 @@ sudo systemctl start ci-disk-reclaim.service   # run once, now
 Override the floor without editing the script:
 
 ```bash
-sudo systemctl edit ci-disk-reclaim.service    # [Service] Environment=FLOOR_GB=80
+sudo systemctl edit ci-disk-reclaim.service    # [Service] Environment=FLOOR_GB=40
 ```
 
 ## Known, not addressed

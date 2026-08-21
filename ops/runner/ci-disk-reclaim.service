@@ -1,0 +1,14 @@
+[Unit]
+Description=Reclaim regenerable Docker state when the CI host runs low on disk
+Documentation=https://github.com/System-B90/.github/issues/19
+After=docker.service
+Wants=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/ci-disk-reclaim.sh
+# The floor is well above Hive's 10GB minimum on purpose: a single e2e run
+# pulls tens of GB, so reclaiming at 10GB would already be too late.
+Environment=FLOOR_GB=60
+Nice=10
+IOSchedulingClass=idle

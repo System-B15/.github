@@ -19,6 +19,7 @@ Guidance for Claude Code / agentic sessions working anywhere in the System-B90 o
 | **hive-core** | Shared TypeScript types and error classes — `@system-b90/hive-core`. |
 | **session-ws** | Shared WebSocket session server — `@system-b90/session-ws`. |
 | **hive-nextauth** | Shared NextAuth.js + Hive SSO helpers — `@system-b90/hive-nextauth`. |
+| **devops-py** | Shared dev-ops helpers behind each repo's `tools.py` — `sb90-devops`, published to the org pip index. Extracted from Bluz/madash copies (Bluz#226). |
 | **.github** | Org-wide CI reusable workflows and composite actions (this repo). |
 
 Local checkouts all live under `C:\Users\mkupe\Code\system-b90\<repo-name>`. Directories suffixed `-wt-*` (e.g. `bluz-wt-shared-pkgs`) are `git worktree` checkouts of the main repo on a different branch, not independent repos.
@@ -51,7 +52,7 @@ Local checkouts all live under `C:\Users\mkupe\Code\system-b90\<repo-name>`. Dir
   `pyhive`'s `publish.yml` copies each tagged release's wheels into `pypi/pyhivelms/` (the PEP 503-normalized project name — **not** `pyhive`, the import name) and regenerates `pypi/generate_index.py`'s output here on every `v*` tag push. For an unreleased ref, `git+https://...` still works (that one does need SSH/HTTPS git creds, since `pyhive` itself is private).
   GitHub Pages is CDN-cached (roughly a few minutes TTL) — a just-published release may not show up in the index immediately.
   **Note:** `raw.githubusercontent.com` does NOT work for this — it maps URLs 1:1 to repo file paths with no directory-index fallback, so pip's request for the bare package directory (`pypi/<pkg>/`) 404s even though `generate_index.py` writes a valid `index.html` there. GitHub Pages serves that `index.html` for directory requests, which is why the index has to be hosted there instead.
-- `bluz-cli` (from the private `bluz` repo) follows the identical pattern: `pip install bluz-cli --index-url https://system-b90.github.io/.github/pypi/`. `bluz`'s `release-pipeline.yml` `publish-cli-index` job copies each tagged release's wheel into `pypi/bluz-cli/` and regenerates the index on every `v*` tag push, using `CLASSIC_ACCESS_TOKEN` (bluz has no `ACCESS_TOKEN` secret — see Secrets available in CI below).
+- `sb90-devops` (from `devops-py`) and `bluz-cli` (from the private `bluz` repo) follow the identical pattern: `pip install bluz-cli --index-url https://system-b90.github.io/.github/pypi/`. `bluz`'s `release-pipeline.yml` `publish-cli-index` job copies each tagged release's wheel into `pypi/bluz-cli/` and regenerates the index on every `v*` tag push, using `CLASSIC_ACCESS_TOKEN` (bluz has no `ACCESS_TOKEN` secret — see Secrets available in CI below).
 - App repos (`bluz`, `madash`, `peek-a-boo`) are unscoped, private, and don't publish — no `@system-b90/` prefix on their own `package.json` name.
 
 ## Claude Code plugins hosted here
@@ -106,9 +107,21 @@ layout, then add an entry to the root `.claude-plugin/marketplace.json` with
 
 ## Runners
 
-**The org is out of GitHub-hosted Actions minutes. All workflows run on the
-self-hosted runner (`runs-on: self-hosted`).** New workflows must target it
-too — do not add `ubuntu-latest`/`ubuntu-24.04` jobs.
+**Long-running work belongs on the self-hosted runner
+(`runs-on: self-hosted`).** GitHub-hosted minutes are scarce, so anything that
+boots a Hive stack, builds images, or runs an E2E suite must target
+self-hosted.
+
+**Small, infrequent jobs may use GitHub-hosted runners.** A lint-and-unit-test
+job that finishes in under a minute and only fires on pull requests to one
+package is not what the minutes budget is about, and hosted runners buy things
+the pool cannot give you — most concretely `windows-latest`, since the pool is
+Linux-only. `devops-py`'s CI is the worked example: every helper in it branches
+on `sys.platform` and the win32 branches are the ones that actually break, so a
+real Windows leg is worth more than the ~45s of hosted time it costs.
+
+Judge by cost and frequency, not by rule. If a job is minutes long, runs on
+every push, or fans out into a matrix of heavy legs, it goes self-hosted.
 
 The runner is **not** a single serialized agent. It's an autoscaled pool of
 ephemeral docker-in-docker runners (`mks-srvu-dind-<random>`, one per job, each
@@ -169,7 +182,7 @@ Secret names are **not** uniform across repos — verify with `gh secret list` i
 
 - `SYSTEM_B90_READ` — the only PAT confirmed present in every repo (as of 2026-07-19). Read-scoped; not sufficient for pushes to other repos.
 - `ACCESS_TOKEN` — PAT with repo + packages scope, used for cross-repo operations (e.g. pyhive's `publish.yml` pushing into `.github`). Present in `madash`, `peek-a-boo`, `pyhive`; **absent** from `bluz`, `hive-core`, `session-ws`, `hive-nextauth`.
-- `CLASSIC_ACCESS_TOKEN` — used as an `ACCESS_TOKEN` fallback in some workflows (e.g. `bluz`, pyhive's `publish-hive-images.yml`); present in `bluz` where `ACCESS_TOKEN` is not.
+- `CLASSIC_ACCESS_TOKEN` — used as an `ACCESS_TOKEN` fallback in some workflows (e.g. `bluz`, pyhive's `publish-hive-images.yml`); present in `bluz` and `devops-py`, where `ACCESS_TOKEN` is not. Both use it to push built wheels into this repo's `pypi/` index.
 - `HIVE_REPO_TOKEN` — scoped for checking out/pushing to Hive-related repos; present in `bluz`, `pyhive`.
 - `GITHUB_TOKEN` — standard Actions token, auto-provided, limited to the current repo.
 - `CI_LOCK_TOKEN` — **does not exist yet.** Needed by `actions/ci-lock` to serialise

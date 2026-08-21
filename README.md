@@ -12,7 +12,8 @@ In a consumer repo's E2E workflow:
 ```yaml
 jobs:
   e2e:
-    # The org is out of GitHub-hosted minutes — every job runs self-hosted.
+    # E2E boots a real Hive stack — long-running work goes self-hosted.
+    # (Small, infrequent jobs may use hosted runners; see CLAUDE.md.)
     runs-on: self-hosted
     # Not for queueing (jobs run in parallel), but so a wedged job cannot hold
     # a slice of the shared box indefinitely.

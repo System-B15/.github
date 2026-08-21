@@ -1,0 +1,14 @@
+[Unit]
+Description=Hourly disk-reclaim check for the CI host
+Documentation=https://github.com/System-B90/.github/issues/19
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=1h
+# Jobs on this box run for the best part of an hour; a jittered start keeps the
+# check from landing at the same point of every run.
+RandomizedDelaySec=5min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

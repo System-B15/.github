@@ -170,15 +170,33 @@ runs:
     - name: Verify Docker daemon is reachable
       shell: bash
       run: |
-        if docker info >/dev/null 2>&1; then
-          echo "Docker daemon is up."
-          exit 0
-        fi
+        # Wait, do not just probe once. The dind runners are ephemeral: the
+        # runner process registers and accepts a job as soon as it is
+        # listening, while `service docker start` is still finishing in the
+        # background. A single `docker info` a second into the job therefore
+        # fails on a daemon that would have been ready shortly after — which
+        # is a spurious red on master, not a host fault.
+        #
+        # The runner image's job-started hook already waits for dockerd, but
+        # it cannot be relied on alone: it is baked into one image, and a
+        # daemon can also die mid-run. Waiting here makes the guard correct
+        # regardless of which runner variant picked the job up.
+        for attempt in $(seq 1 60); do
+          if docker info >/dev/null 2>&1; then
+            if [ "$attempt" -gt 1 ]; then
+              echo "Docker daemon came up after $(( attempt * 2 ))s."
+            else
+              echo "Docker daemon is up."
+            fi
+            exit 0
+          fi
+          sleep 2
+        done
 
         echo "Disk on the runner (for triage — a full disk can stop dockerd starting):"
         df -h / || true
 
-        echo "::error::No reachable Docker daemon on this runner (${RUNNER_NAME:-unknown}). Every later step in this job needs one, so it would otherwise fail with an opaque 'exit code 1' from an arbitrary docker command. This is a runner-host fault, not a fault in the calling repo — the dind sidecar did not come up. See System-B90/.github#12."
+        echo "::error::No reachable Docker daemon on this runner (${RUNNER_NAME:-unknown}) after waiting 120s. Every later step in this job needs one, so it would otherwise fail with an opaque 'exit code 1' from an arbitrary docker command. This is a runner-host fault, not a fault in the calling repo — the dind sidecar did not come up. See System-B90/.github#12."
         exit 1
 
     - name: Reclaim stale containers from previous runs (self-hosted)

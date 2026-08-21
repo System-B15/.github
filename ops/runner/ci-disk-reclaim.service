@@ -7,8 +7,14 @@ Wants=docker.service
 [Service]
 Type=oneshot
 ExecStart=/usr/local/sbin/ci-disk-reclaim.sh
-# The floor is well above Hive's 10GB minimum on purpose: a single e2e run
-# pulls tens of GB, so reclaiming at 10GB would already be too late.
-Environment=FLOOR_GB=60
+# Hive's own preflight needs 10GB. The floor sits well above that because a
+# single e2e run pulls tens of GB, so reclaiming at 10GB is already too late.
+#
+# 30, not 60: with an e2e in flight this box settles around 46-52GB free, so a
+# 60GB floor fired every hour, reclaimed what little it could, and then logged
+# "needs a human" about a machine that was fine. An alert that cries wolf
+# hourly is worse than no alert, because it trains you to ignore the one that
+# matters.
+Environment=FLOOR_GB=30
 Nice=10
 IOSchedulingClass=idle

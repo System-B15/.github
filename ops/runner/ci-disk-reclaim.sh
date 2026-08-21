@@ -54,6 +54,26 @@ if timeout 300 journalctl --vacuum-size="$JOURNAL_KEEP" >/dev/null 2>&1; then
     log "vacuumed journals to ${JOURNAL_KEEP}"
 fi
 
+# The dind runners keep their OWN dockerd, whose data root is a bind mount on
+# this same filesystem (/mnt/sda1/actions-runners/data/dind/var-lib-docker --
+# note /mnt is not a mount point here, it is a plain directory on /). Pruning
+# the host daemon never touches it, so images pulled by every e2e run
+# accumulate there indefinitely. Same age filter, for the same reason: a job
+# in flight has just pulled the Hive images it is using.
+for runner in $(docker ps --filter name=runner --format '{{.Names}}' 2>/dev/null); do
+    if ! timeout 30 docker exec "$runner" docker info >/dev/null 2>&1; then
+        continue  # no inner daemon (the light runner has none)
+    fi
+    # Output is captured rather than discarded: a bare "it failed" in the
+    # journal is not actionable, and the runner is ephemeral, so by the time
+    # anyone looks the container that failed is long gone.
+    if out=$(timeout 600 docker exec "$runner"  docker image prune -af --filter "until=${IMAGE_MIN_AGE}" 2>&1); then
+        log "pruned images inside ${runner}: $(printf '%s' "$out" | tail -1)"
+    else
+        log "WARN: inner prune failed in ${runner}: $(printf '%s' "$out" | tail -1)"
+    fi
+done
+
 after="$(free_gb)"
 log "done: ${before}GB -> ${after}GB free"
 

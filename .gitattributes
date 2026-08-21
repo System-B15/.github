@@ -1,0 +1,7 @@
+
+# Shell scripts and systemd units are deployed to a Linux host verbatim.
+# A CRLF checkout on Windows makes them unrunnable there ("$: command not
+# found", "syntax error near unexpected token $do").
+ops/runner/*.sh text eol=lf
+ops/runner/*.service text eol=lf
+ops/runner/*.timer text eol=lf

@@ -8,7 +8,7 @@
 
 > `const` **EVENT\_INITIATOR\_HEADER**: `"x-bluz-event-initiator"` = `"x-bluz-event-initiator"`
 
-Defined in: [ui/src/api-shared/types/event-history.ts:57](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/event-history.ts#L57)
+Defined in: [ui/src/api-shared/types/event-history.ts:57](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-shared/types/event-history.ts#L57)
 
 Header carrying the declared initiator of an event write. The client names
 the action; the server always resolves the actor from the session itself.

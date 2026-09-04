@@ -8,7 +8,7 @@
 
 > **IterationId** = `string`
 
-Defined in: [ui/src/api-shared/types/iteration.ts:10](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/iteration.ts#L10)
+Defined in: [ui/src/api-shared/types/iteration.ts:10](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-shared/types/iteration.ts#L10)
 
 Name: iteration.ts
 Purpose: Shared type for a course iteration (a bi-annual run / "Luz").

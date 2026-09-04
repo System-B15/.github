@@ -8,7 +8,7 @@
 
 > **isLastSegment**(`segment`): `boolean`
 
-Defined in: [ui/src/components/schedule/calendar/split/segments.ts:40](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/schedule/calendar/split/segments.ts#L40)
+Defined in: [ui/src/components/schedule/calendar/split/segments.ts:40](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/components/schedule/calendar/split/segments.ts#L40)
 
 ## Parameters
 

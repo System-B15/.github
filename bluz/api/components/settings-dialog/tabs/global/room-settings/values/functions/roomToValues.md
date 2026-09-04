@@ -8,7 +8,7 @@
 
 > **roomToValues**(`room`): [`RoomValues`](../type-aliases/RoomValues.md)
 
-Defined in: [ui/src/components/settings-dialog/tabs/global/room-settings/values.ts:36](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/settings-dialog/tabs/global/room-settings/values.ts#L36)
+Defined in: [ui/src/components/settings-dialog/tabs/global/room-settings/values.ts:36](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/components/settings-dialog/tabs/global/room-settings/values.ts#L36)
 
 ## Parameters
 

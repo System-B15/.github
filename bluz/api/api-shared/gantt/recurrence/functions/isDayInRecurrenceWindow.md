@@ -8,7 +8,7 @@
 
 > **isDayInRecurrenceWindow**(`dayId`, `__namedParameters`): `boolean`
 
-Defined in: [ui/src/api-shared/gantt/recurrence.ts:49](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/gantt/recurrence.ts#L49)
+Defined in: [ui/src/api-shared/gantt/recurrence.ts:49](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-shared/gantt/recurrence.ts#L49)
 
 Whether a timeline day falls inside an event's configured recurrence window
 (#468). A missing bound is open-ended, and a day whose date cannot be

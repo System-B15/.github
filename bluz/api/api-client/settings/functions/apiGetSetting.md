@@ -8,7 +8,7 @@
 
 > **apiGetSetting**\<`T`\>(`name`, `iterationId?`, `props?`): `Promise`\<`T`\>
 
-Defined in: [ui/src/api-client/settings.ts:14](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-client/settings.ts#L14)
+Defined in: [ui/src/api-client/settings.ts:14](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-client/settings.ts#L14)
 
 Settings live in the iteration's own database, so every read carries the
 active iteration. An absent id means the current (writable) run.

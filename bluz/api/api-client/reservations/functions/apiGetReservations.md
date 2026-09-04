@@ -8,7 +8,7 @@
 
 > **apiGetReservations**(`payload?`, `props?`): `Promise`\<[`Reservation`](../../../api-shared/types/reservation/type-aliases/Reservation.md)[]\>
 
-Defined in: [ui/src/api-client/reservations.ts:16](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-client/reservations.ts#L16)
+Defined in: [ui/src/api-client/reservations.ts:16](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-client/reservations.ts#L16)
 
 ## Parameters
 

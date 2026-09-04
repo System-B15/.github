@@ -8,7 +8,7 @@
 
 > **EventDetailsForm**(`__namedParameters`): `Element`
 
-Defined in: [ui/src/components/gantt/event-dialog/DetailsForm.tsx:27](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/event-dialog/DetailsForm.tsx#L27)
+Defined in: [ui/src/components/gantt/event-dialog/DetailsForm.tsx:27](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/components/gantt/event-dialog/DetailsForm.tsx#L27)
 
 The always-visible core of the event dialog: identity (name / type /
 duration) on the first row, assignment (orchestrator / shuffles / flags)

@@ -8,7 +8,7 @@
 
 > **ApiModuleEvent** = `object` & `Omit`\<[`GanttEvent`](../../models/event/type-aliases/GanttEvent.md) & [`RawBaseDocument`](RawBaseDocument.md), `"allocatedDuration"` \| `"constraints"`\>
 
-Defined in: [ui/src/api-shared/types/gantt/api-layer.ts:59](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/gantt/api-layer.ts#L59)
+Defined in: [ui/src/api-shared/types/gantt/api-layer.ts:59](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-shared/types/gantt/api-layer.ts#L59)
 
 ## Type Declaration
 

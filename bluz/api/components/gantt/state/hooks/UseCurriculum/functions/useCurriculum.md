@@ -10,7 +10,7 @@
 
 > **useCurriculum**(`curriculumId`): `undefined`
 
-Defined in: [ui/src/components/gantt/state/hooks/UseCurriculum.ts:5](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/state/hooks/UseCurriculum.ts#L5)
+Defined in: [ui/src/components/gantt/state/hooks/UseCurriculum.ts:5](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/components/gantt/state/hooks/UseCurriculum.ts#L5)
 
 ### Parameters
 
@@ -26,7 +26,7 @@ Defined in: [ui/src/components/gantt/state/hooks/UseCurriculum.ts:5](https://git
 
 > **useCurriculum**(`curriculumId`): [`GanttCurriculumDocument`](../../../../../../api-client/gantt/curriculum/type-aliases/GanttCurriculumDocument.md) \| `undefined`
 
-Defined in: [ui/src/components/gantt/state/hooks/UseCurriculum.ts:6](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/state/hooks/UseCurriculum.ts#L6)
+Defined in: [ui/src/components/gantt/state/hooks/UseCurriculum.ts:6](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/components/gantt/state/hooks/UseCurriculum.ts#L6)
 
 ### Parameters
 

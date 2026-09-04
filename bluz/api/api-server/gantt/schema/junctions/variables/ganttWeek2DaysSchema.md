@@ -8,6 +8,6 @@
 
 > `const` **ganttWeek2DaysSchema**: `PgTableWithColumns`\<\{ \}\>
 
-Defined in: [ui/src/api-server/gantt/schema/junctions.ts:164](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/schema/junctions.ts#L164)
+Defined in: [ui/src/api-server/gantt/schema/junctions.ts:164](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-server/gantt/schema/junctions.ts#L164)
 
 Drizzle database schema definition for the Week to Days junction table (`w2d`).

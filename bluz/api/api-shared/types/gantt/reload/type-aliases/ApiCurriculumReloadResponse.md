@@ -8,7 +8,7 @@
 
 > **ApiCurriculumReloadResponse** = `object`
 
-Defined in: [ui/src/api-shared/types/gantt/reload.ts:91](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/gantt/reload.ts#L91)
+Defined in: [ui/src/api-shared/types/gantt/reload.ts:91](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-shared/types/gantt/reload.ts#L91)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [ui/src/api-shared/types/gantt/reload.ts:91](https://github.com/Syst
 
 > **addedEvents**: `number`
 
-Defined in: [ui/src/api-shared/types/gantt/reload.ts:96](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/gantt/reload.ts#L96)
+Defined in: [ui/src/api-shared/types/gantt/reload.ts:96](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-shared/types/gantt/reload.ts#L96)
 
 Counts of what was actually written (all zero on a dry run).
 
@@ -26,7 +26,7 @@ Counts of what was actually written (all zero on a dry run).
 
 > **applied**: `boolean`
 
-Defined in: [ui/src/api-shared/types/gantt/reload.ts:93](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/gantt/reload.ts#L93)
+Defined in: [ui/src/api-shared/types/gantt/reload.ts:93](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-shared/types/gantt/reload.ts#L93)
 
 False for a dry run — the diff is a proposal, nothing was written.
 
@@ -36,7 +36,7 @@ False for a dry run — the diff is a proposal, nothing was written.
 
 > **createdCourses**: `object`[]
 
-Defined in: [ui/src/api-shared/types/gantt/reload.ts:102](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/gantt/reload.ts#L102)
+Defined in: [ui/src/api-shared/types/gantt/reload.ts:102](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-shared/types/gantt/reload.ts#L102)
 
 Courses newly created for shuffles introduced since the cut.
 
@@ -54,7 +54,7 @@ Courses newly created for shuffles introduced since the cut.
 
 > **diff**: [`ReloadDiff`](ReloadDiff.md)
 
-Defined in: [ui/src/api-shared/types/gantt/reload.ts:94](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/gantt/reload.ts#L94)
+Defined in: [ui/src/api-shared/types/gantt/reload.ts:94](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-shared/types/gantt/reload.ts#L94)
 
 ***
 
@@ -62,7 +62,7 @@ Defined in: [ui/src/api-shared/types/gantt/reload.ts:94](https://github.com/Syst
 
 > **removedEvents**: `number`
 
-Defined in: [ui/src/api-shared/types/gantt/reload.ts:98](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/gantt/reload.ts#L98)
+Defined in: [ui/src/api-shared/types/gantt/reload.ts:98](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-shared/types/gantt/reload.ts#L98)
 
 ***
 
@@ -70,7 +70,7 @@ Defined in: [ui/src/api-shared/types/gantt/reload.ts:98](https://github.com/Syst
 
 > **skippedConflicts**: `number`
 
-Defined in: [ui/src/api-shared/types/gantt/reload.ts:100](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/gantt/reload.ts#L100)
+Defined in: [ui/src/api-shared/types/gantt/reload.ts:100](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-shared/types/gantt/reload.ts#L100)
 
 Conflicts left untouched because the user did not override them.
 
@@ -80,4 +80,4 @@ Conflicts left untouched because the user did not override them.
 
 > **updatedEvents**: `number`
 
-Defined in: [ui/src/api-shared/types/gantt/reload.ts:97](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/gantt/reload.ts#L97)
+Defined in: [ui/src/api-shared/types/gantt/reload.ts:97](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-shared/types/gantt/reload.ts#L97)

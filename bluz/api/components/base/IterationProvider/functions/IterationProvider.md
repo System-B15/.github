@@ -8,7 +8,7 @@
 
 > **IterationProvider**(`__namedParameters`): `Element`
 
-Defined in: [ui/src/components/base/IterationProvider.tsx:52](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/base/IterationProvider.tsx#L52)
+Defined in: [ui/src/components/base/IterationProvider.tsx:52](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/components/base/IterationProvider.tsx#L52)
 
 Owns the iteration the whole app is scoped to. This state used to live in
 `CalendarProvider`, but everything backed by the iteration's database —

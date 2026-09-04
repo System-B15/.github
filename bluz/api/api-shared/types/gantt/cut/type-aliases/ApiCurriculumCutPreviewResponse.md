@@ -8,7 +8,7 @@
 
 > **ApiCurriculumCutPreviewResponse** = \{ `errors`: [`CutValidationError`](../../../../gantt/cut-planner/type-aliases/CutValidationError.md)[]; `ok`: `false`; \} \| \{ `occurrences`: [`ApiCutPreviewOccurrence`](ApiCutPreviewOccurrence.md)[]; `ok`: `true`; `overlaps`: `number`; `report`: [`CutPlanReport`](../../../../gantt/cut-planner/type-aliases/CutPlanReport.md); `skipped`: [`CutValidationError`](../../../../gantt/cut-planner/type-aliases/CutValidationError.md)[]; \}
 
-Defined in: [ui/src/api-shared/types/gantt/cut.ts:123](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/gantt/cut.ts#L123)
+Defined in: [ui/src/api-shared/types/gantt/cut.ts:123](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-shared/types/gantt/cut.ts#L123)
 
 Response of GET .../cut/preview — a dry-run of the cut planner. Never
 writes. `ok: false` carries the planner's validation errors (e.g. missing

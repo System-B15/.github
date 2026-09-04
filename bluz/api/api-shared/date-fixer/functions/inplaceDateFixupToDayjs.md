@@ -8,7 +8,7 @@
 
 > **inplaceDateFixupToDayjs**\<`T`\>(`item`, `fieldName`): `T`
 
-Defined in: [ui/src/api-shared/date-fixer.ts:38](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/date-fixer.ts#L38)
+Defined in: [ui/src/api-shared/date-fixer.ts:38](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-shared/date-fixer.ts#L38)
 
 Client-side: mutates `item[fieldName]` into a `Dayjs` in place.
 

@@ -8,7 +8,7 @@
 
 > **BuildGantAllocateTimeRoutesProps**\<`TEntity`\> = `object`
 
-Defined in: [ui/src/app/api/gantt/base-allocate-time.ts:35](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/app/api/gantt/base-allocate-time.ts#L35)
+Defined in: [ui/src/app/api/gantt/base-allocate-time.ts:35](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/app/api/gantt/base-allocate-time.ts#L35)
 
 ## Type Parameters
 
@@ -22,4 +22,4 @@ Defined in: [ui/src/app/api/gantt/base-allocate-time.ts:35](https://github.com/S
 
 > **dbSet**: [`BasicGantAllocateTimeOperations`](BasicGantAllocateTimeOperations.md)\<`TEntity`\>
 
-Defined in: [ui/src/app/api/gantt/base-allocate-time.ts:36](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/app/api/gantt/base-allocate-time.ts#L36)
+Defined in: [ui/src/app/api/gantt/base-allocate-time.ts:36](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/app/api/gantt/base-allocate-time.ts#L36)

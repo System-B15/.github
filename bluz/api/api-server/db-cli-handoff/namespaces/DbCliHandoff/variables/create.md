@@ -8,7 +8,7 @@
 
 > `const` **create**: (`sessionToken`, `userId`) => `Promise`\<`string`\> = `createHandoffCode`
 
-Defined in: [ui/src/api-server/db-cli-handoff.ts:77](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/db-cli-handoff.ts#L77)
+Defined in: [ui/src/api-server/db-cli-handoff.ts:77](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-server/db-cli-handoff.ts#L77)
 
 Mint a handoff code bound to `userId`, sealing `sessionToken` at rest
 (secret-box.ts) rather than storing it in the clear.

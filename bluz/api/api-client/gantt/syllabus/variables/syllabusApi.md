@@ -8,4 +8,4 @@
 
 > `const` **syllabusApi**: [`BasicGantApi`](../../base/type-aliases/BasicGantApi.md)\<[`GanttSyllabus`](../../../../api-shared/types/gantt/models/syllabus/type-aliases/GanttSyllabus.md), [`CreateGanttSyllabusPayload`](../../../../api-shared/types/gantt/create-payloads/type-aliases/CreateGanttSyllabusPayload.md)\>
 
-Defined in: [ui/src/api-client/gantt/syllabus.ts:12](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-client/gantt/syllabus.ts#L12)
+Defined in: [ui/src/api-client/gantt/syllabus.ts:12](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-client/gantt/syllabus.ts#L12)

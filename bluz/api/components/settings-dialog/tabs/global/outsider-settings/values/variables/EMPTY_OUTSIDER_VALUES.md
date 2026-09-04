@@ -8,4 +8,4 @@
 
 > `const` **EMPTY\_OUTSIDER\_VALUES**: [`OutsiderValues`](../type-aliases/OutsiderValues.md)
 
-Defined in: [ui/src/components/settings-dialog/tabs/global/outsider-settings/values.ts:19](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/settings-dialog/tabs/global/outsider-settings/values.ts#L19)
+Defined in: [ui/src/components/settings-dialog/tabs/global/outsider-settings/values.ts:19](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/components/settings-dialog/tabs/global/outsider-settings/values.ts#L19)

@@ -8,7 +8,7 @@
 
 > **apiGetShuffleUsages**(`syllabusId`, `names`): `Promise`\<[`ShuffleUsages`](../../../../api-shared/types/gantt/shuffles/type-aliases/ShuffleUsages.md)\>
 
-Defined in: [ui/src/api-client/gantt/shuffles.ts:6](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-client/gantt/shuffles.ts#L6)
+Defined in: [ui/src/api-client/gantt/shuffles.ts:6](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-client/gantt/shuffles.ts#L6)
 
 Modules and events currently tagged with any of `names`.
 

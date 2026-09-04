@@ -8,7 +8,7 @@
 
 > **connectGoogleCalendar**(`userId`, `code`): `Promise`\<`void`\>
 
-Defined in: [ui/src/api-server/google/google-calendar-service.ts:160](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/google/google-calendar-service.ts#L160)
+Defined in: [ui/src/api-server/google/google-calendar-service.ts:160](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-server/google/google-calendar-service.ts#L160)
 
 Exchanges the GIS popup authorization `code` for tokens, creates (or finds)
 the dedicated "Bluz" calendar in the user's account, and persists the link.

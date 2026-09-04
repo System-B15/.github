@@ -8,7 +8,7 @@
 
 > `const` **forEvents**: (`eventIds`, `controller`) => `Promise`\<`Map`\<`string`, [`EventHistoryEntry`](../../../../../api-shared/types/event-history/type-aliases/EventHistoryEntry.md)[]\>\> = `listForEvents`
 
-Defined in: [ui/src/api-server/db-event-history.ts:230](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/db-event-history.ts#L230)
+Defined in: [ui/src/api-server/db-event-history.ts:230](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-server/db-event-history.ts#L230)
 
 Logs of many events at once, grouped by event id. Used by the gantt reload to
 classify a whole cut in one query instead of N.

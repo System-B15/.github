@@ -8,4 +8,4 @@
 
 > `const` **relationTypeEnumSchema**: `PgEnum`\<\[`"after"`, `"before"`\]\>
 
-Defined in: [ui/src/api-server/gantt/schema/constraints.ts:11](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/schema/constraints.ts#L11)
+Defined in: [ui/src/api-server/gantt/schema/constraints.ts:11](https://github.com/System-B90/Bluz/blob/72b498f531abad6a8e8b0b2f7413585dd5159749/ui/src/api-server/gantt/schema/constraints.ts#L11)

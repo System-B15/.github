@@ -22,6 +22,8 @@
 
 ## Functions
 
+- [asWireShape](functions/asWireShape.md)
 - [drizzleOperationsBuilder](functions/drizzleOperationsBuilder.md)
 - [postgresErrorCode](functions/postgresErrorCode.md)
 - [sanitizeCreatePayload](functions/sanitizeCreatePayload.md)
+- [sanitizeUpdatePayload](functions/sanitizeUpdatePayload.md)

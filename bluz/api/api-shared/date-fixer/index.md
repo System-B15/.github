@@ -8,4 +8,5 @@
 
 ## Functions
 
-- [inplaceDateFixup](functions/inplaceDateFixup.md)
+- [inplaceDateFixupToDate](functions/inplaceDateFixupToDate.md)
+- [inplaceDateFixupToDayjs](functions/inplaceDateFixupToDayjs.md)

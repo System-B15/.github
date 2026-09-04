@@ -8,7 +8,7 @@
 
 > **formatChangeValue**(`field`, `value`, `lookups`, `timeOnly?`): `string`
 
-Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:60](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L60)
+Defined in: [ui/src/components/schedule/event-dialog/event-history/format-change.ts:60](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/schedule/event-dialog/event-history/format-change.ts#L60)
 
 Format one side of a change for display.
 

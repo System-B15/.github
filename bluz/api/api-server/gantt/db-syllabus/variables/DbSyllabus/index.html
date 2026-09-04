@@ -772,6 +772,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#executor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        executor?
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -889,6 +900,17 @@
     <span class="md-ellipsis">
       
         shuffleNames
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executor_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        executor?
       
     </span>
   </a>
@@ -1384,7 +1406,7 @@
 <blockquote>
 <p><code>const</code> <strong>DbSyllabus</strong>: <code>object</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-syllabus.ts#L317">ui/src/api-server/gantt/db-syllabus.ts:317</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/db-syllabus.ts#L336">ui/src/api-server/gantt/db-syllabus.ts:336</a></p>
 <h2 id="type-declaration">Type Declaration<a class="headerlink" href="#type-declaration" title="Permanent link">&para;</a></h2>
 <h3 id="applyshuffles">applyShuffles<a class="headerlink" href="#applyshuffles" title="Permanent link">&para;</a></h3>
 <blockquote>
@@ -1417,11 +1439,17 @@ sides in one transaction.</p>
 <p><code>Promise</code>\&lt;<code>TItem</code>[]&gt;</p>
 <h3 id="createnewitem">createNewItem<a class="headerlink" href="#createnewitem" title="Permanent link">&para;</a></h3>
 <blockquote>
-<p><code>readonly</code> <strong>createNewItem</strong>: (<code>payload</code>) =&gt; <code>Promise</code>\&lt;<a href="../../../../../api-shared/types/gantt/models/syllabus/type-aliases/GanttSyllabus/"><code>GanttSyllabus</code></a> | <a href="../../../../../api-shared/types/gantt/api-layer/type-aliases/ApiSyllabus/"><code>ApiSyllabus</code></a>&gt;</p>
+<p><code>readonly</code> <strong>createNewItem</strong>: (<code>payload</code>, <code>executor?</code>) =&gt; <code>Promise</code>\&lt;<a href="../../../../../api-shared/types/gantt/models/syllabus/type-aliases/GanttSyllabus/"><code>GanttSyllabus</code></a> | <a href="../../../../../api-shared/types/gantt/api-layer/type-aliases/ApiSyllabus/"><code>ApiSyllabus</code></a>&gt;</p>
 </blockquote>
+<p>Server-side widening of the shared <code>createNewItem</code> contract: the second
+parameter enlists the create in a caller's transaction (#518). It stays
+out of <code>BasicGantOperations</code> because that type is shared with the client
+layer, which has no database handle to pass.</p>
 <h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <h5 id="payload">payload<a class="headerlink" href="#payload" title="Permanent link">&para;</a></h5>
 <p><a href="../../../../../api-shared/types/gantt/create-payloads/type-aliases/CreateGanttSyllabusPayload/"><code>CreateGanttSyllabusPayload</code></a></p>
+<h5 id="executor">executor?<a class="headerlink" href="#executor" title="Permanent link">&para;</a></h5>
+<p><a href="../../../type-aliases/GanttDbExecutor/"><code>GanttDbExecutor</code></a></p>
 <h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <p><code>Promise</code>\&lt;<a href="../../../../../api-shared/types/gantt/models/syllabus/type-aliases/GanttSyllabus/"><code>GanttSyllabus</code></a> | <a href="../../../../../api-shared/types/gantt/api-layer/type-aliases/ApiSyllabus/"><code>ApiSyllabus</code></a>&gt;</p>
 <h3 id="deleteitem">deleteItem<a class="headerlink" href="#deleteitem" title="Permanent link">&para;</a></h3>
@@ -1435,7 +1463,7 @@ sides in one transaction.</p>
 <p><code>Promise</code>\&lt;<code>void</code>&gt;</p>
 <h3 id="findshuffleusages">findShuffleUsages<a class="headerlink" href="#findshuffleusages" title="Permanent link">&para;</a></h3>
 <blockquote>
-<p><strong>findShuffleUsages</strong>: (<code>syllabusId</code>, <code>shuffleNames</code>) =&gt; <code>Promise</code>\&lt;<a href="../../../../../api-shared/types/gantt/shuffles/type-aliases/ShuffleUsages/"><code>ShuffleUsages</code></a>&gt;</p>
+<p><strong>findShuffleUsages</strong>: (<code>syllabusId</code>, <code>shuffleNames</code>, <code>executor</code>) =&gt; <code>Promise</code>\&lt;<a href="../../../../../api-shared/types/gantt/shuffles/type-aliases/ShuffleUsages/"><code>ShuffleUsages</code></a>&gt;</p>
 </blockquote>
 <p>Modules and events under <code>syllabusId</code> tagged with any of <code>shuffleNames</code>.</p>
 <p>Walks s2m → m2e so the scan stays scoped to the syllabus that owns the
@@ -1445,6 +1473,8 @@ names; an event reached through another syllabus keeps its own tags.</p>
 <p><code>string</code></p>
 <h5 id="shufflenames">shuffleNames<a class="headerlink" href="#shufflenames" title="Permanent link">&para;</a></h5>
 <p><code>string</code>[]</p>
+<h5 id="executor_1">executor?<a class="headerlink" href="#executor_1" title="Permanent link">&para;</a></h5>
+<p><a href="../../../type-aliases/GanttDbExecutor/"><code>GanttDbExecutor</code></a> = <code>postgresDb</code></p>
 <h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
 <p><code>Promise</code>\&lt;<a href="../../../../../api-shared/types/gantt/shuffles/type-aliases/ShuffleUsages/"><code>ShuffleUsages</code></a>&gt;</p>
 <h3 id="getitem">getItem<a class="headerlink" href="#getitem" title="Permanent link">&para;</a></h3>

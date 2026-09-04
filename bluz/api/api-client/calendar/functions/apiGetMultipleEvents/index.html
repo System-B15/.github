@@ -649,16 +649,22 @@
 <p><a href="../../../../">TypeDoc API</a> / <a href="../../">api-client/calendar</a> / apiGetMultipleEvents</p>
 <h1 id="function-apigetmultipleevents">Function: apiGetMultipleEvents()<a class="headerlink" href="#function-apigetmultipleevents" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><strong>apiGetMultipleEvents</strong>(<code>eventIds</code>, <code>iterationId?</code>): <code>Promise</code>\&lt;<code>Record</code>\&lt;<code>string</code>, <a href="../../../../api-shared/types/event/type-aliases/Event/"><code>Event</code></a>&gt;&gt;</p>
+<p><strong>apiGetMultipleEvents</strong>(<code>eventIds</code>, <code>iterationId?</code>): <code>Promise</code>\&lt;<code>Partial</code>\&lt;<code>Record</code>\&lt;<code>string</code>, <a href="../../../../api-shared/types/event/type-aliases/Event/"><code>Event</code></a>&gt;&gt;&gt;</p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-client/calendar.ts#L47">ui/src/api-client/calendar.ts:47</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-client/calendar.ts#L55">ui/src/api-client/calendar.ts:55</a></p>
+<p>Fetches several events by id in one round-trip. The route
+(<code>app/api/event/route.ts</code>) filters out malformed ids and silently omits
+ids it can't find, so the response can carry fewer keys than
+<code>eventIds</code> — the return type is <code>Partial&lt;...&gt;</code> precisely so every
+caller has to handle a missing id instead of the old <code>Record&lt;EventId,
+Event&gt;</code> signature promising a complete map it couldn't guarantee.</p>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
 <h3 id="eventids">eventIds<a class="headerlink" href="#eventids" title="Permanent link">&para;</a></h3>
 <p><code>string</code>[]</p>
 <h3 id="iterationid">iterationId?<a class="headerlink" href="#iterationid" title="Permanent link">&para;</a></h3>
 <p><code>string</code></p>
 <h2 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h2>
-<p><code>Promise</code>\&lt;<code>Record</code>\&lt;<code>string</code>, <a href="../../../../api-shared/types/event/type-aliases/Event/"><code>Event</code></a>&gt;&gt;</p>
+<p><code>Promise</code>\&lt;<code>Partial</code>\&lt;<code>Record</code>\&lt;<code>string</code>, <a href="../../../../api-shared/types/event/type-aliases/Event/"><code>Event</code></a>&gt;&gt;&gt;</p>
 
 
 

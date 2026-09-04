@@ -8,7 +8,7 @@
 
 > **LessonRulePlan** = `object`
 
-Defined in: [ui/src/api-server/hive/lesson-sync.ts:37](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/hive/lesson-sync.ts#L37)
+Defined in: [ui/src/api-server/hive/lesson-sync.ts:38](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/hive/lesson-sync.ts#L38)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [ui/src/api-server/hive/lesson-sync.ts:37](https://github.com/System
 
 > **create**: `object`[]
 
-Defined in: [ui/src/api-server/hive/lesson-sync.ts:38](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/hive/lesson-sync.ts#L38)
+Defined in: [ui/src/api-server/hive/lesson-sync.ts:39](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/hive/lesson-sync.ts#L39)
 
 #### classId
 
@@ -32,7 +32,7 @@ Defined in: [ui/src/api-server/hive/lesson-sync.ts:38](https://github.com/System
 
 > **delete**: `number`[]
 
-Defined in: [ui/src/api-server/hive/lesson-sync.ts:40](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/hive/lesson-sync.ts#L40)
+Defined in: [ui/src/api-server/hive/lesson-sync.ts:41](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/hive/lesson-sync.ts#L41)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [ui/src/api-server/hive/lesson-sync.ts:40](https://github.com/System
 
 > **update**: `object`[]
 
-Defined in: [ui/src/api-server/hive/lesson-sync.ts:39](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/hive/lesson-sync.ts#L39)
+Defined in: [ui/src/api-server/hive/lesson-sync.ts:40](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/hive/lesson-sync.ts#L40)
 
 #### classId
 

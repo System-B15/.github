@@ -8,7 +8,7 @@
 
 > **CurriculumCommandActions** = `object`
 
-Defined in: [ui/src/components/app-commands/use-curriculum-commands.tsx:10](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/app-commands/use-curriculum-commands.tsx#L10)
+Defined in: [ui/src/components/app-commands/use-curriculum-commands.tsx:10](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/app-commands/use-curriculum-commands.tsx#L10)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [ui/src/components/app-commands/use-curriculum-commands.tsx:10](http
 
 > `optional` **currentCurriculum?**: [`GanttCurriculumId`](../../../../api-shared/types/gantt/models/curriculum/type-aliases/GanttCurriculumId.md) \| `null`
 
-Defined in: [ui/src/components/app-commands/use-curriculum-commands.tsx:12](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/app-commands/use-curriculum-commands.tsx#L12)
+Defined in: [ui/src/components/app-commands/use-curriculum-commands.tsx:12](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/app-commands/use-curriculum-commands.tsx#L12)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [ui/src/components/app-commands/use-curriculum-commands.tsx:12](http
 
 > **curriculums**: `Record`\<[`GanttCurriculumId`](../../../../api-shared/types/gantt/models/curriculum/type-aliases/GanttCurriculumId.md), [`GanttCurriculumDocument`](../../../../api-client/gantt/curriculum/type-aliases/GanttCurriculumDocument.md)\>
 
-Defined in: [ui/src/components/app-commands/use-curriculum-commands.tsx:11](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/app-commands/use-curriculum-commands.tsx#L11)
+Defined in: [ui/src/components/app-commands/use-curriculum-commands.tsx:11](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/app-commands/use-curriculum-commands.tsx#L11)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [ui/src/components/app-commands/use-curriculum-commands.tsx:11](http
 
 > **setCurrentCurriculum**: (`id`) => `void`
 
-Defined in: [ui/src/components/app-commands/use-curriculum-commands.tsx:13](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/app-commands/use-curriculum-commands.tsx#L13)
+Defined in: [ui/src/components/app-commands/use-curriculum-commands.tsx:13](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/app-commands/use-curriculum-commands.tsx#L13)
 
 #### Parameters
 

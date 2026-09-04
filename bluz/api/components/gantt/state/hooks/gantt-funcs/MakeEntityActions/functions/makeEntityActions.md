@@ -8,7 +8,7 @@
 
 > **makeEntityActions**\<`TEntity`, `TContainerId`, `TCreatePayload`\>(`__namedParameters`): `object`
 
-Defined in: [ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx:70](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx#L70)
+Defined in: [ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx:76](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx#L76)
 
 Factors the "call gantt API → dispatch reducer action" pattern shared by the
 module/syllabus/event action hooks (#190) so behavior fixes land in one
@@ -37,8 +37,6 @@ create-payload defaults) stay in their hooks.
 
 ## Returns
 
-`object`
-
 ### allocateTime
 
 > **allocateTime**: (`id`, `curriculumId`, `allocatedDuration`) => `Promise`\<`void`\>
@@ -63,7 +61,7 @@ create-payload defaults) stay in their hooks.
 
 ### create
 
-> **create**: (`payload`, `containerId`) => `Promise`\<`TEntity` & [`BaseDocument`](../../../../../../../api-client/gantt/base/type-aliases/BaseDocument.md)\>
+> **create**: (`payload`, `containerId`, `buildOptimistic?`) => `Promise`\<`TEntity` & [`BaseDocument`](../../../../../../../api-client/gantt/base/type-aliases/BaseDocument.md)\>
 
 #### Parameters
 
@@ -74,6 +72,17 @@ create-payload defaults) stay in their hooks.
 ##### containerId
 
 `TContainerId`
+
+##### buildOptimistic?
+
+(`tempId`) => `TEntity`
+
+When given (together with `builders.discard`), `create` becomes
+optimistic: it renders a temp entity immediately, then on success
+discards the temp doc and adds the real one, or on failure just
+discards it — mirroring `createWeek`'s temp-id + swap pattern
+(#381). Without it, `create` stays non-optimistic: wait for the
+API, then add the real entity.
 
 #### Returns
 

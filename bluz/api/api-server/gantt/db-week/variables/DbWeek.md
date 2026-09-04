@@ -8,7 +8,7 @@
 
 > `const` **DbWeek**: `object`
 
-Defined in: [ui/src/api-server/gantt/db-week.ts:238](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-week.ts#L238)
+Defined in: [ui/src/api-server/gantt/db-week.ts:263](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/db-week.ts#L263)
 
 ## Type Declaration
 
@@ -104,7 +104,7 @@ Defined in: [ui/src/api-server/gantt/db-week.ts:238](https://github.com/System-B
 
 ### updateItem
 
-> `readonly` **updateItem**: (`id`, `updates`) => `Promise`\<[`GanttWeek`](../../../../api-shared/types/gantt/models/week/type-aliases/GanttWeek.md)\>
+> `readonly` **updateItem**: (`id`, `updates`, `executor?`) => `Promise`\<[`GanttWeek`](../../../../api-shared/types/gantt/models/week/type-aliases/GanttWeek.md)\>
 
 #### Parameters
 
@@ -114,7 +114,11 @@ Defined in: [ui/src/api-server/gantt/db-week.ts:238](https://github.com/System-B
 
 ##### updates
 
-`Partial`\<`TEntity`\>
+`Partial`\<`T`\>
+
+##### executor?
+
+[`GanttDbExecutor`](../../type-aliases/GanttDbExecutor.md)
 
 #### Returns
 

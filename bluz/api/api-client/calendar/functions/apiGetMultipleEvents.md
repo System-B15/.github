@@ -6,9 +6,16 @@
 
 # Function: apiGetMultipleEvents()
 
-> **apiGetMultipleEvents**(`eventIds`, `iterationId?`): `Promise`\<`Record`\<`string`, [`Event`](../../../api-shared/types/event/type-aliases/Event.md)\>\>
+> **apiGetMultipleEvents**(`eventIds`, `iterationId?`): `Promise`\<`Partial`\<`Record`\<`string`, [`Event`](../../../api-shared/types/event/type-aliases/Event.md)\>\>\>
 
-Defined in: [ui/src/api-client/calendar.ts:47](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-client/calendar.ts#L47)
+Defined in: [ui/src/api-client/calendar.ts:55](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-client/calendar.ts#L55)
+
+Fetches several events by id in one round-trip. The route
+(`app/api/event/route.ts`) filters out malformed ids and silently omits
+ids it can't find, so the response can carry fewer keys than
+`eventIds` — the return type is `Partial<...>` precisely so every
+caller has to handle a missing id instead of the old `Record<EventId,
+Event>` signature promising a complete map it couldn't guarantee.
 
 ## Parameters
 
@@ -22,4 +29,4 @@ Defined in: [ui/src/api-client/calendar.ts:47](https://github.com/System-B90/Blu
 
 ## Returns
 
-`Promise`\<`Record`\<`string`, [`Event`](../../../api-shared/types/event/type-aliases/Event.md)\>\>
+`Promise`\<`Partial`\<`Record`\<`string`, [`Event`](../../../api-shared/types/event/type-aliases/Event.md)\>\>\>

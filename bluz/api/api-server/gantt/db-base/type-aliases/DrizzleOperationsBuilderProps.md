@@ -8,7 +8,7 @@
 
 > **DrizzleOperationsBuilderProps**\<`TTable`\> = `object`
 
-Defined in: [ui/src/api-server/gantt/db-base.ts:158](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-base.ts#L158)
+Defined in: [ui/src/api-server/gantt/db-base.ts:214](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/db-base.ts#L214)
 
 ## Type Parameters
 
@@ -22,7 +22,7 @@ Defined in: [ui/src/api-server/gantt/db-base.ts:158](https://github.com/System-B
 
 > **idPrefix**: `"c"` \| `"d"` \| `"e"` \| `"m"` \| `"s"` \| `"w"`
 
-Defined in: [ui/src/api-server/gantt/db-base.ts:165](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-base.ts#L165)
+Defined in: [ui/src/api-server/gantt/db-base.ts:221](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/db-base.ts#L221)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [ui/src/api-server/gantt/db-base.ts:165](https://github.com/System-B
 
 > `optional` **junction?**: [`JunctionConfig`](JunctionConfig.md)[] \| [`JunctionConfig`](JunctionConfig.md)
 
-Defined in: [ui/src/api-server/gantt/db-base.ts:163](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-base.ts#L163)
+Defined in: [ui/src/api-server/gantt/db-base.ts:219](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/db-base.ts#L219)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [ui/src/api-server/gantt/db-base.ts:163](https://github.com/System-B
 
 > `optional` **labelColumn?**: `AnyPgColumn`
 
-Defined in: [ui/src/api-server/gantt/db-base.ts:168](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-base.ts#L168)
+Defined in: [ui/src/api-server/gantt/db-base.ts:224](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/db-base.ts#L224)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [ui/src/api-server/gantt/db-base.ts:168](https://github.com/System-B
 
 > `optional` **parentJunction?**: [`ParentJunctionConfig`](ParentJunctionConfig.md)
 
-Defined in: [ui/src/api-server/gantt/db-base.ts:164](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-base.ts#L164)
+Defined in: [ui/src/api-server/gantt/db-base.ts:220](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/db-base.ts#L220)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [ui/src/api-server/gantt/db-base.ts:164](https://github.com/System-B
 
 > **table**: `TTable`
 
-Defined in: [ui/src/api-server/gantt/db-base.ts:161](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-base.ts#L161)
+Defined in: [ui/src/api-server/gantt/db-base.ts:217](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/db-base.ts#L217)
 
 ***
 
@@ -62,4 +62,4 @@ Defined in: [ui/src/api-server/gantt/db-base.ts:161](https://github.com/System-B
 
 > **typeName**: `string`
 
-Defined in: [ui/src/api-server/gantt/db-base.ts:162](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-base.ts#L162)
+Defined in: [ui/src/api-server/gantt/db-base.ts:218](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/db-base.ts#L218)

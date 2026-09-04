@@ -8,7 +8,14 @@
 
 > **getRangeForView**(`newDate`, `view`): `DateRange`
 
-Defined in: [ui/src/components/schedule/calendar/utils.ts:4](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/calendar/utils.ts#L4)
+Defined in: [ui/src/components/schedule/calendar/utils.ts:28](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/schedule/calendar/utils.ts#L28)
+
+The instants a view spans, for range-scoped fetches and the ICS export.
+
+Computed in Israel time rather than the browser's zone (#613): the grid's
+columns are pinned there, so a range derived locally disagrees with what is
+on screen for any viewer outside Israel — a Thursday-end computed in UTC is
+already Friday in Jerusalem, which is exactly what #611 is about.
 
 ## Parameters
 

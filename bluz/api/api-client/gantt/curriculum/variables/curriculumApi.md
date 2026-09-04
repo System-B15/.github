@@ -8,7 +8,7 @@
 
 > `const` **curriculumApi**: `object`
 
-Defined in: [ui/src/api-client/gantt/curriculum.ts:66](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-client/gantt/curriculum.ts#L66)
+Defined in: [ui/src/api-client/gantt/curriculum.ts:86](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-client/gantt/curriculum.ts#L86)
 
 ## Type Declaration
 
@@ -75,7 +75,7 @@ Server-side deep clone of a curriculum into a fully independent copy (#319,
 
 ### apiExport
 
-> **apiExport**: (`id`, `options?`) => `Promise`\<`any`\>
+> **apiExport**: (`id`, `options?`) => `Promise`\<[`GanttCurriculumExport`](../type-aliases/GanttCurriculumExport.md)\>
 
 #### Parameters
 
@@ -89,7 +89,7 @@ Server-side deep clone of a curriculum into a fully independent copy (#319,
 
 #### Returns
 
-`Promise`\<`any`\>
+`Promise`\<[`GanttCurriculumExport`](../type-aliases/GanttCurriculumExport.md)\>
 
 ### apiGet
 

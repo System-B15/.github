@@ -788,6 +788,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#buildoptimistic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        buildOptimistic?
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1109,7 +1120,7 @@
 <blockquote>
 <p><strong>makeEntityActions</strong>\&lt;<code>TEntity</code>, <code>TContainerId</code>, <code>TCreatePayload</code>&gt;(<code>__namedParameters</code>): <code>object</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx#L70">ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx:70</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx#L76">ui/src/components/gantt/state/hooks/gantt-funcs/MakeEntityActions.tsx:76</a></p>
 <p>Factors the "call gantt API → dispatch reducer action" pattern shared by the
 module/syllabus/event action hooks (#190) so behavior fixes land in one
 place. Entity-specific flows (optimistic week updates, event move/duplicate,
@@ -1125,7 +1136,6 @@ create-payload defaults) stay in their hooks.</p>
 <h3 id="__namedparameters">__namedParameters<a class="headerlink" href="#__namedparameters" title="Permanent link">&para;</a></h3>
 <p><a href="../../type-aliases/MakeEntityActionsProps/"><code>MakeEntityActionsProps</code></a>\&lt;<code>TEntity</code>, <code>TContainerId</code>, <code>TCreatePayload</code>&gt;</p>
 <h2 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h2>
-<p><code>object</code></p>
 <h3 id="allocatetime">allocateTime<a class="headerlink" href="#allocatetime" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>allocateTime</strong>: (<code>id</code>, <code>curriculumId</code>, <code>allocatedDuration</code>) =&gt; <code>Promise</code>\&lt;<code>void</code>&gt;</p>
@@ -1141,13 +1151,21 @@ create-payload defaults) stay in their hooks.</p>
 <p><code>Promise</code>\&lt;<code>void</code>&gt;</p>
 <h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <blockquote>
-<p><strong>create</strong>: (<code>payload</code>, <code>containerId</code>) =&gt; <code>Promise</code>\&lt;<code>TEntity</code> &amp; <a href="../../../../../../../../api-client/gantt/base/type-aliases/BaseDocument/"><code>BaseDocument</code></a>&gt;</p>
+<p><strong>create</strong>: (<code>payload</code>, <code>containerId</code>, <code>buildOptimistic?</code>) =&gt; <code>Promise</code>\&lt;<code>TEntity</code> &amp; <a href="../../../../../../../../api-client/gantt/base/type-aliases/BaseDocument/"><code>BaseDocument</code></a>&gt;</p>
 </blockquote>
 <h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <h5 id="payload">payload<a class="headerlink" href="#payload" title="Permanent link">&para;</a></h5>
 <p><code>TCreatePayload</code></p>
 <h5 id="containerid">containerId<a class="headerlink" href="#containerid" title="Permanent link">&para;</a></h5>
 <p><code>TContainerId</code></p>
+<h5 id="buildoptimistic">buildOptimistic?<a class="headerlink" href="#buildoptimistic" title="Permanent link">&para;</a></h5>
+<p>(<code>tempId</code>) =&gt; <code>TEntity</code></p>
+<p>When given (together with <code>builders.discard</code>), <code>create</code> becomes
+optimistic: it renders a temp entity immediately, then on success
+discards the temp doc and adds the real one, or on failure just
+discards it — mirroring <code>createWeek</code>'s temp-id + swap pattern
+(#381). Without it, <code>create</code> stays non-optimistic: wait for the
+API, then add the real entity.</p>
 <h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <p><code>Promise</code>\&lt;<code>TEntity</code> &amp; <a href="../../../../../../../../api-client/gantt/base/type-aliases/BaseDocument/"><code>BaseDocument</code></a>&gt;</p>
 <h3 id="link">link<a class="headerlink" href="#link" title="Permanent link">&para;</a></h3>

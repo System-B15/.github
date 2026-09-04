@@ -8,6 +8,6 @@
 
 > `const` **LOCK\_HEARTBEAT\_MS**: `10000` = `10_000`
 
-Defined in: [ui/src/components/schedule/calendar/calendar-provider/lock-state.ts:27](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/calendar/calendar-provider/lock-state.ts#L27)
+Defined in: [ui/src/components/schedule/calendar/calendar-provider/lock-state.ts:27](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/schedule/calendar/calendar-provider/lock-state.ts#L27)
 
 How often a lock holder re-broadcasts its lock while a dialog is open.

@@ -8,7 +8,7 @@
 
 > `const` **DELETE**: (`request`, `context?`) => `Promise`\<`Response`\>
 
-Defined in: [ui/src/app/api/gantt/curriculums/\[id\]/cut/route.ts:130](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/app/api/gantt/curriculums/[id]/cut/route.ts#L130)
+Defined in: [ui/src/app/api/gantt/curriculums/\[id\]/cut/route.ts:139](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/app/api/gantt/curriculums/[id]/cut/route.ts#L139)
 
 DELETE: pull back a previous cut — soft-delete every live schedule event that
 was generated for this curriculum in the linked iteration.

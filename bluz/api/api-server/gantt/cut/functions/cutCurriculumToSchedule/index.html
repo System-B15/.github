@@ -608,6 +608,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#origin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        origin?
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -649,9 +660,9 @@
 <p><a href="../../../../../">TypeDoc API</a> / <a href="../../">api-server/gantt/cut</a> / cutCurriculumToSchedule</p>
 <h1 id="function-cutcurriculumtoschedule">Function: cutCurriculumToSchedule()<a class="headerlink" href="#function-cutcurriculumtoschedule" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><strong>cutCurriculumToSchedule</strong>(<code>curriculumId</code>, <code>options?</code>): <code>Promise</code>\&lt;<a href="../../type-aliases/CutOutcome/"><code>CutOutcome</code></a>&gt;</p>
+<p><strong>cutCurriculumToSchedule</strong>(<code>curriculumId</code>, <code>options?</code>, <code>origin?</code>): <code>Promise</code>\&lt;<a href="../../type-aliases/CutOutcome/"><code>CutOutcome</code></a>&gt;</p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/cut.ts#L944">ui/src/api-server/gantt/cut.ts:944</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/cut.ts#L956">ui/src/api-server/gantt/cut.ts:956</a></p>
 <p>Materialize a published, linked curriculum into schedule events. Any gating
 violation returns a structured error and writes nothing.</p>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
@@ -659,6 +670,8 @@ violation returns a structured error and writes nothing.</p>
 <p><code>string</code></p>
 <h3 id="options">options?<a class="headerlink" href="#options" title="Permanent link">&para;</a></h3>
 <p><a href="../../../../../api-shared/gantt/cut-planner/type-aliases/CutPlanOptions/"><code>CutPlanOptions</code></a> = <code>{}</code></p>
+<h3 id="origin">origin?<a class="headerlink" href="#origin" title="Permanent link">&para;</a></h3>
+<p><a href="../../../../db-event-history/type-aliases/EventWriteOrigin/"><code>EventWriteOrigin</code></a> = <code>...</code></p>
 <h2 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h2>
 <p><code>Promise</code>\&lt;<a href="../../type-aliases/CutOutcome/"><code>CutOutcome</code></a>&gt;</p>
 

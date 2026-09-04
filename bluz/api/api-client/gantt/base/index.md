@@ -16,6 +16,7 @@
 
 ## Functions
 
+- [asDateFixup](functions/asDateFixup.md)
 - [baseDocumentFixup](functions/baseDocumentFixup.md)
 - [clientGantApiBuilder](functions/clientGantApiBuilder.md)
 

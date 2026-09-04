@@ -8,7 +8,7 @@
 
 > **DayCapacityCellProps** = `object`
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx:38](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx#L38)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx:38](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx#L38)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityC
 
 > **dayId**: [`GanttDayId`](../../../../../../../api-shared/types/gantt/models/day/type-aliases/GanttDayId.md)
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx:39](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx#L39)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx:39](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx#L39)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityC
 
 > `optional` **isCompact?**: `boolean`
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx:40](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx#L40)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx:40](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx#L40)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityC
 
 > `optional` **isMuted?**: `boolean`
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx:41](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx#L41)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx:41](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx#L41)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityC
 
 > **scheduledMinutes**: `number`
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx:42](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx#L42)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx:42](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx#L42)
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityC
 
 > **startDate**: `null` \| `string`
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx:43](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx#L43)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx:43](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx#L43)
 
 ***
 
@@ -56,4 +56,4 @@ Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityC
 
 > **weekIndex**: `number`
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx:44](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx#L44)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx:44](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/curriculum-view/tabs/weeks-tab/DayCapacityCell.tsx#L44)

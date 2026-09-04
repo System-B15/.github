@@ -8,7 +8,7 @@
 
 > **AuthContextState** = `object`
 
-Defined in: [ui/src/components/auth/AuthProvider.tsx:25](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/auth/AuthProvider.tsx#L25)
+Defined in: [ui/src/components/auth/AuthProvider.tsx:26](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/auth/AuthProvider.tsx#L26)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [ui/src/components/auth/AuthProvider.tsx:25](https://github.com/Syst
 
 > **addMessageHandler**: (`handler`) => () => `void`
 
-Defined in: [ui/src/components/auth/AuthProvider.tsx:30](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/auth/AuthProvider.tsx#L30)
+Defined in: [ui/src/components/auth/AuthProvider.tsx:31](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/auth/AuthProvider.tsx#L31)
 
 #### Parameters
 
@@ -34,7 +34,7 @@ Defined in: [ui/src/components/auth/AuthProvider.tsx:30](https://github.com/Syst
 
 > **canEdit**: `boolean`
 
-Defined in: [ui/src/components/auth/AuthProvider.tsx:28](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/auth/AuthProvider.tsx#L28)
+Defined in: [ui/src/components/auth/AuthProvider.tsx:29](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/auth/AuthProvider.tsx#L29)
 
 ***
 
@@ -42,7 +42,25 @@ Defined in: [ui/src/components/auth/AuthProvider.tsx:28](https://github.com/Syst
 
 > **degraded**: `boolean`
 
-Defined in: [ui/src/components/auth/AuthProvider.tsx:29](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/auth/AuthProvider.tsx#L29)
+Defined in: [ui/src/components/auth/AuthProvider.tsx:30](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/auth/AuthProvider.tsx#L30)
+
+***
+
+### deregisterSyncObject
+
+> **deregisterSyncObject**: (`syncObjectId`) => `void`
+
+Defined in: [ui/src/components/auth/AuthProvider.tsx:39](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/auth/AuthProvider.tsx#L39)
+
+#### Parameters
+
+##### syncObjectId
+
+`string`
+
+#### Returns
+
+`void`
 
 ***
 
@@ -50,7 +68,29 @@ Defined in: [ui/src/components/auth/AuthProvider.tsx:29](https://github.com/Syst
 
 > **logout**: () => `void`
 
-Defined in: [ui/src/components/auth/AuthProvider.tsx:27](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/auth/AuthProvider.tsx#L27)
+Defined in: [ui/src/components/auth/AuthProvider.tsx:28](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/auth/AuthProvider.tsx#L28)
+
+#### Returns
+
+`void`
+
+***
+
+### registerSyncObject
+
+> **registerSyncObject**: (`syncObjectId`) => `void`
+
+Defined in: [ui/src/components/auth/AuthProvider.tsx:38](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/auth/AuthProvider.tsx#L38)
+
+Subscribe to a sync object for scoped broadcasts. Survives reconnects —
+the transport replays every registered id on each new socket, so callers
+must not try to re-register on their own (#525).
+
+#### Parameters
+
+##### syncObjectId
+
+`string`
 
 #### Returns
 
@@ -62,7 +102,7 @@ Defined in: [ui/src/components/auth/AuthProvider.tsx:27](https://github.com/Syst
 
 > **sendMessage**: (`data`) => `void`
 
-Defined in: [ui/src/components/auth/AuthProvider.tsx:31](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/auth/AuthProvider.tsx#L31)
+Defined in: [ui/src/components/auth/AuthProvider.tsx:32](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/auth/AuthProvider.tsx#L32)
 
 #### Parameters
 
@@ -80,4 +120,4 @@ Defined in: [ui/src/components/auth/AuthProvider.tsx:31](https://github.com/Syst
 
 > **userData**: `AuthSessionUser`
 
-Defined in: [ui/src/components/auth/AuthProvider.tsx:26](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/auth/AuthProvider.tsx#L26)
+Defined in: [ui/src/components/auth/AuthProvider.tsx:27](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/auth/AuthProvider.tsx#L27)

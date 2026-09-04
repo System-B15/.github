@@ -8,10 +8,14 @@
 
 > `const` **update**: (`draftId`, `events`, `author`, `controller`, `label?`) => `Promise`\<[`CalendarDraftSummary`](../../../../../api-shared/types/type-aliases/CalendarDraftSummary.md)\> = `updateDraft`
 
-Defined in: [ui/src/api-server/db-calendar-draft.ts:190](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/db-calendar-draft.ts#L190)
+Defined in: [ui/src/api-server/db-calendar-draft.ts:197](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/db-calendar-draft.ts#L197)
 
 Updates an existing shared draft's events (and optionally its label),
 re-stamping the last editor. Returns the updated summary.
+
+PATCH semantics: `events === undefined` keeps the stored events untouched.
+Replacing them unconditionally meant a label-only update wiped the whole
+draft and still reported success (#512).
 
 ## Parameters
 
@@ -21,7 +25,7 @@ re-stamping the last editor. Returns the updated summary.
 
 ### events
 
-[`DbEventDocument`](../../../../../api-shared/types/event/type-aliases/DbEventDocument.md)[]
+[`DbEventDocument`](../../../../../api-shared/types/event/type-aliases/DbEventDocument.md)[] \| `undefined`
 
 ### author
 

@@ -6,6 +6,10 @@
 
 # api-server/gantt
 
+## Type Aliases
+
+- [GanttDbExecutor](type-aliases/GanttDbExecutor.md)
+
 ## Variables
 
 - [postgresDb](variables/postgresDb.md)

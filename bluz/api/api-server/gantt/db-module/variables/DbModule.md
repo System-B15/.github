@@ -8,7 +8,7 @@
 
 > `const` **DbModule**: `object`
 
-Defined in: [ui/src/api-server/gantt/db-module.ts:243](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-module.ts#L243)
+Defined in: [ui/src/api-server/gantt/db-module.ts:259](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/db-module.ts#L259)
 
 ## Type Declaration
 
@@ -34,13 +34,22 @@ Defined in: [ui/src/api-server/gantt/db-module.ts:243](https://github.com/System
 
 ### createNewItem
 
-> `readonly` **createNewItem**: (`payload`) => `Promise`\<[`GanttModule`](../../../../api-shared/types/gantt/models/module/type-aliases/GanttModule.md) \| [`ApiModule`](../../../../api-shared/types/gantt/api-layer/type-aliases/ApiModule.md)\>
+> `readonly` **createNewItem**: (`payload`, `executor?`) => `Promise`\<[`GanttModule`](../../../../api-shared/types/gantt/models/module/type-aliases/GanttModule.md) \| [`ApiModule`](../../../../api-shared/types/gantt/api-layer/type-aliases/ApiModule.md)\>
+
+Server-side widening of the shared `createNewItem` contract: the second
+parameter enlists the create in a caller's transaction (#518). It stays
+out of `BasicGantOperations` because that type is shared with the client
+layer, which has no database handle to pass.
 
 #### Parameters
 
 ##### payload
 
 [`CreateGanttModulePayload`](../../../../api-shared/types/gantt/create-payloads/type-aliases/CreateGanttModulePayload.md)
+
+##### executor?
+
+[`GanttDbExecutor`](../../type-aliases/GanttDbExecutor.md)
 
 #### Returns
 
@@ -198,7 +207,7 @@ Defined in: [ui/src/api-server/gantt/db-module.ts:243](https://github.com/System
 
 ### updateItem
 
-> `readonly` **updateItem**: (`id`, `updates`) => `Promise`\<[`GanttModule`](../../../../api-shared/types/gantt/models/module/type-aliases/GanttModule.md)\>
+> `readonly` **updateItem**: (`id`, `updates`, `executor?`) => `Promise`\<[`GanttModule`](../../../../api-shared/types/gantt/models/module/type-aliases/GanttModule.md)\>
 
 #### Parameters
 
@@ -208,7 +217,11 @@ Defined in: [ui/src/api-server/gantt/db-module.ts:243](https://github.com/System
 
 ##### updates
 
-`Partial`\<`TEntity`\>
+`Partial`\<`T`\>
+
+##### executor?
+
+[`GanttDbExecutor`](../../type-aliases/GanttDbExecutor.md)
 
 #### Returns
 

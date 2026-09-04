@@ -8,12 +8,16 @@
 
 > `const` **COMMAND\_GROUPS**: `object`
 
-Defined in: [ui/src/components/app-commands/labels.ts:29](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/app-commands/labels.ts#L29)
+Defined in: [ui/src/components/app-commands/labels.ts:29](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/app-commands/labels.ts#L29)
 
 Section headings. Centralised so two contributors never disagree on the
 spelling of a group and split it into two sections in the result list.
 
 ## Type Declaration
+
+### account
+
+> `readonly` **account**: `"חשבון"` = `"חשבון"`
 
 ### appearance
 

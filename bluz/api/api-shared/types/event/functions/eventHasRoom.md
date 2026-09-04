@@ -8,7 +8,7 @@
 
 > **eventHasRoom**(`type`): `boolean`
 
-Defined in: [ui/src/api-shared/types/event.ts:207](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/event.ts#L207)
+Defined in: [ui/src/api-shared/types/event.ts:214](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/event.ts#L214)
 
 Checks if an event type is associated with a physical classroom/room.
 

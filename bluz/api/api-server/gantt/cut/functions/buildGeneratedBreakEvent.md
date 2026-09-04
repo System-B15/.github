@@ -6,9 +6,9 @@
 
 # Function: buildGeneratedBreakEvent()
 
-> **buildGeneratedBreakEvent**(`occurrence`, `courseIds`): [`DbEventDocument`](../../../../api-shared/types/event/type-aliases/DbEventDocument.md)
+> **buildGeneratedBreakEvent**(`occurrence`, `courseIds`, `curriculumId`): [`DbEventDocument`](../../../../api-shared/types/event/type-aliases/DbEventDocument.md)
 
-Defined in: [ui/src/api-server/gantt/cut.ts:505](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/cut.ts#L505)
+Defined in: [ui/src/api-server/gantt/cut.ts:512](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/cut.ts#L512)
 
 Build a schedule event for a break the post-pass invented. It has no gantt
 event behind it, so everything comes from the occurrence itself. The
@@ -25,6 +25,10 @@ cut and never survive to be duplicated by a re-cut.
 ### courseIds
 
 `string`[]
+
+### curriculumId
+
+`string`
 
 ## Returns
 

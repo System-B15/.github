@@ -6,9 +6,9 @@
 
 # Function: pushAllEvents()
 
-> **pushAllEvents**(`userId`, `events`): `Promise`\<`number`\>
+> **pushAllEvents**(`userId`, `events`, `iterationId?`): `Promise`\<`number`\>
 
-Defined in: [ui/src/api-server/google/google-calendar-service.ts:278](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/google/google-calendar-service.ts#L278)
+Defined in: [ui/src/api-server/google/google-calendar-service.ts:296](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/google/google-calendar-service.ts#L296)
 
 Pushes a full batch of the user's events (used by the manual "sync now"
 action to backfill everything at once).
@@ -22,6 +22,10 @@ action to backfill everything at once).
 ### events
 
 [`DbEventDocument`](../../../../api-shared/types/event/type-aliases/DbEventDocument.md)[]
+
+### iterationId?
+
+`string`
 
 ## Returns
 

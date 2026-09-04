@@ -8,4 +8,4 @@
 
 > **CollisionStates** = `Record`\<[`EventId`](../../../../../../api-shared/types/event/type-aliases/EventId.md), \{ `capturedVersion`: [`Event`](../../../../../../api-shared/types/event/type-aliases/Event.md) \| `undefined`; `conflicting`: `boolean`; `localModifiedEvent`: [`Event`](../../../../../../api-shared/types/event/type-aliases/Event.md) \| `undefined`; `serverVersion`: [`Event`](../../../../../../api-shared/types/event/type-aliases/Event.md) \| `undefined`; \}\>
 
-Defined in: [ui/src/components/schedule/offline-dialogs/push-updates-dialog/types.ts:5](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/offline-dialogs/push-updates-dialog/types.ts#L5)
+Defined in: [ui/src/components/schedule/offline-dialogs/push-updates-dialog/types.ts:5](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/schedule/offline-dialogs/push-updates-dialog/types.ts#L5)

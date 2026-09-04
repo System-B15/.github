@@ -8,7 +8,7 @@
 
 > **CutProgressDashesProps** = `object`
 
-Defined in: [ui/src/components/gantt/cut-dialog/CutProgressDashes.tsx:4](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/cut-dialog/CutProgressDashes.tsx#L4)
+Defined in: [ui/src/components/gantt/cut-dialog/CutProgressDashes.tsx:4](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/cut-dialog/CutProgressDashes.tsx#L4)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [ui/src/components/gantt/cut-dialog/CutProgressDashes.tsx:4](https:/
 
 > **current**: `number`
 
-Defined in: [ui/src/components/gantt/cut-dialog/CutProgressDashes.tsx:6](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/cut-dialog/CutProgressDashes.tsx#L6)
+Defined in: [ui/src/components/gantt/cut-dialog/CutProgressDashes.tsx:6](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/cut-dialog/CutProgressDashes.tsx#L6)
 
 Zero-based index of the question currently shown.
 
@@ -26,6 +26,6 @@ Zero-based index of the question currently shown.
 
 > **total**: `number`
 
-Defined in: [ui/src/components/gantt/cut-dialog/CutProgressDashes.tsx:8](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/cut-dialog/CutProgressDashes.tsx#L8)
+Defined in: [ui/src/components/gantt/cut-dialog/CutProgressDashes.tsx:8](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/cut-dialog/CutProgressDashes.tsx#L8)
 
 Total number of questions in the run.

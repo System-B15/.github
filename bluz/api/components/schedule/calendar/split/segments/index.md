@@ -19,6 +19,8 @@
 - [isLastSegment](functions/isLastSegment.md)
 - [isSplitSegment](functions/isSplitSegment.md)
 - [segmentKey](functions/segmentKey.md)
+- [spansMultipleDays](functions/spansMultipleDays.md)
+- [splitAtDayBoundaries](functions/splitAtDayBoundaries.md)
 
 ## References
 

@@ -651,7 +651,12 @@
 <blockquote>
 <p><strong>getRangeForView</strong>(<code>newDate</code>, <code>view</code>): <code>DateRange</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/calendar/utils.ts#L4">ui/src/components/schedule/calendar/utils.ts:4</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/schedule/calendar/utils.ts#L28">ui/src/components/schedule/calendar/utils.ts:28</a></p>
+<p>The instants a view spans, for range-scoped fetches and the ICS export.</p>
+<p>Computed in Israel time rather than the browser's zone (#613): the grid's
+columns are pinned there, so a range derived locally disagrees with what is
+on screen for any viewer outside Israel — a Thursday-end computed in UTC is
+already Friday in Jerusalem, which is exactly what #611 is about.</p>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
 <h3 id="newdate">newDate<a class="headerlink" href="#newdate" title="Permanent link">&para;</a></h3>
 <p><code>Date</code></p>

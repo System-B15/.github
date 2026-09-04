@@ -15,10 +15,6 @@
 - [ServerApiRequest](type-aliases/ServerApiRequest.md)
 - [ServerApiWithParams](type-aliases/ServerApiWithParams.md)
 
-## Variables
-
-- [dynamic](variables/dynamic.md)
-
 ## Functions
 
 - [ApiAccessError](functions/ApiAccessError.md)
@@ -28,5 +24,8 @@
 - [ApiSuccess](functions/ApiSuccess.md)
 - [catchHandler](functions/catchHandler.md)
 - [isDatabaseError](functions/isDatabaseError.md)
+- [isDuplicateKeyError](functions/isDuplicateKeyError.md)
 - [parseJsonBody](functions/parseJsonBody.md)
+- [pickFields](functions/pickFields.md)
+- [requireJsonObjectBody](functions/requireJsonObjectBody.md)
 - [withApi](functions/withApi.md)

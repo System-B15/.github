@@ -8,4 +8,5 @@
 
 ## Functions
 
+- [eventsDateRange](functions/eventsDateRange.md)
 - [SnapshotMenu](functions/SnapshotMenu.md)

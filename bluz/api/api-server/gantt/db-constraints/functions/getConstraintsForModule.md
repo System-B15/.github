@@ -8,7 +8,7 @@
 
 > **getConstraintsForModule**(`moduleId`): `Promise`\<`object`[]\>
 
-Defined in: [ui/src/api-server/gantt/db-constraints.ts:215](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-constraints.ts#L215)
+Defined in: [ui/src/api-server/gantt/db-constraints.ts:222](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/db-constraints.ts#L222)
 
 Retrieves all constraints owned by a specific module or its nested events.
 

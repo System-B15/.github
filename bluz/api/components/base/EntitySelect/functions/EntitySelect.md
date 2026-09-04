@@ -8,7 +8,7 @@
 
 > **EntitySelect**\<`TId`\>(`__namedParameters`): `Element`
 
-Defined in: [ui/src/components/base/EntitySelect.tsx:37](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/base/EntitySelect.tsx#L37)
+Defined in: [ui/src/components/base/EntitySelect.tsx:37](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/base/EntitySelect.tsx#L37)
 
 Shared MUI single-entity dropdown behind every `Hive*Select`: Hebrew-sorted
 options, an optional empty entry, and null-normalized change events. Wrap it

@@ -8,7 +8,7 @@
 
 > **ListItemWithParent**\<`T`\> = `object` & `Record`\<`string`, `null` \| `string`\>
 
-Defined in: [ui/src/api-server/gantt/db-base.ts:150](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-base.ts#L150)
+Defined in: [ui/src/api-server/gantt/db-base.ts:206](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/db-base.ts#L206)
 
 A `listItems({ withParents: true })` value: the label plus whichever parent
 key the entity's `parentJunction` is configured with (`syllabusId` for

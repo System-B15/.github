@@ -9,3 +9,4 @@
 ## Functions
 
 - [DeletedItemPlaceholder](functions/DeletedItemPlaceholder.md)
+- [EmptyValuePlaceholder](functions/EmptyValuePlaceholder.md)

@@ -8,7 +8,7 @@
 
 > **EventPersonDragData** = `object`
 
-Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:22](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/calendar/instructor-dnd/types.ts#L22)
+Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:22](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/schedule/calendar/instructor-dnd/types.ts#L22)
 
 Payload carried by a drag that started on a person chip rendered inside an
 event — dragging it away is the unassign gesture.
@@ -19,7 +19,18 @@ event — dragging it away is the unassign gesture.
 
 > **eventId**: [`EventId`](../../../../../../api-shared/types/event/type-aliases/EventId.md)
 
-Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:25](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/calendar/instructor-dnd/types.ts#L25)
+Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:25](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/schedule/calendar/instructor-dnd/types.ts#L25)
+
+***
+
+### field
+
+> **field**: [`PersonField`](PersonField.md)
+
+Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:30](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/schedule/calendar/instructor-dnd/types.ts#L30)
+
+The field the chip currently sits in. A move onto another event keeps
+this role rather than defaulting to `instructors` (#628).
 
 ***
 
@@ -27,7 +38,7 @@ Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:25](htt
 
 > **kind**: `"event-person"`
 
-Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:23](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/calendar/instructor-dnd/types.ts#L23)
+Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:23](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/schedule/calendar/instructor-dnd/types.ts#L23)
 
 ***
 
@@ -35,4 +46,4 @@ Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:23](htt
 
 > **personId**: [`PersonId`](../../../../../../api-shared/types/event/type-aliases/PersonId.md)
 
-Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:24](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/calendar/instructor-dnd/types.ts#L24)
+Defined in: [ui/src/components/schedule/calendar/instructor-dnd/types.ts:24](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/schedule/calendar/instructor-dnd/types.ts#L24)

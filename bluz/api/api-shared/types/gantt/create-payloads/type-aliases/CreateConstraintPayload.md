@@ -6,9 +6,11 @@
 
 # Type Alias: CreateConstraintPayload
 
-> **CreateConstraintPayload** = `Omit`\<[`RelationalConstraint`](../../models/constraint/type-aliases/RelationalConstraint.md), `"createdAt"` \| `"updatedAt"`\> \| `Omit`\<[`TemporalConstraint`](../../models/constraint/type-aliases/TemporalConstraint.md), `"createdAt"` \| `"updatedAt"`\>
+> **CreateConstraintPayload** = [`RelationalConstraint`](../../models/constraint/type-aliases/RelationalConstraint.md) \| [`TemporalConstraint`](../../models/constraint/type-aliases/TemporalConstraint.md)
 
-Defined in: [ui/src/api-shared/types/gantt/create-payloads.ts:23](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/gantt/create-payloads.ts#L23)
+Defined in: [ui/src/api-shared/types/gantt/create-payloads.ts:25](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/gantt/create-payloads.ts#L25)
 
 Payload to create a new Gantt constraint: a relational or temporal
-constraint minus the timestamps the database assigns.
+constraint. Neither `RelationalConstraint` nor `TemporalConstraint`
+carries `createdAt`/`updatedAt` — those exist only on the DB row shape,
+not this client-side model — so there is nothing to omit here.

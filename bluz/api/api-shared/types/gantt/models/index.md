@@ -14,6 +14,12 @@ Re-exports [BaseGantItem](shared/type-aliases/BaseGantItem.md)
 
 ***
 
+### CURRICULUM\_QUERY\_PARAM
+
+Re-exports [CURRICULUM_QUERY_PARAM](curriculum/variables/CURRICULUM_QUERY_PARAM.md)
+
+***
+
 ### DAY\_NAME\_DISPLAY
 
 Re-exports [DAY_NAME_DISPLAY](day/variables/DAY_NAME_DISPLAY.md)
@@ -32,9 +38,9 @@ Re-exports [DAYS_OF_WEEK](day/variables/DAYS_OF_WEEK.md)
 
 ***
 
-### defaultSplitAcrossBreaks
+### defaultModuleEventSplitAcrossBreaks
 
-Re-exports [defaultSplitAcrossBreaks](event/functions/defaultSplitAcrossBreaks.md)
+Re-exports [defaultModuleEventSplitAcrossBreaks](event/functions/defaultModuleEventSplitAcrossBreaks.md)
 
 ***
 

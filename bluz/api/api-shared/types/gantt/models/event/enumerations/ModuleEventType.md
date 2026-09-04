@@ -6,7 +6,7 @@
 
 # Enumeration: ModuleEventType
 
-Defined in: [ui/src/api-shared/types/gantt/models/event.ts:4](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/gantt/models/event.ts#L4)
+Defined in: [ui/src/api-shared/types/gantt/models/event.ts:4](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/gantt/models/event.ts#L4)
 
 ## Enumeration Members
 
@@ -14,7 +14,7 @@ Defined in: [ui/src/api-shared/types/gantt/models/event.ts:4](https://github.com
 
 > **Exercise**: "ע\"ע"
 
-Defined in: [ui/src/api-shared/types/gantt/models/event.ts:6](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/gantt/models/event.ts#L6)
+Defined in: [ui/src/api-shared/types/gantt/models/event.ts:6](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/gantt/models/event.ts#L6)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [ui/src/api-shared/types/gantt/models/event.ts:6](https://github.com
 
 > **Lecture**: `"הרצאה"`
 
-Defined in: [ui/src/api-shared/types/gantt/models/event.ts:5](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/gantt/models/event.ts#L5)
+Defined in: [ui/src/api-shared/types/gantt/models/event.ts:5](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/gantt/models/event.ts#L5)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [ui/src/api-shared/types/gantt/models/event.ts:5](https://github.com
 
 > **Other**: `"אחר"`
 
-Defined in: [ui/src/api-shared/types/gantt/models/event.ts:8](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/gantt/models/event.ts#L8)
+Defined in: [ui/src/api-shared/types/gantt/models/event.ts:8](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/gantt/models/event.ts#L8)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [ui/src/api-shared/types/gantt/models/event.ts:8](https://github.com
 
 > **SelfTeaching**: "ל\"ע"
 
-Defined in: [ui/src/api-shared/types/gantt/models/event.ts:7](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/gantt/models/event.ts#L7)
+Defined in: [ui/src/api-shared/types/gantt/models/event.ts:7](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/gantt/models/event.ts#L7)

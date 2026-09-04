@@ -8,7 +8,7 @@
 
 > `const` **DbSyllabus**: `object`
 
-Defined in: [ui/src/api-server/gantt/db-syllabus.ts:317](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-syllabus.ts#L317)
+Defined in: [ui/src/api-server/gantt/db-syllabus.ts:336](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/db-syllabus.ts#L336)
 
 ## Type Declaration
 
@@ -60,13 +60,22 @@ sides in one transaction.
 
 ### createNewItem
 
-> `readonly` **createNewItem**: (`payload`) => `Promise`\<[`GanttSyllabus`](../../../../api-shared/types/gantt/models/syllabus/type-aliases/GanttSyllabus.md) \| [`ApiSyllabus`](../../../../api-shared/types/gantt/api-layer/type-aliases/ApiSyllabus.md)\>
+> `readonly` **createNewItem**: (`payload`, `executor?`) => `Promise`\<[`GanttSyllabus`](../../../../api-shared/types/gantt/models/syllabus/type-aliases/GanttSyllabus.md) \| [`ApiSyllabus`](../../../../api-shared/types/gantt/api-layer/type-aliases/ApiSyllabus.md)\>
+
+Server-side widening of the shared `createNewItem` contract: the second
+parameter enlists the create in a caller's transaction (#518). It stays
+out of `BasicGantOperations` because that type is shared with the client
+layer, which has no database handle to pass.
 
 #### Parameters
 
 ##### payload
 
 [`CreateGanttSyllabusPayload`](../../../../api-shared/types/gantt/create-payloads/type-aliases/CreateGanttSyllabusPayload.md)
+
+##### executor?
+
+[`GanttDbExecutor`](../../type-aliases/GanttDbExecutor.md)
 
 #### Returns
 
@@ -88,7 +97,7 @@ sides in one transaction.
 
 ### findShuffleUsages
 
-> **findShuffleUsages**: (`syllabusId`, `shuffleNames`) => `Promise`\<[`ShuffleUsages`](../../../../api-shared/types/gantt/shuffles/type-aliases/ShuffleUsages.md)\>
+> **findShuffleUsages**: (`syllabusId`, `shuffleNames`, `executor`) => `Promise`\<[`ShuffleUsages`](../../../../api-shared/types/gantt/shuffles/type-aliases/ShuffleUsages.md)\>
 
 Modules and events under `syllabusId` tagged with any of `shuffleNames`.
 
@@ -104,6 +113,10 @@ names; an event reached through another syllabus keeps its own tags.
 ##### shuffleNames
 
 `string`[]
+
+##### executor?
+
+[`GanttDbExecutor`](../../type-aliases/GanttDbExecutor.md) = `postgresDb`
 
 #### Returns
 

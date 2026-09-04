@@ -8,7 +8,7 @@
 
 > `const` **DbCurriculum**: `object`
 
-Defined in: [ui/src/api-server/gantt/db-curriculum.ts:327](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-curriculum.ts#L327)
+Defined in: [ui/src/api-server/gantt/db-curriculum.ts:381](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/db-curriculum.ts#L381)
 
 ## Type Declaration
 
@@ -149,7 +149,7 @@ in the global meal-time settings instead of stacking them.
 
 ### updateItem
 
-> `readonly` **updateItem**: (`id`, `updates`) => `Promise`\<[`GanttCurriculum`](../../../../api-shared/types/gantt/models/curriculum/type-aliases/GanttCurriculum.md)\>
+> `readonly` **updateItem**: (`id`, `updates`, `executor?`) => `Promise`\<[`GanttCurriculum`](../../../../api-shared/types/gantt/models/curriculum/type-aliases/GanttCurriculum.md)\>
 
 #### Parameters
 
@@ -159,7 +159,11 @@ in the global meal-time settings instead of stacking them.
 
 ##### updates
 
-`Partial`\<`TEntity`\>
+`Partial`\<`T`\>
+
+##### executor?
+
+[`GanttDbExecutor`](../../type-aliases/GanttDbExecutor.md)
 
 #### Returns
 

@@ -9,3 +9,4 @@
 ## Functions
 
 - [EventTimeField](functions/EventTimeField.md)
+- [isEndTimeValid](functions/isEndTimeValid.md)

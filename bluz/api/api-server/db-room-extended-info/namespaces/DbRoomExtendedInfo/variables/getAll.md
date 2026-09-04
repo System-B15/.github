@@ -8,7 +8,7 @@
 
 > `const` **getAll**: (`controller`) => `Promise`\<`WithId`\<[`RoomExtendedInfoDocument`](../../../../mongo-db-controller/type-aliases/RoomExtendedInfoDocument.md)\>[]\> = `getAllExtendedInfo`
 
-Defined in: [ui/src/api-server/db-room-extended-info.ts:32](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/db-room-extended-info.ts#L32)
+Defined in: [ui/src/api-server/db-room-extended-info.ts:47](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/db-room-extended-info.ts#L47)
 
 ## Parameters
 

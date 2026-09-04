@@ -8,7 +8,7 @@
 
 > `const` **DbModuleEvent**: `object`
 
-Defined in: [ui/src/api-server/gantt/db-module-event.ts:174](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-module-event.ts#L174)
+Defined in: [ui/src/api-server/gantt/db-module-event.ts:174](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/db-module-event.ts#L174)
 
 ## Type Declaration
 
@@ -34,13 +34,22 @@ Defined in: [ui/src/api-server/gantt/db-module-event.ts:174](https://github.com/
 
 ### createNewItem
 
-> `readonly` **createNewItem**: (`payload`) => `Promise`\<[`GanttEvent`](../../../../api-shared/types/gantt/models/event/type-aliases/GanttEvent.md) \| [`ApiModuleEvent`](../../../../api-shared/types/gantt/api-layer/type-aliases/ApiModuleEvent.md)\>
+> `readonly` **createNewItem**: (`payload`, `executor?`) => `Promise`\<[`GanttEvent`](../../../../api-shared/types/gantt/models/event/type-aliases/GanttEvent.md) \| [`ApiModuleEvent`](../../../../api-shared/types/gantt/api-layer/type-aliases/ApiModuleEvent.md)\>
+
+Server-side widening of the shared `createNewItem` contract: the second
+parameter enlists the create in a caller's transaction (#518). It stays
+out of `BasicGantOperations` because that type is shared with the client
+layer, which has no database handle to pass.
 
 #### Parameters
 
 ##### payload
 
 [`CreateGanttEventPayload`](../../../../api-shared/types/gantt/create-payloads/type-aliases/CreateGanttEventPayload.md)
+
+##### executor?
+
+[`GanttDbExecutor`](../../type-aliases/GanttDbExecutor.md)
 
 #### Returns
 
@@ -189,7 +198,7 @@ Removes the association between a module and an event.
 
 ### updateItem
 
-> `readonly` **updateItem**: (`id`, `updates`) => `Promise`\<[`GanttEvent`](../../../../api-shared/types/gantt/models/event/type-aliases/GanttEvent.md)\>
+> `readonly` **updateItem**: (`id`, `updates`, `executor?`) => `Promise`\<[`GanttEvent`](../../../../api-shared/types/gantt/models/event/type-aliases/GanttEvent.md)\>
 
 #### Parameters
 
@@ -199,7 +208,11 @@ Removes the association between a module and an event.
 
 ##### updates
 
-`Partial`\<`TEntity`\>
+`Partial`\<`T`\>
+
+##### executor?
+
+[`GanttDbExecutor`](../../type-aliases/GanttDbExecutor.md)
 
 #### Returns
 

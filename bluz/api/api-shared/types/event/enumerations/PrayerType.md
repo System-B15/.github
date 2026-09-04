@@ -6,7 +6,7 @@
 
 # Enumeration: PrayerType
 
-Defined in: [ui/src/api-shared/types/event.ts:137](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/event.ts#L137)
+Defined in: [ui/src/api-shared/types/event.ts:144](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/event.ts#L144)
 
 Standardized types of prayers.
 
@@ -16,7 +16,7 @@ Standardized types of prayers.
 
 > **ARVIT**: `"arvit"`
 
-Defined in: [ui/src/api-shared/types/event.ts:141](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/event.ts#L141)
+Defined in: [ui/src/api-shared/types/event.ts:148](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/event.ts#L148)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [ui/src/api-shared/types/event.ts:141](https://github.com/System-B90
 
 > **MINCHA**: `"mincha"`
 
-Defined in: [ui/src/api-shared/types/event.ts:140](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/event.ts#L140)
+Defined in: [ui/src/api-shared/types/event.ts:147](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/event.ts#L147)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [ui/src/api-shared/types/event.ts:140](https://github.com/System-B90
 
 > **SHACHARIT**: `"shacharit"`
 
-Defined in: [ui/src/api-shared/types/event.ts:139](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/event.ts#L139)
+Defined in: [ui/src/api-shared/types/event.ts:146](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/event.ts#L146)

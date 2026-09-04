@@ -672,6 +672,7 @@
 <h1 id="typedoc-api">TypeDoc API<a class="headerlink" href="#typedoc-api" title="Permanent link">&para;</a></h1>
 <h2 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h2>
 <ul>
+<li><a href="api-client/ai/">api-client/ai</a></li>
 <li><a href="api-client/calendar/">api-client/calendar</a></li>
 <li><a href="api-client/calendar-drafts/">api-client/calendar-drafts</a></li>
 <li><a href="api-client/calendar-snapshots/">api-client/calendar-snapshots</a></li>
@@ -708,10 +709,22 @@
 <li><a href="api-client/rooms/">api-client/rooms</a></li>
 <li><a href="api-client/schedule-settings/">api-client/schedule-settings</a></li>
 <li><a href="api-client/settings/">api-client/settings</a></li>
+<li><a href="api-server/ai/">api-server/ai</a></li>
+<li><a href="api-server/ai/agent/">api-server/ai/agent</a></li>
+<li><a href="api-server/ai/openrouter/">api-server/ai/openrouter</a></li>
+<li><a href="api-server/ai/provider/">api-server/ai/provider</a></li>
+<li><a href="api-server/ai/rate-limit/">api-server/ai/rate-limit</a></li>
+<li><a href="api-server/ai/system-prompt/">api-server/ai/system-prompt</a></li>
+<li><a href="api-server/ai/tools/">api-server/ai/tools</a></li>
+<li><a href="api-server/ai/tools/calendar/">api-server/ai/tools/calendar</a></li>
+<li><a href="api-server/ai/tools/gantt/">api-server/ai/tools/gantt</a></li>
+<li><a href="api-server/ai/tools/types/">api-server/ai/tools/types</a></li>
 <li><a href="api-server/calendar-store-request/">api-server/calendar-store-request</a></li>
+<li><a href="api-server/cli-handoff-rate-limit/">api-server/cli-handoff-rate-limit</a></li>
 <li><a href="api-server/common/">api-server/common</a></li>
 <li><a href="api-server/db-calendar-draft/">api-server/db-calendar-draft</a></li>
 <li><a href="api-server/db-calendar-snapshot/">api-server/db-calendar-snapshot</a></li>
+<li><a href="api-server/db-cli-handoff/">api-server/db-cli-handoff</a></li>
 <li><a href="api-server/db-courses/">api-server/db-courses</a></li>
 <li><a href="api-server/db-custom-colors/">api-server/db-custom-colors</a></li>
 <li><a href="api-server/db-event/">api-server/db-event</a></li>
@@ -783,13 +796,18 @@
 <li><a href="api-shared/gantt/cut-planner/">api-shared/gantt/cut-planner</a></li>
 <li><a href="api-shared/gantt/cut-rules/">api-shared/gantt/cut-rules</a></li>
 <li><a href="api-shared/gantt/execution/">api-shared/gantt/execution</a></li>
+<li><a href="api-shared/gantt/holidays/">api-shared/gantt/holidays</a></li>
 <li><a href="api-shared/gantt/recurrence/">api-shared/gantt/recurrence</a></li>
 <li><a href="api-shared/gantt/reload-diff/">api-shared/gantt/reload-diff</a></li>
 <li><a href="api-shared/gantt/week-defaults/">api-shared/gantt/week-defaults</a></li>
 <li><a href="api-shared/hive-links/">api-shared/hive-links</a></li>
 <li><a href="api-shared/interval-layout/">api-shared/interval-layout</a></li>
+<li><a href="api-shared/sse/">api-shared/sse</a></li>
 <li><a href="api-shared/types/">api-shared/types</a></li>
+<li><a href="api-shared/types/ai/">api-shared/types/ai</a></li>
+<li><a href="api-shared/types/cli-handoff/">api-shared/types/cli-handoff</a></li>
 <li><a href="api-shared/types/course/">api-shared/types/course</a></li>
+<li><a href="api-shared/types/curriculum-cut/">api-shared/types/curriculum-cut</a></li>
 <li><a href="api-shared/types/custom-color/">api-shared/types/custom-color</a></li>
 <li><a href="api-shared/types/event/">api-shared/types/event</a></li>
 <li><a href="api-shared/types/event-history/">api-shared/types/event-history</a></li>
@@ -827,7 +845,6 @@
 <li><a href="api-shared/types/settings/settings/">api-shared/types/settings/settings</a></li>
 <li><a href="api-shared/types/sso/">api-shared/types/sso</a></li>
 <li><a href="api-shared/types/subject/">api-shared/types/subject</a></li>
-<li><a href="app/%28themed%29/%28post-auth%29/%28with-hive%29/%28schedule%29/-layout/">app/(themed)/(post-auth)/(with-hive)/(schedule)/-layout</a></li>
 <li><a href="app/%28themed%29/%28post-auth%29/%28with-hive%29/%28schedule%29/page/">app/(themed)/(post-auth)/(with-hive)/(schedule)/page</a></li>
 <li><a href="app/%28themed%29/%28post-auth%29/%28with-hive%29/gantt/layout/">app/(themed)/(post-auth)/(with-hive)/gantt/layout</a></li>
 <li><a href="app/%28themed%29/%28post-auth%29/%28with-hive%29/gantt/page/">app/(themed)/(post-auth)/(with-hive)/gantt/page</a></li>
@@ -840,11 +857,14 @@
 <li><a href="app/%28themed%29/%28pre-auth%29/login/login-with-hive-button/">app/(themed)/(pre-auth)/login/login-with-hive-button</a></li>
 <li><a href="app/%28themed%29/%28pre-auth%29/login/page/">app/(themed)/(pre-auth)/login/page</a></li>
 <li><a href="app/%28themed%29/layout/">app/(themed)/layout</a></li>
+<li><a href="app/api/ai/chat/route/">app/api/ai/chat/route</a></li>
+<li><a href="app/api/ai/tools/route/">app/api/ai/tools/route</a></li>
 <li><a href="app/api/auth/%5B...nextauth%5D/route/">app/api/auth/[...nextauth]/route</a></li>
 <li><a href="app/api/auth/hive-status/route/">app/api/auth/hive-status/route</a></li>
 <li><a href="app/api/calendar/drafts/route/">app/api/calendar/drafts/route</a></li>
 <li><a href="app/api/calendar/snapshots/restore/route/">app/api/calendar/snapshots/restore/route</a></li>
 <li><a href="app/api/calendar/snapshots/route/">app/api/calendar/snapshots/route</a></li>
+<li><a href="app/api/cli-auth/redeem/route/">app/api/cli-auth/redeem/route</a></li>
 <li><a href="app/api/course/route/">app/api/course/route</a></li>
 <li><a href="app/api/custom-colors/route/">app/api/custom-colors/route</a></li>
 <li><a href="app/api/event/compare/route/">app/api/event/compare/route</a></li>
@@ -924,16 +944,22 @@
 <li><a href="app/layout/">app/layout</a></li>
 <li><a href="app/manifest/">app/manifest</a></li>
 <li><a href="app/not-found/">app/not-found</a></li>
+<li><a href="components/ai/AiAssistant/">components/ai/AiAssistant</a></li>
+<li><a href="components/ai/use-ai-chat/">components/ai/use-ai-chat</a></li>
 <li><a href="components/app-commands/BluzCommandPalette/">components/app-commands/BluzCommandPalette</a></li>
 <li><a href="components/app-commands/GanttContentCommands/">components/app-commands/GanttContentCommands</a></li>
 <li><a href="components/app-commands/labels/">components/app-commands/labels</a></li>
+<li><a href="components/app-commands/use-account-commands/">components/app-commands/use-account-commands</a></li>
 <li><a href="components/app-commands/use-appearance-commands/">components/app-commands/use-appearance-commands</a></li>
 <li><a href="components/app-commands/use-curriculum-commands/">components/app-commands/use-curriculum-commands</a></li>
 <li><a href="components/app-commands/use-directory-commands/">components/app-commands/use-directory-commands</a></li>
 <li><a href="components/app-commands/use-navigation-commands/">components/app-commands/use-navigation-commands</a></li>
 <li><a href="components/app-commands/use-schedule-commands/">components/app-commands/use-schedule-commands</a></li>
+<li><a href="components/app-commands/use-schedule-event-commands/">components/app-commands/use-schedule-event-commands</a></li>
 <li><a href="components/app-commands/use-settings-commands/">components/app-commands/use-settings-commands</a></li>
 <li><a href="components/auth/AuthProvider/">components/auth/AuthProvider</a></li>
+<li><a href="components/base/ApiErrorSnackbar/">components/base/ApiErrorSnackbar</a></li>
+<li><a href="components/base/bidi/">components/base/bidi</a></li>
 <li><a href="components/base/CalendarFilterProvider/">components/base/CalendarFilterProvider</a></li>
 <li><a href="components/base/collapse-course-selection/">components/base/collapse-course-selection</a></li>
 <li><a href="components/base/collection/create-collection-provider/">components/base/collection/create-collection-provider</a></li>
@@ -956,6 +982,7 @@
 <li><a href="components/base/NumberSpinner/">components/base/NumberSpinner</a></li>
 <li><a href="components/base/OfflineProvider/">components/base/OfflineProvider</a></li>
 <li><a href="components/base/OutsidersProvider/">components/base/OutsidersProvider</a></li>
+<li><a href="components/base/RealtimeStatus/">components/base/RealtimeStatus</a></li>
 <li><a href="components/base/RoomsProvider/">components/base/RoomsProvider</a></li>
 <li><a href="components/base/SettingsProvider/">components/base/SettingsProvider</a></li>
 <li><a href="components/base/use-grouped-instructors/">components/base/use-grouped-instructors</a></li>
@@ -1159,7 +1186,6 @@
 <li><a href="components/header/FilterRoom/">components/header/FilterRoom</a></li>
 <li><a href="components/header/filters/">components/header/filters</a></li>
 <li><a href="components/header/HiveAvatarImage/">components/header/HiveAvatarImage</a></li>
-<li><a href="components/header/InstructorToolsIcon/">components/header/InstructorToolsIcon</a></li>
 <li><a href="components/header/logo/">components/header/logo</a></li>
 <li><a href="components/header/logo/LogoGraphic/">components/header/logo/LogoGraphic</a></li>
 <li><a href="components/header/OfflineModeIcon/">components/header/OfflineModeIcon</a></li>
@@ -1170,6 +1196,7 @@
 <li><a href="components/schedule/calendar/calendar-provider/CalendarContext/">components/schedule/calendar/calendar-provider/CalendarContext</a></li>
 <li><a href="components/schedule/calendar/calendar-provider/EventFactory/">components/schedule/calendar/calendar-provider/EventFactory</a></li>
 <li><a href="components/schedule/calendar/calendar-provider/hooks/UseEventActions/">components/schedule/calendar/calendar-provider/hooks/UseEventActions</a></li>
+<li><a href="components/schedule/calendar/calendar-provider/hooks/UseEventLockLifecycle/">components/schedule/calendar/calendar-provider/hooks/UseEventLockLifecycle</a></li>
 <li><a href="components/schedule/calendar/calendar-provider/hooks/UseEventState/">components/schedule/calendar/calendar-provider/hooks/UseEventState</a></li>
 <li><a href="components/schedule/calendar/calendar-provider/hooks/UseEventWebsocket/">components/schedule/calendar/calendar-provider/hooks/UseEventWebsocket</a></li>
 <li><a href="components/schedule/calendar/calendar-provider/lock-state/">components/schedule/calendar/calendar-provider/lock-state</a></li>
@@ -1179,6 +1206,7 @@
 <li><a href="components/schedule/calendar/calendar/DndLocalizer/">components/schedule/calendar/calendar/DndLocalizer</a></li>
 <li><a href="components/schedule/calendar/calendar/DraftsMenu/">components/schedule/calendar/calendar/DraftsMenu</a></li>
 <li><a href="components/schedule/calendar/calendar/IterationSelector/">components/schedule/calendar/calendar/IterationSelector</a></li>
+<li><a href="components/schedule/calendar/calendar/range-header/">components/schedule/calendar/calendar/range-header</a></li>
 <li><a href="components/schedule/calendar/calendar/SnapshotMenu/">components/schedule/calendar/calendar/SnapshotMenu</a></li>
 <li><a href="components/schedule/calendar/calendar/toolbar-button-sx/">components/schedule/calendar/calendar/toolbar-button-sx</a></li>
 <li><a href="components/schedule/calendar/calendar/UseCalendarHandlers/">components/schedule/calendar/calendar/UseCalendarHandlers</a></li>
@@ -1237,12 +1265,10 @@
 <li><a href="components/schedule/offline-dialogs/push-updates-dialog/EventListEntry/">components/schedule/offline-dialogs/push-updates-dialog/EventListEntry</a></li>
 <li><a href="components/schedule/offline-dialogs/push-updates-dialog/types/">components/schedule/offline-dialogs/push-updates-dialog/types</a></li>
 <li><a href="components/schedule/offline-dialogs/push-updates-dialog/utils/">components/schedule/offline-dialogs/push-updates-dialog/utils</a></li>
-<li><a href="components/schedule/subject-dialog/">components/schedule/subject-dialog</a></li>
 <li><a href="components/schedule/types/config/">components/schedule/types/config</a></li>
 <li><a href="components/schedule/types/event/">components/schedule/types/event</a></li>
 <li><a href="components/schedule/types/EventUtils/">components/schedule/types/EventUtils</a></li>
 <li><a href="components/schedule/types/group/">components/schedule/types/group</a></li>
-<li><a href="components/schedule/types/tag/">components/schedule/types/tag</a></li>
 <li><a href="components/schedule/types/types/">components/schedule/types/types</a></li>
 <li><a href="components/schedule/types/user/">components/schedule/types/user</a></li>
 <li><a href="components/SessionWs/">components/SessionWs</a></li>
@@ -1279,10 +1305,6 @@
 <li><a href="components/settings-dialog/tabs/global/CourseBuilderSettings/">components/settings-dialog/tabs/global/CourseBuilderSettings</a></li>
 <li><a href="components/settings-dialog/tabs/global/DayStartTimeSetting/">components/settings-dialog/tabs/global/DayStartTimeSetting</a></li>
 <li><a href="components/settings-dialog/tabs/global/GlobalSettings/">components/settings-dialog/tabs/global/GlobalSettings</a></li>
-<li><a href="components/settings-dialog/tabs/global/group-tree/">components/settings-dialog/tabs/global/group-tree</a></li>
-<li><a href="components/settings-dialog/tabs/global/group-tree/GroupField/">components/settings-dialog/tabs/global/group-tree/GroupField</a></li>
-<li><a href="components/settings-dialog/tabs/global/group-tree/GroupMembersField/">components/settings-dialog/tabs/global/group-tree/GroupMembersField</a></li>
-<li><a href="components/settings-dialog/tabs/global/group-tree/MemberField/">components/settings-dialog/tabs/global/group-tree/MemberField</a></li>
 <li><a href="components/settings-dialog/tabs/global/iteration-settings/">components/settings-dialog/tabs/global/iteration-settings</a></li>
 <li><a href="components/settings-dialog/tabs/global/iteration-settings/IterationFormCard/">components/settings-dialog/tabs/global/iteration-settings/IterationFormCard</a></li>
 <li><a href="components/settings-dialog/tabs/global/iteration-settings/IterationListCard/">components/settings-dialog/tabs/global/iteration-settings/IterationListCard</a></li>

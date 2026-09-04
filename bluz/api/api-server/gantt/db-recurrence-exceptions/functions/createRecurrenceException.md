@@ -6,9 +6,9 @@
 
 # Function: createRecurrenceException()
 
-> **createRecurrenceException**(`data`): `Promise`\<\{ `createdAt`: `Date`; `curriculumId`: `string`; `dayId`: `string`; `eventId`: `string`; `id`: `string`; `materializedEventId`: `string` \| `null`; \}\>
+> **createRecurrenceException**(`data`, `executor?`): `Promise`\<\{ `createdAt`: `Date`; `curriculumId`: `string`; `dayId`: `string`; `eventId`: `string`; `id`: `string`; `materializedEventId`: `string` \| `null`; \}\>
 
-Defined in: [ui/src/api-server/gantt/db-recurrence-exceptions.ts:36](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-recurrence-exceptions.ts#L36)
+Defined in: [ui/src/api-server/gantt/db-recurrence-exceptions.ts:36](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/db-recurrence-exceptions.ts#L36)
 
 Removes a single recurring occurrence: marks the day as excepted so the
 event no longer echoes onto it, without touching the source event.
@@ -32,6 +32,10 @@ event no longer echoes onto it, without touching the source event.
 #### materializedEventId?
 
 `string` \| `null`
+
+### executor?
+
+[`GanttDbExecutor`](../../type-aliases/GanttDbExecutor.md) = `postgresDb`
 
 ## Returns
 

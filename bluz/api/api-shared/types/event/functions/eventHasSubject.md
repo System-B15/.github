@@ -8,7 +8,7 @@
 
 > **eventHasSubject**(`type`): `boolean`
 
-Defined in: [ui/src/api-shared/types/event.ts:163](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/event.ts#L163)
+Defined in: [ui/src/api-shared/types/event.ts:170](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/event.ts#L170)
 
 Checks if a specific event type is associated with an academic subject.
 

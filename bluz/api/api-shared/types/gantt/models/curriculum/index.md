@@ -10,3 +10,7 @@
 
 - [GanttCurriculum](type-aliases/GanttCurriculum.md)
 - [GanttCurriculumId](type-aliases/GanttCurriculumId.md)
+
+## Variables
+
+- [CURRICULUM\_QUERY\_PARAM](variables/CURRICULUM_QUERY_PARAM.md)

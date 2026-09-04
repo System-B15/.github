@@ -608,6 +608,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#sourcefield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sourceField?
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -649,9 +660,9 @@
 <p><a href="../../../../../../../">TypeDoc API</a> / <a href="../../">components/schedule/calendar/instructor-dnd/assign</a> / targetFieldFor</p>
 <h1 id="function-targetfieldfor">Function: targetFieldFor()<a class="headerlink" href="#function-targetfieldfor" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><strong>targetFieldFor</strong>(<code>event</code>, <code>withModifier</code>): <a href="../../../types/type-aliases/PersonField/"><code>PersonField</code></a></p>
+<p><strong>targetFieldFor</strong>(<code>event</code>, <code>withModifier</code>, <code>sourceField?</code>): <a href="../../../types/type-aliases/PersonField/"><code>PersonField</code></a></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/calendar/instructor-dnd/assign.ts#L16">ui/src/components/schedule/calendar/instructor-dnd/assign.ts:16</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/schedule/calendar/instructor-dnd/assign.ts#L24">ui/src/components/schedule/calendar/instructor-dnd/assign.ts:24</a></p>
 <p>Resolves which person field a drop writes into.</p>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
 <h3 id="event">event<a class="headerlink" href="#event" title="Permanent link">&para;</a></h3>
@@ -660,10 +671,17 @@
 <h3 id="withmodifier">withModifier<a class="headerlink" href="#withmodifier" title="Permanent link">&para;</a></h3>
 <p><code>boolean</code></p>
 <p>Whether Shift was held at drop time.</p>
+<h3 id="sourcefield">sourceField?<a class="headerlink" href="#sourcefield" title="Permanent link">&para;</a></h3>
+<p><a href="../../../types/type-aliases/PersonField/"><code>PersonField</code></a></p>
+<p>The field the person was dragged out of, when the drag
+started on a chip already sitting in an event. A move keeps the person's
+role: dragging a lecturer without Shift used to silently demote them to an
+instructor on the target (#628).</p>
 <h2 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h2>
 <p><a href="../../../types/type-aliases/PersonField/"><code>PersonField</code></a></p>
-<p><code>lecturers</code> only when the modifier is held and the event type
-actually carries lecturers; <code>instructors</code> otherwise.</p>
+<p><code>lecturers</code> when the modifier is held or the person already was a
+lecturer, and the event type actually carries lecturers; <code>instructors</code>
+otherwise.</p>
 
 
 

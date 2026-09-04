@@ -19,4 +19,4 @@
 
 ## Functions
 
-- [defaultSplitAcrossBreaks](functions/defaultSplitAcrossBreaks.md)
+- [defaultModuleEventSplitAcrossBreaks](functions/defaultModuleEventSplitAcrossBreaks.md)

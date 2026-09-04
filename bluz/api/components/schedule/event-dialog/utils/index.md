@@ -9,3 +9,7 @@
 ## Type Aliases
 
 - [EventFieldProps](type-aliases/EventFieldProps.md)
+
+## Functions
+
+- [buildGanttEventLink](functions/buildGanttEventLink.md)

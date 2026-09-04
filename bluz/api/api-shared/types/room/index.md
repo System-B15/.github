@@ -35,5 +35,4 @@
 - [areRoomsEqual](functions/areRoomsEqual.md)
 - [resourceKeyToResolvable](functions/resourceKeyToResolvable.md)
 - [roomLikeToResourceKey](functions/roomLikeToResourceKey.md)
-- [roomToKey](functions/roomToKey.md)
 - [roomToResolvable](functions/roomToResolvable.md)

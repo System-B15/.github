@@ -8,7 +8,7 @@
 
 > `const` **DbDay**: `object`
 
-Defined in: [ui/src/api-server/gantt/db-day.ts:43](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-day.ts#L43)
+Defined in: [ui/src/api-server/gantt/db-day.ts:43](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/db-day.ts#L43)
 
 ## Type Declaration
 
@@ -34,13 +34,22 @@ Defined in: [ui/src/api-server/gantt/db-day.ts:43](https://github.com/System-B90
 
 ### createNewItem
 
-> `readonly` **createNewItem**: (`payload`) => `Promise`\<[`GanttDay`](../../../../api-shared/types/gantt/models/day/type-aliases/GanttDay.md) \| `Omit`\<`object` & [`BaseGantItem`](../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem.md) & [`RawBaseDocument`](../../../../api-shared/types/gantt/api-layer/type-aliases/RawBaseDocument.md), `"title"`\>\>
+> `readonly` **createNewItem**: (`payload`, `executor?`) => `Promise`\<[`GanttDay`](../../../../api-shared/types/gantt/models/day/type-aliases/GanttDay.md) \| `Omit`\<`object` & [`BaseGantItem`](../../../../api-shared/types/gantt/models/shared/type-aliases/BaseGantItem.md) & [`RawBaseDocument`](../../../../api-shared/types/gantt/api-layer/type-aliases/RawBaseDocument.md), `"title"`\>\>
+
+Server-side widening of the shared `createNewItem` contract: the second
+parameter enlists the create in a caller's transaction (#518). It stays
+out of `BasicGantOperations` because that type is shared with the client
+layer, which has no database handle to pass.
 
 #### Parameters
 
 ##### payload
 
 [`CreateGanttDayPayload`](../../../../api-shared/types/gantt/create-payloads/type-aliases/CreateGanttDayPayload.md)
+
+##### executor?
+
+[`GanttDbExecutor`](../../type-aliases/GanttDbExecutor.md)
 
 #### Returns
 
@@ -104,7 +113,7 @@ Defined in: [ui/src/api-server/gantt/db-day.ts:43](https://github.com/System-B90
 
 ### updateItem
 
-> `readonly` **updateItem**: (`id`, `updates`) => `Promise`\<[`GanttDay`](../../../../api-shared/types/gantt/models/day/type-aliases/GanttDay.md)\>
+> `readonly` **updateItem**: (`id`, `updates`, `executor?`) => `Promise`\<[`GanttDay`](../../../../api-shared/types/gantt/models/day/type-aliases/GanttDay.md)\>
 
 #### Parameters
 
@@ -114,7 +123,11 @@ Defined in: [ui/src/api-server/gantt/db-day.ts:43](https://github.com/System-B90
 
 ##### updates
 
-`Partial`\<`TEntity`\>
+`Partial`\<`T`\>
+
+##### executor?
+
+[`GanttDbExecutor`](../../type-aliases/GanttDbExecutor.md)
 
 #### Returns
 

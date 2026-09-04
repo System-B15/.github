@@ -8,7 +8,7 @@
 
 > **selectLiveEvents**(`events`, `now`): [`DbEventDocument`](../../../../api-shared/types/event/type-aliases/DbEventDocument.md)[]
 
-Defined in: [ui/src/api-server/hive/lesson-activation.ts:55](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/hive/lesson-activation.ts#L55)
+Defined in: [ui/src/api-server/hive/lesson-activation.ts:56](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/hive/lesson-activation.ts#L56)
 
 Live, non-hidden events that should open a queue right now.
 

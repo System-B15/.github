@@ -14,6 +14,10 @@
 - [OpenModuleDialog](type-aliases/OpenModuleDialog.md)
 - [RevealGanttItem](type-aliases/RevealGanttItem.md)
 
+## Variables
+
+- [GANTT\_EVENT\_DEEP\_LINK\_PARAM](variables/GANTT_EVENT_DEEP_LINK_PARAM.md)
+
 ## Functions
 
 - [CurriculumProvider](functions/CurriculumProvider.md)

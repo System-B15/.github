@@ -8,7 +8,7 @@
 
 > `const` **GET**: (`request`, `context?`) => `Promise`\<`Response`\>
 
-Defined in: [ui/src/app/api/calendar/drafts/route.ts:40](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/app/api/calendar/drafts/route.ts#L40)
+Defined in: [ui/src/app/api/calendar/drafts/route.ts:42](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/app/api/calendar/drafts/route.ts#L42)
 
 GET /api/calendar/drafts
   - no params  → list shared drafts (summaries, newest-updated first)

@@ -10,6 +10,7 @@
 
 - [DuplicateCurriculumOverrides](type-aliases/DuplicateCurriculumOverrides.md)
 - [GanttCurriculumDocument](type-aliases/GanttCurriculumDocument.md)
+- [GanttCurriculumExport](type-aliases/GanttCurriculumExport.md)
 
 ## Variables
 

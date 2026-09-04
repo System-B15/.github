@@ -8,7 +8,7 @@
 
 > **DbReservation** = `Omit`\<[`Reservation`](Reservation.md), `"end"` \| `"start"`\> & `object`
 
-Defined in: [ui/src/api-shared/types/reservation.ts:18](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-shared/types/reservation.ts#L18)
+Defined in: [ui/src/api-shared/types/reservation.ts:18](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-shared/types/reservation.ts#L18)
 
 ## Type Declaration
 

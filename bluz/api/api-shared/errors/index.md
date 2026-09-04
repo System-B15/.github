@@ -5,3 +5,7 @@
 [TypeDoc API](../../index.md) / api-shared/errors
 
 # api-shared/errors
+
+## Functions
+
+- [constructErrorFromNetworkMessage](functions/constructErrorFromNetworkMessage.md)

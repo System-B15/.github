@@ -8,7 +8,7 @@
 
 > **EventSpanInfo** = `object`
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttEventCells.tsx:13](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttEventCells.tsx#L13)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttEventCells.tsx:13](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttEventCells.tsx#L13)
 
 Multi-day spillover info for a mapped event (#105).
 
@@ -18,7 +18,7 @@ Multi-day spillover info for a mapped event (#105).
 
 > **endDayId**: `string`
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttEventCells.tsx:15](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttEventCells.tsx#L15)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttEventCells.tsx:15](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttEventCells.tsx#L15)
 
 Last day the event occupies (after overflow).
 
@@ -28,6 +28,6 @@ Last day the event occupies (after overflow).
 
 > **spanDayCount**: `number`
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttEventCells.tsx:17](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttEventCells.tsx#L17)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttEventCells.tsx:17](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/curriculum-view/tabs/gantt-view-tab/gantt-view/GanttEventCells.tsx#L17)
 
 Total days covered from start to end, inclusive.

@@ -8,7 +8,7 @@
 
 > **BluzEventComponent**(`props`): `Element`
 
-Defined in: [ui/src/components/schedule/event-component/base.tsx:102](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/event-component/base.tsx#L102)
+Defined in: [ui/src/components/schedule/event-component/base.tsx:102](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/schedule/event-component/base.tsx#L102)
 
 react-big-calendar's `components.event`. The grid feeds it segments — one
 box per drawn piece of an event — and it renders either a real grid piece or

@@ -6,9 +6,9 @@
 
 # Function: pushEventToGoogle()
 
-> **pushEventToGoogle**(`userId`, `event`, `action`): `Promise`\<`void`\>
+> **pushEventToGoogle**(`userId`, `event`, `action`, `iterationId?`): `Promise`\<`boolean`\>
 
-Defined in: [ui/src/api-server/google/google-calendar-service.ts:222](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/google/google-calendar-service.ts#L222)
+Defined in: [ui/src/api-server/google/google-calendar-service.ts:240](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/google/google-calendar-service.ts#L240)
 
 Push a single Bluz event to the user's Bluz Google calendar. Silent no-op
 when the integration isn't configured/connected, or when Google is
@@ -28,6 +28,10 @@ unreachable (offline-hosted deployments must never fail on this).
 
 `"delete"` \| `"upsert"`
 
+### iterationId?
+
+`string`
+
 ## Returns
 
-`Promise`\<`void`\>
+`Promise`\<`boolean`\>

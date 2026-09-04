@@ -8,7 +8,7 @@
 
 > **CollectionApi**\<`T`, `TId`\> = `object`
 
-Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:88](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/base/collection/create-collection-provider.tsx#L88)
+Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:89](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/base/collection/create-collection-provider.tsx#L89)
 
 ## Type Parameters
 
@@ -26,7 +26,7 @@ Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:88
 
 > **create**: (`item`) => `Promise`\<`T`\>
 
-Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:90](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/base/collection/create-collection-provider.tsx#L90)
+Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:91](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/base/collection/create-collection-provider.tsx#L91)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:90
 
 > **list**: () => `Promise`\<`T`[]\>
 
-Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:89](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/base/collection/create-collection-provider.tsx#L89)
+Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:90](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/base/collection/create-collection-provider.tsx#L90)
 
 #### Returns
 
@@ -56,7 +56,7 @@ Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:89
 
 > **remove**: (`id`) => `Promise`\<`void`\>
 
-Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:92](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/base/collection/create-collection-provider.tsx#L92)
+Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:93](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/base/collection/create-collection-provider.tsx#L93)
 
 #### Parameters
 
@@ -74,7 +74,7 @@ Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:92
 
 > **update**: (`item`) => `Promise`\<`T`\>
 
-Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:91](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/base/collection/create-collection-provider.tsx#L91)
+Defined in: [ui/src/components/base/collection/create-collection-provider.tsx:92](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/base/collection/create-collection-provider.tsx#L92)
 
 #### Parameters
 

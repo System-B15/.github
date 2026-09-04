@@ -14,7 +14,4 @@
 
 ## Functions
 
-- [enqueueApiErrorSnackbar](functions/enqueueApiErrorSnackbar.md)
-- [enqueueSnackbarWithSubtext](functions/enqueueSnackbarWithSubtext.md)
 - [safeApiFetcher](functions/safeApiFetcher.md)
-- [safeFetcher](functions/safeFetcher.md)

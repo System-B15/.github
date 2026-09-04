@@ -6,9 +6,9 @@
 
 # Function: SendServerRequestToSessionServer()
 
-> **SendServerRequestToSessionServer**(`type`, `data?`): `void`
+> **SendServerRequestToSessionServer**(`type`, `data?`, `targets?`): `void`
 
-Defined in: [ui/src/api-server/web-socket-utils.ts:96](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/web-socket-utils.ts#L96)
+Defined in: [ui/src/api-server/web-socket-utils.ts:113](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/web-socket-utils.ts#L113)
 
 Dispatch an asynchronous server-to-server request over WebSocket to the Session Server.
 This runs within Next.js server-side API routes to broadcast event changes, additions,
@@ -31,6 +31,14 @@ The type of message being broadcasted (e.g. MessageTypes.EVENT_DATA_UPDATE).
 
 Optional payload containing details of the updated/added/removed entities.
 
+### targets?
+
+`string` \| `string`[]
+
+Sync-object id(s) to scope delivery to (see `iterationSyncId`).
+Omit only for data that every connected client should receive regardless of
+which iteration it's viewing.
+
 ## Returns
 
 `void`
@@ -38,9 +46,9 @@ Optional payload containing details of the updated/added/removed entities.
 ## Example
 
 ```typescript
-SendServerRequestToSessionServer(MessageTypes.EVENT_ADDED_OR_REMOVED, {
-  action: "added",
-  newData: fixedEvent,
-  eventId: eventId,
-});
+SendServerRequestToSessionServer(
+  MessageTypes.EVENT_ADDED_OR_REMOVED,
+  { action: "added", newData: fixedEvent, eventId: eventId },
+  iterationSyncId(iterationId),
+);
 ```

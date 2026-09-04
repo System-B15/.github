@@ -6,9 +6,9 @@
 
 # Function: createCurriculumModuleDayMapping()
 
-> **createCurriculumModuleDayMapping**(`data`): `Promise`\<`object`[]\>
+> **createCurriculumModuleDayMapping**(`data`, `executor?`): `Promise`\<`object`[]\>
 
-Defined in: [ui/src/api-server/gantt/db-mappings.ts:73](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-mappings.ts#L73)
+Defined in: [ui/src/api-server/gantt/db-mappings.ts:73](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/db-mappings.ts#L73)
 
 Creates a new module or event day mapping.
 
@@ -37,6 +37,10 @@ The details for the new mapping.
 #### sortOrder?
 
 `number`
+
+### executor?
+
+[`GanttDbExecutor`](../../type-aliases/GanttDbExecutor.md) = `postgresDb`
 
 ## Returns
 

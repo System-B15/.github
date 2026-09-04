@@ -8,4 +8,5 @@
 
 ## Functions
 
-- [eventDateFixup](functions/eventDateFixup.md)
+- [eventDateFixupToDate](functions/eventDateFixupToDate.md)
+- [eventDateFixupToDayjs](functions/eventDateFixupToDayjs.md)

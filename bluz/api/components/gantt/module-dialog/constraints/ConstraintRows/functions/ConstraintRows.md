@@ -8,7 +8,7 @@
 
 > **ConstraintRows**(`__namedParameters`): `Element`
 
-Defined in: [ui/src/components/gantt/module-dialog/constraints/ConstraintRows.tsx:26](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/module-dialog/constraints/ConstraintRows.tsx#L26)
+Defined in: [ui/src/components/gantt/module-dialog/constraints/ConstraintRows.tsx:26](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/module-dialog/constraints/ConstraintRows.tsx#L26)
 
 The constraint list body shared by the module and event panels: loading
 skeletons, one row per constraint (swapped for the edit form while editing),

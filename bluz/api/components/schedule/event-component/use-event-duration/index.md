@@ -8,4 +8,5 @@
 
 ## Functions
 
+- [eventTimeRange](functions/eventTimeRange.md)
 - [useEventDuration](functions/useEventDuration.md)

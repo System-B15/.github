@@ -641,6 +641,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#curriculumid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        curriculumId
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -682,9 +693,9 @@
 <p><a href="../../../../../">TypeDoc API</a> / <a href="../../">api-server/gantt/cut</a> / buildScheduleEvent</p>
 <h1 id="function-buildscheduleevent">Function: buildScheduleEvent()<a class="headerlink" href="#function-buildscheduleevent" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><strong>buildScheduleEvent</strong>(<code>occurrence</code>, <code>ganttEvent</code>, <code>courseIds</code>, <code>moduleHiveIds</code>, <code>hiveModuleSubjectById</code>): <a href="../../../../../api-shared/types/event/type-aliases/DbEventDocument/"><code>DbEventDocument</code></a></p>
+<p><strong>buildScheduleEvent</strong>(<code>occurrence</code>, <code>ganttEvent</code>, <code>courseIds</code>, <code>moduleHiveIds</code>, <code>hiveModuleSubjectById</code>, <code>curriculumId</code>): <a href="../../../../../api-shared/types/event/type-aliases/DbEventDocument/"><code>DbEventDocument</code></a></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/cut.ts#L453">ui/src/api-server/gantt/cut.ts:453</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/cut.ts#L458">ui/src/api-server/gantt/cut.ts:458</a></p>
 <p>Build a single schedule-event document from a planned occurrence and its
 source gantt event. Hive linkage is copied when present on the event
 itself; when the event has no linkage of its own, it falls back to the
@@ -704,6 +715,8 @@ lesson null), matching how "fake" events represent "no Hive linkage".</p>
 <p><code>number</code>[]</p>
 <h3 id="hivemodulesubjectbyid">hiveModuleSubjectById<a class="headerlink" href="#hivemodulesubjectbyid" title="Permanent link">&para;</a></h3>
 <p><code>Map</code>\&lt;<code>number</code>, <code>number</code>&gt;</p>
+<h3 id="curriculumid">curriculumId<a class="headerlink" href="#curriculumid" title="Permanent link">&para;</a></h3>
+<p><code>string</code></p>
 <h2 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h2>
 <p><a href="../../../../../api-shared/types/event/type-aliases/DbEventDocument/"><code>DbEventDocument</code></a></p>
 

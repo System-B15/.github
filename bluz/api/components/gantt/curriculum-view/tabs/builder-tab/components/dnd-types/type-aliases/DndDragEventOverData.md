@@ -8,4 +8,4 @@
 
 > **DndDragEventOverData** = \{ `dayId`: [`GanttDayId`](../../../../../../../../api-shared/types/gantt/models/day/type-aliases/GanttDayId.md); `type`: `"DAY"`; `weekId?`: `undefined`; \} \| \{ `dayId?`: `undefined`; `type`: `"SIDEBAR"`; `weekId?`: `undefined`; \} \| \{ `dayId?`: `undefined`; `firstDayId`: [`GanttDayId`](../../../../../../../../api-shared/types/gantt/models/day/type-aliases/GanttDayId.md); `type`: `"WEEK"`; `weekId`: [`GanttWeekId`](../../../../../../../../api-shared/types/gantt/models/week/type-aliases/GanttWeekId.md); \}
 
-Defined in: [ui/src/components/gantt/curriculum-view/tabs/builder-tab/components/dnd-types.ts:28](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/curriculum-view/tabs/builder-tab/components/dnd-types.ts#L28)
+Defined in: [ui/src/components/gantt/curriculum-view/tabs/builder-tab/components/dnd-types.ts:28](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/curriculum-view/tabs/builder-tab/components/dnd-types.ts#L28)

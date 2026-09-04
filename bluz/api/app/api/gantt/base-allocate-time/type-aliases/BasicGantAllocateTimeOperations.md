@@ -8,7 +8,7 @@
 
 > **BasicGantAllocateTimeOperations**\<`_TEntity`\> = `object`
 
-Defined in: [ui/src/app/api/gantt/base-allocate-time.ts:19](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/app/api/gantt/base-allocate-time.ts#L19)
+Defined in: [ui/src/app/api/gantt/base-allocate-time.ts:23](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/app/api/gantt/base-allocate-time.ts#L23)
 
 ## Type Parameters
 
@@ -22,7 +22,7 @@ Defined in: [ui/src/app/api/gantt/base-allocate-time.ts:19](https://github.com/S
 
 > **getAllocatedTime**: (`eventId`, `containerId`) => `Promise`\<`number`\>
 
-Defined in: [ui/src/app/api/gantt/base-allocate-time.ts:20](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/app/api/gantt/base-allocate-time.ts#L20)
+Defined in: [ui/src/app/api/gantt/base-allocate-time.ts:24](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/app/api/gantt/base-allocate-time.ts#L24)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [ui/src/app/api/gantt/base-allocate-time.ts:20](https://github.com/S
 
 > **setAllocatedTime**: (`eventId`, `containerId`, `duration`) => `Promise`\<`void`\>
 
-Defined in: [ui/src/app/api/gantt/base-allocate-time.ts:24](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/app/api/gantt/base-allocate-time.ts#L24)
+Defined in: [ui/src/app/api/gantt/base-allocate-time.ts:28](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/app/api/gantt/base-allocate-time.ts#L28)
 
 #### Parameters
 

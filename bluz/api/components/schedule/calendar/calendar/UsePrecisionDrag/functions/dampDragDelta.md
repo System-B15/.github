@@ -8,7 +8,7 @@
 
 > **dampDragDelta**(`deltaMs`, `isPrecise`): `number`
 
-Defined in: [ui/src/components/schedule/calendar/calendar/UsePrecisionDrag.ts:15](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/calendar/calendar/UsePrecisionDrag.ts#L15)
+Defined in: [ui/src/components/schedule/calendar/calendar/UsePrecisionDrag.ts:15](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/schedule/calendar/calendar/UsePrecisionDrag.ts#L15)
 
 The delta a drag of `deltaMs` on screen should actually apply. Pure, so the
 damping rule is testable without a pointer.

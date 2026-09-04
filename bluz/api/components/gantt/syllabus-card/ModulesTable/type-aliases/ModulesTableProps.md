@@ -8,7 +8,7 @@
 
 > **ModulesTableProps** = `object`
 
-Defined in: [ui/src/components/gantt/syllabus-card/ModulesTable.tsx:39](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/syllabus-card/ModulesTable.tsx#L39)
+Defined in: [ui/src/components/gantt/syllabus-card/ModulesTable.tsx:39](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/syllabus-card/ModulesTable.tsx#L39)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [ui/src/components/gantt/syllabus-card/ModulesTable.tsx:39](https://
 
 > **curriculumId**: [`GanttCurriculumId`](../../../../../api-shared/types/gantt/models/curriculum/type-aliases/GanttCurriculumId.md)
 
-Defined in: [ui/src/components/gantt/syllabus-card/ModulesTable.tsx:41](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/syllabus-card/ModulesTable.tsx#L41)
+Defined in: [ui/src/components/gantt/syllabus-card/ModulesTable.tsx:41](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/syllabus-card/ModulesTable.tsx#L41)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [ui/src/components/gantt/syllabus-card/ModulesTable.tsx:41](https://
 
 > **syllabusId**: [`GanttSyllabusId`](../../../../../api-shared/types/gantt/models/syllabus/type-aliases/GanttSyllabusId.md)
 
-Defined in: [ui/src/components/gantt/syllabus-card/ModulesTable.tsx:40](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/syllabus-card/ModulesTable.tsx#L40)
+Defined in: [ui/src/components/gantt/syllabus-card/ModulesTable.tsx:40](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/syllabus-card/ModulesTable.tsx#L40)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [ui/src/components/gantt/syllabus-card/ModulesTable.tsx:40](https://
 
 > **syllabusModules**: [`GanttSyllabus`](../../../../../api-shared/types/gantt/models/syllabus/type-aliases/GanttSyllabus.md)\[`"modules"`\]
 
-Defined in: [ui/src/components/gantt/syllabus-card/ModulesTable.tsx:42](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/gantt/syllabus-card/ModulesTable.tsx#L42)
+Defined in: [ui/src/components/gantt/syllabus-card/ModulesTable.tsx:42](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/gantt/syllabus-card/ModulesTable.tsx#L42)

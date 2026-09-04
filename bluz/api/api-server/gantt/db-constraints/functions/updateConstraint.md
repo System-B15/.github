@@ -8,7 +8,7 @@
 
 > **updateConstraint**(`constraintId`, `newValues`): `Promise`\<`object`[]\>
 
-Defined in: [ui/src/api-server/gantt/db-constraints.ts:86](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/gantt/db-constraints.ts#L86)
+Defined in: [ui/src/api-server/gantt/db-constraints.ts:87](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/gantt/db-constraints.ts#L87)
 
 Updates an existing constraint with new values.
 

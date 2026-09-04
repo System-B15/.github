@@ -6,9 +6,9 @@
 
 # Function: targetFieldFor()
 
-> **targetFieldFor**(`event`, `withModifier`): [`PersonField`](../../types/type-aliases/PersonField.md)
+> **targetFieldFor**(`event`, `withModifier`, `sourceField?`): [`PersonField`](../../types/type-aliases/PersonField.md)
 
-Defined in: [ui/src/components/schedule/calendar/instructor-dnd/assign.ts:16](https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/components/schedule/calendar/instructor-dnd/assign.ts#L16)
+Defined in: [ui/src/components/schedule/calendar/instructor-dnd/assign.ts:24](https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/components/schedule/calendar/instructor-dnd/assign.ts#L24)
 
 Resolves which person field a drop writes into.
 
@@ -26,9 +26,19 @@ The drop target event.
 
 Whether Shift was held at drop time.
 
+### sourceField?
+
+[`PersonField`](../../types/type-aliases/PersonField.md)
+
+The field the person was dragged out of, when the drag
+started on a chip already sitting in an event. A move keeps the person's
+role: dragging a lecturer without Shift used to silently demote them to an
+instructor on the target (#628).
+
 ## Returns
 
 [`PersonField`](../../types/type-aliases/PersonField.md)
 
-`lecturers` only when the modifier is held and the event type
-actually carries lecturers; `instructors` otherwise.
+`lecturers` when the modifier is held or the person already was a
+lecturer, and the event type actually carries lecturers; `instructors`
+otherwise.

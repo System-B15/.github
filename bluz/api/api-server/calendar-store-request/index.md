@@ -8,5 +8,6 @@
 
 ## Functions
 
+- [normalizeOptionalStoredEvents](functions/normalizeOptionalStoredEvents.md)
 - [normalizeStoredEvents](functions/normalizeStoredEvents.md)
 - [requireIdParam](functions/requireIdParam.md)

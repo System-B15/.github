@@ -608,6 +608,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#targets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        targets?
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -660,9 +671,9 @@
 <p><a href="../../../../">TypeDoc API</a> / <a href="../../">api-server/web-socket-utils</a> / SendServerRequestToSessionServer</p>
 <h1 id="function-sendserverrequesttosessionserver">Function: SendServerRequestToSessionServer()<a class="headerlink" href="#function-sendserverrequesttosessionserver" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><strong>SendServerRequestToSessionServer</strong>(<code>type</code>, <code>data?</code>): <code>void</code></p>
+<p><strong>SendServerRequestToSessionServer</strong>(<code>type</code>, <code>data?</code>, <code>targets?</code>): <code>void</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/20fad090dd469f9498490b1ea3e4787c8bdd0f0a/ui/src/api-server/web-socket-utils.ts#L96">ui/src/api-server/web-socket-utils.ts:96</a></p>
+<p>Defined in: <a href="https://github.com/System-B90/Bluz/blob/c6dda38e80666a39f852aeba6b25d0c07c80234a/ui/src/api-server/web-socket-utils.ts#L113">ui/src/api-server/web-socket-utils.ts:113</a></p>
 <p>Dispatch an asynchronous server-to-server request over WebSocket to the Session Server.
 This runs within Next.js server-side API routes to broadcast event changes, additions,
 or deletions to all connected clients in real-time.</p>
@@ -675,14 +686,19 @@ costs one <code>send()</code> on the hot path instead of a full connection hands
 <h3 id="data">data?<a class="headerlink" href="#data" title="Permanent link">&para;</a></h3>
 <p><code>any</code></p>
 <p>Optional payload containing details of the updated/added/removed entities.</p>
+<h3 id="targets">targets?<a class="headerlink" href="#targets" title="Permanent link">&para;</a></h3>
+<p><code>string</code> | <code>string</code>[]</p>
+<p>Sync-object id(s) to scope delivery to (see <code>iterationSyncId</code>).
+Omit only for data that every connected client should receive regardless of
+which iteration it's viewing.</p>
 <h2 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h2>
 <p><code>void</code></p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nx">SendServerRequestToSessionServer</span><span class="p">(</span><span class="nx">MessageTypes</span><span class="p">.</span><span class="nx">EVENT_ADDED_OR_REMOVED</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nx">action</span><span class="o">:</span><span class="w"> </span><span class="s2">"added"</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nx">newData</span><span class="o">:</span><span class="w"> </span><span class="kt">fixedEvent</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nx">eventId</span><span class="o">:</span><span class="w"> </span><span class="kt">eventId</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">});</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nx">SendServerRequestToSessionServer</span><span class="p">(</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nx">MessageTypes</span><span class="p">.</span><span class="nx">EVENT_ADDED_OR_REMOVED</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">action</span><span class="o">:</span><span class="w"> </span><span class="s2">"added"</span><span class="p">,</span><span class="w"> </span><span class="nx">newData</span><span class="o">:</span><span class="w"> </span><span class="kt">fixedEvent</span><span class="p">,</span><span class="w"> </span><span class="nx">eventId</span><span class="o">:</span><span class="w"> </span><span class="kt">eventId</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nx">iterationSyncId</span><span class="p">(</span><span class="nx">iterationId</span><span class="p">),</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">);</span>
 </code></pre></div>
 
 
